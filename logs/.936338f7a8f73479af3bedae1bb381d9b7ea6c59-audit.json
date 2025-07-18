@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/root/dev/.devcontainer/ai-rio/logs/.936338f7a8f73479af3bedae1bb381d9b7ea6c59-audit.json",
+    "files": [
+        {
+            "date": 1752854500635,
+            "name": "/root/dev/.devcontainer/ai-rio/logs/mcp-puppeteer-2025-07-18.log",
+            "hash": "6da0b794277dbbc80dd37878bc9a546c8e5e281b945f409cb20f9a728dc372ed"
+        }
+    ],
+    "hashType": "sha256"
+}
