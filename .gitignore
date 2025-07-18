@@ -44,3 +44,5 @@ next-env.d.ts
 
 #pnpm 
 .pnpm-store
+#bmad
+.bmad-core/
