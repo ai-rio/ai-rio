@@ -17,7 +17,7 @@ After you click the `Deploy` button above, you'll want to have standalone copy o
 ### Development
 
 1. First [clone the repo](#clone) if you have not done so already
-2. `cd my-project && cp .env.example .env` to copy the example environment variables. You'll need to add the `MONGODB_URI` from your Cloud project to your `.env` if you want to use S3 storage and the MongoDB database that was created for you.
+2. `cd my-project && cp .env.example .env` to copy the example environment variables. You'll need to set the `PAYLOAD_SECRET` and `DATABASE_URI` in your `.env` file.
 
 3. `pnpm install && pnpm dev` to install dependencies and start the dev server
 4. open `http://localhost:3000` to open the app in your browser
@@ -26,13 +26,20 @@ That's it! Changes made in `./src` will be reflected in your app. Follow the on-
 
 #### Docker (Optional)
 
-If you prefer to use Docker for local development instead of a local MongoDB instance, the provided docker-compose.yml file can be used.
+If you prefer to use Docker for local development, follow these steps:
 
-To do so, follow these steps:
+1.  **Prepare your `.env` file:**
+    *   Copy `.env.example` to `.env`: `cp .env.example .env`
+    *   Open `.env` and set `PAYLOAD_SECRET` to a strong, random string (e.g., `openssl rand -base64 32`).
+    *   Ensure `DATABASE_URI` is set to `postgresql://payload:payload@postgres:5432/payload`.
 
-- Modify the `MONGODB_URI` in your `.env` file to `mongodb://127.0.0.1/<dbname>`
-- Modify the `docker-compose.yml` file's `MONGODB_URI` to match the above `<dbname>`
-- Run `docker-compose up` to start the database, optionally pass `-d` to run in the background.
+2.  **Start Docker containers:**
+    *   Run `docker compose up -d` to start the PostgreSQL database and the Payload application in the background.
+    *   To view logs in real-time, run `docker compose up` (without `-d`).
+
+3.  **Access the application:**
+    *   Open `http://localhost:3000` in your browser.
+    *   Follow the on-screen instructions to log in and create your first admin user.
 
 ## How it works
 
@@ -56,9 +63,9 @@ See the [Collections](https://payloadcms.com/docs/configuration/collections) doc
 
 Alternatively, you can use [Docker](https://www.docker.com) to spin up this template locally. To do so, follow these steps:
 
-1. Follow [steps 1 and 2 from above](#development), the docker-compose file will automatically use the `.env` file in your project root
-1. Next run `docker-compose up`
-1. Follow [steps 4 and 5 from above](#development) to login and create your first admin user
+1.  **Prepare your `.env` file** (as described in the [Docker (Optional)](#docker-optional) section).
+2.  Run `docker compose up` to start the database and the Payload application.
+3.  Access `http://localhost:3000` and follow the on-screen instructions to login and create your first admin user.
 
 That's it! The Docker instance will help you get up and running quickly while also standardizing the development environment across your teams.
 
