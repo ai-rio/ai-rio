@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ai.Rio - Inteligência de Dados para a Empresa Moderna</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Three.js -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.module.min.js"
+            }
+        }
+    </script>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #EFEFEF;
+            overflow-x: hidden;
+        }
+        
+        .teal-accent { color: #00C2B8; }
+        .teal-bg { background-color: #00C2B8; }
+        .teal-border { border-color: #00C2B8; }
+        
+        /* Enhanced Hero Styles */
+        .hero-container {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: radial-gradient(ellipse at center, #0a0a0a 0%, #000000 100%);
+        }
+        
+        #hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.7;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 20;
+            text-align: center;
+            max-width: 1200px;
+            padding: 0 2rem;
+            background: rgba(10, 10, 10, 0.3);
+            backdrop-filter: blur(2px);
+            border-radius: 20px;
+            padding: 4rem 2rem;
+        }
+        
+        .hero-title {
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 50%, #00C2B8 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: heroTextGlow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes heroTextGlow {
+            0% { filter: drop-shadow(0 0 10px rgba(0, 194, 184, 0.3)); }
+            100% { filter: drop-shadow(0 0 30px rgba(0, 194, 184, 0.6)); }
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            color: #b0b0b0;
+            margin-bottom: 3rem;
+            line-height: 1.6;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #00C2B8, #00a39a);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 194, 184, 0.3);
+            border: 1px solid rgba(0, 194, 184, 0.5);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(0, 194, 184, 0.4);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: #e0e0e0;
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
+        }
+        
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.5rem 2rem;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-link {
+            color: #b0b0b0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #00C2B8;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero-cta { flex-direction: column; align-items: center; }
+            .btn-primary, .btn-secondary { width: 100%; max-width: 300px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 3.33331C10.8 3.33331 3.33337 10.8 3.33337 20C3.33337 29.2 10.8 36.6666 20 36.6666C29.2 36.6666 36.6667 29.2 36.6667 20C36.6667 10.8 29.2 3.33331 20 3.33331Z" stroke="#EFEFEF" stroke-width="1.5"/>
+                    <path d="M20 29L18 24L13 22.5L18 21L20 14L22 21L27 22.5L22 24L20 29Z" fill="#00C2B8"/>
+                </svg>
+                Ai.Rio
+            </a>
+            <div class="nav-links">
+                <a href="#solutions" class="nav-link">Soluções</a>
+                <a href="#pricing" class="nav-link">Preços</a>
+                <a href="#about" class="nav-link">Sobre</a>
+                <a href="#blog" class="nav-link">Blog</a>
+                <a href="#contact" class="nav-link">Contato</a>
+                <a href="#demo" class="btn-primary" style="padding: 0.75rem 1.5rem; font-size: 0.9rem;">Demo</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Enhanced Hero Section -->
+    <section class="hero-container">
+        <canvas id="hero-canvas"></canvas>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Onde Dados Complexos<br>
+                Geram <span class="teal-accent">Clareza Estratégica</span>
+            </h1>
+            <p class="hero-subtitle">
+                A Ai.Rio é uma plataforma de inteligência de dados enterprise que transforma 
+                informações não estruturadas em vantagens competitivas estratégicas.
+            </p>
+            <div class="hero-cta">
+                <a href="#solutions" class="btn-primary">Conheça o Eve para LGPD</a>
+                <a href="#contact" class="btn-secondary">Fale com um Especialista</a>
+            </div>
+        </div>
+    </section>
+
+    <script type="module">
+        import * as THREE from 'three';
+
+        class EnhancedHeroAnimation {
+            constructor() {
+                this.scene = new THREE.Scene();
+                this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+                this.renderer = null;
+                this.clock = new THREE.Clock();
+                
+                // Animation objects
+                this.centralCore = null;
+                this.dataRings = [];
+                this.particles = [];
+                this.energyStreams = [];
+                
+                // Mouse interaction
+                this.mouse = { x: 0, y: 0 };
+                this.targetRotation = { x: 0, y: 0 };
+                this.currentRotation = { x: 0, y: 0 };
+                
+                this.init();
+            }
+
+            init() {
+                // Setup renderer
+                const canvas = document.getElementById('hero-canvas');
+                this.renderer = new THREE.WebGLRenderer({ 
+                    canvas,
+                    antialias: true,
+                    alpha: true 
+                });
+                this.renderer.setSize(window.innerWidth, window.innerHeight);
+                this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+                this.renderer.setClearColor(0x000000, 0);
+
+                // Setup camera
+                this.camera.position.set(0, 0, 12);
+
+                // Create scene elements
+                this.createCentralCore();
+                this.createDataRings();
+                this.createParticleField();
+                this.createEnergyStreams();
+                this.setupLighting();
+                
+                // Event listeners
+                this.setupEventListeners();
+                
+                // Start animation
+                this.animate();
+            }
+
+            createCentralCore() {
+                // Complex geometric core with custom shader
+                const geometry = new THREE.IcosahedronGeometry(1.2, 2);
+                
+                const vertexShader = `
+                    varying vec3 vPosition;
+                    varying vec3 vNormal;
+                    varying vec2 vUv;
+                    uniform float u_time;
+                    
+                    void main() {
+                        vPosition = position;
+                        vNormal = normal;
+                        vUv = uv;
+                        
+                        vec3 newPosition = position;
+                        float noise = sin(position.x * 2.0 + u_time) * 
+                                     sin(position.y * 2.0 + u_time) * 
+                                     sin(position.z * 2.0 + u_time) * 0.05;
+                        newPosition += normal * noise;
+                        
+                        gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
+                    }
+                `;
+
+                const fragmentShader = `
+                    varying vec3 vPosition;
+                    varying vec3 vNormal;
+                    varying vec2 vUv;
+                    uniform float u_time;
+                    uniform vec3 u_color;
+                    
+                    void main() {
+                        vec3 color = u_color;
+                        
+                        // Fresnel effect
+                        float fresnel = dot(normalize(vNormal), normalize(-vPosition));
+                        fresnel = pow(1.0 - fresnel, 2.0);
+                        
+                        // Animated glow
+                        float glow = sin(u_time * 2.0) * 0.3 + 0.7;
+                        color *= glow;
+                        
+                        // Energy lines
+                        float lines = sin(vPosition.x * 10.0 + u_time) * 
+                                     sin(vPosition.y * 10.0 + u_time) * 
+                                     sin(vPosition.z * 10.0 + u_time);
+                        lines = smoothstep(-0.5, 0.5, lines);
+                        
+                        color = mix(color, vec3(0.0, 0.8, 0.9), lines * 0.3);
+                        
+                        gl_FragColor = vec4(color, fresnel + 0.3);
+                    }
+                `;
+
+                const material = new THREE.ShaderMaterial({
+                    uniforms: {
+                        u_time: { value: 0 },
+                        u_color: { value: new THREE.Color(0x00C2B8) }
+                    },
+                    vertexShader,
+                    fragmentShader,
+                    transparent: true,
+                    blending: THREE.AdditiveBlending
+                });
+
+                this.centralCore = new THREE.Mesh(geometry, material);
+                this.scene.add(this.centralCore);
+            }
+
+            createDataRings() {
+                for (let i = 0; i < 4; i++) {
+                    const radius = 2 + i * 0.8;
+                    const geometry = new THREE.RingGeometry(radius, radius + 0.02, 64);
+                    
+                    const material = new THREE.MeshBasicMaterial({
+                        color: 0x00C2B8,
+                        transparent: true,
+                        opacity: 0.4 - i * 0.08,
+                        blending: THREE.AdditiveBlending
+                    });
+
+                    const ring = new THREE.Mesh(geometry, material);
+                    ring.rotation.x = Math.random() * Math.PI;
+                    ring.rotation.y = Math.random() * Math.PI;
+                    ring.userData = { 
+                        originalRotation: { x: ring.rotation.x, y: ring.rotation.y },
+                        speed: 0.2 + Math.random() * 0.3,
+                        direction: Math.random() > 0.5 ? 1 : -1
+                    };
+                    
+                    this.dataRings.push(ring);
+                    this.scene.add(ring);
+                }
+            }
+
+            createParticleField() {
+                const particleCount = 150; // Reduced for better performance
+                const positions = new Float32Array(particleCount * 3);
+                const particleColors = new Float32Array(particleCount * 3);
+                const sizes = new Float32Array(particleCount);
+                const velocities = new Float32Array(particleCount * 3);
+
+                for (let i = 0; i < particleCount; i++) {
+                    const i3 = i * 3;
+                    
+                    // Random positions in sphere - further away
+                    const radius = 20 + Math.random() * 15;
+                    const theta = Math.random() * Math.PI * 2;
+                    const phi = Math.acos(2 * Math.random() - 1);
+                    
+                    positions[i3] = radius * Math.sin(phi) * Math.cos(theta);
+                    positions[i3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
+                    positions[i3 + 2] = radius * Math.cos(phi);
+                    
+                    // More subtle colors
+                    const intensity = Math.random() * 0.5 + 0.2;
+                    particleColors[i3] = intensity * 0.1;
+                    particleColors[i3 + 1] = intensity * 0.6;
+                    particleColors[i3 + 2] = intensity * 0.7;
+                    
+                    // Smaller sizes
+                    sizes[i] = Math.random() * 2 + 0.5;
+                    
+                    // Slower velocities
+                    velocities[i3] = -positions[i3] * 0.0005;
+                    velocities[i3 + 1] = -positions[i3 + 1] * 0.0005;
+                    velocities[i3 + 2] = -positions[i3 + 2] * 0.0005;
+                }
+
+                const geometry = new THREE.BufferGeometry();
+                geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+                geometry.setAttribute('particleColor', new THREE.BufferAttribute(particleColors, 3));
+                geometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
+
+                const material = new THREE.ShaderMaterial({
+                    uniforms: {
+                        u_time: { value: 0 }
+                    },
+                    vertexShader: `
+                        attribute float size;
+                        attribute vec3 particleColor;
+                        varying vec3 vColor;
+                        uniform float u_time;
+                        
+                        void main() {
+                            vColor = particleColor;
+                            vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+                            
+                            float pulseFactor = sin(u_time * 1.5 + position.x * 0.05) * 0.2 + 0.8;
+                            gl_PointSize = size * pulseFactor * (200.0 / -mvPosition.z);
+                            gl_Position = projectionMatrix * mvPosition;
+                        }
+                    `,
+                    fragmentShader: `
+                        varying vec3 vColor;
+                        
+                        void main() {
+                            vec2 center = gl_PointCoord - 0.5;
+                            float dist = length(center);
+                            float alpha = (1.0 - smoothstep(0.2, 0.5, dist)) * 0.4;
+                            
+                            gl_FragColor = vec4(vColor, alpha);
+                        }
+                    `,
+                    transparent: true,
+                    blending: THREE.AdditiveBlending
+                });
+
+                const particles = new THREE.Points(geometry, material);
+                particles.userData = { velocities };
+                this.particles.push(particles);
+                this.scene.add(particles);
+            }
+
+            createEnergyStreams() {
+                // Create flowing energy lines
+                for (let i = 0; i < 8; i++) {
+                    const points = [];
+                    const segmentCount = 50;
+                    
+                    for (let j = 0; j < segmentCount; j++) {
+                        const t = j / (segmentCount - 1);
+                        const angle = i * (Math.PI * 2 / 8) + t * Math.PI * 4;
+                        const radius = 6 + Math.sin(t * Math.PI * 2) * 2;
+                        
+                        points.push(new THREE.Vector3(
+                            Math.cos(angle) * radius,
+                            Math.sin(t * Math.PI * 2) * 3,
+                            Math.sin(angle) * radius
+                        ));
+                    }
+                    
+                    const geometry = new THREE.BufferGeometry().setFromPoints(points);
+                    const material = new THREE.LineBasicMaterial({
+                        color: 0x00C2B8,
+                        transparent: true,
+                        opacity: 0.3,
+                        blending: THREE.AdditiveBlending
+                    });
+                    
+                    const line = new THREE.Line(geometry, material);
+                    line.userData = { speed: 0.5 + Math.random() * 0.5, phase: i };
+                    this.energyStreams.push(line);
+                    this.scene.add(line);
+                }
+            }
+
+            setupLighting() {
+                // Ambient light
+                const ambientLight = new THREE.AmbientLight(0x1a1a2e, 0.3);
+                this.scene.add(ambientLight);
+
+                // Point lights for dramatic effect
+                const light1 = new THREE.PointLight(0x00C2B8, 2, 20);
+                light1.position.set(5, 5, 5);
+                this.scene.add(light1);
+
+                const light2 = new THREE.PointLight(0x0066ff, 1.5, 25);
+                light2.position.set(-5, -5, 3);
+                this.scene.add(light2);
+            }
+
+            setupEventListeners() {
+                window.addEventListener('resize', () => this.onResize());
+                window.addEventListener('mousemove', (e) => this.onMouseMove(e));
+                
+                // Scroll parallax
+                window.addEventListener('scroll', () => {
+                    const scrollY = window.scrollY;
+                    this.camera.position.y = scrollY * 0.001;
+                });
+            }
+
+            onMouseMove(event) {
+                this.mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+                this.mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+                
+                this.targetRotation.x = this.mouse.y * 0.2;
+                this.targetRotation.y = this.mouse.x * 0.2;
+            }
+
+            onResize() {
+                this.camera.aspect = window.innerWidth / window.innerHeight;
+                this.camera.updateProjectionMatrix();
+                this.renderer.setSize(window.innerWidth, window.innerHeight);
+            }
+
+            animate() {
+                requestAnimationFrame(() => this.animate());
+                
+                const elapsedTime = this.clock.getElapsedTime();
+                
+                // Update central core
+                if (this.centralCore) {
+                    this.centralCore.material.uniforms.u_time.value = elapsedTime;
+                    this.centralCore.rotation.x += 0.005;
+                    this.centralCore.rotation.y += 0.01;
+                }
+                
+                // Update data rings
+                this.dataRings.forEach((ring, index) => {
+                    ring.rotation.x += ring.userData.speed * 0.01 * ring.userData.direction;
+                    ring.rotation.y += ring.userData.speed * 0.005;
+                    ring.rotation.z += ring.userData.speed * 0.007;
+                });
+                
+                // Update particles
+                this.particles.forEach(particle => {
+                    if (particle.material.uniforms) {
+                        particle.material.uniforms.u_time.value = elapsedTime;
+                    }
+                    
+                    const positions = particle.geometry.attributes.position.array;
+                    const velocities = particle.userData.velocities;
+                    
+                    for (let i = 0; i < positions.length; i += 3) {
+                        positions[i] += velocities[i];
+                        positions[i + 1] += velocities[i + 1];
+                        positions[i + 2] += velocities[i + 2];
+                        
+                        // Reset particles that get too close to center
+                        const distance = Math.sqrt(
+                            positions[i] ** 2 + 
+                            positions[i + 1] ** 2 + 
+                            positions[i + 2] ** 2
+                        );
+                        
+                        if (distance < 2) {
+                            const radius = 15 + Math.random() * 10;
+                            const theta = Math.random() * Math.PI * 2;
+                            const phi = Math.acos(2 * Math.random() - 1);
+                            
+                            positions[i] = radius * Math.sin(phi) * Math.cos(theta);
+                            positions[i + 1] = radius * Math.sin(phi) * Math.sin(theta);
+                            positions[i + 2] = radius * Math.cos(phi);
+                            
+                            velocities[i] = -positions[i] * 0.001;
+                            velocities[i + 1] = -positions[i + 1] * 0.001;
+                            velocities[i + 2] = -positions[i + 2] * 0.001;
+                        }
+                    }
+                    
+                    particle.geometry.attributes.position.needsUpdate = true;
+                });
+                
+                // Update energy streams
+                this.energyStreams.forEach(stream => {
+                    stream.rotation.y += stream.userData.speed * 0.005;
+                    stream.material.opacity = 0.2 + Math.sin(elapsedTime * 2 + stream.userData.phase) * 0.1;
+                });
+                
+                // Smooth mouse interaction
+                this.currentRotation.x += (this.targetRotation.x - this.currentRotation.x) * 0.05;
+                this.currentRotation.y += (this.targetRotation.y - this.currentRotation.y) * 0.05;
+                
+                this.scene.rotation.x = this.currentRotation.x;
+                this.scene.rotation.y = this.currentRotation.y;
+                
+                this.renderer.render(this.scene, this.camera);
+            }
+        }
+
+        // Initialize the enhanced animation
+        new EnhancedHeroAnimation();
+    </script>
+</body>
+</html>

@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ai.Rio - Inteligência de Dados para a Empresa Moderna</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Three.js for 3D animation -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* Custom styles to apply the Inter font and theme colors */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #121212; /* Off-Black */
+            color: #EFEFEF; /* Light Grey */
+        }
+        .teal-accent {
+            color: #00C2B8;
+        }
+        .teal-bg {
+            background-color: #00C2B8;
+        }
+        .teal-border {
+            border-color: #00C2B8;
+        }
+        /* Custom gradient for hero section overlay */
+        .hero-gradient {
+            background: radial-gradient(ellipse at center, rgba(18, 18, 18, 0.6) 0%, #121212 70%);
+        }
+        /* Style for the 3D canvas */
+        #bg-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        .feature-card, .pricing-card, .about-card, .blog-card, .contact-card {
+            background-color: rgba(30, 30, 30, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .contact-input {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <div class="relative min-h-screen flex flex-col">
+        <!-- Header Navigation -->
+        <header class="absolute top-0 left-0 w-full z-20 py-6 px-4 sm:px-8">
+            <nav class="container mx-auto flex justify-between items-center">
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-2">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 3.33331C10.8 3.33331 3.33337 10.8 3.33337 20C3.33337 29.2 10.8 36.6666 20 36.6666C29.2 36.6666 36.6667 29.2 36.6667 20C36.6667 10.8 29.2 3.33331 20 3.33331Z" stroke="#EFEFEF" stroke-width="1.5"/>
+                        <path d="M20 29L18 24L13 22.5L18 21L20 14L22 21L27 22.5L22 24L20 29Z" fill="#00C2B8"/>
+                    </svg>
+                    <span class="text-2xl font-bold tracking-tight text-white">Ai.Rio</span>
+                </a>
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#solutions" class="text-gray-300 hover:text-white transition-colors duration-300">Soluções</a>
+                    <a href="#pricing" class="text-gray-300 hover:text-white transition-colors duration-300">Preços</a>
+                    <a href="#about" class="text-gray-300 hover:text-white transition-colors duration-300">Sobre</a>
+                    <a href="#blog" class="text-gray-300 hover:text-white transition-colors duration-300">Blog</a>
+                    <a href="#contact" class="text-gray-300 hover:text-white transition-colors duration-300">Contato</a>
+                </div>
+                <!-- Call to Action Button -->
+                <a href="#" class="hidden md:block bg-white text-gray-900 font-semibold py-2 px-5 rounded-lg hover:bg-gray-200 transition-colors duration-300">
+                    Solicitar Demo
+                </a>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </nav>
+        </header>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden fixed top-0 left-0 w-full h-full bg-[#121212] z-40 flex flex-col items-center justify-center space-y-8">
+             <button id="close-mobile-menu" class="absolute top-8 right-8 text-white">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <a href="#solutions" class="text-2xl text-gray-300 hover:text-white transition-colors duration-300">Soluções</a>
+            <a href="#pricing" class="text-2xl text-gray-300 hover:text-white transition-colors duration-300">Preços</a>
+            <a href="#about" class="text-2xl text-gray-300 hover:text-white transition-colors duration-300">Sobre</a>
+            <a href="#blog" class="text-2xl text-gray-300 hover:text-white transition-colors duration-300">Blog</a>
+            <a href="#contact" class="text-2xl text-gray-300 hover:text-white transition-colors duration-300">Contato</a>
+            <a href="#" class="mt-4 bg-white text-gray-900 font-semibold py-3 px-8 rounded-lg hover:bg-gray-200 transition-colors duration-300">
+                Solicitar Demo
+            </a>
+        </div>
+
+
+        <!-- Hero Section -->
+        <main class="relative flex-grow flex items-center justify-center">
+            <canvas id="bg-canvas"></canvas>
+            <div class="relative z-10 text-center px-4 hero-gradient w-full h-full flex flex-col items-center justify-center">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white max-w-4xl leading-tight">
+                    Onde Dados Complexos Geram <span class="teal-accent">Clareza Estratégica.</span>
+                </h1>
+                <p class="mt-6 text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
+                    A Ai.Rio é uma plataforma de inteligência de dados de nível enterprise, projetada para processar informações não estruturadas com segurança e transformar seus maiores desafios de conformidade em vantagens competitivas.
+                </p>
+                <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#solutions" class="w-full sm:w-auto teal-bg text-white font-semibold py-3 px-8 rounded-lg hover:opacity-90 transition-opacity duration-300">
+                        Conheça o Eve para LGPD
+                    </a>
+                    <a href="#contact" class="w-full sm:w-auto bg-transparent border-2 border-gray-400 text-gray-200 font-semibold py-3 px-8 rounded-lg hover:bg-gray-800 hover:border-gray-300 transition-colors duration-300">
+                        Fale com um Especialista
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- All other sections remain the same -->
+    <!-- Solutions Section -->
+    <div id="solutions" class="py-20 sm:py-32 bg-gray-900">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-base font-semibold leading-7 teal-accent">Soluções de Inteligência Aplicada</h2>
+                <p class="mt-2 text-3xl sm:text-4xl font-bold tracking-tight text-white">Uma plataforma. Múltiplas especialidades.</p>
+                <p class="mt-6 text-lg leading-8 text-gray-300 max-w-2xl mx-auto">A plataforma Ai.Rio capacita agentes de IA especializados para resolver os desafios mais complexos de cada setor. Começando pelo jurídico.</p>
+            </div>
+            <div class="mt-16 max-w-xl mx-auto lg:max-w-none">
+                <div class="feature-card rounded-3xl p-8 ring-1 ring-inset ring-white/10">
+                    <div class="lg:flex lg:items-start lg:gap-x-8">
+                        <div class="flex-shrink-0 flex justify-center">
+                             <div class="h-20 w-20 flex items-center justify-center rounded-lg bg-black/50 ring-1 ring-white/10">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 teal-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 20.944a11.955 11.955 0 0118 0z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="mt-6 lg:mt-0 lg:flex-1">
+                            <h3 class="text-2xl font-bold text-white">Ai.Rio Eve: Conformidade LGPD, Reinventada.</h3>
+                            <p class="mt-2 text-gray-300">Eve analisa automaticamente contratos e documentos legais para identificar riscos de conformidade com a LGPD, transformando semanas de trabalho manual em minutos de análise estratégica. Reduza riscos, acelere negócios e capacite sua equipe jurídica.</p>
+                            <dl class="mt-8 space-y-4 text-base leading-7 text-gray-300">
+                                <div class="relative pl-9"><dt class="inline font-semibold text-white">Análise Automatizada:</dt><dd class="inline"> Identifique cláusulas de risco e receba insights acionáveis em segundos.</dd></div>
+                                <div class="relative pl-9"><dt class="inline font-semibold text-white">Redução de Risco:</dt><dd class="inline"> Mitigue os riscos financeiros e de reputação da não-conformidade com a LGPD.</dd></div>
+                                <div class="relative pl-9"><dt class="inline font-semibold text-white">Relatórios Instantâneos:</dt><dd class="inline"> Exporte relatórios claros e profissionais para compartilhar com stakeholders.</dd></div>
+                            </dl>
+                            <a href="#" class="mt-8 inline-block teal-bg text-white font-semibold py-2 px-5 rounded-lg hover:opacity-90 transition-opacity duration-300">Descubra o Eve</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-16"><p class="text-lg text-gray-400">Em breve: Agentes para Finanças, Saúde e Mais.</p></div>
+        </div>
+    </div>
+    <!-- Pricing Section -->
+    <div id="pricing" class="py-20 sm:py-32">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-base font-semibold leading-7 teal-accent">Preços Transparentes</h2>
+                <p class="mt-2 text-3xl sm:text-4xl font-bold tracking-tight text-white">Planos projetados para escalar com você.</p>
+                <p class="mt-6 text-lg leading-8 text-gray-300 max-w-2xl mx-auto">Escolha o plano que melhor se adapta às suas necessidades de análise de dados e conformidade.</p>
+            </div>
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="pricing-card rounded-3xl p-8 flex flex-col">
+                    <h3 class="text-2xl font-bold text-white">Profissional</h3><p class="mt-2 text-gray-400">Ideal para equipes e pequenas empresas.</p>
+                    <div class="mt-6"><span class="text-5xl font-bold text-white">R$499</span><span class="text-lg text-gray-400">/mês</span></div>
+                    <ul role="list" class="mt-8 space-y-3 text-sm leading-6 text-gray-300">
+                        <li class="flex gap-x-3"><svg class="h-6 w-5 flex-none teal-accent" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>500 Análises de Documentos/mês</li>
+                        <li class="flex gap-x-3"><svg class="h-6 w-5 flex-none teal-accent" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>Até 5 Usuários</li>
+                        <li class="flex gap-x-3"><svg class="h-6 w-5 flex-none teal-accent" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>Suporte por Email</li>
+                    </ul>
+                    <a href="#" class="mt-auto teal-bg text-white font-semibold py-3 px-5 rounded-lg hover:opacity-90 transition-opacity duration-300 text-center">Começar Agora</a>
+                </div>
+                <div class="pricing-card rounded-3xl p-8 flex flex-col ring-2 ring-inset teal-border relative">
+                    <div class="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2"><p class="rounded-full bg-teal-500/10 px-3 py-1 text-sm font-semibold leading-6 teal-accent ring-1 ring-inset ring-teal-500/20">Mais Popular</p></div>
+                    <h3 class="text-2xl font-bold text-white">Business</h3><p class="mt-2 text-gray-400">Para empresas em crescimento e uso intensivo.</p>
+                    <div class="mt-6"><span class="text-5xl font-bold text-white">R$1.299</span><span class="text-lg text-gray-400">/mês</span></div>
+                    <ul role="list" class="mt-8 space-y-3 text-sm leading-6 text-gray-300">
+                        <li class="flex gap-x-3"><svg class="h-6 w-5 flex-none teal-accent" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>2000 Análises de Documentos/mês</li>
+                        <li class="flex gap-x-3"><svg class="h-6 w-5 flex-none teal-accent" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>Até 20 Usuários</li>
+                        <li class="flex gap-x-3"><svg class="h-6 w-5 flex-none teal-accent" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>Suporte Prioritário</li>
+                        <li class="flex gap-x-3"><svg class="h-6 w-5 flex-none teal-accent" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>Integrações API</li>
+                    </ul>
+                    <a href="#" class="mt-auto teal-bg text-white font-semibold py-3 px-5 rounded-lg hover:opacity-90 transition-opacity duration-300 text-center">Começar Agora</a>
+                </div>
+                <div class="pricing-card rounded-3xl p-8 flex flex-col">
+                    <h3 class="text-2xl font-bold text-white">Enterprise</h3><p class="mt-2 text-gray-400">Soluções customizadas para grandes corporações.</p>
+                    <div class="mt-6"><span class="text-4xl font-bold text-white">Customizado</span></div>
+                    <ul role="list" class="mt-8 space-y-3 text-sm leading-6 text-gray-300">
+                        <li class="flex gap-x-3"><svg class="h-6 w-5 flex-none teal-accent" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>Volume de Análise Ilimitado</li>
+                        <li class="flex gap-x-3"><svg class="h-6 w-5 flex-none teal-accent" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>Gerente de Conta Dedicado</li>
+                        <li class="flex gap-x-3"><svg class="h-6 w-5 flex-none teal-accent" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>SLA de Uptime e Suporte 24/7</li>
+                        <li class="flex gap-x-3"><svg class="h-6 w-5 flex-none teal-accent" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>Segurança e Governança Avançada</li>
+                    </ul>
+                    <a href="#contact" class="mt-auto bg-transparent border-2 border-gray-400 text-gray-200 font-semibold py-3 px-5 rounded-lg hover:bg-gray-800 hover:border-gray-300 transition-colors duration-300 text-center">Fale Conosco</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About Us Section -->
+    <div id="about" class="py-20 sm:py-32 bg-gray-900">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:items-center lg:gap-x-16">
+                <div>
+                    <h2 class="text-base font-semibold leading-7 teal-accent">Nossa Missão</h2>
+                    <p class="mt-2 text-3xl sm:text-4xl font-bold tracking-tight text-white">Construindo o Futuro da Inteligência de Dados no Brasil.</p>
+                    <p class="mt-6 text-lg leading-8 text-gray-300">A Ai.Rio nasceu da convicção de que a tecnologia de ponta pode resolver os desafios de dados mais complexos do Brasil. Nossa missão é transformar informações não estruturadas em clareza estratégica, capacitando empresas a operar com mais segurança, eficiência e inteligência.</p>
+                    <p class="mt-4 text-lg leading-8 text-gray-300">Somos uma equipe de tecnólogos, engenheiros e estrategistas baseados no Rio de Janeiro, apaixonados por construir soluções de IA de nível mundial que respeitam e entendem o contexto local.</p>
+                </div>
+                <div class="mt-10 lg:mt-0">
+                    <div class="about-card rounded-3xl p-8">
+                        <img class="w-full rounded-2xl" src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?q=80&w=2070&auto=format&fit=crop" alt="Equipe Ai.Rio"
+                        onerror="this.onerror=null;this.src='https://placehold.co/600x400/121212/EFEFEF?text=Nossa+Equipe';">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Blog Section -->
+    <div id="blog" class="py-20 sm:py-32">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-base font-semibold leading-7 teal-accent">Insights e Notícias</h2>
+                <p class="mt-2 text-3xl sm:text-4xl font-bold tracking-tight text-white">Do nosso blog.</p>
+                <p class="mt-6 text-lg leading-8 text-gray-300 max-w-2xl mx-auto">Acompanhe as últimas tendências em IA, conformidade e tecnologia de dados no contexto brasileiro.</p>
+            </div>
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Blog Post 1 -->
+                <article class="blog-card rounded-3xl p-6 flex flex-col items-start justify-between">
+                    <div class="w-full">
+                        <time datetime="2025-07-15" class="text-xs text-gray-400">15 de Julho, 2025</time>
+                        <h3 class="mt-3 text-lg font-semibold leading-6 text-white"><a href="#">LGPD e IA: 5 Desafios que Toda Empresa Brasileira Enfrentará</a></h3>
+                        <p class="mt-4 line-clamp-3 text-sm leading-6 text-gray-300">A interseção da Lei Geral de Proteção de Dados com a inteligência artificial cria um novo paradigma de risco e oportunidade. Saiba como se preparar.</p>
+                    </div>
+                    <div class="mt-6 flex items-center gap-x-4 text-sm"><a href="#" class="relative z-10 rounded-full teal-bg px-3 py-1.5 font-medium text-white hover:opacity-90">Leia Mais</a></div>
+                </article>
+                <!-- Blog Post 2 -->
+                <article class="blog-card rounded-3xl p-6 flex flex-col items-start justify-between">
+                    <div class="w-full">
+                        <time datetime="2025-07-10" class="text-xs text-gray-400">10 de Julho, 2025</time>
+                        <h3 class="mt-3 text-lg font-semibold leading-6 text-white"><a href="#">O Futuro da Análise de Contratos: Além do CTRL+F</a></h3>
+                        <p class="mt-4 line-clamp-3 text-sm leading-6 text-gray-300">Ferramentas de busca tradicionais são insuficientes. Veja como a IA está revolucionando a due diligence e a análise de risco contratual.</p>
+                    </div>
+                    <div class="mt-6 flex items-center gap-x-4 text-sm"><a href="#" class="relative z-10 rounded-full teal-bg px-3 py-1.5 font-medium text-white hover:opacity-90">Leia Mais</a></div>
+                </article>
+                <!-- Blog Post 3 -->
+                <article class="blog-card rounded-3xl p-6 flex flex-col items-start justify-between">
+                    <div class="w-full">
+                        <time datetime="2025-07-05" class="text-xs text-gray-400">05 de Julho, 2025</time>
+                        <h3 class="mt-3 text-lg font-semibold leading-6 text-white"><a href="#">Construindo Confiança em IA: A Importância da Transparência</a></h3>
+                        <p class="mt-4 line-clamp-3 text-sm leading-6 text-gray-300">Para que a IA seja adotada em larga escala em setores críticos, a confiança é fundamental. Discutimos o papel da explicabilidade e da auditoria.</p>
+                    </div>
+                    <div class="mt-6 flex items-center gap-x-4 text-sm"><a href="#" class="relative z-10 rounded-full teal-bg px-3 py-1.5 font-medium text-white hover:opacity-90">Leia Mais</a></div>
+                </article>
+            </div>
+        </div>
+    </div>
+    <!-- Contact Section -->
+    <div id="contact" class="py-20 sm:py-32 bg-gray-900">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="contact-card rounded-3xl p-8 lg:p-16 lg:grid lg:grid-cols-2 lg:gap-x-16">
+                <div>
+                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white">Vamos conversar.</h2>
+                    <p class="mt-4 text-lg leading-8 text-gray-300">Tem um desafio complexo de dados? Quer saber mais sobre o Eve ou sobre a plataforma Ai.Rio? Nossa equipe está pronta para ajudar.</p>
+                    <div class="mt-8 space-y-4">
+                        <div class="flex gap-x-4">
+                            <svg class="h-6 w-6 flex-none text-gray-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
+                            <span class="text-gray-300">contato@ai.rio</span>
+                        </div>
+                        <div class="flex gap-x-4">
+                            <svg class="h-6 w-6 flex-none text-gray-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
+                            <span class="text-gray-300">+55 (21) 99999-9999</span>
+                        </div>
+                    </div>
+                </div>
+                <form action="#" method="POST" class="mt-10 lg:mt-0">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+                        <div><label for="first-name" class="block text-sm font-semibold leading-6 text-white">Nome</label><div class="mt-2.5"><input type="text" name="first-name" id="first-name" autocomplete="given-name" class="contact-input block w-full rounded-md px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-gray-700 focus:ring-2 focus:ring-inset focus:ring-teal-500 sm:text-sm sm:leading-6"></div></div>
+                        <div><label for="last-name" class="block text-sm font-semibold leading-6 text-white">Sobrenome</label><div class="mt-2.5"><input type="text" name="last-name" id="last-name" autocomplete="family-name" class="contact-input block w-full rounded-md px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-gray-700 focus:ring-2 focus:ring-inset focus:ring-teal-500 sm:text-sm sm:leading-6"></div></div>
+                        <div class="sm:col-span-2"><label for="email" class="block text-sm font-semibold leading-6 text-white">Email</label><div class="mt-2.5"><input type="email" name="email" id="email" autocomplete="email" class="contact-input block w-full rounded-md px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-gray-700 focus:ring-2 focus:ring-inset focus:ring-teal-500 sm:text-sm sm:leading-6"></div></div>
+                        <div class="sm:col-span-2"><label for="company" class="block text-sm font-semibold leading-6 text-white">Empresa</label><div class="mt-2.5"><input type="text" name="company" id="company" autocomplete="organization" class="contact-input block w-full rounded-md px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-gray-700 focus:ring-2 focus:ring-inset focus:ring-teal-500 sm:text-sm sm:leading-6"></div></div>
+                        <div class="sm:col-span-2"><label for="message" class="block text-sm font-semibold leading-6 text-white">Mensagem</label><div class="mt-2.5"><textarea name="message" id="message" rows="4" class="contact-input block w-full rounded-md px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-gray-700 focus:ring-2 focus:ring-inset focus:ring-teal-500 sm:text-sm sm:leading-6"></textarea></div></div>
+                    </div>
+                    <div class="mt-8"><button type="submit" class="w-full teal-bg text-white font-semibold py-3 px-5 rounded-lg hover:opacity-90 transition-opacity duration-300">Enviar Mensagem</button></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import * as THREE from 'three';
+        import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+        import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+        import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+        import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
+
+        // --- Mobile Menu & Smooth Scroll ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => { mobileMenu.classList.remove('hidden'); });
+        closeMobileMenuButton.addEventListener('click', () => { mobileMenu.classList.add('hidden'); });
+        
+        document.querySelectorAll('#mobile-menu a, nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+                    if(!mobileMenu.classList.contains('hidden')) { mobileMenu.classList.add('hidden'); }
+                }
+            });
+        });
+
+        // --- State-of-the-Art Three.js Animation ---
+        let scene, camera, renderer, composer;
+        let mainObject;
+        const clock = new THREE.Clock();
+
+        // --- Custom Shaders ---
+        const vertexShader = `
+            varying vec2 vUv;
+            void main() {
+                vUv = uv;
+                gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+            }
+        `;
+
+        const fragmentShader = `
+            uniform float u_time;
+            uniform vec2 u_resolution;
+            varying vec2 vUv;
+
+            // FBM (Fractal Brownian Motion) for noise
+            float random (in vec2 st) {
+                return fract(sin(dot(st.xy, vec2(12.9898,78.233))) * 43758.5453123);
+            }
+
+            float noise (in vec2 st) {
+                vec2 i = floor(st);
+                vec2 f = fract(st);
+                float a = random(i);
+                float b = random(i + vec2(1.0, 0.0));
+                float c = random(i + vec2(0.0, 1.0));
+                float d = random(i + vec2(1.0, 1.0));
+                vec2 u = f * f * (3.0 - 2.0 * f);
+                return mix(a, b, u.x) + (c - a)* u.y * (1.0 - u.x) + (d - b) * u.x * u.y;
+            }
+
+            #define OCTAVES 6
+            float fbm (in vec2 st) {
+                float value = 0.0;
+                float amplitude = .5;
+                float frequency = 0.;
+                for (int i = 0; i < OCTAVES; i++) {
+                    value += amplitude * noise(st);
+                    st *= 2.;
+                    amplitude *= .5;
+                }
+                return value;
+            }
+
+            void main() {
+                vec2 st = vUv * 2.0 - 1.0;
+                st.x *= u_resolution.x / u_resolution.y;
+
+                vec3 color = vec3(0.0);
+                float d = distance(st, vec2(0.0));
+                
+                float noise = fbm(st * 3.0 + u_time * 0.1);
+                
+                float ring = smoothstep(0.4, 0.41, d) - smoothstep(0.45, 0.46, d);
+                ring *= 1.0 + noise * 0.5;
+
+                color = vec3(ring);
+                color.r *= 0.1;
+                color.g *= 0.8;
+                color.b *= 0.9;
+
+                gl_FragColor = vec4(color, ring);
+            }
+        `;
+
+        function init() {
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.z = 5;
+
+            renderer = new THREE.WebGLRenderer({
+                canvas: document.querySelector('#bg-canvas'),
+                antialias: true,
+                alpha: true
+            });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+
+            // --- Main Object with Custom Shader ---
+            const geometry = new THREE.SphereGeometry(2, 64, 64);
+            const material = new THREE.ShaderMaterial({
+                uniforms: {
+                    u_time: { value: 0.0 },
+                    u_resolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) }
+                },
+                vertexShader,
+                fragmentShader,
+                transparent: true,
+                blending: THREE.AdditiveBlending
+            });
+            mainObject = new THREE.Mesh(geometry, material);
+            scene.add(mainObject);
+
+            // --- Post-Processing ---
+            composer = new EffectComposer(renderer);
+            const renderPass = new RenderPass(scene, camera);
+            composer.addPass(renderPass);
+
+            // Bloom pass for the glow effect
+            const bloomPass = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 1.2, 0.6, 0.4);
+            composer.addPass(bloomPass);
+
+            // Custom shader pass for additional effects if needed
+            const customShader = {
+                uniforms: {
+                    tDiffuse: { value: null },
+                },
+                vertexShader: `
+                    varying vec2 vUv;
+                    void main() {
+                        vUv = uv;
+                        gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+                    }
+                `,
+                fragmentShader: `
+                    uniform sampler2D tDiffuse;
+                    varying vec2 vUv;
+                    void main() {
+                        vec4 color = texture2D(tDiffuse, vUv);
+                        // Add vignette
+                        float d = distance(vUv, vec2(0.5));
+                        color.rgb *= smoothstep(0.8, 0.2, d);
+                        gl_FragColor = color;
+                    }
+                `
+            };
+            const customPass = new ShaderPass(customShader);
+            composer.addPass(customPass);
+
+
+            window.addEventListener('resize', onWindowResize);
+            animate();
+        }
+
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            composer.setSize(window.innerWidth, window.innerHeight);
+            mainObject.material.uniforms.u_resolution.value.set(window.innerWidth, window.innerHeight);
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            const delta = clock.getDelta();
+            
+            mainObject.material.uniforms.u_time.value += delta;
+            mainObject.rotation.x += delta * 0.1;
+            mainObject.rotation.y += delta * 0.05;
+
+            camera.lookAt(scene.position);
+
+            composer.render();
+        }
+
+        init();
+    </script>
+</body>
+</html>
