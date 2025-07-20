@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI.Rio - Harnessing Complexity. Powering Progress.</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sansation:wght@300;400;700&family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Sansation', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .hero-section {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a1a 30%, #0f172a 70%, #0a0a0a 100%);
+            overflow: hidden;
+        }
+
+        .quantum-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.3;
+        }
+
+        .quantum-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255,0,127,0.3) 0%, transparent 25%),
+                radial-gradient(circle at 80% 20%, rgba(0,255,212,0.2) 0%, transparent 25%),
+                radial-gradient(circle at 40% 40%, rgba(0,132,255,0.2) 0%, transparent 25%);
+            animation: quantumFlow 8s ease-in-out infinite;
+        }
+
+        .platform-grid {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(90deg, transparent 98%, rgba(0,212,255,0.1) 100%),
+                linear-gradient(0deg, transparent 98%, rgba(0,212,255,0.1) 100%);
+            background-size: 60px 60px;
+            opacity: 0.2;
+        }
+
+        .processing-rings {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+        }
+
+        .ring {
+            position: absolute;
+            border: 2px solid transparent;
+            border-radius: 50%;
+            background: linear-gradient(45deg, rgba(0,212,255,0.3), rgba(255,0,127,0.2), rgba(0,255,212,0.3)) border-box;
+            mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+        }
+
+        .ring-1 {
+            width: 100%;
+            height: 100%;
+            animation: rotate 20s linear infinite;
+        }
+
+        .ring-2 {
+            width: 80%;
+            height: 80%;
+            top: 10%;
+            left: 10%;
+            animation: rotate 15s linear infinite reverse;
+        }
+
+        .ring-3 {
+            width: 60%;
+            height: 60%;
+            top: 20%;
+            left: 20%;
+            animation: rotate 25s linear infinite;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 10;
+            position: relative;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .logo-area {
+            margin-bottom: 2rem;
+        }
+
+        .logo-text {
+            font-size: 4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00d4ff 0%, #b30d3b 50%, #00ffd4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .logo-text::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, #00d4ff 50%, transparent 100%);
+        }
+
+        /* Quantum Orbital Logo Animation */
+        .quantum-orbital {
+            position: relative;
+            display: inline-block;
+        }
+        .quantum-orbital .dot-accent {
+            color: transparent;
+            position: relative;
+        }
+        .quantum-orbital .dot-accent::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 8px;
+            height: 8px;
+            background: #00d4ff;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 20px #00d4ff;
+        }
+        .quantum-orbital .dot-accent::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(0, 212, 255, 0.4);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: orbital-rotate 4s linear infinite;
+        }
+        @keyframes orbital-rotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            color: #888;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .platform-description {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #cccccc;
+            margin-bottom: 3rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #00d4ff 0%, #0066ff 100%);
+            color: white;
+            border: none;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #00d4ff;
+            border: 2px solid #00d4ff;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,212,255,0.3);
+        }
+
+        .features-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, #0a0a0a 0%, #0f172a 50%, #0a0a0a 100%);
+            position: relative;
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #00d4ff 0%, #00ffd4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'Lora', serif;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #888;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(0,212,255,0.05) 0%, rgba(255,0,127,0.03) 100%);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid rgba(0,212,255,0.2);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0,212,255,0.5);
+            box-shadow: 0 20px 40px rgba(0,212,255,0.1);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, #00d4ff 50%, transparent 100%);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #00d4ff 0%, #b30d3b 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            font-family: 'Lora', serif;
+        }
+
+        .feature-description {
+            color: #cccccc;
+            line-height: 1.6;
+        }
+
+        .quantum-platform-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a1a 50%, #0a0a0a 100%);
+            position: relative;
+        }
+
+        .platform-grid-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(90deg, transparent 98%, rgba(0,255,212,0.05) 100%),
+                linear-gradient(0deg, transparent 98%, rgba(0,255,212,0.05) 100%);
+            background-size: 40px 40px;
+            opacity: 0.3;
+        }
+
+        .platform-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .platform-visual {
+            margin: 4rem 0;
+            position: relative;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .document-flow {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            position: relative;
+        }
+
+        .document {
+            width: 80px;
+            height: 100px;
+            background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
+            border-radius: 10px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .document::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            height: 3px;
+            background: #ccc;
+            border-radius: 2px;
+        }
+
+        .document::after {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: 15px;
+            right: 30px;
+            height: 2px;
+            background: #ddd;
+            border-radius: 1px;
+            box-shadow: 0 8px 0 #ddd, 0 16px 0 #ddd;
+        }
+
+        .processing-core {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #00d4ff 0%, #b30d3b 50%, #00ffd4 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            animation: pulse 2s ease-in-out infinite;
+            position: relative;
+        }
+
+        .processing-core::before {
+            content: '';
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            border: 2px solid rgba(0,212,255,0.3);
+            border-radius: 50%;
+            animation: rotate 10s linear infinite;
+        }
+
+        .processed-output {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .chunk {
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, #00d4ff 0%, #00ffd4 100%);
+            border-radius: 8px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .chunk:nth-child(2) { animation-delay: 0.5s; }
+        .chunk:nth-child(3) { animation-delay: 1s; }
+        .chunk:nth-child(4) { animation-delay: 1.5s; }
+
+        .flow-arrow {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, #00d4ff 50%, transparent 100%);
+            position: relative;
+        }
+
+        .flow-arrow::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: -3px;
+            width: 0;
+            height: 0;
+            border-left: 8px solid #00d4ff;
+            border-top: 4px solid transparent;
+            border-bottom: 4px solid transparent;
+        }
+
+        .tech-specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .spec-item {
+            background: rgba(0,0,0,0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(0,212,255,0.2);
+            text-align: left;
+        }
+
+        .spec-label {
+            color: #00d4ff;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .spec-value {
+            font-size: 1.1rem;
+            color: #ffffff;
+        }
+
+        /* Eve Section Styles */
+        .eve-section {
+            background-color: #F8F7F4;
+            color: #1A472A;
+            padding: 6rem 2rem;
+        }
+
+        .eve-section h2, .eve-section h3 {
+            font-family: 'Lora', serif;
+        }
+
+        .eve-accent-text {
+            color: #B4884B;
+        }
+
+        .eve-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .eve-content {
+            flex: 1;
+        }
+
+        .eve-demo {
+            flex: 1;
+            background: rgba(26, 71, 42, 0.1);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .eve-button {
+            background-color: #1A472A;
+            color: #F8F7F4;
+            border: 2px solid #1A472A;
+            transition: all 0.3s ease;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .eve-button:hover {
+            background-color: transparent;
+            color: #1A472A;
+            transform: translateY(-2px);
+        }
+
+        /* Solutions Section */
+        .solutions-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, #0a0a0a 0%, #0f172a 50%, #0a0a0a 100%);
+        }
+
+        .industry-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .industry-tag {
+            background: linear-gradient(135deg, rgba(0,212,255,0.05) 0%, rgba(255,0,127,0.03) 100%);
+            border: 1px solid rgba(0,212,255,0.2);
+            color: #cccccc;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .industry-tag.active {
+            background: linear-gradient(135deg, #00d4ff 0%, #0066ff 100%);
+            color: white;
+            border-color: #00d4ff;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a1a 50%, #0a0a0a 100%);
+            text-align: center;
+        }
+
+        .footer-section {
+            padding: 4rem 2rem;
+            border-top: 1px solid #333;
+            text-align: center;
+        }
+
+        @keyframes quantumFlow {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(180deg); }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @media (max-width: 768px) {
+            .logo-text {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .document-flow {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
+
+            .eve-container {
+                flex-direction: column;
+            }
+
+            .industry-tags {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="quantum-background">
+            <div class="quantum-particles"></div>
+            <div class="platform-grid"></div>
+        </div>
+        
+        <div class="processing-rings">
+            <div class="ring ring-1"></div>
+            <div class="ring ring-2"></div>
+            <div class="ring ring-3"></div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="logo-area">
+                <h1 class="logo-text quantum-orbital">
+                    ai<span class="dot-accent">.</span>rio
+                </h1>
+            </div>
+            <p class="tagline">Harnessing Complexity. Powering Progress.</p>
+            <p class="platform-description">
+                Transformamos documentos complexos em inteligência aplicada. Nossa plataforma de IA avançada 
+                alimenta aplicações que aceleram a transformação digital nos setores mais críticos do Brasil.
+            </p>
+            <div class="cta-buttons">
+                <a href="#eve" class="btn btn-primary">Conheça o Eve AI.Rio</a>
+                <a href="#platform" class="btn btn-secondary">Ver Plataforma</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="platform" class="features-section">
+        <div class="features-container">
+            <h2 class="section-title">A Base da Nossa Inteligência</h2>
+            <p class="section-subtitle">
+                O Motor de Chunking Híbrido que alimenta aplicações inteligentes em todos os setores
+            </p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3 class="feature-title">Motor de Chunking Híbrido</h3>
+                    <p class="feature-description">
+                        Arquitetura neural avançada que preserva contexto semântico e estrutura para 
+                        análise de IA superior, indo além da simples divisão de texto.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🏗️</div>
+                    <h3 class="feature-title">Framework de Segurança</h3>
+                    <p class="feature-description">
+                        Segurança enterprise em cada etapa, com validação rigorosa e conformidade LGPD nativa 
+                        para proteger dados críticos.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Otimização de Performance</h3>
+                    <p class="feature-description">
+                        Caching inteligente e monitoramento empresarial para processamento de grandes volumes 
+                        em segundos, não em horas.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3 class="feature-title">Capacidades Universais</h3>
+                    <p class="feature-description">
+                        Plataforma global de IA que funciona em todos os setores e idiomas. 
+                        Processamento universal que se adapta a qualquer fluxo empresarial.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quantum Platform Section -->
+    <section class="quantum-platform-section">
+        <div class="platform-grid-bg"></div>
+        <div class="platform-content">
+            <h2 class="section-title">Processamento Inteligente de Documentos</h2>
+            <p class="section-subtitle">
+                Veja como documentos complexos se transformam em dados estruturados através da nossa arquitetura de processamento avançada
+            </p>
+            
+            <div class="platform-visual">
+                <div class="document-flow">
+                    <div class="document"></div>
+                    <div class="flow-arrow"></div>
+                    <div class="processing-core">AI.Rio</div>
+                    <div class="flow-arrow"></div>
+                    <div class="processed-output">
+                        <div class="chunk"></div>
+                        <div class="chunk"></div>
+                        <div class="chunk"></div>
+                        <div class="chunk"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tech-specs">
+                <div class="spec-item">
+                    <div class="spec-label">Velocidade de Processamento</div>
+                    <div class="spec-value">Resposta em Milissegundos</div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-label">Taxa de Precisão</div>
+                    <div class="spec-value">99,9% de Exatidão</div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-label">Capacidade de Escala</div>
+                    <div class="spec-value">Documentos Ilimitados</div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-label">Conformidade</div>
+                    <div class="spec-value">LGPD Nativa</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Eve Product Section -->
+    <section id="eve" class="eve-section">
+        <div class="eve-container">
+            <div class="eve-content">
+                <p class="eve-accent-text" style="font-weight: bold;">PRODUTO EM DESTAQUE</p>
+                <h2 style="font-size: 3rem; margin: 1rem 0;">Eve by AI.Rio</h2>
+                <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Conformidade LGPD com Confiança. Não com Complexidade.</h3>
+                <p style="margin-bottom: 1rem; line-height: 1.6;">
+                    Eve é sua especialista em conformidade LGPD, alimentada por IA. Ela automatiza a análise de contratos, 
+                    reduz drasticamente o tempo de revisão e oferece a confiança para que equipes jurídicas naveguem por 
+                    riscos regulatórios complexos com velocidade e precisão.
+                </p>
+                <p style="margin-bottom: 2rem; line-height: 1.6;">
+                    Transforme seu departamento jurídico de um gargalo de negócios para um acelerador estratégico.
+                </p>
+                <a href="#" class="eve-button">Solicite uma Demonstração</a>
+            </div>
+            <div class="eve-demo">
+                <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                    <div style="width: 12px; height: 12px; border-radius: 50%; background: #ff5f56; margin-right: 8px;"></div>
+                    <div style="width: 12px; height: 12px; border-radius: 50%; background: #ffbd2e; margin-right: 8px;"></div>
+                    <div style="width: 12px; height: 12px; border-radius: 50%; background: #27ca3f;"></div>
+                </div>
+                <p style="font-family: monospace; font-size: 0.9rem; margin-bottom: 1.5rem;">Contrato_Fornecedor_SaaS_v2.pdf</p>
+                <div style="background: #1A472A; color: white; padding: 1.5rem; border-radius: 10px; margin-bottom: 1.5rem;">
+                    <p style="font-weight: bold; color: #B4884B; margin-bottom: 0.5rem;">LGPD Red Flag Report</p>
+                    <p style="font-size: 2rem; font-weight: bold; margin-bottom: 0.5rem;">Alto Risco</p>
+                    <p style="font-size: 0.9rem; opacity: 0.8;">5 Cláusulas Críticas Identificadas</p>
+                </div>
+                <div style="space-y: 1rem;">
+                    <div style="background: white; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <p style="font-weight: bold; font-size: 0.9rem; color: #1A472A; margin-bottom: 0.5rem;">Cláusula 8.1: Transferência Internacional de Dados</p>
+                        <p style="font-size: 0.8rem; color: #dc2626; font-weight: bold;">ALERTA: Ausência de garantias adequadas.</p>
+                    </div>
+                    <div style="background: white; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <p style="font-weight: bold; font-size: 0.9rem; color: #1A472A; margin-bottom: 0.5rem;">Cláusula 12.3: Retenção de Dados</p>
+                        <p style="font-size: 0.8rem; color: #d97706; font-weight: bold;">AVISO: Período de retenção indefinido.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="solutions-section">
+        <div class="features-container">
+            <h2 class="section-title">Uma Plataforma, Múltiplas Indústrias</h2>
+            <p class="section-subtitle">
+                O poder do nosso Motor de Chunking Híbrido se estende além do jurídico. 
+                Estamos desenvolvendo aplicações especializadas para os setores mais complexos do Brasil.
+            </p>
+            <div class="industry-tags">
+                <span class="industry-tag active">Jurídico • Eve AI.Rio</span>
+                <span class="industry-tag">Finanças</span>
+                <span class="industry-tag">Saúde</span>
+                <span class="industry-tag">Agronegócio</span>
+                <span class="industry-tag">Setor Público</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="features-container">
+            <h2 class="section-title">Pronto para Impulsionar o Progresso?</h2>
+            <p class="section-subtitle">
+                Seja para transformar sua conformidade com Eve AI.Rio ou explorar 
+                nossa plataforma para outras aplicações, nossa equipe está pronta.
+            </p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">Fale com um Especialista</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div class="footer-section">
+        <h3 style="color: #00d4ff; margin-bottom: 1rem; font-family: 'Lora', serif;">O Futuro do Processamento de Documentos</h3>
+        <p style="max-width: 600px; margin: 0 auto; color: #888; line-height: 1.6;">
+            AI.Rio combina processamento de IA avançado com confiabilidade de plataforma empresarial. 
+            A próxima geração de processamento inteligente de documentos está aqui.
+        </p>
+    </div>
+</body>
+</html>

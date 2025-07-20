@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ai.Rio - Harnessing Complexity. Powering Progress.</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sansation:wght@300;400;700&family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Custom Styles to integrate our branding */
+        body {
+            background-color: #0a0e1a; /* Ai.Rio Deep Midnight Blue */
+            font-family: 'Sansation', sans-serif;
+            color: #ccd6f6;
+            overflow-x: hidden;
+        }
+
+        /* Canvas for 3D Background */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        /* Hero overlay for better text readability */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                135deg, 
+                rgba(10, 14, 26, 0.8) 0%, 
+                rgba(10, 14, 26, 0.5) 50%, 
+                rgba(10, 14, 26, 0.7) 100%
+            );
+            z-index: 2;
+        }
+
+        /* Ensure content is on top of the canvas and overlay */
+        .content-wrapper {
+            position: relative;
+            z-index: 3;
+        }
+
+        /* Ai.Rio Gradient Text */
+        .text-gradient-rio {
+            background: linear-gradient(135deg, #00d4ff, #0088aa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Eve Product Section Styling */
+        .eve-section {
+            background-color: #F8F7F4; /* Eve Off-White */
+            color: #1A472A; /* Eve Forest Green */
+        }
+        
+        .eve-section h2, .eve-section h3 {
+            font-family: 'Lora', serif;
+        }
+
+        .eve-accent-text {
+            color: #B4884B; /* Eve Bronze */
+        }
+        
+        .eve-button {
+            background-color: #1A472A; /* Eve Forest Green */
+            color: #F8F7F4;
+            border: 2px solid #1A472A;
+            transition: all 0.3s ease;
+        }
+
+        .eve-button:hover {
+            background-color: transparent;
+            color: #1A472A;
+        }
+
+        /* Quantum Orbital Logo Animation */
+        .quantum-orbital {
+            position: relative;
+            display: inline-block;
+        }
+        .quantum-orbital .dot-accent {
+            color: transparent;
+            position: relative;
+        }
+        .quantum-orbital .dot-accent::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 8px;
+            height: 8px;
+            background: #00d4ff;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 20px #00d4ff;
+        }
+        .quantum-orbital .dot-accent::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(0, 212, 255, 0.4);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: orbital-rotate 4s linear infinite;
+        }
+        @keyframes orbital-rotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        /* General button style */
+        .btn-primary {
+            background-color: #00d4ff;
+            color: #0a0e1a;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #00aacc;
+            transform: translateY(-2px);
+        }
+
+        /* Glassmorphism effect for cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <canvas id="bg-canvas"></canvas>
+
+    <div class="content-wrapper">
+        <!-- Header & Hero Section -->
+        <header class="relative overflow-hidden min-h-screen flex flex-col">
+            <div class="hero-overlay"></div>
+            <div class="container mx-auto px-6 py-8 relative z-10">
+                <nav class="flex items-center justify-between">
+                    <div class="logo quantum-orbital text-3xl font-bold text-white">
+                        ai<span class="dot-accent">.</span>rio
+                    </div>
+                    <div class="hidden md:flex items-center space-x-8">
+                        <a href="#platform" class="hover:text-cyan-400 transition-colors">Plataforma</a>
+                        <a href="#eve" class="hover:text-cyan-400 transition-colors">Produto: Eve</a>
+                        <a href="#solutions" class="hover:text-cyan-400 transition-colors">Soluções</a>
+                        <a href="#contact" class="btn-primary font-bold py-2 px-6 rounded-full">Contato</a>
+                    </div>
+                    <div class="md:hidden">
+                        <button class="text-white focus:outline-none">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                        </button>
+                    </div>
+                </nav>
+            </div>
+            
+            <div class="flex-grow flex items-center justify-center text-center relative z-10">
+                <div class="pb-16">
+                    <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight">
+                        <span class="text-gradient-rio">Harnessing Complexity.</span><br>Powering Progress.
+                    </h1>
+                    <p class="mt-6 text-lg md:text-xl max-w-3xl mx-auto">
+                        Desvendamos o potencial de dados complexos para impulsionar a próxima onda de transformação digital no Brasil através de IA aplicada e ética.
+                    </p>
+                    <div class="mt-8">
+                        <a href="#eve" class="btn-primary font-bold py-3 px-8 rounded-full text-lg">Conheça o Eve</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Platform Section (Chuncking System) -->
+        <section id="platform" class="py-20 bg-[#0a0e1a]">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">A base da nossa inteligência:</h2>
+                <p class="mt-2 text-4xl md:text-5xl font-bold text-gradient-rio">The Chuncking System</p>
+                <p class="mt-6 max-w-3xl mx-auto text-lg">
+                    Nossa plataforma proprietária de inteligência de documentos é o motor por trás de cada solução Ai.Rio. Construída para segurança, performance e uma compreensão contextual profunda.
+                </p>
+                <div class="mt-12 grid md:grid-cols-3 gap-8">
+                    <!-- Feature Card 1 -->
+                    <div class="glass-card rounded-xl p-8">
+                        <div class="text-cyan-400 mb-4">
+                            <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M12 6V3m0 18v-3"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Hybrid Chunking Engine</h3>
+                        <p class="mt-2">Preserva o contexto semântico para uma análise de IA superior, indo além da simples divisão de texto.</p>
+                    </div>
+                    <!-- Feature Card 2 -->
+                    <div class="glass-card rounded-xl p-8">
+                        <div class="text-cyan-400 mb-4">
+                            <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Security Framework</h3>
+                        <p class="mt-2">Segurança de nível enterprise em cada etapa, com validação rigorosa para proteger seus dados mais críticos.</p>
+                    </div>
+                    <!-- Feature Card 3 -->
+                    <div class="glass-card rounded-xl p-8">
+                        <div class="text-cyan-400 mb-4">
+                            <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Performance & Caching</h3>
+                        <p class="mt-2">Otimizado para velocidade e eficiência, processando grandes volumes de documentos em segundos, não em horas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Eve Product Section -->
+        <section id="eve" class="eve-section py-24">
+            <div class="container mx-auto px-6">
+                <div class="md:flex md:items-center md:space-x-12">
+                    <!-- Left Side: Content -->
+                    <div class="md:w-1/2">
+                        <p class="font-bold eve-accent-text">PRODUTO EM DESTAQUE</p>
+                        <h2 class="text-4xl md:text-5xl font-bold mt-2">Eve by Ai.Rio</h2>
+                        <h3 class="text-2xl md:text-3xl mt-4">Conformidade LGPD com Confiança. Não com Complexidade.</h3>
+                        <p class="mt-6 text-lg leading-relaxed">
+                            Eve é sua especialista em conformidade LGPD, alimentada por IA. Ela automatiza a análise de contratos, reduz drasticamente o tempo de revisão e oferece a confiança para que equipes jurídicas naveguem por riscos regulatórios complexos com velocidade e precisão.
+                        </p>
+                        <p class="mt-4 text-lg leading-relaxed">
+                            Transforme seu departamento jurídico de um gargalo de negócios para um acelerador estratégico.
+                        </p>
+                        <div class="mt-8">
+                            <a href="#" class="eve-button font-bold py-3 px-8 rounded-full text-lg">Solicite uma Demonstração</a>
+                        </div>
+                    </div>
+                    <!-- Right Side: Visual -->
+                    <div class="md:w-1/2 mt-12 md:mt-0">
+                        <div class="bg-white/50 p-8 rounded-2xl shadow-2xl" style="background-color: rgba(26, 71, 42, 0.1);">
+                            <div class="flex items-center mb-4">
+                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500 ml-2"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500 ml-2"></div>
+                            </div>
+                            <p class="font-mono text-sm">Contrato_Fornecedor_SaaS_v2.pdf</p>
+                            <div class="mt-4 bg-[#1A472A] text-white p-4 rounded-lg">
+                                <p class="font-bold text-lg eve-accent-text">LGPD Red Flag Report</p>
+                                <p class="mt-2 text-3xl font-bold">Alto Risco</p>
+                                <p class="text-sm opacity-80">5 Cláusulas Críticas Identificadas</p>
+                            </div>
+                            <div class="mt-4 space-y-3">
+                                <div class="bg-white p-3 rounded-md shadow">
+                                    <p class="font-bold text-sm">Cláusula 8.1: Transferência Internacional de Dados</p>
+                                    <p class="text-xs text-red-700 font-bold">ALERTA: Ausência de garantias adequadas.</p>
+                                </div>
+                                <div class="bg-white p-3 rounded-md shadow">
+                                    <p class="font-bold text-sm">Cláusula 12.3: Retenção de Dados</p>
+                                    <p class="text-xs text-yellow-700 font-bold">AVISO: Período de retenção indefinido.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solutions Section -->
+        <section id="solutions" class="py-20 bg-[#0a0e1a]">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">Uma Plataforma, Múltiplas Indústrias</h2>
+                <p class="mt-4 max-w-3xl mx-auto text-lg">
+                    O poder do nosso Chuncking System se estende além do jurídico. Estamos desenvolvendo soluções especializadas para os setores mais complexos do Brasil.
+                </p>
+                <div class="mt-12 flex flex-wrap justify-center gap-8">
+                    <span class="glass-card text-lg font-bold py-3 px-6 rounded-full">Setor Jurídico</span>
+                    <span class="glass-card text-lg font-bold py-3 px-6 rounded-full opacity-50">Finanças</span>
+                    <span class="glass-card text-lg font-bold py-3 px-6 rounded-full opacity-50">Saúde</span>
+                    <span class="glass-card text-lg font-bold py-3 px-6 rounded-full opacity-50">Agronegócio</span>
+                    <span class="glass-card text-lg font-bold py-3 px-6 rounded-full opacity-50">Setor Público</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact / CTA Section -->
+        <section id="contact" class="bg-gray-900/50 py-24">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">Pronto para impulsionar o progresso?</h2>
+                <p class="mt-4 max-w-2xl mx-auto text-lg">
+                    Seja para transformar sua conformidade com o Eve ou para explorar o poder da nossa plataforma, nossa equipe está pronta para conversar.
+                </p>
+                <div class="mt-8">
+                    <a href="#" class="btn-primary font-bold py-3 px-8 rounded-full text-lg">Fale com um Especialista</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="py-12 bg-[#0a0e1a]">
+            <div class="container mx-auto px-6 text-center">
+                <div class="logo quantum-orbital text-3xl font-bold text-white mb-4">
+                    ai<span class="dot-accent">.</span>rio
+                </div>
+                <div class="flex justify-center space-x-6 mb-6">
+                    <a href="#" class="hover:text-cyan-400">Sobre Nós</a>
+                    <a href="#" class="hover:text-cyan-400">Carreiras</a>
+                    <a href="#" class="hover:text-cyan-400">Blog</a>
+                    <a href="#" class="hover:text-cyan-400">Privacidade</a>
+                </div>
+                <p class="text-sm text-gray-500">&copy; 2025 Ai.Rio Tecnologias Ltda. Todos os direitos reservados.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- 3D Animation & Scroll Libraries -->
+    <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.151.3/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.151.3/examples/jsm/"
+        }
+      }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- POC 3: The Unfolding Document Animation -->
+    <script type="module">
+        import * as THREE from 'three';
+        import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+        import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+        import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+
+        const clock = new THREE.Clock();
+
+        // --- Scene Setup ---
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100);
+        camera.position.z = 5;
+
+        // --- Renderer Setup ---
+        const renderer = new THREE.WebGLRenderer({
+            canvas: document.getElementById('bg-canvas'),
+            antialias: true,
+            powerPreference: "high-performance"
+        });
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        renderer.toneMappingExposure = 1.25;
+        renderer.outputColorSpace = THREE.SRGBColorSpace;
+        renderer.setSize(window.innerWidth, window.innerHeight);
+
+        // --- Post-processing Setup ---
+        const composer = new EffectComposer(renderer);
+        composer.addPass(new RenderPass(scene, camera));
+        const bloomPass = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 1.0, 0.8, 0.1);
+        composer.addPass(bloomPass);
+
+        // --- Shaders for Unfolding Document ---
+        const vertexShader = `
+            uniform float uTime;
+            varying vec2 vUv;
+            
+            void main() {
+                vUv = uv;
+                float unfoldProgress = sin(uTime * 0.5) * 0.5 + 0.5;
+                vec3 pos = position;
+                // Unfold along Z and Y axis
+                pos.z = mix(cos(position.x * 3.14159) * 0.5, 0.0, unfoldProgress);
+                pos.y += mix(sin(position.x * 3.14159) * 0.5, 0.0, unfoldProgress);
+                
+                gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
+            }
+        `;
+
+        const fragmentShader = `
+            uniform float uTime;
+            varying vec2 vUv;
+
+            // Simplex noise function
+            vec3 permute(vec3 x) { return mod(((x*34.0)+1.0)*x, 289.0); }
+            float snoise(vec2 v) {
+                const vec4 C = vec4(0.211324865405187, 0.366025403784439, -0.577350269189626, 0.024390243902439);
+                vec2 i  = floor(v + dot(v, C.yy));
+                vec2 x0 = v - i + dot(i, C.xx);
+                vec2 i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
+                vec4 x12 = x0.xyxy + C.xxzz;
+                x12.xy -= i1;
+                i = mod(i, 289.0);
+                vec3 p = permute( permute( i.y + vec3(0.0, i1.y, 1.0 )) + i.x + vec3(0.0, i1.x, 1.0 ));
+                vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy), dot(x12.zw,x12.zw)), 0.0);
+                m = m*m; m = m*m;
+                vec3 x = 2.0 * fract(p * C.www) - 1.0;
+                vec3 h = abs(x) - 0.5;
+                vec3 ox = floor(x + 0.5);
+                vec3 a0 = x - ox;
+                m *= 1.79284291400159 - 0.85373472095314 * ( a0*a0 + h*h );
+                vec3 g;
+                g.x  = a0.x  * x0.x  + h.x  * x0.y;
+                g.yz = a0.yz * x12.xz + h.yz * x12.yw;
+                return 130.0 * dot(m, g);
+            }
+            
+            void main() {
+                vec2 uv = vUv * 10.0 + vec2(uTime * 0.1, 0.0);
+                float n = snoise(uv);
+                float lines = smoothstep(0.48, 0.5, abs(sin(vUv.y * 50.0 + n * 5.0)));
+                vec3 color = vec3(lines) * vec3(0.1, 0.8, 1.0);
+                gl_FragColor = vec4(color, 1.0);
+            }
+        `;
+
+        // --- Create the Unfolding Document Geometry ---
+        const geometry = new THREE.PlaneGeometry(4, 4, 128, 128);
+        const material = new THREE.ShaderMaterial({
+            vertexShader,
+            fragmentShader,
+            uniforms: { uTime: { value: 0 } },
+        });
+        const unfoldingDocument = new THREE.Mesh(geometry, material);
+        scene.add(unfoldingDocument);
+
+        // --- Animation Loop ---
+        function animate() {
+            const elapsedTime = clock.getElapsedTime();
+            material.uniforms.uTime.value = elapsedTime;
+            composer.render();
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        // --- Scroll Animation (GSAP) ---
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.to(camera.position, {
+            z: 2,
+            scrollTrigger: {
+                trigger: ".content-wrapper",
+                start: "top top",
+                end: "bottom bottom",
+                scrub: 1,
+            }
+        });
+
+        // --- Window Resize ---
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            composer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eve - Especialista em Conformidade LGPD</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --eve-primary: #32F08C;
+            --eve-secondary: #28c46e;
+            --eve-dark: #1e2634;
+            --eve-darker: #2a3441;
+            --eve-light: #f8f9fb;
+            --eve-text: #ffffff;
+            --eve-text-secondary: #8892b0;
+        }
+
+        body {
+            font-family: 'Sansation', sans-serif;
+            background: var(--eve-dark);
+            color: var(--eve-text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Hero Section Container */
+        .hero-container {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--eve-dark) 0%, var(--eve-darker) 100%);
+        }
+
+        /* 3D Canvas */
+        #hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        /* CSS Fallback Background */
+        .hero-fallback {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 30% 20%, rgba(50, 240, 140, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(40, 196, 110, 0.08) 0%, transparent 50%),
+                linear-gradient(135deg, var(--eve-dark) 0%, var(--eve-darker) 100%);
+            z-index: 0;
+        }
+
+        /* Fallback Shield Animation */
+        .fallback-shield {
+            position: absolute;
+            top: 50%;
+            right: 10%;
+            transform: translateY(-50%);
+            width: 120px;
+            height: 120px;
+            opacity: 0.3;
+            animation: shield-pulse 3s ease-in-out infinite;
+        }
+
+        .fallback-shield::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 60px;
+            height: 70px;
+            background: var(--eve-primary);
+            transform: translate(-50%, -50%);
+            clip-path: polygon(50% 0%, 0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%);
+            box-shadow: 
+                0 0 0 10px rgba(50, 240, 140, 0.2),
+                0 0 0 20px rgba(50, 240, 140, 0.1);
+        }
+
+        @keyframes shield-pulse {
+            0%, 100% { transform: translateY(-50%) scale(1); opacity: 0.3; }
+            50% { transform: translateY(-50%) scale(1.1); opacity: 0.6; }
+        }
+
+        /* Content Layer */
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Typography */
+        .hero-headline {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            animation: fade-in-up 1s ease-out;
+        }
+
+        .hero-subline {
+            font-size: 1.25rem;
+            color: var(--eve-text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.5;
+            animation: fade-in-up 1s ease-out 0.3s both;
+        }
+
+        .hero-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+            animation: fade-in-up 1s ease-out 0.6s both;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1rem;
+            color: var(--eve-text);
+        }
+
+        .feature-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--eve-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: bold;
+            color: var(--eve-dark);
+        }
+
+        /* CTA Section */
+        .hero-cta {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            animation: fade-in-up 1s ease-out 0.9s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--eve-primary);
+            color: var(--eve-dark);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 0.75rem;
+            font-family: 'Sansation', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary:hover {
+            background: var(--eve-secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(50, 240, 140, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--eve-text);
+            padding: 1rem 2rem;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0.75rem;
+            font-family: 'Sansation', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--eve-primary);
+            background: rgba(50, 240, 140, 0.1);
+        }
+
+        /* Social Proof */
+        .social-proof {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.9rem;
+            color: var(--eve-text-secondary);
+        }
+
+        .social-proof-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(50, 240, 140, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        /* Loading Indicator */
+        .loading-indicator {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            z-index: 20;
+            display: none;
+        }
+
+        .loading-indicator.active {
+            display: block;
+        }
+
+        .spinner {
+            width: 24px;
+            height: 24px;
+            border: 2px solid rgba(50, 240, 140, 0.2);
+            border-top: 2px solid var(--eve-primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Animations */
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design - Mobile First */
+        @media (min-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+                padding: 2rem 4rem;
+            }
+
+            .hero-headline {
+                font-size: 3.5rem;
+            }
+
+            .hero-subline {
+                font-size: 1.4rem;
+            }
+
+            .cta-buttons {
+                flex-direction: row;
+            }
+
+            .fallback-shield {
+                width: 200px;
+                height: 200px;
+            }
+
+            .fallback-shield::before {
+                width: 100px;
+                height: 116px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-headline {
+                font-size: 4rem;
+            }
+
+            .hero-content {
+                padding: 2rem 6rem;
+            }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            .hero-headline,
+            .hero-subline,
+            .hero-features,
+            .hero-cta {
+                animation: none;
+            }
+
+            .fallback-shield {
+                animation: none;
+            }
+
+            .btn-primary:hover,
+            .btn-secondary:hover {
+                transform: none;
+            }
+        }
+
+        /* Performance Optimization */
+        .hero-container {
+            will-change: transform;
+        }
+
+        #hero-canvas {
+            will-change: transform;
+        }
+    </style>
+</head>
+<body>
+    <section class="hero-container">
+        <!-- CSS Fallback Background -->
+        <div class="hero-fallback">
+            <div class="fallback-shield"></div>
+        </div>
+
+        <!-- 3D Canvas -->
+        <canvas id="hero-canvas"></canvas>
+
+        <!-- Loading Indicator -->
+        <div class="loading-indicator active" id="loadingIndicator">
+            <div class="spinner"></div>
+        </div>
+
+        <!-- Content Layer -->
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-headline">
+                    Conformidade LGPD em Minutos, Não Dias
+                </h1>
+                
+                <p class="hero-subline">
+                    Transforme a análise de contratos legais com IA especializada. Identifique riscos de conformidade LGPD instantaneamente e proteja sua empresa com relatórios precisos e acionáveis.
+                </p>
+
+                <div class="hero-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">⚡</div>
+                        <span>Análise em 90 segundos</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🎯</div>
+                        <span>95%+ de precisão</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🔒</div>
+                        <span>Segurança garantida</span>
+                    </div>
+                </div>
+
+                <div class="hero-cta">
+                    <div class="cta-buttons">
+                        <a href="#demo" class="btn-primary" id="ctaPrimary">
+                            🚀 Teste Grátis por 14 Dias
+                        </a>
+                        <a href="#demo-video" class="btn-secondary" id="ctaSecondary">
+                            ▶️ Ver Demonstração
+                        </a>
+                    </div>
+
+                    <div class="social-proof">
+                        <div class="social-proof-icon">🏢</div>
+                        <span>Usado por 500+ departamentos jurídicos no Brasil</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Device Detection and Performance Optimization
+        class DeviceDetector {
+            constructor() {
+                this.isMobile = window.innerWidth < 768;
+                this.isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
+                this.isDesktop = window.innerWidth >= 1024;
+                this.supportsWebGL = this.checkWebGLSupport();
+                this.performanceTier = this.detectPerformanceTier();
+            }
+
+            checkWebGLSupport() {
+                try {
+                    const canvas = document.createElement('canvas');
+                    return !!(window.WebGLRenderingContext && 
+                             canvas.getContext('webgl'));
+                } catch (e) {
+                    return false;
+                }
+            }
+
+            detectPerformanceTier() {
+                const memory = navigator.deviceMemory || 4;
+                const cores = navigator.hardwareConcurrency || 4;
+                
+                if (memory >= 8 && cores >= 8) return 'high';
+                if (memory >= 4 && cores >= 4) return 'medium';
+                return 'low';
+            }
+        }
+
+        // 3D Scene Manager
+        class EveHero3D {
+            constructor(canvas, device) {
+                this.canvas = canvas;
+                this.device = device;
+                this.scene = null;
+                this.camera = null;
+                this.renderer = null;
+                this.shieldFragments = [];
+                this.animationId = null;
+                this.isLoaded = false;
+                
+                this.setupPerformanceSettings();
+                this.init();
+            }
+
+            setupPerformanceSettings() {
+                // Mobile-first performance settings
+                if (this.device.isMobile) {
+                    this.maxFragments = this.device.performanceTier === 'high' ? 20 : 12;
+                    this.targetFPS = this.device.performanceTier === 'high' ? 60 : 30;
+                    this.renderScale = this.device.performanceTier === 'high' ? 1 : 0.75;
+                } else {
+                    this.maxFragments = 30;
+                    this.targetFPS = 60;
+                    this.renderScale = 1;
+                }
+            }
+
+            init() {
+                try {
+                    this.setupScene();
+                    this.setupCamera();
+                    this.setupRenderer();
+                    this.setupLighting();
+                    this.createShieldFragments();
+                    this.setupEventListeners();
+                    this.animate();
+                    this.onLoaded();
+                } catch (error) {
+                    console.warn('3D initialization failed, using CSS fallback');
+                    this.onError();
+                }
+            }
+
+            setupScene() {
+                this.scene = new THREE.Scene();
+                this.scene.background = null; // Transparent for overlay
+            }
+
+            setupCamera() {
+                const aspect = window.innerWidth / window.innerHeight;
+                this.camera = new THREE.PerspectiveCamera(75, aspect, 0.1, 1000);
+                this.camera.position.set(0, 0, 5);
+            }
+
+            setupRenderer() {
+                this.renderer = new THREE.WebGLRenderer({
+                    canvas: this.canvas,
+                    alpha: true,
+                    antialias: this.device.performanceTier !== 'low',
+                    powerPreference: this.device.isMobile ? 'low-power' : 'high-performance'
+                });
+                
+                this.renderer.setSize(
+                    window.innerWidth * this.renderScale, 
+                    window.innerHeight * this.renderScale
+                );
+                this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+                this.renderer.shadowMap.enabled = !this.device.isMobile;
+            }
+
+            setupLighting() {
+                // Ambient light
+                const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+                this.scene.add(ambientLight);
+
+                // Directional light with Eve green tint
+                const directionalLight = new THREE.DirectionalLight(0x32F08C, 0.6);
+                directionalLight.position.set(10, 10, 5);
+                this.scene.add(directionalLight);
+
+                // Rim light for depth
+                const rimLight = new THREE.DirectionalLight(0x28c46e, 0.3);
+                rimLight.position.set(-10, -10, -5);
+                this.scene.add(rimLight);
+            }
+
+            createShieldFragments() {
+                const fragmentGeometry = new THREE.BoxGeometry(0.1, 0.1, 0.02);
+                
+                for (let i = 0; i < this.maxFragments; i++) {
+                    const material = new THREE.MeshLambertMaterial({
+                        color: i % 2 === 0 ? 0x32F08C : 0x28c46e,
+                        transparent: true,
+                        opacity: 0.8
+                    });
+
+                    const fragment = new THREE.Mesh(fragmentGeometry, material);
+                    
+                    // Random starting positions around the edges
+                    const angle = (i / this.maxFragments) * Math.PI * 2;
+                    const radius = 3 + Math.random() * 2;
+                    fragment.position.set(
+                        Math.cos(angle) * radius,
+                        Math.sin(angle) * radius,
+                        (Math.random() - 0.5) * 2
+                    );
+
+                    // Animation properties
+                    fragment.userData = {
+                        originalPosition: fragment.position.clone(),
+                        targetPosition: this.getShieldPosition(i),
+                        animationOffset: Math.random() * Math.PI * 2,
+                        rotationSpeed: (Math.random() - 0.5) * 0.02
+                    };
+
+                    this.shieldFragments.push(fragment);
+                    this.scene.add(fragment);
+                }
+            }
+
+            getShieldPosition(index) {
+                // Calculate shield formation positions
+                const shieldPoints = this.generateShieldShape();
+                const pointIndex = Math.floor((index / this.maxFragments) * shieldPoints.length);
+                return shieldPoints[pointIndex] || new THREE.Vector3(0, 0, 0);
+            }
+
+            generateShieldShape() {
+                const points = [];
+                const segments = 20;
+                
+                // Shield outline points
+                for (let i = 0; i < segments; i++) {
+                    const t = i / segments;
+                    let x, y;
+                    
+                    if (t < 0.5) {
+                        // Top curves
+                        const angle = t * Math.PI;
+                        x = Math.sin(angle) * 0.8;
+                        y = Math.cos(angle) * 0.3 + 0.5;
+                    } else {
+                        // Bottom point
+                        const angle = (t - 0.5) * Math.PI;
+                        x = Math.sin(angle) * 0.8 * (1 - (t - 0.5));
+                        y = -0.8 + (t - 0.5) * 0.3;
+                    }
+                    
+                    points.push(new THREE.Vector3(x, y, 0));
+                }
+                
+                return points;
+            }
+
+            animate() {
+                this.animationId = requestAnimationFrame(() => this.animate());
+                
+                const time = Date.now() * 0.001;
+                
+                // Animate shield fragments
+                this.shieldFragments.forEach((fragment, index) => {
+                    const userData = fragment.userData;
+                    const progress = (Math.sin(time + userData.animationOffset) + 1) * 0.5;
+                    
+                    // Interpolate between scattered and shield positions
+                    fragment.position.lerpVectors(
+                        userData.originalPosition,
+                        userData.targetPosition,
+                        progress * 0.3 + 0.7
+                    );
+                    
+                    // Gentle rotation
+                    fragment.rotation.z += userData.rotationSpeed;
+                    
+                    // Pulsing opacity
+                    fragment.material.opacity = 0.6 + Math.sin(time * 2 + index * 0.1) * 0.2;
+                });
+
+                // Camera subtle movement
+                this.camera.position.x = Math.sin(time * 0.5) * 0.1;
+                this.camera.position.y = Math.cos(time * 0.3) * 0.05;
+
+                this.renderer.render(this.scene, this.camera);
+            }
+
+            setupEventListeners() {
+                window.addEventListener('resize', () => this.onResize());
+                
+                // CTA button interactions
+                const ctaPrimary = document.getElementById('ctaPrimary');
+                const ctaSecondary = document.getElementById('ctaSecondary');
+                
+                if (ctaPrimary) {
+                    ctaPrimary.addEventListener('mouseenter', () => this.onCTAHover(true));
+                    ctaPrimary.addEventListener('mouseleave', () => this.onCTAHover(false));
+                }
+            }
+
+            onCTAHover(isHovering) {
+                if (!this.isLoaded) return;
+                
+                // Animate fragments toward CTA button
+                const intensity = isHovering ? 1.2 : 1;
+                this.shieldFragments.forEach(fragment => {
+                    fragment.scale.setScalar(intensity);
+                });
+            }
+
+            onResize() {
+                if (!this.camera || !this.renderer) return;
+                
+                const aspect = window.innerWidth / window.innerHeight;
+                this.camera.aspect = aspect;
+                this.camera.updateProjectionMatrix();
+                
+                this.renderer.setSize(
+                    window.innerWidth * this.renderScale,
+                    window.innerHeight * this.renderScale
+                );
+            }
+
+            onLoaded() {
+                this.isLoaded = true;
+                const loadingIndicator = document.getElementById('loadingIndicator');
+                if (loadingIndicator) {
+                    loadingIndicator.classList.remove('active');
+                }
+                console.log('Eve 3D Hero loaded successfully');
+            }
+
+            onError() {
+                const loadingIndicator = document.getElementById('loadingIndicator');
+                if (loadingIndicator) {
+                    loadingIndicator.classList.remove('active');
+                }
+                // CSS fallback is already visible
+                console.log('Using CSS fallback for Eve Hero');
+            }
+
+            destroy() {
+                if (this.animationId) {
+                    cancelAnimationFrame(this.animationId);
+                }
+                
+                if (this.renderer) {
+                    this.renderer.dispose();
+                }
+            }
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            const device = new DeviceDetector();
+            const canvas = document.getElementById('hero-canvas');
+            
+            // Only initialize 3D if WebGL is supported and device is capable
+            if (device.supportsWebGL && device.performanceTier !== 'low') {
+                // Small delay to ensure smooth page load
+                setTimeout(() => {
+                    new EveHero3D(canvas, device);
+                }, 500);
+            } else {
+                // Use CSS fallback immediately
+                const loadingIndicator = document.getElementById('loadingIndicator');
+                if (loadingIndicator) {
+                    loadingIndicator.classList.remove('active');
+                }
+                console.log('Using CSS fallback for compatibility');
+            }
+        });
+
+        // Analytics and conversion tracking
+        document.getElementById('ctaPrimary')?.addEventListener('click', function(e) {
+            // Track demo request conversion
+            console.log('Demo request initiated');
+            // Add your analytics tracking here
+        });
+
+        document.getElementById('ctaSecondary')?.addEventListener('click', function(e) {
+            // Track video demo view
+            console.log('Demo video requested');
+            // Add your analytics tracking here
+        });
+    </script>
+</body>
+</html>

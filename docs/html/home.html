@@ -3,494 +3,926 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ai.Rio - Inteligência de Dados para a Empresa Moderna</title>
+    <title>Ai.Rio - Harnessing Complexity. Powering Progress.</title>
     
-    <!-- Tailwind CSS for styling -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Three.js for 3D animation -->
-    <script type="importmap">
-        {
-            "imports": {
-                "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
-                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
-            }
-        }
-    </script>
-
-    <!-- Google Fonts: Inter -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sansation:wght@300;400;700&family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
 
     <style>
-        /* Custom styles to apply the Inter font and theme colors */
+        /* Custom Styles to integrate our branding */
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #121212; /* Off-Black */
-            color: #EFEFEF; /* Light Grey */
+            background-color: #0a0e1a; /* Ai.Rio Deep Midnight Blue */
+            font-family: 'Sansation', sans-serif;
+            color: #ccd6f6;
+            overflow-x: hidden;
         }
-        .teal-accent {
-            color: #00C2B8;
-        }
-        .teal-bg {
-            background-color: #00C2B8;
-        }
-        .teal-border {
-            border-color: #00C2B8;
-        }
-        /* Custom gradient for hero section overlay */
-        .hero-gradient {
-            background: radial-gradient(ellipse at center, rgba(18, 18, 18, 0.6) 0%, #121212 70%);
-        }
-        /* Style for the 3D canvas */
+
+        /* Canvas for 3D Background */
         #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        /* Ensure content is on top of the canvas */
+        .content-wrapper {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Ai.Rio Gradient Text */
+        .text-gradient-rio {
+            background: linear-gradient(135deg, #00d4ff, #0088aa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Eve Product Section Styling */
+        .eve-section {
+            background-color: #F8F7F4; /* Eve Off-White */
+            color: #1A472A; /* Eve Forest Green */
+        }
+        
+        .eve-section h2, .eve-section h3 {
+            font-family: 'Lora', serif;
+        }
+
+        .eve-accent-text {
+            color: #B4884B; /* Eve Bronze */
+        }
+        
+        .eve-button {
+            background-color: #1A472A; /* Eve Forest Green */
+            color: #F8F7F4;
+            border: 2px solid #1A472A;
+            transition: all 0.3s ease;
+        }
+
+        .eve-button:hover {
+            background-color: transparent;
+            color: #1A472A;
+        }
+
+        /* Quantum Orbital Logo Animation */
+        .quantum-orbital {
+            position: relative;
+            display: inline-block;
+        }
+        .quantum-orbital .dot-accent {
+            color: transparent;
+            position: relative;
+        }
+        .quantum-orbital .dot-accent::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 8px;
+            height: 8px;
+            background: #00d4ff;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 20px #00d4ff;
+        }
+        .quantum-orbital .dot-accent::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(0, 212, 255, 0.4);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: orbital-rotate 4s linear infinite;
+        }
+        @keyframes orbital-rotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        /* General button style */
+        .btn-primary {
+            background-color: #00d4ff;
+            color: #0a0e1a;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #00aacc;
+            transform: translateY(-2px);
+        }
+
+        /* Glassmorphism effect for cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Hamburger Menu Styling */
+        .hamburger-menu {
+            position: relative;
+            padding: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 50;
+        }
+
+        .hamburger-icon {
+            width: 30px;
+            height: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .hamburger-line {
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #00d4ff, #00ffd4);
+            border-radius: 2px;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transform-origin: center;
+        }
+
+        /* Animation States */
+        .hamburger-menu.active .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .hamburger-menu.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+
+        .hamburger-menu.active .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* Mobile Overlay Styling */
+        .mobile-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a1a 30%, #0f172a 70%, #0a0a0a 100%);
+            z-index: 40;
+            transform: translateX(100%);
+            transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+            overflow-y: auto;
+        }
+
+        .mobile-overlay.active {
+            transform: translateX(0);
+        }
+
+        .mobile-overlay::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 0;
-        }
-        .feature-card, .pricing-card, .about-card, .blog-card, .contact-card {
-            background-color: rgba(30, 30, 30, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
         }
-        .contact-input {
-            background-color: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+
+        .overlay-content {
+            padding: 120px 2rem 2rem;
+            max-width: 400px;
+            margin: 0 auto;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .nav-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .mobile-overlay.active .nav-section {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Staggered animation delays */
+        .nav-section:nth-child(1) { transition-delay: 0.1s; }
+        .nav-section:nth-child(2) { transition-delay: 0.2s; }
+        .nav-section:nth-child(3) { transition-delay: 0.3s; }
+        .nav-section:nth-child(4) { transition-delay: 0.4s; }
+
+        .nav-section-title {
+            font-size: 1.125rem;
+            font-weight: bold;
+            color: #00d4ff;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            color: #ccd6f6;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .nav-link:hover::before {
+            left: 100%;
+        }
+
+        .nav-link:hover {
+            color: #ffffff;
+            background: rgba(0, 212, 255, 0.1);
+            border-color: rgba(0, 212, 255, 0.3);
+            transform: translateX(8px);
+        }
+
+        .nav-icon {
+            font-size: 1.25rem;
+            min-width: 1.5rem;
+            text-align: center;
+        }
+
+        .nav-text {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* Admin Section Special Styling */
+        .nav-section-admin {
+            border-top: 1px solid rgba(180, 136, 75, 0.2);
+            padding-top: 1.5rem;
+        }
+
+        .nav-section-admin .nav-section-title {
+            color: #B4884B;
+            border-bottom-color: rgba(180, 136, 75, 0.2);
+        }
+
+        .nav-section-admin .nav-link {
+            background: rgba(180, 136, 75, 0.05);
+            border-color: rgba(180, 136, 75, 0.1);
+        }
+
+        .nav-section-admin .nav-link:hover {
+            background: rgba(180, 136, 75, 0.15);
+            border-color: rgba(180, 136, 75, 0.3);
+        }
+
+        /* Prevent body scroll when menu is open */
+        body.menu-open {
+            overflow: hidden;
+        }
+
+        /* Responsive behavior */
+        @media (min-width: 768px) {
+            .mobile-overlay {
+                display: none;
+            }
         }
     </style>
 </head>
-<body class="overflow-x-hidden">
+<body class="antialiased">
 
-    <div class="relative min-h-screen flex flex-col">
-        <!-- Header Navigation -->
-        <header class="absolute top-0 left-0 w-full z-20 py-6 px-4 sm:px-8">
-            <nav class="container mx-auto flex justify-between items-center">
-                <!-- Logo -->
-                <a href="#" class="flex items-center space-x-2">
-                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M20 3.33331C10.8 3.33331 3.33337 10.8 3.33337 20C3.33337 29.2 10.8 36.6666 20 36.6666C29.2 36.6666 36.6667 29.2 36.6667 20C36.6667 10.8 29.2 3.33331 20 3.33331Z" stroke="#EFEFEF" stroke-width="1.5"/>
-                        <path d="M20 29L18 24L13 22.5L18 21L20 14L22 21L27 22.5L22 24L20 29Z" fill="#00C2B8"/>
-                    </svg>
-                    <span class="text-2xl font-bold tracking-tight text-white">Ai.Rio</span>
-                </a>
-                <!-- Desktop Navigation Links -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#solutions" class="text-gray-300 hover:text-white transition-colors duration-300">Soluções</a>
-                    <a href="#pricing" class="text-gray-300 hover:text-white transition-colors duration-300">Preços</a>
-                    <a href="#about" class="text-gray-300 hover:text-white transition-colors duration-300">Sobre</a>
-                    <a href="#blog" class="text-gray-300 hover:text-white transition-colors duration-300">Blog</a>
-                    <a href="#contact" class="text-gray-300 hover:text-white transition-colors duration-300">Contato</a>
+    <canvas id="bg-canvas"></canvas>
+
+    <div class="content-wrapper">
+        <!-- Header & Hero Section -->
+        <header class="relative overflow-hidden min-h-screen flex flex-col">
+            <div class="container mx-auto px-6 py-8">
+                <nav class="flex items-center justify-between">
+                    <div class="logo quantum-orbital text-3xl font-bold text-white">
+                        ai<span class="dot-accent">.</span>rio
+                    </div>
+                    <div class="hidden md:flex items-center space-x-8">
+                        <a href="#platform" class="hover:text-cyan-400 transition-colors">Plataforma</a>
+                        <a href="#eve" class="hover:text-cyan-400 transition-colors">Produto: Eve</a>
+                        <a href="#solutions" class="hover:text-cyan-400 transition-colors">Soluções</a>
+                        <a href="#contact" class="btn-primary font-bold py-2 px-6 rounded-full">Contato</a>
+                    </div>
+                    <div class="md:hidden">
+                        <button id="hamburger-btn" class="hamburger-menu text-white focus:outline-none relative z-50">
+                            <div class="hamburger-icon">
+                                <span class="hamburger-line"></span>
+                                <span class="hamburger-line"></span>
+                                <span class="hamburger-line"></span>
+                            </div>
+                        </button>
+                    </div>
+                </nav>
+            </div>
+            
+            <div class="flex-grow flex items-center justify-center text-center">
+                <div class="pb-16">
+                    <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight">
+                        <span class="text-gradient-rio">Harnessing Complexity.</span><br>Powering Progress.
+                    </h1>
+                    <p class="mt-6 text-lg md:text-xl max-w-3xl mx-auto">
+                        Desvendamos o potencial de dados complexos para impulsionar a próxima onda de transformação digital no Brasil através de IA aplicada e ética.
+                    </p>
+                    <div class="mt-8">
+                        <a href="#eve" class="btn-primary font-bold py-3 px-8 rounded-full text-lg">Conheça o Eve</a>
+                    </div>
                 </div>
-                <!-- Call to Action Button -->
-                <a href="#" class="hidden md:block bg-white text-gray-900 font-semibold py-2 px-5 rounded-lg hover:bg-gray-200 transition-colors duration-300">
-                    Solicitar Demo
-                </a>
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-button" class="md:hidden text-white">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                </button>
-            </nav>
+            </div>
         </header>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden fixed top-0 left-0 w-full h-full bg-[#121212] z-40 flex flex-col items-center justify-center space-y-8">
-             <button id="close-mobile-menu" class="absolute top-8 right-8 text-white">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </button>
-            <a href="#solutions" class="text-2xl text-gray-300 hover:text-white transition-colors duration-300">Soluções</a>
-            <a href="#pricing" class="text-2xl text-gray-300 hover:text-white transition-colors duration-300">Preços</a>
-            <a href="#about" class="text-2xl text-gray-300 hover:text-white transition-colors duration-300">Sobre</a>
-            <a href="#blog" class="text-2xl text-gray-300 hover:text-white transition-colors duration-300">Blog</a>
-            <a href="#contact" class="text-2xl text-gray-300 hover:text-white transition-colors duration-300">Contato</a>
-            <a href="#" class="mt-4 bg-white text-gray-900 font-semibold py-3 px-8 rounded-lg hover:bg-gray-200 transition-colors duration-300">
-                Solicitar Demo
-            </a>
-        </div>
-
-
-        <!-- Hero Section -->
-        <main class="relative flex-grow flex items-center justify-center">
-            <canvas id="bg-canvas"></canvas>
-            <div class="relative z-10 text-center px-4 hero-gradient w-full h-full flex flex-col items-center justify-center">
-                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white max-w-4xl leading-tight">
-                    Onde Dados Complexos Geram <span class="teal-accent">Clareza Estratégica.</span>
-                </h1>
-                <p class="mt-6 text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
-                    A Ai.Rio é uma plataforma de inteligência de dados de nível enterprise, projetada para processar informações não estruturadas com segurança e transformar seus maiores desafios de conformidade em vantagens competitivas.
+        <!-- Platform Section (Chuncking System) -->
+        <section id="platform" class="py-20 bg-[#0a0e1a]">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">A base da nossa inteligência:</h2>
+                <p class="mt-2 text-4xl md:text-5xl font-bold text-gradient-rio">The Chuncking System</p>
+                <p class="mt-6 max-w-3xl mx-auto text-lg">
+                    Nossa plataforma proprietária de inteligência de documentos é o motor por trás de cada solução Ai.Rio. Construída para segurança, performance e uma compreensão contextual profunda.
                 </p>
-                <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="#solutions" class="w-full sm:w-auto teal-bg text-white font-semibold py-3 px-8 rounded-lg hover:opacity-90 transition-opacity duration-300">
-                        Conheça o Eve para LGPD
-                    </a>
-                    <a href="#contact" class="w-full sm:w-auto bg-transparent border-2 border-gray-400 text-gray-200 font-semibold py-3 px-8 rounded-lg hover:bg-gray-800 hover:border-gray-300 transition-colors duration-300">
-                        Fale com um Especialista
-                    </a>
+                <div class="mt-12 grid md:grid-cols-3 gap-8">
+                    <!-- Feature Card 1 -->
+                    <div class="glass-card rounded-xl p-8">
+                        <div class="text-cyan-400 mb-4">
+                            <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M12 6V3m0 18v-3"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Hybrid Chunking Engine</h3>
+                        <p class="mt-2">Preserva o contexto semântico para uma análise de IA superior, indo além da simples divisão de texto.</p>
+                    </div>
+                    <!-- Feature Card 2 -->
+                    <div class="glass-card rounded-xl p-8">
+                        <div class="text-cyan-400 mb-4">
+                            <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Security Framework</h3>
+                        <p class="mt-2">Segurança de nível enterprise em cada etapa, com validação rigorosa para proteger seus dados mais críticos.</p>
+                    </div>
+                    <!-- Feature Card 3 -->
+                    <div class="glass-card rounded-xl p-8">
+                        <div class="text-cyan-400 mb-4">
+                            <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Performance & Caching</h3>
+                        <p class="mt-2">Otimizado para velocidade e eficiência, processando grandes volumes de documentos em segundos, não em horas.</p>
+                    </div>
                 </div>
             </div>
-        </main>
-    </div>
-    
-    <!-- All other sections remain the same -->
-    <!-- Solutions Section -->
-    <div id="solutions" class="py-20 sm:py-32 bg-gray-900">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <h2 class="text-base font-semibold leading-7 teal-accent">Soluções de Inteligência Aplicada</h2>
-                <p class="mt-2 text-3xl sm:text-4xl font-bold tracking-tight text-white">Uma plataforma. Múltiplas especialidades.</p>
-                <p class="mt-6 text-lg leading-8 text-gray-300 max-w-2xl mx-auto">A plataforma Ai.Rio capacita agentes de IA especializados para resolver os desafios mais complexos de cada setor. Começando pelo jurídico.</p>
-            </div>
-            <div class="mt-16 max-w-xl mx-auto lg:max-w-none">
-                <div class="feature-card rounded-3xl p-8 ring-1 ring-inset ring-white/10">
-                    <div class="lg:flex lg:items-start lg:gap-x-8">
-                        <div class="flex-shrink-0 flex justify-center">
-                             <div class="h-20 w-20 flex items-center justify-center rounded-lg bg-black/50 ring-1 ring-white/10">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 teal-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 20.944a11.955 11.955 0 0118 0z" />
-                                </svg>
+        </section>
+
+        <!-- Eve Product Section -->
+        <section id="eve" class="eve-section py-24">
+            <div class="container mx-auto px-6">
+                <div class="md:flex md:items-center md:space-x-12">
+                    <!-- Left Side: Content -->
+                    <div class="md:w-1/2">
+                        <p class="font-bold eve-accent-text">PRODUTO EM DESTAQUE</p>
+                        <h2 class="text-4xl md:text-5xl font-bold mt-2">Eve by Ai.Rio</h2>
+                        <h3 class="text-2xl md:text-3xl mt-4">Conformidade LGPD com Confiança. Não com Complexidade.</h3>
+                        <p class="mt-6 text-lg leading-relaxed">
+                            Eve é sua especialista em conformidade LGPD, alimentada por IA. Ela automatiza a análise de contratos, reduz drasticamente o tempo de revisão e oferece a confiança para que equipes jurídicas naveguem por riscos regulatórios complexos com velocidade e precisão.
+                        </p>
+                        <p class="mt-4 text-lg leading-relaxed">
+                            Transforme seu departamento jurídico de um gargalo de negócios para um acelerador estratégico.
+                        </p>
+                        <div class="mt-8">
+                            <a href="#" class="eve-button font-bold py-3 px-8 rounded-full text-lg">Solicite uma Demonstração</a>
+                        </div>
+                    </div>
+                    <!-- Right Side: Visual -->
+                    <div class="md:w-1/2 mt-12 md:mt-0">
+                        <div class="bg-white/50 p-8 rounded-2xl shadow-2xl" style="background-color: rgba(26, 71, 42, 0.1);">
+                            <div class="flex items-center mb-4">
+                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500 ml-2"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500 ml-2"></div>
+                            </div>
+                            <p class="font-mono text-sm">Contrato_Fornecedor_SaaS_v2.pdf</p>
+                            <div class="mt-4 bg-[#1A472A] text-white p-4 rounded-lg">
+                                <p class="font-bold text-lg eve-accent-text">LGPD Red Flag Report</p>
+                                <p class="mt-2 text-3xl font-bold">Alto Risco</p>
+                                <p class="text-sm opacity-80">5 Cláusulas Críticas Identificadas</p>
+                            </div>
+                            <div class="mt-4 space-y-3">
+                                <div class="bg-white p-3 rounded-md shadow">
+                                    <p class="font-bold text-sm">Cláusula 8.1: Transferência Internacional de Dados</p>
+                                    <p class="text-xs text-red-700 font-bold">ALERTA: Ausência de garantias adequadas.</p>
+                                </div>
+                                <div class="bg-white p-3 rounded-md shadow">
+                                    <p class="font-bold text-sm">Cláusula 12.3: Retenção de Dados</p>
+                                    <p class="text-xs text-yellow-700 font-bold">AVISO: Período de retenção indefinido.</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="mt-6 lg:mt-0 lg:flex-1">
-                            <h3 class="text-2xl font-bold text-white">Ai.Rio Eve: Conformidade LGPD, Reinventada.</h3>
-                            <p class="mt-2 text-gray-300">Eve analisa automaticamente contratos e documentos legais para identificar riscos de conformidade com a LGPD, transformando semanas de trabalho manual em minutos de análise estratégica. Reduza riscos, acelere negócios e capacite sua equipe jurídica.</p>
-                            <dl class="mt-8 space-y-4 text-base leading-7 text-gray-300">
-                                <div class="relative pl-9"><dt class="inline font-semibold text-white">Análise Automatizada:</dt><dd class="inline"> Identifique cláusulas de risco e receba insights acionáveis em segundos.</dd></div>
-                                <div class="relative pl-9"><dt class="inline font-semibold text-white">Redução de Risco:</dt><dd class="inline"> Mitigue os riscos financeiros e de reputação da não-conformidade com a LGPD.</dd></div>
-                                <div class="relative pl-9"><dt class="inline font-semibold text-white">Relatórios Instantâneos:</dt><dd class="inline"> Exporte relatórios claros e profissionais para compartilhar com stakeholders.</dd></div>
-                            </dl>
-                            <a href="#" class="mt-8 inline-block teal-bg text-white font-semibold py-2 px-5 rounded-lg hover:opacity-90 transition-opacity duration-300">Descubra o Eve</a>
-                        </div>
                     </div>
                 </div>
             </div>
-            <div class="text-center mt-16"><p class="text-lg text-gray-400">Em breve: Agentes para Finanças, Saúde e Mais.</p></div>
-        </div>
+        </section>
+
+        <!-- Solutions Section -->
+        <section id="solutions" class="py-20 bg-[#0a0e1a]">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">Uma Plataforma, Múltiplas Indústrias</h2>
+                <p class="mt-4 max-w-3xl mx-auto text-lg">
+                    O poder do nosso Chuncking System se estende além do jurídico. Estamos desenvolvendo soluções especializadas para os setores mais complexos do Brasil.
+                </p>
+                <div class="mt-12 flex flex-wrap justify-center gap-8">
+                    <span class="glass-card text-lg font-bold py-3 px-6 rounded-full">Setor Jurídico</span>
+                    <span class="glass-card text-lg font-bold py-3 px-6 rounded-full opacity-50">Finanças</span>
+                    <span class="glass-card text-lg font-bold py-3 px-6 rounded-full opacity-50">Saúde</span>
+                    <span class="glass-card text-lg font-bold py-3 px-6 rounded-full opacity-50">Agronegócio</span>
+                    <span class="glass-card text-lg font-bold py-3 px-6 rounded-full opacity-50">Setor Público</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact / CTA Section -->
+        <section id="contact" class="bg-gray-900/50 py-24">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">Pronto para impulsionar o progresso?</h2>
+                <p class="mt-4 max-w-2xl mx-auto text-lg">
+                    Seja para transformar sua conformidade com o Eve ou para explorar o poder da nossa plataforma, nossa equipe está pronta para conversar.
+                </p>
+                <div class="mt-8">
+                    <a href="#" class="btn-primary font-bold py-3 px-8 rounded-full text-lg">Fale com um Especialista</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="py-12 bg-[#0a0e1a]">
+            <div class="container mx-auto px-6 text-center">
+                <div class="logo quantum-orbital text-3xl font-bold text-white mb-4">
+                    ai<span class="dot-accent">.</span>rio
+                </div>
+                <div class="flex justify-center space-x-6 mb-6">
+                    <a href="#" class="hover:text-cyan-400">Sobre Nós</a>
+                    <a href="#" class="hover:text-cyan-400">Carreiras</a>
+                    <a href="#" class="hover:text-cyan-400">Blog</a>
+                    <a href="#" class="hover:text-cyan-400">Privacidade</a>
+                </div>
+                <p class="text-sm text-gray-500">&copy; 2025 Ai.Rio Tecnologias Ltda. Todos os direitos reservados.</p>
+            </div>
+        </footer>
     </div>
-    <!-- Pricing Section -->
-    <div id="pricing" class="py-20 sm:py-32">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <h2 class="text-base font-semibold leading-7 teal-accent">Preços Transparentes</h2>
-                <p class="mt-2 text-3xl sm:text-4xl font-bold tracking-tight text-white">Planos projetados para escalar com você.</p>
-                <p class="mt-6 text-lg leading-8 text-gray-300 max-w-2xl mx-auto">Escolha o plano que melhor se adapta às suas necessidades de análise de dados e conformidade.</p>
-            </div>
-            <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="pricing-card rounded-3xl p-8 flex flex-col">
-                    <h3 class="text-2xl font-bold text-white">Profissional</h3><p class="mt-2 text-gray-400">Ideal para equipes e pequenas empresas.</p>
-                    <div class="mt-6"><span class="text-5xl font-bold text-white">R$499</span><span class="text-lg text-gray-400">/mês</span></div>
-                    <ul role="list" class="mt-8 space-y-3 text-sm leading-6 text-gray-300">
-                        <li class="flex gap-x-3"><svg class="h-6 w-5 flex-none teal-accent" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>500 Análises de Documentos/mês</li>
-                        <li class="flex gap-x-3"><svg class="h-6 w-5 flex-none teal-accent" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>Até 5 Usuários</li>
-                        <li class="flex gap-x-3"><svg class="h-6 w-5 flex-none teal-accent" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>Suporte por Email</li>
-                    </ul>
-                    <a href="#" class="mt-auto teal-bg text-white font-semibold py-3 px-5 rounded-lg hover:opacity-90 transition-opacity duration-300 text-center">Começar Agora</a>
-                </div>
-                <div class="pricing-card rounded-3xl p-8 flex flex-col ring-2 ring-inset teal-border relative">
-                    <div class="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2"><p class="rounded-full bg-teal-500/10 px-3 py-1 text-sm font-semibold leading-6 teal-accent ring-1 ring-inset ring-teal-500/20">Mais Popular</p></div>
-                    <h3 class="text-2xl font-bold text-white">Business</h3><p class="mt-2 text-gray-400">Para empresas em crescimento e uso intensivo.</p>
-                    <div class="mt-6"><span class="text-5xl font-bold text-white">R$1.299</span><span class="text-lg text-gray-400">/mês</span></div>
-                    <ul role="list" class="mt-8 space-y-3 text-sm leading-6 text-gray-300">
-                        <li class="flex gap-x-3"><svg class="h-6 w-5 flex-none teal-accent" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>2000 Análises de Documentos/mês</li>
-                        <li class="flex gap-x-3"><svg class="h-6 w-5 flex-none teal-accent" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>Até 20 Usuários</li>
-                        <li class="flex gap-x-3"><svg class="h-6 w-5 flex-none teal-accent" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>Suporte Prioritário</li>
-                        <li class="flex gap-x-3"><svg class="h-6 w-5 flex-none teal-accent" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>Integrações API</li>
-                    </ul>
-                    <a href="#" class="mt-auto teal-bg text-white font-semibold py-3 px-5 rounded-lg hover:opacity-90 transition-opacity duration-300 text-center">Começar Agora</a>
-                </div>
-                <div class="pricing-card rounded-3xl p-8 flex flex-col">
-                    <h3 class="text-2xl font-bold text-white">Enterprise</h3><p class="mt-2 text-gray-400">Soluções customizadas para grandes corporações.</p>
-                    <div class="mt-6"><span class="text-4xl font-bold text-white">Customizado</span></div>
-                    <ul role="list" class="mt-8 space-y-3 text-sm leading-6 text-gray-300">
-                        <li class="flex gap-x-3"><svg class="h-6 w-5 flex-none teal-accent" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>Volume de Análise Ilimitado</li>
-                        <li class="flex gap-x-3"><svg class="h-6 w-5 flex-none teal-accent" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>Gerente de Conta Dedicado</li>
-                        <li class="flex gap-x-3"><svg class="h-6 w-5 flex-none teal-accent" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>SLA de Uptime e Suporte 24/7</li>
-                        <li class="flex gap-x-3"><svg class="h-6 w-5 flex-none teal-accent" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>Segurança e Governança Avançada</li>
-                    </ul>
-                    <a href="#contact" class="mt-auto bg-transparent border-2 border-gray-400 text-gray-200 font-semibold py-3 px-5 rounded-lg hover:bg-gray-800 hover:border-gray-300 transition-colors duration-300 text-center">Fale Conosco</a>
+
+    <!-- Mobile Navigation Overlay -->
+    <div id="mobile-overlay" class="mobile-overlay">
+        <div class="overlay-content">
+            <!-- Navigation Section -->
+            <div class="nav-section">
+                <h3 class="nav-section-title">Navegação Principal</h3>
+                <div class="nav-links">
+                    <a href="/" class="nav-link">
+                        <span class="nav-icon">🏠</span>
+                        <span class="nav-text">Início</span>
+                    </a>
+                    <a href="/solucoes" class="nav-link">
+                        <span class="nav-icon">📋</span>
+                        <span class="nav-text">Soluções</span>
+                    </a>
+                    <a href="/precos" class="nav-link">
+                        <span class="nav-icon">💰</span>
+                        <span class="nav-text">Preços</span>
+                    </a>
+                    <a href="/blog" class="nav-link">
+                        <span class="nav-icon">📝</span>
+                        <span class="nav-text">Blog</span>
+                    </a>
+                    <a href="/sobre" class="nav-link">
+                        <span class="nav-icon">👥</span>
+                        <span class="nav-text">Sobre Nós</span>
+                    </a>
+                    <a href="/contato" class="nav-link">
+                        <span class="nav-icon">📞</span>
+                        <span class="nav-text">Contato</span>
+                    </a>
                 </div>
             </div>
-        </div>
-    </div>
-    <!-- About Us Section -->
-    <div id="about" class="py-20 sm:py-32 bg-gray-900">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="lg:grid lg:grid-cols-2 lg:items-center lg:gap-x-16">
-                <div>
-                    <h2 class="text-base font-semibold leading-7 teal-accent">Nossa Missão</h2>
-                    <p class="mt-2 text-3xl sm:text-4xl font-bold tracking-tight text-white">Construindo o Futuro da Inteligência de Dados no Brasil.</p>
-                    <p class="mt-6 text-lg leading-8 text-gray-300">A Ai.Rio nasceu da convicção de que a tecnologia de ponta pode resolver os desafios de dados mais complexos do Brasil. Nossa missão é transformar informações não estruturadas em clareza estratégica, capacitando empresas a operar com mais segurança, eficiência e inteligência.</p>
-                    <p class="mt-4 text-lg leading-8 text-gray-300">Somos uma equipe de tecnólogos, engenheiros e estrategistas baseados no Rio de Janeiro, apaixonados por construir soluções de IA de nível mundial que respeitam e entendem o contexto local.</p>
-                </div>
-                <div class="mt-10 lg:mt-0">
-                    <div class="about-card rounded-3xl p-8">
-                        <img class="w-full rounded-2xl" src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?q=80&w=2070&auto=format&fit=crop" alt="Equipe Ai.Rio"
-                        onerror="this.onerror=null;this.src='https://placehold.co/600x400/121212/EFEFEF?text=Nossa+Equipe';">
-                    </div>
+
+            <!-- Application Section -->
+            <div class="nav-section">
+                <h3 class="nav-section-title">Aplicação</h3>
+                <div class="nav-links">
+                    <a href="/dashboard" class="nav-link">
+                        <span class="nav-icon">📊</span>
+                        <span class="nav-text">Dashboard</span>
+                    </a>
+                    <a href="/upload" class="nav-link">
+                        <span class="nav-icon">📤</span>
+                        <span class="nav-text">Upload</span>
+                    </a>
+                    <a href="/reports" class="nav-link">
+                        <span class="nav-icon">📄</span>
+                        <span class="nav-text">Relatórios</span>
+                    </a>
                 </div>
             </div>
-        </div>
-    </div>
-    <!-- Blog Section -->
-    <div id="blog" class="py-20 sm:py-32">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <h2 class="text-base font-semibold leading-7 teal-accent">Insights e Notícias</h2>
-                <p class="mt-2 text-3xl sm:text-4xl font-bold tracking-tight text-white">Do nosso blog.</p>
-                <p class="mt-6 text-lg leading-8 text-gray-300 max-w-2xl mx-auto">Acompanhe as últimas tendências em IA, conformidade e tecnologia de dados no contexto brasileiro.</p>
-            </div>
-            <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Blog Post 1 -->
-                <article class="blog-card rounded-3xl p-6 flex flex-col items-start justify-between">
-                    <div class="w-full">
-                        <time datetime="2025-07-15" class="text-xs text-gray-400">15 de Julho, 2025</time>
-                        <h3 class="mt-3 text-lg font-semibold leading-6 text-white"><a href="#">LGPD e IA: 5 Desafios que Toda Empresa Brasileira Enfrentará</a></h3>
-                        <p class="mt-4 line-clamp-3 text-sm leading-6 text-gray-300">A interseção da Lei Geral de Proteção de Dados com a inteligência artificial cria um novo paradigma de risco e oportunidade. Saiba como se preparar.</p>
-                    </div>
-                    <div class="mt-6 flex items-center gap-x-4 text-sm"><a href="#" class="relative z-10 rounded-full teal-bg px-3 py-1.5 font-medium text-white hover:opacity-90">Leia Mais</a></div>
-                </article>
-                <!-- Blog Post 2 -->
-                <article class="blog-card rounded-3xl p-6 flex flex-col items-start justify-between">
-                    <div class="w-full">
-                        <time datetime="2025-07-10" class="text-xs text-gray-400">10 de Julho, 2025</time>
-                        <h3 class="mt-3 text-lg font-semibold leading-6 text-white"><a href="#">O Futuro da Análise de Contratos: Além do CTRL+F</a></h3>
-                        <p class="mt-4 line-clamp-3 text-sm leading-6 text-gray-300">Ferramentas de busca tradicionais são insuficientes. Veja como a IA está revolucionando a due diligence e a análise de risco contratual.</p>
-                    </div>
-                    <div class="mt-6 flex items-center gap-x-4 text-sm"><a href="#" class="relative z-10 rounded-full teal-bg px-3 py-1.5 font-medium text-white hover:opacity-90">Leia Mais</a></div>
-                </article>
-                <!-- Blog Post 3 -->
-                <article class="blog-card rounded-3xl p-6 flex flex-col items-start justify-between">
-                    <div class="w-full">
-                        <time datetime="2025-07-05" class="text-xs text-gray-400">05 de Julho, 2025</time>
-                        <h3 class="mt-3 text-lg font-semibold leading-6 text-white"><a href="#">Construindo Confiança em IA: A Importância da Transparência</a></h3>
-                        <p class="mt-4 line-clamp-3 text-sm leading-6 text-gray-300">Para que a IA seja adotada em larga escala em setores críticos, a confiança é fundamental. Discutimos o papel da explicabilidade e da auditoria.</p>
-                    </div>
-                    <div class="mt-6 flex items-center gap-x-4 text-sm"><a href="#" class="relative z-10 rounded-full teal-bg px-3 py-1.5 font-medium text-white hover:opacity-90">Leia Mais</a></div>
-                </article>
-            </div>
-        </div>
-    </div>
-    <!-- Contact Section -->
-    <div id="contact" class="py-20 sm:py-32 bg-gray-900">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="contact-card rounded-3xl p-8 lg:p-16 lg:grid lg:grid-cols-2 lg:gap-x-16">
-                <div>
-                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white">Vamos conversar.</h2>
-                    <p class="mt-4 text-lg leading-8 text-gray-300">Tem um desafio complexo de dados? Quer saber mais sobre o Eve ou sobre a plataforma Ai.Rio? Nossa equipe está pronta para ajudar.</p>
-                    <div class="mt-8 space-y-4">
-                        <div class="flex gap-x-4">
-                            <svg class="h-6 w-6 flex-none text-gray-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
-                            <span class="text-gray-300">contato@ai.rio</span>
-                        </div>
-                        <div class="flex gap-x-4">
-                            <svg class="h-6 w-6 flex-none text-gray-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
-                            <span class="text-gray-300">+55 (21) 99999-9999</span>
-                        </div>
-                    </div>
+
+            <!-- Quick Links Section -->
+            <div class="nav-section">
+                <h3 class="nav-section-title">Links Rápidos</h3>
+                <div class="nav-links">
+                    <a href="#platform" class="nav-link">
+                        <span class="nav-icon">⚡</span>
+                        <span class="nav-text">Plataforma</span>
+                    </a>
+                    <a href="#eve" class="nav-link">
+                        <span class="nav-icon">🤖</span>
+                        <span class="nav-text">Produto: Eve</span>
+                    </a>
+                    <a href="#solutions" class="nav-link">
+                        <span class="nav-icon">🔧</span>
+                        <span class="nav-text">Soluções</span>
+                    </a>
                 </div>
-                <form action="#" method="POST" class="mt-10 lg:mt-0">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
-                        <div><label for="first-name" class="block text-sm font-semibold leading-6 text-white">Nome</label><div class="mt-2.5"><input type="text" name="first-name" id="first-name" autocomplete="given-name" class="contact-input block w-full rounded-md px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-gray-700 focus:ring-2 focus:ring-inset focus:ring-teal-500 sm:text-sm sm:leading-6"></div></div>
-                        <div><label for="last-name" class="block text-sm font-semibold leading-6 text-white">Sobrenome</label><div class="mt-2.5"><input type="text" name="last-name" id="last-name" autocomplete="family-name" class="contact-input block w-full rounded-md px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-gray-700 focus:ring-2 focus:ring-inset focus:ring-teal-500 sm:text-sm sm:leading-6"></div></div>
-                        <div class="sm:col-span-2"><label for="email" class="block text-sm font-semibold leading-6 text-white">Email</label><div class="mt-2.5"><input type="email" name="email" id="email" autocomplete="email" class="contact-input block w-full rounded-md px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-gray-700 focus:ring-2 focus:ring-inset focus:ring-teal-500 sm:text-sm sm:leading-6"></div></div>
-                        <div class="sm:col-span-2"><label for="company" class="block text-sm font-semibold leading-6 text-white">Empresa</label><div class="mt-2.5"><input type="text" name="company" id="company" autocomplete="organization" class="contact-input block w-full rounded-md px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-gray-700 focus:ring-2 focus:ring-inset focus:ring-teal-500 sm:text-sm sm:leading-6"></div></div>
-                        <div class="sm:col-span-2"><label for="message" class="block text-sm font-semibold leading-6 text-white">Mensagem</label><div class="mt-2.5"><textarea name="message" id="message" rows="4" class="contact-input block w-full rounded-md px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-gray-700 focus:ring-2 focus:ring-inset focus:ring-teal-500 sm:text-sm sm:leading-6"></textarea></div></div>
-                    </div>
-                    <div class="mt-8"><button type="submit" class="w-full teal-bg text-white font-semibold py-3 px-5 rounded-lg hover:opacity-90 transition-opacity duration-300">Enviar Mensagem</button></div>
-                </form>
+            </div>
+
+            <!-- Admin Section -->
+            <div class="nav-section nav-section-admin">
+                <h3 class="nav-section-title">Administração</h3>
+                <div class="nav-links">
+                    <a href="/email/campaigns" class="nav-link">
+                        <span class="nav-icon">✉️</span>
+                        <span class="nav-text">Email Campaigns</span>
+                    </a>
+                    <a href="/email/templates" class="nav-link">
+                        <span class="nav-icon">📧</span>
+                        <span class="nav-text">Email Templates</span>
+                    </a>
+                    <a href="/analytics" class="nav-link">
+                        <span class="nav-icon">📈</span>
+                        <span class="nav-text">Analytics</span>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
 
-    <script type="module">
-        import * as THREE from 'three';
-        import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
-        import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
-        import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
-        import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
+    <!-- 3D Animation & Scroll Libraries -->
+    <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.151.3/build/three.module.js"
+        }
+      }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
-        // --- Mobile Menu & Smooth Scroll ---
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const closeMobileMenuButton = document.getElementById('close-mobile-menu');
-
-        mobileMenuButton.addEventListener('click', () => { mobileMenu.classList.remove('hidden'); });
-        closeMobileMenuButton.addEventListener('click', () => { mobileMenu.classList.add('hidden'); });
-        
-        document.querySelectorAll('#mobile-menu a, nav a').forEach(link => {
-            link.addEventListener('click', (e) => {
-                const href = link.getAttribute('href');
-                if (href.startsWith('#')) {
-                    e.preventDefault();
-                    document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
-                    if(!mobileMenu.classList.contains('hidden')) { mobileMenu.classList.add('hidden'); }
+    <!-- Mobile Menu JavaScript -->
+    <script>
+        // Mobile Menu Functionality with iframe-safe implementation
+        function initMobileMenu() {
+            // Use getElementsByTagName for iframe compatibility
+            const buttons = document.getElementsByTagName('button');
+            let hamburgerBtn = null;
+            
+            // Find hamburger button
+            for (let i = 0; i < buttons.length; i++) {
+                if (buttons[i].id === 'hamburger-btn' || 
+                    buttons[i].className.includes('hamburger-menu')) {
+                    hamburgerBtn = buttons[i];
+                    break;
+                }
+            }
+            
+            if (!hamburgerBtn) {
+                console.warn('Hamburger button not found');
+                return;
+            }
+            
+            const overlay = document.getElementById('mobile-overlay');
+            const body = document.body;
+            
+            if (!overlay) {
+                console.warn('Mobile overlay not found');
+                return;
+            }
+            
+            let isMenuOpen = false;
+            
+            // Toggle menu function
+            function toggleMenu() {
+                isMenuOpen = !isMenuOpen;
+                
+                if (isMenuOpen) {
+                    hamburgerBtn.classList.add('active');
+                    overlay.classList.add('active');
+                    body.classList.add('menu-open');
+                } else {
+                    hamburgerBtn.classList.remove('active');
+                    overlay.classList.remove('active');
+                    body.classList.remove('menu-open');
+                }
+            }
+            
+            // Close menu function
+            function closeMenu() {
+                if (isMenuOpen) {
+                    isMenuOpen = false;
+                    hamburgerBtn.classList.remove('active');
+                    overlay.classList.remove('active');
+                    body.classList.remove('menu-open');
+                }
+            }
+            
+            // Hamburger button click event
+            hamburgerBtn.addEventListener('click', toggleMenu);
+            
+            // Close on overlay background click
+            overlay.addEventListener('click', function(e) {
+                if (e.target === overlay) {
+                    closeMenu();
                 }
             });
+            
+            // Close on navigation link click
+            const navLinks = overlay.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    
+                    // Handle anchor links with smooth scrolling
+                    if (href && href.startsWith('#')) {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            closeMenu();
+                            // Wait for menu to close before scrolling
+                            setTimeout(() => {
+                                target.scrollIntoView({
+                                    behavior: 'smooth',
+                                    block: 'start'
+                                });
+                            }, 300);
+                        }
+                    } else {
+                        // For regular links, just close the menu
+                        closeMenu();
+                    }
+                });
+            });
+            
+            // Escape key support
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && isMenuOpen) {
+                    closeMenu();
+                }
+            });
+            
+            // Close menu on desktop resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 768 && isMenuOpen) {
+                    closeMenu();
+                }
+            });
+            
+            // Prevent touch scrolling on body when menu is open
+            document.addEventListener('touchmove', function(e) {
+                if (isMenuOpen && !overlay.contains(e.target)) {
+                    e.preventDefault();
+                }
+            }, { passive: false });
+        }
+        
+        // Initialize menu when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initMobileMenu);
+        } else {
+            initMobileMenu();
+        }
+        
+        // Retry initialization for iframe compatibility
+        setTimeout(initMobileMenu, 100);
+        setTimeout(initMobileMenu, 500);
+    </script>
+
+    <!-- Main 3D Animation Script -->
+    <script type="module">
+        import * as THREE from 'three';
+
+        // --- Renderer Setup ---
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.set(0, 0, 10);
+
+        const renderer = new THREE.WebGLRenderer({
+            canvas: document.getElementById('bg-canvas'),
+            antialias: true,
+            alpha: true
         });
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(window.innerWidth, window.innerHeight);
 
-        // --- State-of-the-Art Three.js Animation ---
-        let scene, camera, renderer, composer;
-        let mainObject;
-        const clock = new THREE.Clock();
-
-        // --- Custom Shaders ---
+        // --- Shaders ---
         const vertexShader = `
-            varying vec2 vUv;
-            void main() {
-                vUv = uv;
-                gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-            }
+          uniform float uTime;
+          uniform float uSize;
+          uniform vec2 uMouse;
+          
+          attribute float aScale;
+          attribute vec3 aRandom;
+
+          varying vec3 vColor;
+
+          // Perlin Noise function
+          vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+          vec4 mod289(vec4 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+          vec4 permute(vec4 x) { return mod289(((x*34.0)+1.0)*x); }
+          vec4 taylorInvSqrt(vec4 r) { return 1.79284291400159 - 0.85373472095314 * r; }
+          float snoise(vec3 v) {
+            const vec2 C = vec2(1.0/6.0, 1.0/3.0);
+            const vec4 D = vec4(0.0, 0.5, 1.0, 2.0);
+            vec3 i = floor(v + dot(v, C.yyy));
+            vec3 x0 = v - i + dot(i, C.xxx);
+            vec3 g = step(x0.yzx, x0.xyz);
+            vec3 l = 1.0 - g;
+            vec3 i1 = min(g.xyz, l.zxy);
+            vec3 i2 = max(g.xyz, l.zxy);
+            vec3 x1 = x0 - i1 + C.xxx;
+            vec3 x2 = x0 - i2 + C.yyy;
+            vec3 x3 = x0 - D.yyy;
+            i = mod289(i);
+            vec4 p = permute(permute(permute(
+                      i.z + vec4(0.0, i1.z, i2.z, 1.0))
+                    + i.y + vec4(0.0, i1.y, i2.y, 1.0))
+                    + i.x + vec4(0.0, i1.x, i2.x, 1.0));
+            float n_ = 0.142857142857;
+            vec3 ns = n_ * D.wyz - D.xzx;
+            vec4 j = p - 49.0 * floor(p * ns.z * ns.z);
+            vec4 x_ = floor(j * ns.z);
+            vec4 y_ = floor(j - 7.0 * x_);
+            vec4 x = x_ * ns.x + ns.yyyy;
+            vec4 y = y_ * ns.x + ns.yyyy;
+            vec4 h = 1.0 - abs(x) - abs(y);
+            vec4 b0 = vec4(x.xy, y.xy);
+            vec4 b1 = vec4(x.zw, y.zw);
+            vec4 s0 = floor(b0) * 2.0 + 1.0;
+            vec4 s1 = floor(b1) * 2.0 + 1.0;
+            vec4 sh = -step(h, vec4(0.0));
+            vec4 a0 = b0.xzyw + s0.xzyw * sh.xxyy;
+            vec4 a1 = b1.xzyw + s1.xzyw * sh.zzww;
+            vec3 p0 = vec3(a0.xy, h.x);
+            vec3 p1 = vec3(a0.zw, h.y);
+            vec3 p2 = vec3(a1.xy, h.z);
+            vec3 p3 = vec3(a1.zw, h.w);
+            vec4 norm = taylorInvSqrt(vec4(dot(p0, p0), dot(p1, p1), dot(p2, p2), dot(p3, p3)));
+            p0 *= norm.x; p1 *= norm.y; p2 *= norm.z; p3 *= norm.w;
+            vec4 m = max(0.6 - vec4(dot(x0, x0), dot(x1, x1), dot(x2, x2), dot(x3, x3)), 0.0);
+            m = m * m;
+            return 42.0 * dot(m*m, vec4(dot(p0, x0), dot(p1, x1), dot(p2, x2), dot(p3, x3)));
+          }
+
+          void main() {
+            vec3 pos = position;
+            
+            // Mouse interaction
+            float dist = length(pos.xy - uMouse * 5.0);
+            float mouseEffect = smoothstep(2.0, 0.0, dist) * 2.0;
+            
+            // Noise-based animation
+            float noise = snoise(pos * aRandom.x * 0.2 + uTime * 0.1);
+            pos.z += noise * aScale * 2.0 + mouseEffect;
+            
+            // Final position
+            vec4 modelPosition = modelMatrix * vec4(pos, 1.0);
+            vec4 viewPosition = viewMatrix * modelPosition;
+            vec4 projectedPosition = projectionMatrix * viewPosition;
+            gl_Position = projectedPosition;
+            
+            // Point size
+            gl_PointSize = uSize * aScale * (1.0 + mouseEffect);
+            gl_PointSize *= (1.0 / -viewPosition.z);
+            
+            // Color variation based on position and time
+            vColor = vec3(0.1 + abs(sin(uTime + pos.x * 0.5)), 0.5, 0.8 + abs(cos(uTime + pos.y * 0.5)));
+          }
         `;
 
         const fragmentShader = `
-            uniform float u_time;
-            uniform vec2 u_resolution;
-            varying vec2 vUv;
-
-            // FBM (Fractal Brownian Motion) for noise
-            float random (in vec2 st) {
-                return fract(sin(dot(st.xy, vec2(12.9898,78.233))) * 43758.5453123);
-            }
-
-            float noise (in vec2 st) {
-                vec2 i = floor(st);
-                vec2 f = fract(st);
-                float a = random(i);
-                float b = random(i + vec2(1.0, 0.0));
-                float c = random(i + vec2(0.0, 1.0));
-                float d = random(i + vec2(1.0, 1.0));
-                vec2 u = f * f * (3.0 - 2.0 * f);
-                return mix(a, b, u.x) + (c - a)* u.y * (1.0 - u.x) + (d - b) * u.x * u.y;
-            }
-
-            #define OCTAVES 6
-            float fbm (in vec2 st) {
-                float value = 0.0;
-                float amplitude = .5;
-                float frequency = 0.;
-                for (int i = 0; i < OCTAVES; i++) {
-                    value += amplitude * noise(st);
-                    st *= 2.;
-                    amplitude *= .5;
-                }
-                return value;
-            }
-
-            void main() {
-                vec2 st = vUv * 2.0 - 1.0;
-                st.x *= u_resolution.x / u_resolution.y;
-
-                vec3 color = vec3(0.0);
-                float d = distance(st, vec2(0.0));
-                
-                float noise = fbm(st * 3.0 + u_time * 0.1);
-                
-                float ring = smoothstep(0.4, 0.41, d) - smoothstep(0.45, 0.46, d);
-                ring *= 1.0 + noise * 0.5;
-
-                color = vec3(ring);
-                color.r *= 0.1;
-                color.g *= 0.8;
-                color.b *= 0.9;
-
-                gl_FragColor = vec4(color, ring);
-            }
+          varying vec3 vColor;
+          void main() {
+            float strength = distance(gl_PointCoord, vec2(0.5));
+            strength = 1.0 - step(0.5, strength);
+            gl_FragColor = vec4(vColor * strength, strength);
+          }
         `;
 
-        function init() {
-            scene = new THREE.Scene();
-            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            camera.position.z = 5;
+        // --- Particles Geometry ---
+        const particlesCount = 20000;
+        const positions = new Float32Array(particlesCount * 3);
+        const scales = new Float32Array(particlesCount);
+        const randoms = new Float32Array(particlesCount * 3);
 
-            renderer = new THREE.WebGLRenderer({
-                canvas: document.querySelector('#bg-canvas'),
-                antialias: true,
-                alpha: true
-            });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setPixelRatio(window.devicePixelRatio);
-
-            // --- Main Object with Custom Shader ---
-            const geometry = new THREE.SphereGeometry(2, 64, 64);
-            const material = new THREE.ShaderMaterial({
-                uniforms: {
-                    u_time: { value: 0.0 },
-                    u_resolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) }
-                },
-                vertexShader,
-                fragmentShader,
-                transparent: true,
-                blending: THREE.AdditiveBlending
-            });
-            mainObject = new THREE.Mesh(geometry, material);
-            scene.add(mainObject);
-
-            // --- Post-Processing ---
-            composer = new EffectComposer(renderer);
-            const renderPass = new RenderPass(scene, camera);
-            composer.addPass(renderPass);
-
-            // Bloom pass for the glow effect
-            const bloomPass = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 1.2, 0.6, 0.4);
-            composer.addPass(bloomPass);
-
-            // Custom shader pass for additional effects if needed
-            const customShader = {
-                uniforms: {
-                    tDiffuse: { value: null },
-                },
-                vertexShader: `
-                    varying vec2 vUv;
-                    void main() {
-                        vUv = uv;
-                        gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
-                    }
-                `,
-                fragmentShader: `
-                    uniform sampler2D tDiffuse;
-                    varying vec2 vUv;
-                    void main() {
-                        vec4 color = texture2D(tDiffuse, vUv);
-                        // Add vignette
-                        float d = distance(vUv, vec2(0.5));
-                        color.rgb *= smoothstep(0.8, 0.2, d);
-                        gl_FragColor = color;
-                    }
-                `
-            };
-            const customPass = new ShaderPass(customShader);
-            composer.addPass(customPass);
-
-
-            window.addEventListener('resize', onWindowResize);
-            animate();
+        for (let i = 0; i < particlesCount; i++) {
+            positions[i * 3 + 0] = (Math.random() - 0.5) * 20;
+            positions[i * 3 + 1] = (Math.random() - 0.5) * 20;
+            positions[i * 3 + 2] = (Math.random() - 0.5) * 20;
+            scales[i] = Math.random() * 1.5;
+            randoms[i * 3 + 0] = Math.random();
+            randoms[i * 3 + 1] = Math.random();
+            randoms[i * 3 + 2] = Math.random();
         }
 
-        function onWindowResize() {
+        const geometry = new THREE.BufferGeometry();
+        geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        geometry.setAttribute('aScale', new THREE.BufferAttribute(scales, 1));
+        geometry.setAttribute('aRandom', new THREE.BufferAttribute(randoms, 3));
+
+        // --- Particles Material ---
+        const material = new THREE.ShaderMaterial({
+            vertexShader,
+            fragmentShader,
+            uniforms: {
+                uTime: { value: 0 },
+                uSize: { value: 20.0 * renderer.getPixelRatio() },
+                uMouse: { value: new THREE.Vector2() }
+            },
+            blending: THREE.AdditiveBlending,
+            transparent: true,
+            depthWrite: false
+        });
+
+        // --- Particles Mesh ---
+        const particles = new THREE.Points(geometry, material);
+        scene.add(particles);
+
+        // --- Mouse Interaction ---
+        const mouse = new THREE.Vector2();
+        window.addEventListener('mousemove', (event) => {
+            mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+            mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+        });
+
+        // --- Animation Loop ---
+        const clock = new THREE.Clock();
+        function animate() {
+            const elapsedTime = clock.getElapsedTime();
+            material.uniforms.uTime.value = elapsedTime;
+            material.uniforms.uMouse.value.lerp(mouse, 0.05);
+
+            renderer.render(scene, camera);
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        // --- Scroll Animation (GSAP) ---
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.to(camera.position, {
+            z: 2,
+            scrollTrigger: {
+                trigger: ".content-wrapper",
+                start: "top top",
+                end: "bottom bottom",
+                scrub: 1,
+            }
+        });
+
+        // --- Window Resize ---
+        window.addEventListener('resize', () => {
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
             renderer.setSize(window.innerWidth, window.innerHeight);
-            composer.setSize(window.innerWidth, window.innerHeight);
-            mainObject.material.uniforms.u_resolution.value.set(window.innerWidth, window.innerHeight);
-        }
-
-        function animate() {
-            requestAnimationFrame(animate);
-            const delta = clock.getDelta();
-            
-            mainObject.material.uniforms.u_time.value += delta;
-            mainObject.rotation.x += delta * 0.1;
-            mainObject.rotation.y += delta * 0.05;
-
-            camera.lookAt(scene.position);
-
-            composer.render();
-        }
-
-        init();
+            material.uniforms.uSize.value = 20.0 * renderer.getPixelRatio();
+        });
     </script>
+
 </body>
 </html>

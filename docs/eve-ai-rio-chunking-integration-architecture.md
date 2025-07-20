@@ -151,21 +151,122 @@ The following data models support the Eve AI.Rio + Chunking System integration:
 - `securityCheckStatus`: enum - "pending" | "passed" | "failed"
 - `lgpdComplianceFlags`: object - LGPD-specific metadata flags
 
-**TypeScript Interface:**
+**TypeScript Interface (Payload CMS Collection):**
 ```typescript
+// Payload Collection Config
+import type { CollectionConfig } from 'payload'
+
+export const Documents: CollectionConfig = {
+  slug: 'documents',
+  fields: [
+    {
+      name: 'filename',
+      type: 'text',
+      required: true,
+    },
+    {
+      name: 'file',
+      type: 'upload',
+      relationTo: 'media',
+      required: true,
+    },
+    {
+      name: 'fileSize',
+      type: 'number',
+      required: true,
+    },
+    {
+      name: 'mimeType',
+      type: 'text',
+      required: true,
+    },
+    {
+      name: 'uploadedBy',
+      type: 'relationship',
+      relationTo: 'users',
+      required: true,
+    },
+    {
+      name: 'processingStatus',
+      type: 'select',
+      options: ['pending', 'processing', 'completed', 'failed', 'retrying'],
+      defaultValue: 'pending',
+    },
+    {
+      name: 'chunkingSystemJobId',
+      type: 'text',
+    },
+    {
+      name: 'securityCheckStatus',
+      type: 'select',
+      options: ['pending', 'passed', 'failed'],
+      defaultValue: 'pending',
+    },
+    {
+      name: 'storageUrl',
+      type: 'text',
+      required: true,
+    },
+    {
+      name: 'checksumSHA256',
+      type: 'text',
+      required: true,
+    },
+    {
+      name: 'lgpdComplianceFlags',
+      type: 'group',
+      fields: [
+        {
+          name: 'containsPersonalData',
+          type: 'checkbox',
+          defaultValue: false,
+        },
+        {
+          name: 'dataSensitivityLevel',
+          type: 'select',
+          options: ['low', 'medium', 'high'],
+        },
+        {
+          name: 'processingLegalBasis',
+          type: 'array',
+          fields: [
+            {
+              name: 'basis',
+              type: 'text',
+            },
+          ],
+        },
+        {
+          name: 'retentionPeriod',
+          type: 'number',
+        },
+      ],
+    },
+  ],
+  hooks: {
+    afterChange: [
+      // Import and use the afterChange hook here
+      // afterChangeHook
+    ],
+  },
+}
+
+// Generated TypeScript interface
 interface Document {
   id: string;
   filename: string;
+  file: string | Media; // Payload upload relationship
   fileSize: number;
   mimeType: string;
-  uploadedBy: string;
-  uploadedAt: Date;
+  uploadedBy: string | User; // Payload relationship
   processingStatus: ProcessingStatus;
   chunkingSystemJobId?: string;
   securityCheckStatus: SecurityStatus;
-  lgpdComplianceFlags: LGPDComplianceFlags;
   storageUrl: string;
   checksumSHA256: string;
+  lgpdComplianceFlags: LGPDComplianceFlags;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 type ProcessingStatus = "pending" | "processing" | "completed" | "failed" | "retrying";
@@ -174,7 +275,7 @@ type SecurityStatus = "pending" | "passed" | "failed";
 interface LGPDComplianceFlags {
   containsPersonalData: boolean;
   dataSensitivityLevel: "low" | "medium" | "high";
-  processingLegalBasis: string[];
+  processingLegalBasis: Array<{ basis: string }>;
   retentionPeriod?: number;
 }
 ```
@@ -199,11 +300,142 @@ interface LGPDComplianceFlags {
 - `processingTimeMs`: number - Total processing time
 - `qualityMetrics`: object - Chunk quality and analysis metrics
 
-**TypeScript Interface:**
+**Payload Collection Config:**
 ```typescript
+export const AnalysisReports: CollectionConfig = {
+  slug: 'analysis-reports',
+  fields: [
+    {
+      name: 'document',
+      type: 'relationship',
+      relationTo: 'documents',
+      required: true,
+    },
+    {
+      name: 'overallRiskScore',
+      type: 'number',
+      min: 0,
+      max: 100,
+      required: true,
+    },
+    {
+      name: 'riskLevel',
+      type: 'select',
+      options: ['baixo', 'médio', 'alto'],
+      required: true,
+    },
+    {
+      name: 'identifiedRisks',
+      type: 'array',
+      fields: [
+        {
+          name: 'category',
+          type: 'text',
+          required: true,
+        },
+        {
+          name: 'description',
+          type: 'textarea',
+          required: true,
+        },
+        {
+          name: 'severity',
+          type: 'select',
+          options: ['baixa', 'média', 'alta'],
+          required: true,
+        },
+        {
+          name: 'lgpdArticles',
+          type: 'array',
+          fields: [
+            {
+              name: 'article',
+              type: 'text',
+            },
+          ],
+        },
+        {
+          name: 'recommendations',
+          type: 'array',
+          fields: [
+            {
+              name: 'recommendation',
+              type: 'textarea',
+            },
+          ],
+        },
+        {
+          name: 'chunkReferences',
+          type: 'array',
+          fields: [
+            {
+              name: 'chunkId',
+              type: 'text',
+            },
+            {
+              name: 'startIndex',
+              type: 'number',
+            },
+            {
+              name: 'endIndex',
+              type: 'number',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'chunkingMetadata',
+      type: 'group',
+      fields: [
+        {
+          name: 'chunksGenerated',
+          type: 'number',
+        },
+        {
+          name: 'processingStrategy',
+          type: 'text',
+        },
+        {
+          name: 'qualityScore',
+          type: 'number',
+          min: 0,
+          max: 100,
+        },
+        {
+          name: 'semanticCoherence',
+          type: 'number',
+          min: 0,
+          max: 1,
+        },
+        {
+          name: 'structurePreservation',
+          type: 'number',
+          min: 0,
+          max: 1,
+        },
+      ],
+    },
+    {
+      name: 'generatedAt',
+      type: 'date',
+      defaultValue: () => new Date(),
+    },
+    {
+      name: 'processingTimeMs',
+      type: 'number',
+    },
+    {
+      name: 'qualityMetrics',
+      type: 'json',
+    },
+  ],
+}
+
+// Generated TypeScript interfaces
 interface AnalysisReport {
   id: string;
-  documentId: string;
+  document: string | Document;
   overallRiskScore: number;
   riskLevel: "baixo" | "médio" | "alto";
   identifiedRisks: LGPDRisk[];
@@ -211,17 +443,23 @@ interface AnalysisReport {
   generatedAt: Date;
   processingTimeMs: number;
   qualityMetrics: QualityMetrics;
-  auditTrail: AuditEntry[];
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 interface LGPDRisk {
-  id: string;
   category: string;
   description: string;
   severity: "baixa" | "média" | "alta";
-  lgpdArticles: string[];
-  recommendations: string[];
+  lgpdArticles: Array<{ article: string }>;
+  recommendations: Array<{ recommendation: string }>;
   chunkReferences: ChunkReference[];
+}
+
+interface ChunkReference {
+  chunkId: string;
+  startIndex: number;
+  endIndex: number;
 }
 
 interface ChunkingMetadata {
@@ -253,11 +491,113 @@ interface ChunkingMetadata {
 - `retryCount`: number - Number of retry attempts
 - `processingMetrics`: object - Performance and quality metrics
 
-**TypeScript Interface:**
+**Payload Collection Config:**
 ```typescript
+export const ProcessingJobs: CollectionConfig = {
+  slug: 'processing-jobs',
+  fields: [
+    {
+      name: 'document',
+      type: 'relationship',
+      relationTo: 'documents',
+      required: true,
+    },
+    {
+      name: 'chunkingSystemJobId',
+      type: 'text',
+      unique: true,
+    },
+    {
+      name: 'status',
+      type: 'select',
+      options: ['queued', 'processing', 'completed', 'failed', 'cancelled'],
+      defaultValue: 'queued',
+    },
+    {
+      name: 'startedAt',
+      type: 'date',
+    },
+    {
+      name: 'completedAt',
+      type: 'date',
+    },
+    {
+      name: 'errorDetails',
+      type: 'group',
+      fields: [
+        {
+          name: 'errorCode',
+          type: 'text',
+        },
+        {
+          name: 'message',
+          type: 'textarea',
+        },
+        {
+          name: 'stackTrace',
+          type: 'textarea',
+        },
+        {
+          name: 'retryable',
+          type: 'checkbox',
+          defaultValue: false,
+        },
+      ],
+    },
+    {
+      name: 'retryCount',
+      type: 'number',
+      defaultValue: 0,
+    },
+    {
+      name: 'processingMetrics',
+      type: 'group',
+      fields: [
+        {
+          name: 'processingTimeMs',
+          type: 'number',
+        },
+        {
+          name: 'peakMemoryUsage',
+          type: 'number',
+        },
+        {
+          name: 'chunksGenerated',
+          type: 'number',
+        },
+        {
+          name: 'qualityScore',
+          type: 'number',
+          min: 0,
+          max: 100,
+        },
+      ],
+    },
+    {
+      name: 'webhookEvents',
+      type: 'array',
+      fields: [
+        {
+          name: 'event',
+          type: 'text',
+        },
+        {
+          name: 'timestamp',
+          type: 'date',
+        },
+        {
+          name: 'data',
+          type: 'json',
+        },
+      ],
+    },
+  ],
+}
+
+// Generated TypeScript interfaces
 interface ProcessingJob {
   id: string;
-  documentId: string;
+  document: string | Document;
   chunkingSystemJobId: string;
   status: JobStatus;
   startedAt: Date;
@@ -266,6 +606,8 @@ interface ProcessingJob {
   retryCount: number;
   processingMetrics: ProcessingMetrics;
   webhookEvents: WebhookEvent[];
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 type JobStatus = "queued" | "processing" | "completed" | "failed" | "cancelled";
@@ -283,11 +625,28 @@ interface ProcessingMetrics {
   chunksGenerated: number;
   qualityScore: number;
 }
+
+interface WebhookEvent {
+  event: string;
+  timestamp: Date;
+  data: any;
+}
 ```
 
 ## **API Specification**
 
-### **REST API for Chunking System Integration**
+### **Payload CMS API Integration**
+
+Payload CMS provides built-in REST and GraphQL APIs. The integration leverages these APIs along with custom endpoints:
+
+**Built-in Payload APIs:**
+- `GET /api/documents` - List documents with filtering
+- `POST /api/documents` - Create new document (with file upload)
+- `GET /api/documents/:id` - Get specific document
+- `PATCH /api/documents/:id` - Update document
+- `DELETE /api/documents/:id` - Delete document
+
+**Custom Integration Endpoints:**
 
 ```yaml
 openapi: 3.0.0
@@ -296,70 +655,46 @@ info:
   version: 1.0.0
   description: Secure API for LGPD document analysis integration
 servers:
-  - url: https://api.eve-ai-rio.com/v1
+  - url: https://eve-ai-rio.com/api
     description: Production API
-  - url: https://staging-api.eve-ai-rio.com/v1
+  - url: https://staging.eve-ai-rio.com/api
     description: Staging API
 
 paths:
-  /documents/upload:
+  /chunking-webhook:
     post:
-      summary: Upload document for LGPD analysis
+      summary: Webhook endpoint for chunking system callbacks
       security:
-        - BearerAuth: []
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              type: object
-              properties:
-                file:
-                  type: string
-                  format: binary
-                  description: Legal document (PDF or DOCX)
-                metadata:
-                  $ref: '#/components/schemas/DocumentMetadata'
-      responses:
-        '201':
-          description: Document uploaded successfully
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/DocumentUploadResponse'
-        '400':
-          description: Invalid file or metadata
-        '401':
-          description: Unauthorized
-        '413':
-          description: File too large
-
-  /documents/{documentId}/analyze:
-    post:
-      summary: Trigger LGPD analysis for uploaded document
-      security:
-        - BearerAuth: []
-      parameters:
-        - name: documentId
-          in: path
-          required: true
-          schema:
-            type: string
+        - ApiKeyAuth: []
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AnalysisRequest'
+              type: object
+              properties:
+                jobId:
+                  type: string
+                  description: Chunking system job ID
+                status:
+                  type: string
+                  enum: [completed, failed]
+                results:
+                  type: object
+                  description: Analysis results from chunking system
+                error:
+                  type: object
+                  description: Error details if status is failed
       responses:
-        '202':
-          description: Analysis job created
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AnalysisJobResponse'
+        '200':
+          description: Webhook processed successfully
+        '400':
+          description: Invalid webhook payload
+        '401':
+          description: Unauthorized
 
-  /documents/{documentId}/analysis:
-    get:
-      summary: Get LGPD analysis results
+  /analysis/{documentId}/retry:
+    post:
+      summary: Retry failed LGPD analysis
       security:
         - BearerAuth: []
       parameters:
@@ -369,25 +704,21 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: Analysis results
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AnalysisReport'
         '202':
-          description: Analysis still in progress
+          description: Analysis retry initiated
         '404':
-          description: Document or analysis not found
+          description: Document not found
+        '409':
+          description: Analysis already in progress
 
-  /chunking-service/health:
+  /system/health:
     get:
-      summary: Check chunking system health
+      summary: Check system health including chunking system
       security:
-        - ApiKeyAuth: []
+        - BearerAuth: []
       responses:
         '200':
-          description: Service healthy
+          description: System healthy
           content:
             application/json:
               schema:
@@ -399,72 +730,31 @@ components:
       type: http
       scheme: bearer
       bearerFormat: JWT
+      description: Payload CMS JWT authentication
     ApiKeyAuth:
       type: apiKey
       in: header
       name: X-API-Key
+      description: Chunking system webhook authentication
 
   schemas:
-    DocumentMetadata:
-      type: object
-      properties:
-        title:
-          type: string
-        documentType:
-          type: string
-          enum: [contract, policy, agreement, terms]
-        sensitivity:
-          type: string
-          enum: [low, medium, high]
-      required: [title, documentType]
-
-    DocumentUploadResponse:
-      type: object
-      properties:
-        documentId:
-          type: string
-        filename:
-          type: string
-        uploadedAt:
-          type: string
-          format: date-time
-        processingStatus:
-          type: string
-          enum: [pending, processing, completed, failed]
-
-    AnalysisRequest:
-      type: object
-      properties:
-        priority:
-          type: string
-          enum: [low, normal, high]
-          default: normal
-        analysisType:
-          type: string
-          enum: [standard, comprehensive]
-          default: standard
-
-    AnalysisJobResponse:
+    WebhookPayload:
       type: object
       properties:
         jobId:
           type: string
-        documentId:
-          type: string
         status:
           type: string
-          enum: [queued, processing]
-        estimatedCompletionTime:
-          type: string
-          format: date-time
+          enum: [completed, failed]
+        results:
+          $ref: '#/components/schemas/AnalysisResults'
+        error:
+          $ref: '#/components/schemas/ProcessingError'
+      required: [jobId, status]
 
-    AnalysisReport:
+    AnalysisResults:
       type: object
       properties:
-        reportId:
-          type: string
-        documentId:
-          type: string
         overallRiskScore:
           type: integer
           minimum: 0
@@ -476,11 +766,40 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/LGPDRisk'
-        generatedAt:
-          type: string
-          format: date-time
+        chunkingMetadata:
+          $ref: '#/components/schemas/ChunkingMetadata'
         processingMetrics:
           $ref: '#/components/schemas/ProcessingMetrics'
+
+    ProcessingError:
+      type: object
+      properties:
+        errorCode:
+          type: string
+        message:
+          type: string
+        retryable:
+          type: boolean
+
+    ChunkingMetadata:
+      type: object
+      properties:
+        chunksGenerated:
+          type: integer
+        processingStrategy:
+          type: string
+        qualityScore:
+          type: number
+          minimum: 0
+          maximum: 100
+        semanticCoherence:
+          type: number
+          minimum: 0
+          maximum: 1
+        structurePreservation:
+          type: number
+          minimum: 0
+          maximum: 1
 
     LGPDRisk:
       type: object
@@ -534,6 +853,197 @@ components:
           type: number
 ```
 
+## **Server Functions Integration**
+
+### **Payload Local API Server Functions**
+
+Server functions provide secure bridge between frontend and Payload Local API for chunking system integration:
+
+```typescript
+'use server'
+
+import { getPayload } from 'payload'
+import config from '@payload-config'
+
+export async function uploadAndAnalyzeDocument(formData: FormData) {
+  const payload = await getPayload({ config })
+  
+  try {
+    // Create document record
+    const document = await payload.create({
+      collection: 'documents',
+      data: {
+        filename: formData.get('filename') as string,
+        fileSize: parseInt(formData.get('fileSize') as string),
+        mimeType: formData.get('mimeType') as string,
+        // File will be handled by Payload's upload field
+      },
+      file: formData.get('file') as File,
+    })
+    
+    // afterChange hook will automatically trigger chunking system
+    return { success: true, documentId: document.id }
+  } catch (error) {
+    throw new Error(`Error uploading document: ${error.message}`)
+  }
+}
+
+export async function getAnalysisStatus(documentId: string) {
+  const payload = await getPayload({ config })
+  
+  try {
+    const document = await payload.findByID({
+      collection: 'documents',
+      id: documentId,
+    })
+    
+    const processingJob = await payload.find({
+      collection: 'processing-jobs',
+      where: {
+        documentId: {
+          equals: documentId,
+        },
+      },
+      limit: 1,
+    })
+    
+    return {
+      processingStatus: document.processingStatus,
+      jobStatus: processingJob.docs[0]?.status,
+      estimatedCompletion: processingJob.docs[0]?.estimatedCompletion,
+    }
+  } catch (error) {
+    throw new Error(`Error fetching analysis status: ${error.message}`)
+  }
+}
+
+export async function getAnalysisReport(documentId: string) {
+  const payload = await getPayload({ config })
+  
+  try {
+    const report = await payload.find({
+      collection: 'analysis-reports',
+      where: {
+        documentId: {
+          equals: documentId,
+        },
+      },
+      limit: 1,
+    })
+    
+    if (!report.docs.length) {
+      return { error: 'Analysis not yet completed' }
+    }
+    
+    return report.docs[0]
+  } catch (error) {
+    throw new Error(`Error fetching analysis report: ${error.message}`)
+  }
+}
+
+export async function retryFailedAnalysis(documentId: string) {
+  const payload = await getPayload({ config })
+  
+  try {
+    // Update document status to trigger re-analysis
+    await payload.update({
+      collection: 'documents',
+      id: documentId,
+      data: {
+        processingStatus: 'pending',
+      },
+    })
+    
+    // Reset processing job
+    const existingJob = await payload.find({
+      collection: 'processing-jobs',
+      where: {
+        documentId: { equals: documentId },
+      },
+      limit: 1,
+    })
+    
+    if (existingJob.docs.length) {
+      await payload.update({
+        collection: 'processing-jobs',
+        id: existingJob.docs[0].id,
+        data: {
+          status: 'queued',
+          retryCount: existingJob.docs[0].retryCount + 1,
+          errorDetails: null,
+        },
+      })
+    }
+    
+    return { success: true, message: 'Analysis retry initiated' }
+  } catch (error) {
+    throw new Error(`Error retrying analysis: ${error.message}`)
+  }
+}
+```
+
+### **Frontend Server Function Usage**
+
+```typescript
+'use client'
+
+import React, { useState } from 'react'
+import { uploadAndAnalyzeDocument, getAnalysisStatus, getAnalysisReport } from '../server/actions'
+
+export const DocumentAnalysisFlow: React.FC = () => {
+  const [uploadStatus, setUploadStatus] = useState<string>('')
+  const [analysisStatus, setAnalysisStatus] = useState<string>('')
+  
+  const handleFileUpload = async (file: File) => {
+    const formData = new FormData()
+    formData.append('file', file)
+    formData.append('filename', file.name)
+    formData.append('fileSize', file.size.toString())
+    formData.append('mimeType', file.type)
+    
+    try {
+      const result = await uploadAndAnalyzeDocument(formData)
+      setUploadStatus(`Document uploaded: ${result.documentId}`)
+      
+      // Poll for analysis completion
+      pollAnalysisStatus(result.documentId)
+    } catch (error) {
+      setUploadStatus(`Upload failed: ${error.message}`)
+    }
+  }
+  
+  const pollAnalysisStatus = async (documentId: string) => {
+    const interval = setInterval(async () => {
+      try {
+        const status = await getAnalysisStatus(documentId)
+        setAnalysisStatus(`Status: ${status.processingStatus}`)
+        
+        if (status.processingStatus === 'completed') {
+          clearInterval(interval)
+          const report = await getAnalysisReport(documentId)
+          // Handle completed analysis
+        }
+      } catch (error) {
+        clearInterval(interval)
+        setAnalysisStatus(`Error: ${error.message}`)
+      }
+    }, 2000)
+  }
+  
+  return (
+    <div>
+      <input
+        type="file"
+        accept=".pdf,.docx"
+        onChange={(e) => e.target.files?.[0] && handleFileUpload(e.target.files[0])}
+      />
+      <p>{uploadStatus}</p>
+      <p>{analysisStatus}</p>
+    </div>
+  )
+}
+```
+
 ## **Components**
 
 ### **Frontend Components (Next.js)**
@@ -575,6 +1085,76 @@ components:
   - Status tracking and webhook handling
 - **Dependencies:** File storage, chunking system API, audit logging
 - **Technology Stack:** TypeScript, Payload CMS collections and hooks
+
+**Hook Implementation Example:**
+```typescript
+import type { CollectionAfterChangeHook } from 'payload'
+import { ChunkingSystemClient } from '../integrations/chunking-system'
+
+const afterChange: CollectionAfterChangeHook = async ({ req, doc, operation }) => {
+  // Only trigger for new documents
+  if (operation === 'create') {
+    try {
+      // Create processing job using req for transaction support
+      const processingJob = await req.payload.create({
+        req, // Pass req object for transaction support
+        collection: 'processing-jobs',
+        data: {
+          documentId: doc.id,
+          status: 'queued',
+          startedAt: new Date(),
+          retryCount: 0,
+        },
+      })
+
+      // Trigger chunking system analysis
+      const chunkingClient = new ChunkingSystemClient()
+      const analysisJob = await chunkingClient.analyzeDocument({
+        documentId: doc.id,
+        documentUrl: doc.storageUrl,
+        processingJobId: processingJob.id,
+      })
+
+      // Update processing job with chunking system job ID
+      await req.payload.update({
+        req,
+        collection: 'processing-jobs',
+        id: processingJob.id,
+        data: {
+          chunkingSystemJobId: analysisJob.jobId,
+          status: 'processing',
+        },
+      })
+
+      // Update document with processing status
+      await req.payload.update({
+        req,
+        collection: 'documents',
+        id: doc.id,
+        data: {
+          processingStatus: 'processing',
+          chunkingSystemJobId: analysisJob.jobId,
+        },
+      })
+
+    } catch (error) {
+      // Log error and update status
+      req.payload.logger.error('Failed to trigger document analysis', { error, documentId: doc.id })
+      
+      await req.payload.update({
+        req,
+        collection: 'documents',
+        id: doc.id,
+        data: {
+          processingStatus: 'failed',
+        },
+      })
+    }
+  }
+}
+
+export default afterChange
+```
 
 #### **Integration API Gateway**
 - **Responsibility:** Secure communication layer with the chunking system
@@ -718,72 +1298,82 @@ sequenceDiagram
 ### **PostgreSQL Schema for Integration**
 
 ```sql
--- Enhanced Documents table
+-- Enhanced Documents table (Payload CMS conventions)
 CREATE TABLE documents (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     filename VARCHAR(255) NOT NULL,
-    file_size BIGINT NOT NULL,
-    mime_type VARCHAR(100) NOT NULL,
-    uploaded_by UUID REFERENCES users(id),
-    uploaded_at TIMESTAMPTZ DEFAULT NOW(),
-    processing_status VARCHAR(20) DEFAULT 'pending',
-    chunking_system_job_id VARCHAR(255),
-    security_check_status VARCHAR(20) DEFAULT 'pending',
-    storage_url TEXT NOT NULL,
-    checksum_sha256 VARCHAR(64) NOT NULL,
-    lgpd_compliance_flags JSONB DEFAULT '{}',
-    created_at TIMESTAMPTZ DEFAULT NOW(),
-    updated_at TIMESTAMPTZ DEFAULT NOW()
+    "fileSize" BIGINT NOT NULL,
+    "mimeType" VARCHAR(100) NOT NULL,
+    "uploadedBy" UUID REFERENCES users(id),
+    "uploadedAt" TIMESTAMPTZ DEFAULT NOW(),
+    "processingStatus" VARCHAR(20) DEFAULT 'pending',
+    "chunkingSystemJobId" VARCHAR(255),
+    "securityCheckStatus" VARCHAR(20) DEFAULT 'pending',
+    "storageUrl" TEXT NOT NULL,
+    "checksumSHA256" VARCHAR(64) NOT NULL,
+    "lgpdComplianceFlags" JSONB DEFAULT '{}',
+    "createdAt" TIMESTAMPTZ DEFAULT NOW(),
+    "updatedAt" TIMESTAMPTZ DEFAULT NOW(),
+    -- Payload CMS system fields
+    "_status" VARCHAR(32) DEFAULT 'published'
 );
 
--- Analysis Reports table
-CREATE TABLE analysis_reports (
+-- Analysis Reports table (Payload CMS conventions)
+CREATE TABLE "analysis-reports" (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    document_id UUID REFERENCES documents(id),
-    overall_risk_score INTEGER CHECK (overall_risk_score >= 0 AND overall_risk_score <= 100),
-    risk_level VARCHAR(10) CHECK (risk_level IN ('baixo', 'médio', 'alto')),
-    identified_risks JSONB DEFAULT '[]',
-    chunking_metadata JSONB DEFAULT '{}',
-    generated_at TIMESTAMPTZ DEFAULT NOW(),
-    processing_time_ms INTEGER,
-    quality_metrics JSONB DEFAULT '{}',
-    created_at TIMESTAMPTZ DEFAULT NOW()
+    "documentId" UUID REFERENCES documents(id),
+    "overallRiskScore" INTEGER CHECK ("overallRiskScore" >= 0 AND "overallRiskScore" <= 100),
+    "riskLevel" VARCHAR(10) CHECK ("riskLevel" IN ('baixo', 'médio', 'alto')),
+    "identifiedRisks" JSONB DEFAULT '[]',
+    "chunkingMetadata" JSONB DEFAULT '{}',
+    "generatedAt" TIMESTAMPTZ DEFAULT NOW(),
+    "processingTimeMs" INTEGER,
+    "qualityMetrics" JSONB DEFAULT '{}',
+    "createdAt" TIMESTAMPTZ DEFAULT NOW(),
+    "updatedAt" TIMESTAMPTZ DEFAULT NOW(),
+    -- Payload CMS system fields
+    "_status" VARCHAR(32) DEFAULT 'published'
 );
 
--- Processing Jobs table
-CREATE TABLE processing_jobs (
+-- Processing Jobs table (Payload CMS conventions)
+CREATE TABLE "processing-jobs" (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    document_id UUID REFERENCES documents(id),
-    chunking_system_job_id VARCHAR(255) UNIQUE,
+    "documentId" UUID REFERENCES documents(id),
+    "chunkingSystemJobId" VARCHAR(255) UNIQUE,
     status VARCHAR(20) DEFAULT 'queued',
-    started_at TIMESTAMPTZ,
-    completed_at TIMESTAMPTZ,
-    error_details JSONB,
-    retry_count INTEGER DEFAULT 0,
-    processing_metrics JSONB DEFAULT '{}',
-    webhook_events JSONB DEFAULT '[]',
-    created_at TIMESTAMPTZ DEFAULT NOW(),
-    updated_at TIMESTAMPTZ DEFAULT NOW()
+    "startedAt" TIMESTAMPTZ,
+    "completedAt" TIMESTAMPTZ,
+    "errorDetails" JSONB,
+    "retryCount" INTEGER DEFAULT 0,
+    "processingMetrics" JSONB DEFAULT '{}',
+    "webhookEvents" JSONB DEFAULT '[]',
+    "createdAt" TIMESTAMPTZ DEFAULT NOW(),
+    "updatedAt" TIMESTAMPTZ DEFAULT NOW(),
+    -- Payload CMS system fields
+    "_status" VARCHAR(32) DEFAULT 'published'
 );
 
--- Audit Trail table for LGPD compliance
-CREATE TABLE audit_trail (
+-- Audit Trail table for LGPD compliance (Payload CMS conventions)
+CREATE TABLE "audit-trail" (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    entity_type VARCHAR(50) NOT NULL,
-    entity_id UUID NOT NULL,
+    "entityType" VARCHAR(50) NOT NULL,
+    "entityId" UUID NOT NULL,
     action VARCHAR(50) NOT NULL,
-    actor_id UUID REFERENCES users(id),
-    actor_ip INET,
-    event_data JSONB DEFAULT '{}',
-    created_at TIMESTAMPTZ DEFAULT NOW()
+    "actorId" UUID REFERENCES users(id),
+    "actorIp" INET,
+    "eventData" JSONB DEFAULT '{}',
+    "createdAt" TIMESTAMPTZ DEFAULT NOW(),
+    "updatedAt" TIMESTAMPTZ DEFAULT NOW(),
+    -- Payload CMS system fields
+    "_status" VARCHAR(32) DEFAULT 'published'
 );
 
--- Indexes for performance
-CREATE INDEX idx_documents_user_status ON documents(uploaded_by, processing_status);
-CREATE INDEX idx_documents_job_id ON documents(chunking_system_job_id);
-CREATE INDEX idx_processing_jobs_status ON processing_jobs(status, started_at);
-CREATE INDEX idx_analysis_reports_document ON analysis_reports(document_id);
-CREATE INDEX idx_audit_trail_entity ON audit_trail(entity_type, entity_id, created_at);
+-- Indexes for performance (Payload CMS conventions)
+CREATE INDEX "idx_documents_user_status" ON documents("uploadedBy", "processingStatus");
+CREATE INDEX "idx_documents_job_id" ON documents("chunkingSystemJobId");
+CREATE INDEX "idx_processing_jobs_status" ON "processing-jobs"(status, "startedAt");
+CREATE INDEX "idx_analysis_reports_document" ON "analysis-reports"("documentId");
+CREATE INDEX "idx_audit_trail_entity" ON "audit-trail"("entityType", "entityId", "createdAt");
 ```
 
 ## **Security and Performance**
@@ -1008,7 +1598,11 @@ class IntegrationErrorHandler {
 
 ```typescript
 class ChunkingSystemClient {
-  async analyzeDocument(documentId: string): Promise<AnalysisResult> {
+  async analyzeDocument(params: {
+    documentId: string;
+    documentUrl: string;
+    processingJobId: string;
+  }): Promise<AnalysisResult> {
     const retryPolicy = new ExponentialBackoff({
       maxRetries: 3,
       baseDelay: 1000,
@@ -1017,7 +1611,14 @@ class ChunkingSystemClient {
 
     return retryPolicy.execute(async () => {
       try {
-        const response = await this.httpClient.post('/analyze', { documentId });
+        const response = await this.httpClient.post('/analyze', {
+          documentId: params.documentId,
+          documentUrl: params.documentUrl,
+          callbackUrl: `${process.env.PAYLOAD_PUBLIC_URL}/api/chunking-webhook`,
+          metadata: {
+            processingJobId: params.processingJobId,
+          },
+        });
         return response.data;
       } catch (error) {
         if (this.isRetryable(error)) {
@@ -1026,6 +1627,15 @@ class ChunkingSystemClient {
         throw new PermanentError(error.message);
       }
     });
+  }
+
+  private isRetryable(error: any): boolean {
+    // Network errors, timeouts, and 5xx responses are retryable
+    return (
+      error.code === 'ECONNRESET' ||
+      error.code === 'ETIMEDOUT' ||
+      (error.response && error.response.status >= 500)
+    );
   }
 }
 ```

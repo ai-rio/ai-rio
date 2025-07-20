@@ -1,20 +1,28 @@
-# **Eve AI.Rio - LGPD Compliance Specialist PRD**
+# **Eve AI.Rio Application PRD - Legal/LGPD Vertical within AI.Rio Platform**
 
-## **Goals and Background Context**
+> **Note**: This document describes the Eve AI.Rio application specifications within the broader AI.Rio Platform. For platform-level requirements and multi-application architecture, see `ai-rio-platform-prd.md`.
 
-### **Goals**
+## **Application Goals and Context**
 
-# - To drastically reduce the time and manual effort required for legal professionals to conduct LGPD compliance reviews on contracts and other legal documents.
+### **Eve Application Goals**
+
+- To deliver the flagship legal compliance application within the AI.Rio Platform, specializing in LGPD compliance analysis for Brazilian legal professionals.
+
+- To drastically reduce the time and manual effort required for legal professionals to conduct LGPD compliance reviews on contracts and other legal documents.
 
 - To significantly mitigate the financial and reputational risks faced by large Brazilian corporations due to LGPD non-compliance.
 
-- To deliver a "lovable" product experience that transforms the role of in-house legal teams from a business bottleneck into a strategic, high-speed enabler.
+- To deliver a "lovable" application experience that transforms the role of in-house legal teams from a business bottleneck into a strategic, high-speed enabler.
 
-- To establish Eve AI.Rio as the definitive market leader in the specialized niche of AI-powered legal compliance within Brazil.
+- To establish Eve AI.Rio as the definitive market leader in the specialized niche of AI-powered legal compliance within Brazil, while serving as the flagship application demonstrating AI.Rio Platform capabilities.
 
-### **Background Context**
+### **Eve Application Context**
 
-# The Brazilian legal market operates under immense pressure from high document volumes and a complex, constantly evolving regulatory landscape. The enactment of the Lei Geral de Proteção de Dados (LGPD) has created a critical pain point for corporations, with severe financial penalties for non-compliance. Our market research indicates that a vast majority of Brazilian companies are not fully compliant, facing significant challenges in adapting their processes and analyzing the risk embedded in thousands of contracts.Our target micro-segment—in-house legal departments at large corporations—feels this pain most acutely as they are the direct owners of this risk. Existing Legaltech solutions are often too generic, failing to provide the deep, context-aware analysis required for Brazilian law, while manual review is slow, expensive, and prone to human error. Eve AI.Rio addresses this specific, high-value gap by leveraging its proprietary document processing engine to offer an "LGPD Compliance Specialist" agent. This agent provides the automated, accurate, and trustworthy analysis needed to turn a high-stakes compliance burden into a manageable, data-driven process.
+The Brazilian legal market operates under immense pressure from high document volumes and a complex, constantly evolving regulatory landscape. The enactment of the Lei Geral de Proteção de Dados (LGPD) has created a critical pain point for corporations, with severe financial penalties for non-compliance. Our market research indicates that a vast majority of Brazilian companies are not fully compliant, facing significant challenges in adapting their processes and analyzing the risk embedded in thousands of contracts.
+
+Our target micro-segment—in-house legal departments at large corporations—feels this pain most acutely as they are the direct owners of this risk. Existing Legaltech solutions are often too generic, failing to provide the deep, context-aware analysis required for Brazilian law, while manual review is slow, expensive, and prone to human error. 
+
+**Eve AI.Rio**, as the flagship application within the AI.Rio Platform, addresses this specific, high-value gap by leveraging the platform's proprietary "Motor de Chunking Híbrido" to offer specialized LGPD compliance analysis. This application provides the automated, accurate, and trustworthy analysis needed to turn a high-stakes compliance burden into a manageable, data-driven process, while demonstrating the platform's capability to deliver industry-specific intelligence.
 
 ### **Change Log**
 
@@ -26,6 +34,7 @@
 | 2025-07-18 | 4.1         | Corrected architectural inaccuracies: separated chunking-system (LGPD only) from email AI services (OpenAI), clarified PostHog scope for user analytics only. | Sarah, Product Owner |
 | 2025-07-18 | 5.0         | Added Epic 0: Public Marketing Platform with comprehensive user stories for all public-facing pages (homepage, solutions, pricing, blog, about, contact, lead generation). | Sarah, Product Owner |
 | 2025-07-18 | 6.0         | Added Epic 6: Enterprise Integration & Resilience with 5 user stories for chunking system integration. Enhanced data models, NFRs, and technical assumptions to support enterprise-grade distributed system architecture. | Sarah, Product Owner |
+| 2025-01-20 | 7.0         | Repositioned as Eve Application PRD within AI.Rio Platform architecture. Renamed from eve-ai-rio-prd.md to eve-application-prd.md. Platform-level requirements moved to ai-rio-platform-prd.md. | John, Product Manager |
 
 ## **Requirements**
 

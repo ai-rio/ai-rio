@@ -1,10 +1,12 @@
-# **Eve AI.Rio - Fullstack Architecture**
+# **Eve AI.Rio Application Architecture - Legal/LGPD Vertical within AI.Rio Platform**
+
+> **Note**: This document describes the Eve AI.Rio application architecture within the broader AI.Rio Platform. For platform-level architecture and multi-application infrastructure, see `ai-rio-platform-architecture.md`.
 
 ## **Introduction**
 
-This document outlines the complete fullstack architecture for the **Eve AI.Rio - LGPD Compliance Specialist** platform. It serves as the single source of truth for all technical design and implementation, guiding the development team in building a secure, scalable, and maintainable application.
+This document outlines the application-specific architecture for **Eve AI.Rio** - the legal compliance and LGPD specialist application within the AI.Rio Platform. It serves as the implementation guide for the Eve application, detailing how it integrates with platform services while delivering specialized LGPD compliance analysis.
 
-The architecture is designed to directly support the requirements detailed in the Product Requirements Document (PRD), leveraging a modern, serverless-first stack centered around Next.js and Payload CMS. This unified approach ensures a cohesive development experience and a seamless integration between the user-facing application and the core AI services.
+The architecture is designed to support the Eve application requirements detailed in `eve-application-prd.md`, leveraging the AI.Rio Platform's shared infrastructure (defined in `ai-rio-platform-architecture.md`) while providing specialized legal document processing capabilities.
 
 
 ### **Change Log**
@@ -28,13 +30,16 @@ The architecture is designed to directly support the requirements detailed in th
 | 2025-07-18 | 2.3         | Made AI Email Dashboard an admin-only feature                                               | Winston, Architect |
 | 2025-07-18 | 3.0         | Added comprehensive operational strategies (Security, Observability, CI/CD, Error Handling) | Winston, Architect |
 | 2025-07-18 | 3.1         | Corrected High Level Architecture Diagram: moved database to external services, added OpenAI API, fixed chunking-system scope, removed incorrect email generation references. | Sarah, Product Owner |
+| 2025-01-20 | 4.0         | Repositioned as Eve Application Architecture within AI.Rio Platform. Renamed from eve-ai-rio-architecture.md. Platform-level architecture moved to ai-rio-platform-architecture.md. | John, Product Manager |
 
 
-## **High Level Architecture**
+## **Eve Application Architecture**
 
-### **Technical Summary**
+### **Application Technical Summary**
 
-The Eve AI.Rio platform is architected as a serverless web application built on a monorepo structure. The system features a **Next.js** frontend for a dynamic, responsive user experience, and a **Payload CMS** backend that provides a robust application framework for user management, data persistence, and API services. The core intellectual property, the proprietary chuncking-system, is integrated as a distinct, internal microservice. This decoupled architecture allows for independent scaling and development of the AI engine while leveraging Payload CMS to accelerate the delivery of core application features, including an AI-powered email engine. The entire system is designed for a multi-tenant SaaS environment, prioritizing security, data isolation, and performance.
+The Eve AI.Rio application is architected as a specialized legal compliance application within the AI.Rio Platform. The application leverages platform services (user management, shared AI processing, analytics) while providing LGPD-specific user interfaces, workflows, and analysis capabilities. The application features dedicated routes within the platform's Next.js frontend, specialized API endpoints for legal document processing, and integration with the platform's shared "Motor de Chunking Híbrido" for LGPD compliance analysis.
+
+The application is designed to operate within the platform's multi-tenant architecture while maintaining clear separation of legal-specific functionality and data.
 
 
 ### **Platform and Infrastructure Choice**
@@ -219,9 +224,11 @@ The following data models will be configured as **Collections** within Payload C
 (As previously defined)
 
 
-## **Source Tree**
+## **Eve Application Source Tree**
 
-The project will adhere to the following complete monorepo structure, which integrates Next.js and Payload CMS within a single codebase. This structure clearly separates public-facing marketing pages, the secure application, and the backend logic.
+The Eve application operates within the AI.Rio Platform monorepo structure. This section details the Eve-specific portions of the codebase within the broader platform architecture.
+
+> **Important**: This document now focuses on Eve application-specific implementation. For platform-level architecture, routing, and multi-application infrastructure, see `ai-rio-platform-architecture.md`.
 
 .
 
