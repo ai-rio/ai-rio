@@ -1,0 +1,122 @@
+{
+  "site": {
+    "name": "AI.RIO",
+    "tagline": "Billing Infrastructure Specialist for AI SaaS"
+  },
+  "default": {
+    "title": "Billing Infrastructure Services for AI SaaS | AI.RIO",
+    "description": "I help AI SaaS companies track and optimize their LLM costs. Failed payment recovery, usage-based pricing, AI cost tracking, and billing audit services.",
+    "keywords": [
+      "AI SaaS billing infrastructure",
+      "LLM cost tracking",
+      "Stripe payment recovery",
+      "usage-based pricing implementation",
+      "AI cost optimization",
+      "billing audit services",
+      "SaaS margin optimization",
+      "failed payment recovery",
+      "Stripe Meter implementation",
+      "OpenAI cost per customer",
+      "Anthropic cost tracking",
+      "AI unit economics",
+      "billing infrastructure specialist"
+    ]
+  },
+  "pages": {
+    "home": {
+      "title": "Your AI Margins Are Bleeding. Here's How to Stop. | AI.RIO",
+      "description": "I help AI SaaS companies track and optimize their LLM costs—so you know your true margins and stop losing money on heavy users. Fixed-scope productized services delivered in 2 weeks.",
+      "openGraph": {
+        "title": "Your AI Margins Are Bleeding. Here's How to Stop. | AI.RIO",
+        "description": "Billing Infrastructure Specialist for AI SaaS. Stop losing money on heavy users. Track LLM costs across OpenAI, Anthropic, and OpenRouter. Fixed-scope services delivered in 2 weeks."
+      }
+    },
+    "services": {
+      "title": "Billing Infrastructure Services for AI SaaS | AI.RIO",
+      "description": "Fixed-scope, fixed-price productized services for AI SaaS billing. Failed payment recovery, usage-based pricing, AI cost tracking, billing audit, and complete billing foundation.",
+      "openGraph": {
+        "title": "Billing Infrastructure Services for AI SaaS | AI.RIO",
+        "description": "Productized billing services for AI SaaS. Stripe failed payment recovery, usage-based pricing launch, AI cost visibility system, revenue leak detection, and complete billing foundation."
+      }
+    },
+    "about": {
+      "title": "About AI.RIO - Billing Infrastructure Specialist",
+      "description": "I built Margin, an LLM cost tracking platform, and extracted billing code from QuoteKit. Now I help AI SaaS companies solve the same billing infrastructure problems.",
+      "openGraph": {
+        "title": "About AI.RIO - Billing Infrastructure Specialist",
+        "description": "Expert billing infrastructure specialist. Built Margin (LLM cost tracking) and worked on QuoteKit payment systems. Now helping AI SaaS companies optimize their billing."
+      }
+    },
+    "contact": {
+      "title": "Contact AI.RIO - Billing Infrastructure Services",
+      "description": "Let's talk about your billing challenges. Free consultation to identify revenue leaks and optimization opportunities in your AI SaaS billing infrastructure.",
+      "openGraph": {
+        "title": "Contact AI.RIO - Billing Infrastructure Services",
+        "description": "Get help with your billing infrastructure. Free consultation to identify revenue leaks, failed payments, and cost tracking issues in your AI SaaS."
+      }
+    },
+    "paymentRecovery": {
+      "title": "Stripe Failed Payment Recovery Service | AI.RIO",
+      "description": "Recover 47-65% of failed payments with automated dunning workflows. Fixed scope, fixed price ($2,000-4,000), delivered in 7-10 days.",
+      "openGraph": {
+        "title": "Stripe Failed Payment Recovery Service | AI.RIO",
+        "description": "Stop losing revenue to failed payments. Implement automated dunning workflows that typically improve recovery rates from 47.6% to 65-70%. Delivered in 7-10 days."
+      }
+    },
+    "usagePricing": {
+      "title": "Usage-Based Pricing Launch Service | AI.RIO",
+      "description": "Launch Stripe Meter in 2 weeks instead of 6 months. Fixed scope, fixed price ($3,000-5,000). Companies with usage-based pricing grow 54% faster.",
+      "openGraph": {
+        "title": "Usage-Based Pricing Launch Service | AI.RIO",
+        "description": "Implement Stripe Meter for your AI SaaS in 2 weeks. Companies with usage-based pricing grow 54% faster than traditional models. Fixed scope, fixed price."
+      }
+    },
+    "aiTracking": {
+      "title": "AI Cost Visibility System | AI.RIO",
+      "description": "Track LLM costs per customer across OpenAI, Anthropic, and OpenRouter (400+ models). Know your true margins. Fixed scope ($3,000-5,000), delivered in 10-14 days.",
+      "openGraph": {
+        "title": "AI Cost Visibility System | AI.RIO",
+        "description": "Track LLM costs per customer through OpenAI, Anthropic, and OpenRouter (400+ models). Know your true margins. Fixed scope, delivered in 2 weeks."
+      }
+    },
+    "billingAudit": {
+      "title": "Billing Audit & Revenue Leak Detection | AI.RIO",
+      "description": "Complete billing audit to identify revenue leaks, edge cases, and optimization opportunities. Clear remediation roadmap. Fixed scope ($1,500-3,000), delivered in 3-5 days.",
+      "openGraph": {
+        "title": "Billing Audit & Revenue Leak Detection | AI.RIO",
+        "description": "Audit your billing infrastructure for revenue leaks and optimization opportunities. Get a clear remediation roadmap. Fixed scope, delivered in 3-5 days."
+      }
+    },
+    "completeBilling": {
+      "title": "Complete Billing Foundation Service | AI.RIO",
+      "description": "End-to-end billing infrastructure for AI SaaS. All services integrated, priority support, 90-day guarantee. Fixed scope ($8,000-15,000), delivered in 3-4 weeks.",
+      "openGraph": {
+        "title": "Complete Billing Foundation Service | AI.RIO",
+        "description": "Complete billing infrastructure for AI SaaS. Failed payment recovery, usage-based pricing, AI cost tracking, and audit all in one. 90-day guarantee included."
+      }
+    }
+  },
+  "openGraph": {
+    "type": "website",
+    "siteName": "AI.RIO",
+    "title": "Billing Infrastructure Specialist for AI SaaS | AI.RIO",
+    "description": "I help AI SaaS companies track and optimize their LLM costs—so you know your true margins and stop losing money on heavy users.",
+    "url": "https://ai.rio.br",
+    "images": [
+      {
+        "url": "/og-ai-rio-home.png",
+        "width": 1200,
+        "height": 630,
+        "alt": "AI.RIO - Billing Infrastructure Specialist"
+      }
+    ]
+  },
+  "twitter": {
+    "card": "summary_large_image",
+    "site": "@airio_br",
+    "title": "Billing Infrastructure Specialist for AI SaaS",
+    "description": "I help AI SaaS companies track and optimize their LLM costs. Stop losing money on heavy users.",
+    "image": "/twitter-ai-rio-preview.png",
+    "creator": "@airio_br"
+  }
+}

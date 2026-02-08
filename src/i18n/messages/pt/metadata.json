@@ -1,0 +1,122 @@
+{
+  "site": {
+    "name": "AI.RIO",
+    "tagline": "Especialista em Infraestrutura de Cobrança para AI SaaS"
+  },
+  "default": {
+    "title": "Serviços de Infraestrutura de Cobrança para AI SaaS | AI.RIO",
+    "description": "Ajudo empresas de SaaS de IA a rastrear e otimizar seus custos de LLM. Recuperação de pagamentos falhados, preços baseados em uso, rastreamento de custos de IA e auditoria de cobrança.",
+    "keywords": [
+      "infraestrutura de cobrança SaaS IA",
+      "rastreamento de custos LLM",
+      "recuperação de pagamentos falhados Stripe",
+      "implementação de preços baseada em uso",
+      "otimização de custos IA",
+      "serviços de auditoria de cobrança",
+      "otimização de margens SaaS",
+      "recuperação de pagamentos falhados",
+      "implementação de Stripe Meter",
+      "custo de OpenAI por cliente",
+      "rastreamento de custos Anthropic",
+      "economia unitária IA",
+      "especialista em infraestrutura de cobrança"
+    ]
+  },
+  "pages": {
+    "home": {
+      "title": "Suas Margens de IA Estão Sangrando. Aqui Está Como Parar. | AI.RIO",
+      "description": "Ajudo empresas de SaaS de IA a rastrear e otimizar seus custos de LLM—para que você conheça suas verdadeiras margens e pare de perder dinheiro com usuários pesados. Serviços de escopo fixo e preço fixo entregues em 2 semanas.",
+      "openGraph": {
+        "title": "Suas Margens de IA Estão Sangrando. Aqui Está Como Parar. | AI.RIO",
+        "description": "Especialista em infraestrutura de cobrança para SaaS de IA. Pare de perder dinheiro com usuários pesados. Rastreia custos de LLM através de OpenAI, Anthropic e OpenRouter. Serviços entregues em 2 semanas."
+      }
+    },
+    "services": {
+      "title": "Serviços de Infraestrutura de Cobrança para AI SaaS | AI.RIO",
+      "description": "Serviços productizados de escopo fixo e preço fixo para cobrança de SaaS de IA. Recuperação de pagamentos falhados, preços baseados em uso, rastreamento de custos de IA, auditoria de cobrança e fundação de cobrança completa.",
+      "openGraph": {
+        "title": "Serviços de Infraestrutura de Cobrança para AI SaaS | AI.RIO",
+        "description": "Serviços de cobrança productizados para SaaS de IA. Recuperação de pagamentos falhados do Stripe, lançamento de preços baseados em uso, sistema de visibilidade de custos de IA, detecção de vazamentos de receita e fundação de cobrança completa."
+      }
+    },
+    "about": {
+      "title": "Sobre AI.RIO - Especialista em Infraestrutura de Cobrança",
+      "description": "Construí Margin, uma plataforma de rastreamento de custos de LLM, e extraí código de cobrança do QuoteKit. Agora ajudo empresas de SaaS de IA a resolver os mesmos problemas de infraestrutura de cobrança.",
+      "openGraph": {
+        "title": "Sobre AI.RIO - Especialista em Infraestrutura de Cobrança",
+        "description": "Especialista em infraestrutura de cobrança. Construí Margin (rastreamento de custos de LLM) e trabalhei em sistemas de pagamento do QuoteKit. Agora ajudando empresas de SaaS de IA a otimizar sua cobrança."
+      }
+    },
+    "contact": {
+      "title": "Contate AI.RIO - Serviços de Infraestrutura de Cobrança",
+      "description": "Vamos falar sobre seus desafios de cobrança. Consulta gratuita para identificar vazamentos de receita e oportunidades de otimização em sua infraestrutura de cobrança de SaaS de IA.",
+      "openGraph": {
+        "title": "Contate AI.RIO - Serviços de Infraestrutura de Cobrança",
+        "description": "Obtenha ajuda com sua infraestrutura de cobrança. Consulta gratuita para identificar vazamentos de receita, pagamentos falhados e problemas de rastreamento de custos em seu SaaS de IA."
+      }
+    },
+    "paymentRecovery": {
+      "title": "Serviço de Recuperação de Pagamentos Falhados do Stripe | AI.RIO",
+      "description": "Recupere 47-65% dos pagamentos falhados com fluxos de trabalho de dunning automatizados. Escopo fixo, preço fixo ($2,000-4,000), entregue em 7-10 dias.",
+      "openGraph": {
+        "title": "Serviço de Recuperação de Pagamentos Falhados do Stripe | AI.RIO",
+        "description": "Pare de perder receita com pagamentos falhados. Implemente fluxos de trabalho de dunning automatizados que tipicamente melhoram as taxas de recuperação de 47,6% para 65-70%. Entregue em 7-10 dias."
+      }
+    },
+    "usagePricing": {
+      "title": "Serviço de Lançamento de Preços Baseados em Uso | AI.RIO",
+      "description": "Lance o Stripe Meter em 2 semanas em vez de 6 meses. Escopo fixo, preço fixo ($3,000-5,000). Empresas com preços baseados em uso crescem 54% mais rápido.",
+      "openGraph": {
+        "title": "Serviço de Lançamento de Preços Baseados em Uso | AI.RIO",
+        "description": "Implemente o Stripe Meter para seu SaaS de IA em 2 semanas. Empresas com preços baseados em uso crescem 54% mais rápido que modelos tradicionais. Escopo fixo, preço fixo."
+      }
+    },
+    "aiTracking": {
+      "title": "Sistema de Visibilidade de Custos de IA | AI.RIO",
+      "description": "Rastreie custos de LLM por cliente através de OpenAI, Anthropic e OpenRouter (400+ modelos). Conheça suas verdadeiras margens. Escopo fixo ($3,000-5,000), entregue em 10-14 dias.",
+      "openGraph": {
+        "title": "Sistema de Visibilidade de Custos de IA | AI.RIO",
+        "description": "Rastreie custos de LLM por cliente através de OpenAI, Anthropic e OpenRouter (400+ modelos). Conheça suas verdadeiras margens. Escopo fixo, entregue em 2 semanas."
+      }
+    },
+    "billingAudit": {
+      "title": "Auditoria de Cobrança e Detecção de Vazamentos de Receita | AI.RIO",
+      "description": "Auditoria completa de cobrança para identificar vazamentos de receita, casos extremos e oportunidades de otimização. Hoja de rota clara de remediação. Escopo fixo ($1,500-3,000), entregue em 3-5 dias.",
+      "openGraph": {
+        "title": "Auditoria de Cobrança e Detecção de Vazamentos de Receita | AI.RIO",
+        "description": "Audite sua infraestrutura de cobrança para vazamentos de receita e oportunidades de otimização. Obtenha uma hoja de rota clara de remediação. Escopo fixo, entregue em 3-5 dias."
+      }
+    },
+    "completeBilling": {
+      "title": "Serviço de Fundação de Cobrança Completa | AI.RIO",
+      "description": "Infraestrutura de cobrança de ponta a ponta para SaaS de IA. Todos os serviços integrados, suporte prioritário, garantia de 90 dias. Escopo fixo ($8,000-15,000), entregue em 3-4 semanas.",
+      "openGraph": {
+        "title": "Serviço de Fundação de Cobrança Completa | AI.RIO",
+        "description": "Infraestrutura de cobrança completa para SaaS de IA. Recuperação de pagamentos falhados, preços baseados em uso, rastreamento de custos de IA e auditoria tudo em um. Garantia de 90 dias incluída."
+      }
+    }
+  },
+  "openGraph": {
+    "type": "website",
+    "siteName": "AI.RIO",
+    "title": "Especialista em Infraestrutura de Cobrança para SaaS de IA | AI.RIO",
+    "description": "Ajudo empresas de SaaS de IA a rastrear e otimizar seus custos de LLM—para que você conheça suas verdadeiras margens e pare de perder dinheiro com usuários pesados.",
+    "url": "https://ai.rio.br",
+    "images": [
+      {
+        "url": "/og-ai-rio-home.png",
+        "width": 1200,
+        "height": 630,
+        "alt": "AI.RIO - Especialista em Infraestrutura de Cobrança"
+      }
+    ]
+  },
+  "twitter": {
+    "card": "summary_large_image",
+    "site": "@airio_br",
+    "title": "Especialista em Infraestrutura de Cobrança para SaaS de IA",
+    "description": "Ajudo empresas de SaaS de IA a rastrear e otimizar seus custos de LLM. Pare de perder dinheiro com usuários pesados.",
+    "image": "/twitter-ai-rio-preview.png",
+    "creator": "@airio_br"
+  }
+}

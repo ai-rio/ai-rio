@@ -10,8 +10,17 @@ export default getRequestConfig(async ({requestLocale}) => {
     locale = routing.defaultLocale;
   }
 
+  // Load both UI and metadata translations from separate files
+  const [ui, metadata] = await Promise.all([
+    import(`./messages/${locale}/ui.json`),
+    import(`./messages/${locale}/metadata.json`)
+  ]);
+
   return {
     locale,
-    messages: (await import(`./messages/${locale}.json`)).default
+    messages: {
+      ...ui.default,
+      metadata: metadata.default
+    }
   };
 });
