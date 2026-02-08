@@ -236,15 +236,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
       {/* Footer */}
       <footer className="px-6 py-8 border-t border-zinc-800">
-        <div className="mx-auto max-w-6xl flex justify-between items-center">
+        <div className="mx-auto max-w-6xl flex justify-center">
           <p className="text-sm text-zinc-500">
             © 2026 AI.RIO - {locale === 'pt' ? 'Todos os direitos reservados.' : locale === 'es' ? 'Todos los derechos reservados.' : 'All rights reserved.'}
           </p>
-          <div className="flex gap-4 text-sm">
-            <a href="/" className="text-zinc-400 hover:text-white">
-              {locale === 'en' ? 'English' : locale === 'es' ? 'Español' : 'Português'}
-            </a>
-          </div>
         </div>
       </footer>
     </div>
