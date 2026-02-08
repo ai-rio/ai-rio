@@ -1,14 +1,14 @@
 import { getTranslations } from 'next-intl/server';
 import { Navbar } from '@/components/navbar';
+import { generatePageMetadata } from '@/lib/metadata/page-metadata';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'hero' });
-
-  return {
-    title: "AI.RIO - Billing Infrastructure Specialist",
-    description: t("subtitle"),
-  };
+  return generatePageMetadata({
+    locale: locale as any,
+    namespace: 'home',
+    path: '/',
+  });
 }
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
