@@ -1,0 +1,63 @@
+{
+  "nav": {
+    "services": "Services",
+    "process": "Process",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Your AI margins are bleeding. Here's how to stop.",
+    "subtitle": "I help AI SaaS companies track and optimize their LLM costs—so you know your true margins and stop losing money on heavy users.",
+    "cta": "Get a Cost Audit"
+  },
+  "services": {
+    "title": "Billing Infrastructure Services",
+    "subtitle": "Fixed-scope, fixed-price. 2-week delivery.",
+    "payment_recovery": {
+      "title": "Stripe Payment Recovery Accelerator",
+      "price": "$2,000-4,000",
+      "timeline": "7-10 days",
+      "description": "Stop losing revenue to failed payments. We implement automated dunning workflows that typically improve recovery rates from 47.6% to 65-70%."
+    },
+    "usage_pricing": {
+      "title": "Usage-Based Pricing Launch",
+      "price": "$3,000-5,000",
+      "timeline": "10-14 days",
+      "description": "Implement Stripe Meter billing in 2 weeks instead of 6 months. Usage-based pricing companies grow 54% faster than traditional models."
+    },
+    "ai_tracking": {
+      "title": "AI Cost Visibility System",
+      "price": "$3,000-5,000",
+      "timeline": "10-14 days",
+      "description": "Track LLM costs per customer across OpenAI, Anthropic, and OpenRouter (400+ models). Know your true margins."
+    },
+    "billing_audit": {
+      "title": "Revenue Leak Detection",
+      "price": "$1,500-3,000",
+      "timeline": "3-5 days",
+      "description": "Complete billing audit. Identify revenue leaks, edge cases, and optimization opportunities with a clear remediation roadmap."
+    },
+    "complete_billing": {
+      "title": "Billing Foundation",
+      "price": "$8,000-15,000",
+      "timeline": "3-4 weeks",
+      "description": "End-to-end billing infrastructure. All services integrated, priority support, 90-day warranty."
+    }
+  },
+  "about": {
+    "title": "Billing Infrastructure Specialist",
+    "description": "I built Margin, a production LLM metering platform, and extracted production billing code from QuoteKit. Now I help AI SaaS companies solve the same problems I've already solved."
+  },
+  "contact": {
+    "title": "Let's Talk About Your Billing",
+    "description": "Tell me about your billing challenges. I'll tell you how to fix them.",
+    "form": {
+      "name": "Your name",
+      "email": "Email address",
+      "company": "Company",
+      "service": "Which service interests you?",
+      "message": "Tell me about your billing challenges",
+      "submit": "Send Message"
+    }
+  }
+}

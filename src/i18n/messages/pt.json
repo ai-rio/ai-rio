@@ -1,0 +1,63 @@
+{
+  "nav": {
+    "services": "Serviços",
+    "process": "Processo",
+    "about": "Sobre",
+    "contact": "Contato"
+  },
+  "hero": {
+    "title": "Suas margens de IA estão sangrando. Aqui está como parar.",
+    "subtitle": "Ajudo empresas de SaaS de IA a rastrear e otimizar seus custos de LLM—para que você conheça suas verdadeiras margens e pare de perder dinheiro com usuários intensivos.",
+    "cta": "Obter uma Auditoria de Custos"
+  },
+  "services": {
+    "title": "Serviços de Infraestrutura de Cobrança",
+    "subtitle": "Escopo fixo, preço fixo. Entrega em 2 semanas.",
+    "payment_recovery": {
+      "title": "Acelerador de Recuperação de Pagamentos Stripe",
+      "price": "$2,000-4,000",
+      "timeline": "7-10 dias",
+      "description": "Pare de perder receita com pagamentos falhados. Implementamos fluxos de trabalho de dunning automatizados que tipicamente melhoram as taxas de recuperação de 47,6% para 65-70%."
+    },
+    "usage_pricing": {
+      "title": "Lançamento de Preços Baseado em Uso",
+      "price": "$3,000-5,000",
+      "timeline": "10-14 dias",
+      "description": "Implemente a cobrança do Stripe Meter em 2 semanas em vez de 6 meses. Empresas com preços baseados em uso crescem 54% mais rápido que modelos tradicionais."
+    },
+    "ai_tracking": {
+      "title": "Sistema de Visibilidade de Custos de IA",
+      "price": "$3,000-5,000",
+      "timeline": "10-14 dias",
+      "description": "Rastreie custos de LLM por cliente através de OpenAI, Anthropic e OpenRouter (400+ modelos). Conheça suas verdadeiras margens."
+    },
+    "billing_audit": {
+      "title": "Detecção de Vazamentos de Receita",
+      "price": "$1,500-3,000",
+      "timeline": "3-5 dias",
+      "description": "Auditoria completa de cobrança. Identifique vazamentos de receita, casos extremos e oportunidades de otimização com uma clara hoja de rota de remediação."
+    },
+    "complete_billing": {
+      "title": "Fundamentos de Cobrança",
+      "price": "$8,000-15,000",
+      "timeline": "3-4 semanas",
+      "description": "Infraestrutura de cobrança de ponta a ponta. Todos os serviços integrados, suporte prioritário, garantia de 90 dias."
+    }
+  },
+  "about": {
+    "title": "Especialista em Infraestrutura de Cobrança",
+    "description": "Construí Margin, uma plataforma de medição de LLM em produção, e extraí código de cobrança de produção do QuoteKit. Agora ajudo empresas de SaaS de IA a resolver os mesmos problemas que já resolvi."
+  },
+  "contact": {
+    "title": "Vamos Falar Sobre sua Cobrança",
+    "description": "Conte-me sobre seus desafios de cobrança. Eu direi como resolvê-los.",
+    "form": {
+      "name": "Seu nome",
+      "email": "E-mail",
+      "company": "Empresa",
+      "service": "Qual serviço te interessa?",
+      "message": "Conte-me sobre seus desafios de cobrança",
+      "submit": "Enviar Mensagem"
+    }
+  }
+}
