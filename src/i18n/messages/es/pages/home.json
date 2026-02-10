@@ -1,16 +1,16 @@
 {
   "meta": {
-    "title": "AI.RIO - Plataforma de Visibilidad de Costos de IA | Servicios de Infraestructura de Facturación",
-    "description": "Deja de volar a ciegas en los costos de LLM. Obtén visibilidad en tiempo real de tu infraestructura de IA, rastrea cada token entre proveedores y conoce tus márgenes verdaderos hasta el centavo."
+    "title": "Ai.Rio - Infraestructura de facturacion para AI SaaS",
+    "description": "Sus margenes estan sangrando. Paramos la perdida en dos semanas. Servicios de infraestructura de facturacion de alcance fijo y precio fijo."
   },
   "hero": {
-    "badge": "Plataforma de Visibilidad de Costos de IA",
-    "title": "Tus márgenes de IA son una caja negra.",
-    "subtitle": "Construí una linterna.",
-    "description": "Deja de volar a ciegas en los costos de LLM. Obtén visibilidad en tiempo real de tu infraestructura de IA, rastrea cada token entre proveedores y conoce tus márgenes verdaderos hasta el centavo.",
+    "badge": "Infraestructura de facturacion para AI SaaS",
+    "title": "Sus margenes estan sangrando.",
+    "subtitle": "Paramos la perdida en dos semanas.",
+    "description": "Deje de volar a ciegas sobre los costos de LLM. Obtenga visibilidad en tiempo real de su infraestructura de IA, rastree cada token en todos los proveedores y conozca sus verdaderos margenes hasta el ultimo centavo.",
     "cta": {
-      "primary": "Ver la Infraestructura",
-      "secondary": "Agendar una Llamada de Descubrimiento"
+      "primary": "Comenzar",
+      "secondary": "Ver Como Funciona"
     },
     "trust": {
       "productionReady": "Listo para producción",
@@ -97,34 +97,34 @@
     "cta": "Más Información",
     "ctaFeatured": "Comenzar Ahora",
     "payment_recovery": {
-      "title": "Acelerador de Recuperación de Pagos de Stripe",
-      "price": "$2,000-4,000",
-      "timeline": "7-10 días",
-      "description": "Deja de perder ingresos por pagos fallidos. Implementamos flujos de trabajo de cobranza automáticos que típicamente mejoran las tasas de recuperación de 47.6% a 65-70%."
+      "title": "Ai.Rio Recover",
+      "price": "$2,997",
+      "timeline": "7-10 dias",
+      "description": "Deje de perder ingresos por pagos fallidos. Implementamos flujos de trabajo de dunning automatizados que mejoran tipicamente las tasas de recuperacion de 47.6% a 65-70%."
     },
     "usage_pricing": {
-      "title": "Lanzamiento de Precios Basado en Uso",
-      "price": "$3,000-5,000",
-      "timeline": "10-14 días",
-      "description": "Implementa la facturación de Stripe Meter en 2 semanas en lugar de 6 meses. Las empresas con precios basados en uso crecen 54% más rápido que los modelos tradicionales."
+      "title": "Ai.Rio Meter",
+      "price": "$3,997",
+      "timeline": "10-14 dias",
+      "description": "Implemente la facturacion basada en uso en 2 semanas en lugar de 6 meses. Las empresas con precios basados en uso crecen 54% mas rapido que los modelos tradicionales."
     },
     "ai_tracking": {
-      "title": "Sistema de Visibilidad de Costos de IA",
-      "price": "$3,000-5,000",
-      "timeline": "10-14 días",
-      "description": "Rastrea los costos de LLM por cliente en OpenAI, Anthropic y OpenRouter (400+ modelos). Conoce tus márgenes verdaderos."
+      "title": "Ai.Rio Track",
+      "price": "$4,997",
+      "timeline": "10-14 dias",
+      "description": "Rastree los costos de LLM por cliente a traves de OpenAI, Anthropic y OpenRouter (400+ modelos). Conozca sus verdaderos margenes."
     },
     "billing_audit": {
-      "title": "Detección de Fugas de Ingresos",
-      "price": "$1,500-3,000",
-      "timeline": "3-5 días",
-      "description": "Auditoría de facturación completa. Identifica fugas de ingresos, casos extremos y oportunidades de optimización con un roadmap de remediación claro."
+      "title": "Ai.Rio Audit",
+      "price": "$1,997",
+      "timeline": "3-5 dias",
+      "description": "Auditoria de facturacion completa. Identifique fugas de ingresos, casos extremos y oportunidades de optimizacion con una hoja de ruta clara de remediacion."
     },
     "complete_billing": {
-      "title": "Fundación de Facturación",
-      "price": "$8,000-15,000",
+      "title": "Ai.Rio Complete",
+      "price": "$11,997",
       "timeline": "3-4 semanas",
-      "description": "Infraestructura de facturación de extremo a extremo. Todos los servicios integrados, soporte prioritario, garantía de 90 días."
+      "description": "Infraestructura de facturacion de extremo a extremo. Todos los servicios integrados, soporte prioritario, garantia de 90 dias."
     }
   },
   "process": {
@@ -188,8 +188,8 @@
     "cta": "Iniciar Tu Proyecto"
   },
   "about": {
-    "title": "Construido por un Especialista en Facturación",
-    "description": "Construí Margin, una plataforma de medición de LLM de producción, y extraí código de facturación de producción de QuoteKit. Ahora ayudo a empresas de IA SaaS a resolver los mismos problemas que ya resolví.",
+    "title": "Construido por Ai.Rio",
+    "description": "Ai.Rio construyo Margin, una plataforma de medicion de LLM de produccion, y extrajimos codigo de facturacion de produccion de QuoteKit. Ahora ayudamos a empresas de IA SaaS a resolver los mismos problemas que ya resolvemos.",
     "badges": {
       "openSource": "Contribuidor de Código Abierto",
       "production": "Experiencia en Producción",

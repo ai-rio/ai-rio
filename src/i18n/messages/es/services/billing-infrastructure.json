@@ -3,7 +3,7 @@
     "timeline": "4-6 semanas",
     "price": "Precio personalizado",
     "title": "Infraestructura de Facturacion Completa para SaaS de IA",
-    "subtitle": "Tus margenes son una caja negra. Yo construi una linterna.",
+    "subtitle": "Tus margenes son una caja negra. Ai.Rio construyo una linterna.",
     "description": "Precios basados en uso, recuperacion de pagos fallidos, seguimiento de costos de IA y manejo de casos extremos. Construido para empresas SaaS de IA que pierden dinero debido a la complejidad de la facturacion."
   },
   "metrics": {
@@ -95,8 +95,8 @@
     ]
   },
   "solution": {
-    "title": "La Solucion de AI.RIO",
-    "subtitle": "Pase 18 meses construyendo infraestructura de facturacion. Ahora la construire para ti.",
+    "title": "Solucion Ai.Rio",
+    "subtitle": "Ai.Rio paso 18 meses construyendo infraestructura de facturacion. Ahora la construiremos para ti.",
     "items": [
       {
         "id": "1",
@@ -401,14 +401,14 @@
       {
         "id": "8",
         "question": "Pase 18 meses construyendo esto. Ahora lo construire para ti.",
-        "answer": "Esa no es una pregunta, pero es el punto. Construi Margin (plataforma de seguimiento de costos de LLM) y extraje el codigo de facturacion de QuoteKit. Ya cometi los errores para que no tengas que hacerlo.",
+        "answer": "Esa no es una pregunta, pero es el punto. Ai.Rio construyo Margin (plataforma de seguimiento de costos de LLM) y extrajimos el codigo de facturacion de QuoteKit. Ya cometimos los errores para que no tengas que hacerlo.",
         "category": "Acerca de"
       }
     ]
   },
   "cta": {
     "title": "¿Listo para Arreglar Tu Facturacion?",
-    "subtitle": "Pase 18 meses construyendo esto. Ahora lo construire para ti.",
+    "subtitle": "Ai.Rio paso 18 meses construyendo esto. Ahora lo construiremos para ti.",
     "description": "Reserva una llamada de descubrimiento gratuita. Discutiremos tus desafios de facturacion y proporcionare un alcance y presupuesto claros.",
     "primaryAction": {
       "label": "Reservar Llamada de Descubrimiento",

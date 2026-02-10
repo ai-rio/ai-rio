@@ -112,8 +112,8 @@
   "audit": {
     "badge": "Primer Paso Recomendado",
     "title": "No Estas Seguro de Por Donde Empezar?",
-    "description": "Comienza con una auditoria de facturacion. Analizare tu infraestructura de facturacion actual, identificare fugas de ingresos y proporcionare una hoja de ruta clara para mejoras. La tarifa de auditoria se acredita si procedes con cualquier servicio de implementacion.",
-    "primaryAction": "Comenzar con Auditoria de Facturacion",
+    "description": "Comienza con una auditoria de facturacion. Ai.Rio analizara tu infraestructura de facturacion actual, identificara fugas de ingresos y proporcionara una hoja de ruta clara para mejoras. La tarifa de auditoria se acredita si procedes con cualquier servicio de implementacion.",
+    "primaryAction": "Comenzar con Auditoria de Facturacion de Ai.Rio",
     "secondaryAction": "Reservar Consulta"
   },
   "cta": {
