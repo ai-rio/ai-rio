@@ -4,7 +4,7 @@
 
 'use client';
 
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Share2 } from 'lucide-react';
 
@@ -20,7 +20,7 @@ export function BlogNavigation({ locale, slug, title }: BlogNavigationProps) {
       try {
         await navigator.share({
           title,
-          url: `/${locale}/blog/${slug}`,
+          url: `/blog/${slug}`,
         });
       } catch {
         // User cancelled sharing
@@ -30,7 +30,7 @@ export function BlogNavigation({ locale, slug, title }: BlogNavigationProps) {
 
   return (
     <div className="flex items-center justify-between mb-8">
-      <Link href={`/${locale}/blog`} aria-label="Back to blog">
+      <Link href="/blog" aria-label="Back to blog">
         <Button variant="ghost" size="sm">
           <ArrowLeft className="h-4 w-4 mr-2" />
           Back to Blog

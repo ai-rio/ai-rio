@@ -1,12 +1,11 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import { useState } from 'react';
 
 export function Navbar({ locale }: { locale: string }) {
-  const t = useTranslations('nav');
-  const basePath = locale === 'en' ? '' : `/${locale}`;
+  const t = useTranslations('components/navbar');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -15,7 +14,7 @@ export function Navbar({ locale }: { locale: string }) {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <Link href={`${basePath === '' ? '/' : basePath}`} className="text-xl font-bold text-white">
+            <Link href="/" className="text-xl font-bold text-white">
               AI.RIO
             </Link>
           </div>
@@ -23,25 +22,25 @@ export function Navbar({ locale }: { locale: string }) {
           {/* Desktop Navigation */}
           <div className="hidden md:flex md:items-center md:gap-8">
             <Link
-              href={`${basePath}/services`}
+              href="/services"
               className="text-sm font-medium text-zinc-300 transition-colors hover:text-white"
             >
               {t('services')}
             </Link>
             <Link
-              href={`${basePath}/about`}
+              href="/about"
               className="text-sm font-medium text-zinc-300 transition-colors hover:text-white"
             >
               {t('about')}
             </Link>
             <Link
-              href={`${basePath}/blog`}
+              href="/blog"
               className="text-sm font-medium text-zinc-300 transition-colors hover:text-white"
             >
               {t('blog')}
             </Link>
             <Link
-              href={`${basePath}/contact`}
+              href="/contact"
               className="text-sm font-medium text-zinc-300 transition-colors hover:text-white"
             >
               {t('contact')}
@@ -83,28 +82,28 @@ export function Navbar({ locale }: { locale: string }) {
       <div className={`${mobileMenuOpen ? 'block' : 'hidden'} md:hidden`}>
         <div className="px-4 pt-2 pb-3 space-y-1 border-t border-zinc-800">
           <Link
-            href={`${basePath}/services`}
+            href="/services"
             className="block px-3 py-2 rounded-md text-base font-medium text-zinc-300 hover:text-white hover:bg-zinc-800"
             onClick={() => setMobileMenuOpen(false)}
           >
             {t('services')}
           </Link>
           <Link
-            href={`${basePath}/about`}
+            href="/about"
             className="block px-3 py-2 rounded-md text-base font-medium text-zinc-300 hover:text-white hover:bg-zinc-800"
             onClick={() => setMobileMenuOpen(false)}
           >
             {t('about')}
           </Link>
           <Link
-            href={`${basePath}/blog`}
+            href="/blog"
             className="block px-3 py-2 rounded-md text-base font-medium text-zinc-300 hover:text-white hover:bg-zinc-800"
             onClick={() => setMobileMenuOpen(false)}
           >
             {t('blog')}
           </Link>
           <Link
-            href={`${basePath}/contact`}
+            href="/contact"
             className="block px-3 py-2 rounded-md text-base font-medium text-zinc-300 hover:text-white hover:bg-zinc-800"
             onClick={() => setMobileMenuOpen(false)}
           >

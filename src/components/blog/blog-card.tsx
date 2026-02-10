@@ -4,7 +4,7 @@
 
 'use client';
 
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Calendar, Clock } from 'lucide-react';
@@ -25,7 +25,7 @@ export function BlogCard({ post, locale }: BlogCardProps) {
         </div>
         <CardTitle className="text-xl line-clamp-2">
           <Link
-            href={`/${locale}/blog/${post.slug}`}
+            href={`/blog/${post.slug}`}
             className="hover:text-primary transition-colors"
           >
             {post.title}

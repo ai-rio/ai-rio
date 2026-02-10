@@ -1,11 +1,10 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 
 export function Footer({ locale }: { locale: string }) {
-  const t = useTranslations('footer');
-  const basePath = locale === 'en' ? '' : `/${locale}`;
+  const t = useTranslations('components/footer');
 
   return (
     <footer className="border-t border-zinc-800 bg-zinc-950">
@@ -25,22 +24,22 @@ export function Footer({ locale }: { locale: string }) {
               <h4 className="text-sm font-semibold text-white">{t('navigation')}</h4>
               <ul className="space-y-2">
                 <li>
-                  <Link href={`${basePath === '' ? '/' : basePath}`} className="text-sm text-zinc-400 hover:text-white transition-colors">
+                  <Link href="/" className="text-sm text-zinc-400 hover:text-white transition-colors">
                     {t('home')}
                   </Link>
                 </li>
                 <li>
-                  <Link href={`${basePath}/services`} className="text-sm text-zinc-400 hover:text-white transition-colors">
+                  <Link href="/services" className="text-sm text-zinc-400 hover:text-white transition-colors">
                     {t('services')}
                   </Link>
                 </li>
                 <li>
-                  <Link href={`${basePath}/about`} className="text-sm text-zinc-400 hover:text-white transition-colors">
+                  <Link href="/about" className="text-sm text-zinc-400 hover:text-white transition-colors">
                     {t('about')}
                   </Link>
                 </li>
                 <li>
-                  <Link href={`${basePath}/blog`} className="text-sm text-zinc-400 hover:text-white transition-colors">
+                  <Link href="/blog" className="text-sm text-zinc-400 hover:text-white transition-colors">
                     {t('blog')}
                   </Link>
                 </li>
@@ -52,22 +51,22 @@ export function Footer({ locale }: { locale: string }) {
               <h4 className="text-sm font-semibold text-white">{t('services_title')}</h4>
               <ul className="space-y-2">
                 <li>
-                  <Link href={`${basePath}/services/payment-recovery`} className="text-sm text-zinc-400 hover:text-white transition-colors">
+                  <Link href="/services/payment-recovery" className="text-sm text-zinc-400 hover:text-white transition-colors">
                     {t('payment_recovery')}
                   </Link>
                 </li>
                 <li>
-                  <Link href={`${basePath}/services/usage-pricing`} className="text-sm text-zinc-400 hover:text-white transition-colors">
+                  <Link href="/services/usage-pricing" className="text-sm text-zinc-400 hover:text-white transition-colors">
                     {t('usage_pricing')}
                   </Link>
                 </li>
                 <li>
-                  <Link href={`${basePath}/services/ai-tracking`} className="text-sm text-zinc-400 hover:text-white transition-colors">
+                  <Link href="/services/ai-tracking" className="text-sm text-zinc-400 hover:text-white transition-colors">
                     {t('ai_tracking')}
                   </Link>
                 </li>
                 <li>
-                  <Link href={`${basePath}/services/billing-audit`} className="text-sm text-zinc-400 hover:text-white transition-colors">
+                  <Link href="/services/billing-audit" className="text-sm text-zinc-400 hover:text-white transition-colors">
                     {t('billing_audit')}
                   </Link>
                 </li>
@@ -79,7 +78,7 @@ export function Footer({ locale }: { locale: string }) {
               <h4 className="text-sm font-semibold text-white">{t('contact_title')}</h4>
               <ul className="space-y-2">
                 <li>
-                  <Link href={`${basePath}/contact`} className="text-sm text-zinc-400 hover:text-white transition-colors">
+                  <Link href="/contact" className="text-sm text-zinc-400 hover:text-white transition-colors">
                     {t('get_in_touch')}
                   </Link>
                 </li>
