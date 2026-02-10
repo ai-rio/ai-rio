@@ -1,8 +1,8 @@
 {
   "hero": {
     "timeline": "4-6 weeks",
-    "price": "$8,000-15,000",
-    "title": "Complete Billing Foundation",
+    "price": "$11,997",
+    "title": "Ai.Rio Complete",
     "subtitle": "End-to-end billing infrastructure for AI SaaS. All services integrated.",
     "description": "Payment recovery, usage-based pricing, AI cost tracking, and billing audit. One vendor, one integration, 90-day guarantee."
   },
@@ -84,7 +84,7 @@
     ]
   },
   "solution": {
-    "title": "The Complete AI.RIO Solution",
+    "title": "The Complete Ai.Rio Solution",
     "subtitle": "Four services, one implementation, single point of accountability.",
     "items": [
       {
@@ -125,54 +125,16 @@
       {
         "id": "6",
         "title": "90-Day Guarantee",
-        "description": "If anything breaks within 90 days, I fix it. No questions, no additional cost.",
+        "description": "If anything breaks within 90 days, we fix it. No questions, no additional cost.",
         "icon": "shield",
         "badge": "Peace of mind"
-      }
-    ]
-  },
-  "dashboardShowcase": {
-    "title": "Unified Billing Dashboard",
-    "subtitle": "One dashboard for margins, recovery, usage, and costs.",
-    "views": [
-      {
-        "id": "1",
-        "title": "Margin Overview",
-        "description": "True margins per customer after accounting for LLM costs",
-        "imageSrc": "/images/dashboard/billing-margin-overview.png",
-        "imageAlt": "Dashboard showing true profit margins per customer after LLM costs",
-        "device": "desktop"
-      },
-      {
-        "id": "2",
-        "title": "Revenue Recovery",
-        "description": "Failed payments recovered and revenue saved",
-        "imageSrc": "/images/dashboard/billing-revenue-recovery.png",
-        "imageAlt": "Dashboard showing failed payment recovery metrics and revenue saved",
-        "device": "desktop"
-      },
-      {
-        "id": "3",
-        "title": "Usage Trends",
-        "description": "Customer usage patterns and projected billing",
-        "imageSrc": "/images/dashboard/billing-usage-trends.png",
-        "imageAlt": "Dashboard showing customer usage patterns and billing projections",
-        "device": "desktop"
-      },
-      {
-        "id": "4",
-        "title": "Cost Attribution",
-        "description": "LLM costs broken down by provider, model, and customer",
-        "imageSrc": "/images/dashboard/billing-cost-attribution.png",
-        "imageAlt": "Dashboard showing LLM cost breakdown by provider, model, and customer",
-        "device": "desktop"
       }
     ]
   },
   "deliverables": {
     "title": "What You Will Get",
     "subtitle": "Phased delivery with clear milestones. Production-ready in 4-6 weeks.",
-    "totalPrice": 15000,
+    "totalPrice": 11997,
     "cta": {
       "label": "Build Complete Billing",
       "href": "/contact?service=complete-billing"
@@ -183,7 +145,7 @@
         "title": "Audit & Strategy",
         "description": "Complete billing audit and implementation roadmap",
         "duration": "Week 1",
-        "price": 2000,
+        "price": 1500,
         "deliverables": [
           {
             "id": "1-1",
@@ -213,7 +175,7 @@
         "title": "Foundation: Recovery & Audit",
         "description": "Implement payment recovery and complete billing audit",
         "duration": "Week 2",
-        "price": 4000,
+        "price": 2500,
         "deliverables": [
           {
             "id": "2-1",
@@ -243,7 +205,7 @@
         "title": "Usage & Cost Tracking",
         "description": "Implement usage-based pricing and AI cost tracking",
         "duration": "Weeks 3-4",
-        "price": 5000,
+        "price": 4500,
         "deliverables": [
           {
             "id": "3-1",
@@ -273,7 +235,7 @@
         "title": "Integration & Testing",
         "description": "Integrate all systems and rigorous testing",
         "duration": "Week 5",
-        "price": 2500,
+        "price": 2000,
         "deliverables": [
           {
             "id": "4-1",
@@ -303,7 +265,7 @@
         "title": "Launch & Support",
         "description": "Production deployment and extended support",
         "duration": "Week 6",
-        "price": 1500,
+        "price": 1497,
         "deliverables": [
           {
             "id": "5-1",
@@ -385,25 +347,25 @@
       {
         "id": "1",
         "title": "Payment Recovery",
-        "description": "Just need payment recovery? $2K-4K, 1 week.",
+        "description": "Ai.Rio Recover. $2,997, 1 week.",
         "href": "/services/payment-recovery"
       },
       {
         "id": "2",
         "title": "Usage-Based Pricing",
-        "description": "Just need usage pricing? $3K-5K, 2 weeks.",
+        "description": "Ai.Rio Meter. $3,997, 2 weeks.",
         "href": "/services/usage-pricing"
       },
       {
         "id": "3",
         "title": "AI Cost Tracking",
-        "description": "Just need cost tracking? $3K-5K, 2-3 weeks.",
+        "description": "Ai.Rio Track. $4,997, 2-3 weeks.",
         "href": "/services/ai-tracking"
       },
       {
         "id": "4",
         "title": "Billing Audit",
-        "description": "Start with an audit to assess needs. $1.5K-3K, 1 week.",
+        "description": "Ai.Rio Audit. $1,997, 1 week.",
         "href": "/services/billing-audit",
         "badge": "Start Here"
       }
@@ -422,31 +384,31 @@
       {
         "id": "2",
         "question": "What does the 90-day guarantee cover?",
-        "answer": "Everything. If any part of the billing infrastructure breaks within 90 days of launch, I fix it. No additional cost, no questions. This covers bugs, edge cases, integration issues, anything.",
+        "answer": "Everything. If any part of the billing infrastructure breaks within 90 days of launch, we fix it. No additional cost, no questions. This covers bugs, edge cases, integration issues, anything.",
         "category": "Guarantee"
       },
       {
         "id": "3",
         "question": "How long does the complete implementation take?",
-        "answer": "4-6 weeks from start to production launch. Some phases can run in parallel, and I can adjust timeline based on your urgency.",
+        "answer": "4-6 weeks from start to production launch. Some phases can run in parallel, and we can adjust timeline based on your urgency.",
         "category": "Timeline"
       },
       {
         "id": "4",
         "question": "What if I already have some billing infrastructure?",
-        "answer": "I build on what you have. The initial audit identifies what exists and what is missing. You only pay for what you need. Complete billing is scoped to your specific situation.",
+        "answer": "We build on what you have. The initial audit identifies what exists and what is missing. You only pay for what you need. Complete billing is scoped to your specific situation.",
         "category": "Customization"
       },
       {
         "id": "5",
         "question": "Do I need my engineering team involved?",
-        "answer": "Minimally. I need a few hours for requirements gathering, access to systems, and a review of the implementation. Your team can focus on product features.",
+        "answer": "Minimally. We need a few hours for requirements gathering, access to systems, and a review of the implementation. Your team can focus on product features.",
         "category": "Process"
       },
       {
         "id": "6",
         "question": "What if I need changes after the 90 days?",
-        "answer": "I offer ongoing support packages, or your team can take over. The code is documented and tested, so any competent engineer can maintain it.",
+        "answer": "We offer ongoing support packages, or your team can take over. The code is documented and tested, so any competent engineer can maintain it.",
         "category": "Support"
       }
     ]
@@ -454,9 +416,9 @@
   "cta": {
     "title": "Ready for Complete Billing Infrastructure?",
     "subtitle": "One vendor. One integration. 90-day guarantee.",
-    "description": "Book a free discovery call. I will audit your billing situation and provide a fixed quote for the complete package.",
+    "description": "Book a free discovery call. We will audit your billing situation and provide a fixed quote for the complete package.",
     "primaryAction": {
-      "label": "Book Discovery Call",
+      "label": "Get Started",
       "href": "/contact?service=complete-billing"
     },
     "secondaryAction": {

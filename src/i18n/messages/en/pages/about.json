@@ -1,36 +1,36 @@
 {
   "hero": {
-    "title": "I Built Billing Infrastructure From Scratch",
-    "subtitle": "Now I will build it for you.",
-    "description": "I spent 18 months building Margin (LLM cost tracking) and extracting billing code from QuoteKit. I solved the problems you are facing right now."
+    "title": "Billing Infrastructure, Delivered",
+    "subtitle": "We build production-ready billing systems for AI SaaS companies.",
+    "description": "Ai.Rio delivers billing infrastructure that stops margin leaks. Fixed scope, fixed price, deployed in two weeks."
   },
   "builderStory": {
-    "title": "The Builder Story",
-    "subtitle": "I did not learn this from a course. I built it because I needed it.",
+    "title": "The Ai.Rio Difference",
+    "subtitle": "Production-tested infrastructure, not theory.",
     "features": [
       {
         "id": "1",
-        "title": "Margin - LLM Cost Tracking Platform",
-        "description": "Built a complete LLM cost tracking system to solve the \"black box\" problem for AI SaaS companies. Tracks token usage across OpenAI, Anthropic, and OpenRouter (400+ models). Provides real-time cost attribution per customer.",
-        "badge": "18 months in development"
+        "title": "Margin Platform Foundation",
+        "description": "Built a complete LLM cost tracking system to solve the margin visibility problem for AI SaaS companies. Tracks token usage across OpenAI, Anthropic, and OpenRouter (400+ models). Provides real-time cost attribution per customer.",
+        "badge": "Production-proven infrastructure"
       },
       {
         "id": "2",
         "title": "QuoteKit Payment Systems",
-        "description": "Extracted and refactored billing infrastructure from QuoteKit, handling complex edge cases like proration, upgrades/downgrades, trial conversions, and coupon stacking. Built a 720-line edge case coordinator.",
-        "badge": "Production-hardened"
+        "description": "Extracted and refactored billing infrastructure from production systems, handling complex edge cases like proration, upgrades/downgrades, trial conversions, and coupon stacking. Built a 720-line edge case coordinator.",
+        "badge": "Battle-tested code"
       },
       {
         "id": "3",
-        "title": "Real-World Problems Solved",
-        "description": "These are not theoretical solutions. I built these systems because I needed them. The failed payment recovery improved recovery rates from 47.6% to 65-70%. The cost tracking solved actual margin panic.",
+        "title": "Results That Matter",
+        "description": "These are not theoretical solutions. Ai.Rio's failed payment recovery improved recovery rates from 47.6% to 65-70%. The cost tracking solved actual margin problems for production AI SaaS companies.",
         "badge": null
       }
     ]
   },
   "standards": {
     "title": "Production-Grade Standards",
-    "subtitle": "Real metrics from the actual codebase. No inflated claims.",
+    "subtitle": "Real metrics from production systems. No inflated claims.",
     "metrics": [
       {
         "id": "1",
@@ -71,13 +71,13 @@
     ]
   },
   "howIWork": {
-    "title": "How I Work With Clients",
-    "subtitle": "A simple, transparent process. You know what you are getting and when.",
+    "title": "How We Work",
+    "subtitle": "A simple, transparent process. You know what you're getting and when.",
     "phases": [
       {
         "phase": "1",
         "title": "Discovery Call",
-        "description": "We discuss your billing challenges and I identify the scope",
+        "description": "We discuss your billing challenges and identify the scope",
         "duration": "30-45 minutes",
         "price": 0,
         "deliverables": [
@@ -100,14 +100,14 @@
       {
         "phase": "2",
         "title": "Implementation",
-        "description": "I build the solution while you focus on your product",
+        "description": "We build the solution while you focus on your product",
         "duration": "1-6 weeks",
         "price": 0,
         "deliverables": [
           {
             "id": "2-1",
             "title": "Parallel Development",
-            "description": "I work independently with minimal input from your team",
+            "description": "We work independently with minimal input from your team",
             "status": "pending",
             "deliveryWeek": "Week 1+"
           },
@@ -159,16 +159,16 @@
       }
     ],
     "cta": {
-      "label": "Book a Discovery Call",
+      "label": "Get Started",
       "href": "/contact?service=consultation"
     }
   },
   "cta": {
     "title": "Ready to Build Your Billing Infrastructure?",
-    "subtitle": "I have already made the mistakes so you do not have to.",
-    "description": "Let us discuss your billing challenges. I will provide a clear scope and quote. No sales pressure, just honest advice.",
+    "subtitle": "Production-tested code. Fixed prices. Two-week delivery.",
+    "description": "Let's discuss your billing challenges. We'll provide a clear scope and quote. No sales pressure, just honest advice.",
     "primaryAction": {
-      "label": "Book Discovery Call",
+      "label": "Get Started",
       "href": "/contact?service=consultation"
     },
     "secondaryAction": {

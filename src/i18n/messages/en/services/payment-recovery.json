@@ -1,10 +1,10 @@
 {
   "hero": {
     "timeline": "1 week",
-    "price": "$2,000-4,000",
-    "title": "Stripe Failed Payment Recovery",
+    "price": "$2,997",
+    "title": "Ai.Rio Recover",
     "subtitle": "Stop leaving revenue on the table. Recover 65-70% of failed payments.",
-    "description": "Stripe's default settings recover less than half of failed payments. I build automated dunning workflows that recover 65-70%. Delivered in 1 week."
+    "description": "Stripe's default settings recover less than half of failed payments. We build automated dunning workflows that recover 65-70%. Delivered in 1 week."
   },
   "metrics": {
     "title": "The Cost of Passive Recovery",
@@ -18,7 +18,7 @@
         "prefix": "47.6 -> 65-70",
         "progress": 68,
         "trend": "up",
-        "description": "Stripe default to AI.RIO optimized"
+        "description": "Stripe default to Ai.Rio optimized"
       },
       {
         "id": "2",
@@ -88,7 +88,7 @@
     ]
   },
   "solution": {
-    "title": "The AI.RIO Solution",
+    "title": "The Ai.Rio Solution",
     "subtitle": "Automated dunning workflows with intelligent retry logic.",
     "items": [
       {
@@ -128,7 +128,7 @@
   "deliverables": {
     "title": "What You Will Get",
     "subtitle": "Fixed scope, fixed price. Delivered in 7-10 days.",
-    "totalPrice": 4000,
+    "totalPrice": 2997,
     "cta": {
       "label": "Recover Your Revenue",
       "href": "/contact?service=payment-recovery"
@@ -162,7 +162,7 @@
         "title": "Dunning Implementation",
         "description": "Build and deploy automated recovery workflows",
         "duration": "Days 3-5",
-        "price": 2000,
+        "price": 1500,
         "deliverables": [
           {
             "id": "2-1",
@@ -192,7 +192,7 @@
         "title": "Testing & Launch",
         "description": "Test workflows and deploy to production",
         "duration": "Days 6-7",
-        "price": 1500,
+        "price": 997,
         "deliverables": [
           {
             "id": "3-1",
@@ -274,14 +274,14 @@
       {
         "id": "1",
         "title": "Billing Audit",
-        "description": "Identify all revenue leaks and optimization opportunities. $1.5K-3K, 1 week.",
+        "description": "Identify all revenue leaks and optimization opportunities. $1,997, 1 week.",
         "href": "/services/billing-audit",
         "badge": "Start Here"
       },
       {
         "id": "2",
         "title": "Complete Billing",
-        "description": "End-to-end billing infrastructure including payment recovery. $8K-15K, 4-6 weeks.",
+        "description": "End-to-end billing infrastructure including payment recovery. $11,997, 4-6 weeks.",
         "href": "/services/complete-billing"
       },
       {
@@ -299,13 +299,13 @@
       {
         "id": "1",
         "question": "What is the actual recovery rate improvement?",
-        "answer": "Stripe's default configuration typically recovers 47-48% of failed payments. My clients typically see 65-70% recovery rates after implementing automated dunning. That is 17-22% more revenue recovered.",
+        "answer": "Stripe's default configuration typically recovers 47-48% of failed payments. Ai.Rio clients typically see 65-70% recovery rates after implementing automated dunning. That is 17-22% more revenue recovered.",
         "category": "Results"
       },
       {
         "id": "2",
         "question": "Why can't I just use Stripe's default dunning?",
-        "answer": "You can, and you should enable it. But Stripe's default is generic: one email, basic retry logic. My service adds strategic email sequences, intelligent retry scheduling, and failure pattern analysis. The difference is material.",
+        "answer": "You can, and you should enable it. But Stripe's default is generic: one email, basic retry logic. Ai.Rio adds strategic email sequences, intelligent retry scheduling, and failure pattern analysis. The difference is material.",
         "category": "Technical"
       },
       {
@@ -323,7 +323,7 @@
       {
         "id": "5",
         "question": "Do I need to change my Stripe setup?",
-        "answer": "No. I configure dunning on top of your existing Stripe setup. No migration, no downtime, no changes to your subscription logic.",
+        "answer": "No. We configure dunning on top of your existing Stripe setup. No migration, no downtime, no changes to your subscription logic.",
         "category": "Process"
       },
       {
@@ -336,10 +336,10 @@
   },
   "cta": {
     "title": "Stop Losing Revenue to Failed Payments",
-    "subtitle": "Every failed payment is recoverable. Let me show you how.",
-    "description": "Book a free discovery call. I will analyze your failed payments and estimate recovery potential.",
+    "subtitle": "Every failed payment is recoverable. Let us show you how.",
+    "description": "Book a free discovery call. We will analyze your failed payments and estimate recovery potential.",
     "primaryAction": {
-      "label": "Book Discovery Call",
+      "label": "Get Started",
       "href": "/contact?service=payment-recovery"
     },
     "secondaryAction": {

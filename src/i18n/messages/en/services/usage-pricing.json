@@ -1,8 +1,8 @@
 {
   "hero": {
     "timeline": "2 weeks",
-    "price": "$3,000-5,000",
-    "title": "Usage-Based Pricing Launch",
+    "price": "$3,997",
+    "title": "Ai.Rio Meter",
     "subtitle": "Launch Stripe Meter in 2 weeks instead of 6 months.",
     "description": "Companies with usage-based pricing grow 54% faster than traditional subscriptions. Stop leaving growth on the table."
   },
@@ -91,8 +91,8 @@
     ]
   },
   "solution": {
-    "title": "The AI.RIO Solution",
-    "subtitle": "I have already solved the hard problems. Launch in 2 weeks.",
+    "title": "The Ai.Rio Solution",
+    "subtitle": "We have already solved the hard problems. Launch in 2 weeks.",
     "items": [
       {
         "id": "1",
@@ -134,48 +134,10 @@
       }
     ]
   },
-  "dashboardShowcase": {
-    "title": "Usage Visibility Built In",
-    "subtitle": "Your customers can see their usage, projected billing, and trends.",
-    "views": [
-      {
-        "id": "1",
-        "title": "Current Usage",
-        "description": "Real-time view of customer usage this billing period",
-        "imageSrc": "/images/dashboard/usage-current.png",
-        "imageAlt": "Dashboard showing current usage metrics for billing period",
-        "device": "desktop"
-      },
-      {
-        "id": "2",
-        "title": "Projected Billing",
-        "description": "Forecasted invoice based on current usage trajectory",
-        "imageSrc": "/images/dashboard/usage-projected.png",
-        "imageAlt": "Dashboard showing projected billing forecast based on current usage",
-        "device": "desktop"
-      },
-      {
-        "id": "3",
-        "title": "Usage Trends",
-        "description": "Historical usage patterns and growth over time",
-        "imageSrc": "/images/dashboard/usage-trends.png",
-        "imageAlt": "Dashboard showing historical usage trends and growth patterns",
-        "device": "desktop"
-      },
-      {
-        "id": "4",
-        "title": "Usage Breakdown",
-        "description": "Detailed breakdown by feature, endpoint, or resource",
-        "imageSrc": "/images/dashboard/usage-breakdown.png",
-        "imageAlt": "Dashboard showing detailed usage breakdown by feature and resource",
-        "device": "desktop"
-      }
-    ]
-  },
   "deliverables": {
     "title": "What You Will Get",
     "subtitle": "Fixed scope, fixed price. Production-ready in 2 weeks.",
-    "totalPrice": 4000,
+    "totalPrice": 3997,
     "cta": {
       "label": "Launch Usage Pricing",
       "href": "/contact?service=usage-pricing"
@@ -216,7 +178,7 @@
         "title": "Implementation",
         "description": "Build event tracking and aggregation pipeline",
         "duration": "Week 2",
-        "price": 2500,
+        "price": 2497,
         "deliverables": [
           {
             "id": "2-1",
@@ -298,26 +260,26 @@
       {
         "id": "1",
         "title": "AI Cost Tracking",
-        "description": "Track LLM costs per customer across 5 providers. $3K-5K, 2-3 weeks.",
+        "description": "Track LLM costs per customer across 5 providers. $4,997, 2-3 weeks.",
         "href": "/services/ai-tracking",
         "badge": "Popular for AI SaaS"
       },
       {
         "id": "2",
         "title": "Billing Audit",
-        "description": "Audit your billing infrastructure before implementing usage pricing. $1.5K-3K.",
+        "description": "Audit your billing infrastructure before implementing usage pricing. $1,997.",
         "href": "/services/billing-audit"
       },
       {
         "id": "3",
         "title": "Payment Recovery",
-        "description": "Recover 65-70% of failed payments while implementing usage pricing. $2K-4K.",
+        "description": "Recover 65-70% of failed payments while implementing usage pricing. $2,997.",
         "href": "/services/payment-recovery"
       },
       {
         "id": "4",
         "title": "Complete Billing",
-        "description": "Usage pricing + payment recovery + AI tracking all in one. $8K-15K.",
+        "description": "Usage pricing + payment recovery + AI tracking all in one. $11,997.",
         "href": "/services/complete-billing",
         "badge": "Best Value"
       }
@@ -330,7 +292,7 @@
       {
         "id": "1",
         "question": "Why does Stripe Meter take 6 months to build?",
-        "answer": "Stripe Meter seems simple: send events, aggregate usage, bill customers. But the edge cases are massive: event validation, idempotency, backfilling historical data, handling retroactive changes, proration on mid-cycle plan changes, debugging discrepancies, and customer support. I have already solved these problems.",
+        "answer": "Stripe Meter seems simple: send events, aggregate usage, bill customers. But the edge cases are massive: event validation, idempotency, backfilling historical data, handling retroactive changes, proration on mid-cycle plan changes, debugging discrepancies, and customer support. Ai.Rio has already solved these problems.",
         "category": "Technical"
       },
       {
@@ -354,7 +316,7 @@
       {
         "id": "5",
         "question": "What if I already have events tracked?",
-        "answer": "Even better. I can backfill historical usage data into Stripe Meter and launch with immediate visibility. Existing event infrastructure reduces implementation time.",
+        "answer": "Even better. We can backfill historical usage data into Stripe Meter and launch with immediate visibility. Existing event infrastructure reduces implementation time.",
         "category": "Process"
       },
       {
@@ -368,9 +330,9 @@
   "cta": {
     "title": "Ready to Launch Usage-Based Pricing?",
     "subtitle": "Companies with usage pricing grow 54% faster. What are you waiting for?",
-    "description": "Book a free discovery call. We will design your usage model and I will provide a fixed quote for implementation.",
+    "description": "Book a free discovery call. We will design your usage model and provide a fixed quote for implementation.",
     "primaryAction": {
-      "label": "Book Discovery Call",
+      "label": "Get Started",
       "href": "/contact?service=usage-pricing"
     },
     "secondaryAction": {

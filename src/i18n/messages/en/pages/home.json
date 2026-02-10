@@ -1,16 +1,16 @@
 {
   "meta": {
-    "title": "AI.RIO - AI Cost Visibility Platform | Billing Infrastructure Services",
-    "description": "Stop flying blind on LLM costs. Get real-time visibility into your AI infrastructure, track every token across providers, and know your true margins down to the cent."
+    "title": "Ai.Rio - Billing infrastructure for AI SaaS",
+    "description": "Your margins are bleeding. We stop the leak in two weeks. Fixed-scope, fixed-price billing infrastructure services."
   },
   "hero": {
-    "badge": "AI Cost Visibility Platform",
-    "title": "Your AI margins are a black box.",
-    "subtitle": "I built a flashlight.",
+    "badge": "Billing infrastructure for AI SaaS",
+    "title": "Your margins are bleeding.",
+    "subtitle": "We stop the leak in two weeks.",
     "description": "Stop flying blind on LLM costs. Get real-time visibility into your AI infrastructure, track every token across providers, and know your true margins down to the cent.",
     "cta": {
-      "primary": "See the Infrastructure",
-      "secondary": "Book a Discovery Call"
+      "primary": "Get Started",
+      "secondary": "See How It Works"
     },
     "trust": {
       "productionReady": "Production-ready",
@@ -46,7 +46,7 @@
     "views": {
       "title": "AI Cost Dashboard",
       "description": "Real-time cost tracking with breakdown by provider and model",
-      "imageAlt": "AI.RIO dashboard showing LLM cost breakdown by provider and model",
+      "imageAlt": "Ai.Rio dashboard showing LLM cost breakdown by provider and model",
       "badge": "Live Demo"
     },
     "cta": "View Live Demo"
@@ -97,32 +97,32 @@
     "cta": "Learn More",
     "ctaFeatured": "Get Started",
     "payment_recovery": {
-      "title": "Stripe Payment Recovery Accelerator",
-      "price": "$2,000-4,000",
+      "title": "Ai.Rio Recover",
+      "price": "$2,997",
       "timeline": "7-10 days",
       "description": "Stop losing revenue to failed payments. We implement automated dunning workflows that typically improve recovery rates from 47.6% to 65-70%."
     },
     "usage_pricing": {
-      "title": "Usage-Based Pricing Launch",
-      "price": "$3,000-5,000",
+      "title": "Ai.Rio Meter",
+      "price": "$3,997",
       "timeline": "10-14 days",
       "description": "Implement Stripe Meter billing in 2 weeks instead of 6 months. Usage-based pricing companies grow 54% faster than traditional models."
     },
     "ai_tracking": {
-      "title": "AI Cost Visibility System",
-      "price": "$3,000-5,000",
+      "title": "Ai.Rio Track",
+      "price": "$4,997",
       "timeline": "10-14 days",
       "description": "Track LLM costs per customer across OpenAI, Anthropic, and OpenRouter (400+ models). Know your true margins."
     },
     "billing_audit": {
-      "title": "Revenue Leak Detection",
-      "price": "$1,500-3,000",
+      "title": "Ai.Rio Audit",
+      "price": "$1,997",
       "timeline": "3-5 days",
       "description": "Complete billing audit. Identify revenue leaks, edge cases, and optimization opportunities with a clear remediation roadmap."
     },
     "complete_billing": {
-      "title": "Billing Foundation",
-      "price": "$8,000-15,000",
+      "title": "Ai.Rio Complete",
+      "price": "$11,997",
       "timeline": "3-4 weeks",
       "description": "End-to-end billing infrastructure. All services integrated, priority support, 90-day warranty."
     }
@@ -188,8 +188,8 @@
     "cta": "Start Your Project"
   },
   "about": {
-    "title": "Built by a Billing Specialist",
-    "description": "I built Margin, a production LLM metering platform, and extracted production billing code from QuoteKit. Now I help AI SaaS companies solve the same problems I've already solved.",
+    "title": "Billing Infrastructure, Delivered",
+    "description": "Ai.Rio delivers production-ready billing infrastructure for AI SaaS companies. Fixed scope, fixed price, delivered in two weeks.",
     "badges": {
       "openSource": "Open Source Contributor",
       "production": "Production Experience",
@@ -197,8 +197,8 @@
     }
   },
   "contact": {
-    "contextText": "Start with an audit or book a call",
-    "description": "Tell me about your billing challenges. I'll respond within 24 hours with a clear path forward."
+    "contextText": "Get Started",
+    "description": "Tell us about your billing challenges. We'll respond within 24 hours with a clear path forward."
   },
   "footer": {
     "copyright": "All rights reserved.",

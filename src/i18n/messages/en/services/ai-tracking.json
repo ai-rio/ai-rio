@@ -1,14 +1,14 @@
 {
   "hero": {
     "timeline": "2-3 weeks",
-    "price": "$3,000-5,000",
-    "title": "AI Cost Visibility System",
-    "subtitle": "Your margins are a black box. I built a flashlight.",
+    "price": "$4,997",
+    "title": "Ai.Rio Track",
+    "subtitle": "Your margins are bleeding. We stop the leak.",
     "description": "Track LLM costs per customer across OpenAI, Anthropic, and OpenRouter (400+ models). Know your true margins. Stop losing money on heavy users."
   },
   "metrics": {
     "title": "Built on Production-Tested Infrastructure",
-    "subtitle": "I built Margin, an LLM cost tracking platform. Now I will build it for you.",
+    "subtitle": "Production-proven infrastructure, now available as a service.",
     "items": [
       {
         "id": "1",
@@ -92,7 +92,7 @@
     ]
   },
   "solution": {
-    "title": "The AI.RIO Solution",
+    "title": "The Ai.Rio Solution",
     "subtitle": "Multi-provider cost tracking with per-customer attribution.",
     "items": [
       {
@@ -136,48 +136,10 @@
       }
     ]
   },
-  "dashboardShowcase": {
-    "title": "Live Cost Dashboard",
-    "subtitle": "See your LLM costs per customer, per model, in real-time.",
-    "views": [
-      {
-        "id": "1",
-        "title": "Customer Costs",
-        "description": "LLM costs per customer this month with trend visualization",
-        "imageSrc": "/images/dashboard/ai-customer-costs.png",
-        "imageAlt": "Dashboard showing LLM costs per customer with monthly trends",
-        "device": "desktop"
-      },
-      {
-        "id": "2",
-        "title": "Model Breakdown",
-        "description": "Costs by model and provider (GPT-4, Claude, etc.)",
-        "imageSrc": "/images/dashboard/ai-model-breakdown.png",
-        "imageAlt": "Dashboard showing cost breakdown by LLM model and provider",
-        "device": "desktop"
-      },
-      {
-        "id": "3",
-        "title": "Token Usage",
-        "description": "Prompt vs completion tokens, cost per request",
-        "imageSrc": "/images/dashboard/ai-token-usage.png",
-        "imageAlt": "Dashboard showing token usage with prompt vs completion breakdown",
-        "device": "desktop"
-      },
-      {
-        "id": "4",
-        "title": "Feature Attribution",
-        "description": "Which features or endpoints are driving LLM costs",
-        "imageSrc": "/images/dashboard/ai-feature-attribution.png",
-        "imageAlt": "Dashboard showing LLM cost attribution by feature and endpoint",
-        "device": "desktop"
-      }
-    ]
-  },
   "deliverables": {
     "title": "What You Will Get",
     "subtitle": "Fixed scope, fixed price. Cost visibility in 2-3 weeks.",
-    "totalPrice": 5000,
+    "totalPrice": 4997,
     "cta": {
       "label": "Get Cost Visibility",
       "href": "/contact?service=ai-tracking"
@@ -248,7 +210,7 @@
         "title": "Dashboard & Launch",
         "description": "Build cost dashboard and deploy to production",
         "duration": "Week 3",
-        "price": 1000,
+        "price": 997,
         "deliverables": [
           {
             "id": "3-1",
@@ -330,27 +292,27 @@
       {
         "id": "1",
         "title": "Billing Audit",
-        "description": "Identify revenue leaks and cost optimization opportunities. $1.5K-3K, 1 week.",
+        "description": "Identify revenue leaks and cost optimization opportunities. $1,997, 1 week.",
         "href": "/services/billing-audit",
         "badge": "Start Here"
       },
       {
         "id": "2",
         "title": "Usage-Based Pricing",
-        "description": "Bill customers based on actual LLM usage. $3K-5K, 2 weeks.",
+        "description": "Bill customers based on actual LLM usage. $3,997, 2 weeks.",
         "href": "/services/usage-pricing"
       },
       {
         "id": "3",
         "title": "Complete Billing",
-        "description": "AI tracking + usage pricing + payment recovery all in one. $8K-15K.",
+        "description": "AI tracking + usage pricing + payment recovery all in one. $11,997.",
         "href": "/services/complete-billing",
         "badge": "Best Value"
       },
       {
         "id": "4",
         "title": "Payment Recovery",
-        "description": "Recover 65-70% of failed payments. $2K-4K, 1 week.",
+        "description": "Recover 65-70% of failed payments. $2,997, 1 week.",
         "href": "/services/payment-recovery"
       }
     ]
@@ -362,7 +324,7 @@
       {
         "id": "1",
         "question": "How do you track LLM costs?",
-        "answer": "I implement middleware that intercepts LLM API calls, extracts token usage and model information from responses, and stores it with customer attribution. Supports OpenAI, Anthropic, OpenRouter (400+ models), Cohere, and Replicate.",
+        "answer": "We implement middleware that intercepts LLM API calls, extracts token usage and model information from responses, and stores it with customer attribution. Supports OpenAI, Anthropic, OpenRouter (400+ models), Cohere, and Replicate.",
         "category": "Technical"
       },
       {
@@ -374,7 +336,7 @@
       {
         "id": "3",
         "question": "What if I use multiple LLM providers?",
-        "answer": "That is the point. I track costs across all providers in one place. You can see total costs per customer, broken down by provider and model.",
+        "answer": "That is the point. We track costs across all providers in one place. You can see total costs per customer, broken down by provider and model.",
         "category": "Technical"
       },
       {
@@ -391,25 +353,25 @@
       },
       {
         "id": "6",
-        "question": "I built Margin. Now I will build it for you.",
-        "answer": "That is not a question, but it is relevant. I built an LLM cost tracking platform called Margin. I extracted the core tracking code and now offer it as a service.",
+        "question": "Production-proven infrastructure?",
+        "answer": "Yes. This tracking system powers the Margin LLM cost tracking platform, processing millions of tokens for production AI SaaS companies.",
         "category": "About"
       }
     ]
   },
   "cta": {
     "title": "Know Your True Margins",
-    "subtitle": "Your margins are a black box. I built a flashlight.",
-    "description": "Book a free discovery call. I will audit your LLM cost tracking gaps and provide a fixed quote.",
+    "subtitle": "Your margins are bleeding. We stop the leak.",
+    "description": "Book a free discovery call. We will audit your LLM cost tracking gaps and provide a fixed quote.",
     "primaryAction": {
-      "label": "Book Discovery Call",
+      "label": "Get Started",
       "href": "/contact?service=ai-tracking"
     },
     "secondaryAction": {
       "label": "See Billing Audit",
       "href": "/services/billing-audit"
     },
-    "badge": "I built Margin for this",
+    "badge": "Production-proven infrastructure",
     "trustSignals": [
       "Response within 24 hours",
       "2-3 week implementation",

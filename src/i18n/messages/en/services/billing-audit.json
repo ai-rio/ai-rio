@@ -1,8 +1,8 @@
 {
   "hero": {
     "timeline": "1 week",
-    "price": "$1,500-3,000",
-    "title": "Billing Audit & Revenue Leak Detection",
+    "price": "$1,997",
+    "title": "Ai.Rio Audit",
     "subtitle": "Find where you are losing money. Fix what matters most.",
     "description": "Complete audit of your billing infrastructure to identify revenue leaks, edge cases, and optimization opportunities. Clear remediation roadmap with ROI estimates."
   },
@@ -86,7 +86,7 @@
     ]
   },
   "solution": {
-    "title": "What I Audit",
+    "title": "What We Audit",
     "subtitle": "Comprehensive analysis of your entire billing infrastructure.",
     "items": [
       {
@@ -133,7 +133,7 @@
   "deliverables": {
     "title": "What You Will Get",
     "subtitle": "Fixed scope, fixed price. Complete audit in 3-5 days.",
-    "totalPrice": 3000,
+    "totalPrice": 1997,
     "cta": {
       "label": "Start Billing Audit",
       "href": "/contact?service=billing-audit"
@@ -174,7 +174,7 @@
         "title": "Gap Identification",
         "description": "Identify revenue leaks and optimization opportunities",
         "duration": "Days 3-4",
-        "price": 1250,
+        "price": 750,
         "deliverables": [
           {
             "id": "2-1",
@@ -204,7 +204,7 @@
         "title": "Roadmap & Recommendations",
         "description": "Create prioritized remediation plan",
         "duration": "Day 5",
-        "price": 1000,
+        "price": 497,
         "deliverables": [
           {
             "id": "3-1",
@@ -286,27 +286,27 @@
       {
         "id": "1",
         "title": "Payment Recovery",
-        "description": "Implement failed payment recovery based on audit findings. $2K-4K, 1 week.",
+        "description": "Implement failed payment recovery based on audit findings. $2,997, 1 week.",
         "href": "/services/payment-recovery",
         "badge": "Quick Win"
       },
       {
         "id": "2",
         "title": "AI Cost Tracking",
-        "description": "Implement LLM cost tracking based on audit gaps. $3K-5K, 2-3 weeks.",
+        "description": "Implement LLM cost tracking based on audit gaps. $4,997, 2-3 weeks.",
         "href": "/services/ai-tracking"
       },
       {
         "id": "3",
         "title": "Complete Billing",
-        "description": "Implement all audit recommendations in one project. $8K-15K, 4-6 weeks.",
+        "description": "Implement all audit recommendations in one project. $11,997, 4-6 weeks.",
         "href": "/services/complete-billing",
         "badge": "Best Value"
       },
       {
         "id": "4",
         "title": "Usage-Based Pricing",
-        "description": "Launch usage pricing if audit shows it is right for your market. $3K-5K, 2 weeks.",
+        "description": "Launch usage pricing if audit shows it is right for your market. $3,997, 2 weeks.",
         "href": "/services/usage-pricing"
       }
     ]
@@ -330,13 +330,13 @@
       {
         "id": "3",
         "question": "What data do you need access to?",
-        "answer": "Stripe account access (read-only), billing system documentation, and access to any cost tracking or usage data you have. I will guide you through exactly what is needed.",
+        "answer": "Stripe account access (read-only), billing system documentation, and access to any cost tracking or usage data you have. We will guide you through exactly what is needed.",
         "category": "Process"
       },
       {
         "id": "4",
         "question": "Will the audit disrupt my billing operations?",
-        "answer": "No. The audit is read-only. I analyze data and configuration. No changes are made to your billing system during the audit.",
+        "answer": "No. The audit is read-only. We analyze data and configuration. No changes are made to your billing system during the audit.",
         "category": "Process"
       },
       {
@@ -348,17 +348,17 @@
       {
         "id": "6",
         "question": "Do you implement the recommendations?",
-        "answer": "Yes. I provide fixed-price quotes for implementing any recommendation. Many clients use the audit report to get budget approval, then hire me to implement.",
+        "answer": "Yes. We provide fixed-price quotes for implementing any recommendation. Many clients use the audit report to get budget approval, then hire us to implement.",
         "category": "Implementation"
       }
     ]
   },
   "cta": {
     "title": "Find Your Revenue Leaks",
-    "subtitle": "You cannot fix what you cannot see. Let me shine a light on your billing gaps.",
-    "description": "Book a free discovery call. I will explain the audit process and provide a fixed quote.",
+    "subtitle": "You cannot fix what you cannot see. Let us shine a light on your billing gaps.",
+    "description": "Book a free discovery call. We will explain the audit process and provide a fixed quote.",
     "primaryAction": {
-      "label": "Book Discovery Call",
+      "label": "Get Started",
       "href": "/contact?service=billing-audit"
     },
     "secondaryAction": {

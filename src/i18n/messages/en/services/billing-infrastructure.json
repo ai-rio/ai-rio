@@ -2,13 +2,13 @@
   "hero": {
     "timeline": "4-6 weeks",
     "price": "Custom pricing",
-    "title": "Complete Billing Infrastructure for AI SaaS",
-    "subtitle": "Your margins are a black box. I built a flashlight.",
+    "title": "Ai.Rio Platform",
+    "subtitle": "Your margins are bleeding. We stop the leak.",
     "description": "Usage-based pricing, failed payment recovery, AI cost tracking, and edge case handling. Built for AI SaaS companies losing money to billing complexity."
   },
   "metrics": {
     "title": "Built with Production-Grade Standards",
-    "subtitle": "18 months of development distilled into 6 weeks.",
+    "subtitle": "Production-proven infrastructure distilled into 6 weeks.",
     "items": [
       {
         "id": "1",
@@ -95,8 +95,8 @@
     ]
   },
   "solution": {
-    "title": "The AI.RIO Solution",
-    "subtitle": "I spent 18 months building billing infrastructure. Now I will build it for you.",
+    "title": "The Ai.Rio Solution",
+    "subtitle": "Production-proven infrastructure. We deliver it to you.",
     "items": [
       {
         "id": "1",
@@ -185,7 +185,7 @@
         "title": "Foundation Building",
         "description": "Core billing infrastructure and LLM cost tracking",
         "duration": "Weeks 2-3",
-        "price": 6000,
+        "price": 5000,
         "deliverables": [
           {
             "id": "2-1",
@@ -245,7 +245,7 @@
         "title": "Testing & Launch",
         "description": "Rigorous testing and production deployment",
         "duration": "Week 6",
-        "price": 2000,
+        "price": 3000,
         "deliverables": [
           {
             "id": "4-1",
@@ -327,27 +327,27 @@
       {
         "id": "1",
         "title": "Payment Recovery",
-        "description": "Recover 47-65% of failed payments with automated dunning. $2K-4K, 1 week.",
+        "description": "Ai.Rio Recover. $2,997, 1 week.",
         "href": "/services/payment-recovery",
         "badge": "Quick Win"
       },
       {
         "id": "2",
         "title": "Usage-Based Pricing",
-        "description": "Launch Stripe Meter in 2 weeks. Companies with usage pricing grow 54% faster.",
+        "description": "Ai.Rio Meter. $3,997, 2 weeks.",
         "href": "/services/usage-pricing"
       },
       {
         "id": "3",
         "title": "AI Cost Tracking",
-        "description": "Track LLM costs per customer across 5 providers. $3K-5K, 2-3 weeks.",
+        "description": "Ai.Rio Track. $4,997, 2-3 weeks.",
         "href": "/services/ai-tracking",
         "badge": "Popular"
       },
       {
         "id": "4",
         "title": "Billing Audit",
-        "description": "Identify revenue leaks and optimization opportunities. $1.5K-3K, 1 week.",
+        "description": "Ai.Rio Audit. $1,997, 1 week.",
         "href": "/services/billing-audit"
       }
     ]
@@ -359,31 +359,31 @@
       {
         "id": "1",
         "question": "Why custom pricing instead of fixed?",
-        "answer": "Every AI SaaS has different billing complexity. Some have simple subscriptions, others have complex usage patterns, multi-seat plans, and enterprise contracts. I audit your situation first, then scope the work. You pay for what you need.",
+        "answer": "Every AI SaaS has different billing complexity. Some have simple subscriptions, others have complex usage patterns, multi-seat plans, and enterprise contracts. We audit your situation first, then scope the work. You pay for what you need.",
         "category": "Pricing"
       },
       {
         "id": "2",
         "question": "Do I need to pause feature development?",
-        "answer": "No. I build the billing infrastructure in parallel with your team. I need access to your Stripe account, database schema, and a few hours of your team's time for requirements gathering. The rest is on me.",
+        "answer": "No. We build the billing infrastructure in parallel with your team. We need access to your Stripe account, database schema, and a few hours of your team's time for requirements gathering. The rest is on us.",
         "category": "Process"
       },
       {
         "id": "3",
         "question": "What if I already have Stripe setup?",
-        "answer": "Great. I build on top of your existing Stripe configuration. The audit will reveal what you have and what is missing. Many companies have Stripe payments but lack usage-based pricing, failed payment recovery, or LLM cost tracking.",
+        "answer": "Great. We build on top of your existing Stripe configuration. The audit will reveal what you have and what is missing. Many companies have Stripe payments but lack usage-based pricing, failed payment recovery, or LLM cost tracking.",
         "category": "Process"
       },
       {
         "id": "4",
         "question": "How do you track LLM costs?",
-        "answer": "I implement middleware that intercepts LLM API calls, extracts token usage and model information, and stores it per customer. Supports OpenAI, Anthropic, OpenRouter (400+ models). The data is aggregated and displayed in a margin dashboard.",
+        "answer": "We implement middleware that intercepts LLM API calls, extracts token usage and model information, and stores it per customer. Supports OpenAI, Anthropic, OpenRouter (400+ models). The data is aggregated and displayed in a margin dashboard.",
         "category": "Technical"
       },
       {
         "id": "5",
         "question": "What is the edge case coordinator?",
-        "answer": "A 720-line system I built that handles the complex scenarios that break most billing implementations: upgrades/downgrades with proration, trial-to-paid conversions, coupon stacking, annual/monthly switching, and seat-based billing changes. It is the difference between something that works in demo and something that works in production.",
+        "answer": "A 720-line system we built that handles the complex scenarios that break most billing implementations: upgrades/downgrades with proration, trial-to-paid conversions, coupon stacking, annual/monthly switching, and seat-based billing changes. It is the difference between something that works in demo and something that works in production.",
         "category": "Technical"
       },
       {
@@ -395,23 +395,23 @@
       {
         "id": "7",
         "question": "Can you handle enterprise billing requirements?",
-        "answer": "Yes. Enterprise billing often involves custom contracts, negotiated rates, PO-based billing, and net payment terms. I build infrastructure that supports both self-serve and enterprise flows.",
+        "answer": "Yes. Enterprise billing often involves custom contracts, negotiated rates, PO-based billing, and net payment terms. We build infrastructure that supports both self-serve and enterprise flows.",
         "category": "Enterprise"
       },
       {
         "id": "8",
-        "question": "I spent 18 months building this. Now I will build it for you.",
-        "answer": "That is not a question, but it is the point. I built Margin (LLM cost tracking platform) and extracted billing code from QuoteKit. I have already made the mistakes so you do not have to.",
+        "question": "Production-proven infrastructure?",
+        "answer": "Yes. Our infrastructure powers production AI SaaS companies, processing millions of tokens and thousands of billing events monthly. This is not theory - it is battle-tested code.",
         "category": "About"
       }
     ]
   },
   "cta": {
     "title": "Ready to Fix Your Billing?",
-    "subtitle": "I spent 18 months building this. Now I will build it for you.",
-    "description": "Book a free discovery call. We will discuss your billing challenges and I will provide a clear scope and quote.",
+    "subtitle": "Production-proven code. Fixed prices. Two-week delivery.",
+    "description": "Book a free discovery call. We will discuss your billing challenges and provide a clear scope and quote.",
     "primaryAction": {
-      "label": "Book Discovery Call",
+      "label": "Get Started",
       "href": "/contact?service=billing-infrastructure"
     },
     "secondaryAction": {

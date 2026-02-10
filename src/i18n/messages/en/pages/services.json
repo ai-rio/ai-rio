@@ -1,23 +1,23 @@
 {
   "meta": {
-    "title": "Fixed-Price Billing Services | AI.RIO",
+    "title": "Fixed-Price Billing Services | Ai.Rio",
     "description": "No scope creep. No hourly billing. No surprises. Fixed-price billing services for AI SaaS companies."
   },
   "hero": {
     "label": "Fixed-Price Services",
     "title": "Fixed-Price Billing Services",
     "subtitle": "No scope creep. No hourly billing. No surprises.",
-    "description": "Clear deliverables, fixed timelines, and transparent pricing. You know exactly what you are getting and when it will be done."
+    "description": "Clear deliverables, fixed timelines, and transparent pricing. You know exactly what you're getting and when it will be done."
   },
   "title": "Choose Your Service",
   "subtitle": "Each service is designed to solve a specific billing problem. Not sure where to start? Begin with a billing audit.",
   "items": [
     {
       "id": "billing-audit",
-      "title": "Billing Audit",
+      "title": "Ai.Rio Audit",
       "description": "Identify revenue leaks, edge cases, and optimization opportunities in your billing infrastructure. Get a clear remediation roadmap.",
       "href": "/services/billing-audit",
-      "priceRange": "$1.5K-3K",
+      "priceRange": "$1,997",
       "duration": "3-5 days",
       "badge": "Best Starting Point",
       "highlighted": false,
@@ -30,10 +30,10 @@
     },
     {
       "id": "payment-recovery",
-      "title": "Payment Recovery",
+      "title": "Ai.Rio Recover",
       "description": "Recover 47-65% of failed payments with automated dunning workflows. Stop leaving revenue on the table.",
       "href": "/services/payment-recovery",
-      "priceRange": "$2K-4K",
+      "priceRange": "$2,997",
       "duration": "7-10 days",
       "badge": "Quick Win",
       "highlighted": false,
@@ -46,10 +46,10 @@
     },
     {
       "id": "usage-pricing",
-      "title": "Usage-Based Pricing",
+      "title": "Ai.Rio Meter",
       "description": "Launch Stripe Meter in 2 weeks. Companies with usage-based pricing grow 54% faster than traditional models.",
       "href": "/services/usage-pricing",
-      "priceRange": "$3K-5K",
+      "priceRange": "$3,997",
       "duration": "2 weeks",
       "badge": "54% Faster Growth",
       "highlighted": true,
@@ -62,10 +62,10 @@
     },
     {
       "id": "ai-tracking",
-      "title": "AI Cost Tracking",
+      "title": "Ai.Rio Track",
       "description": "Track LLM costs per customer across OpenAI, Anthropic, and OpenRouter (400+ models). Know your true margins.",
       "href": "/services/ai-tracking",
-      "priceRange": "$3K-5K",
+      "priceRange": "$4,997",
       "duration": "10-14 days",
       "badge": "Popular",
       "highlighted": false,
@@ -78,7 +78,7 @@
     },
     {
       "id": "billing-infrastructure",
-      "title": "Billing Infrastructure",
+      "title": "Ai.Rio Platform",
       "description": "Complete end-to-end billing infrastructure. Usage-based pricing, payment recovery, AI cost tracking, and edge case handling.",
       "href": "/services/billing-infrastructure",
       "priceRange": "Custom",
@@ -94,10 +94,10 @@
     },
     {
       "id": "complete-billing",
-      "title": "Complete Billing Foundation",
+      "title": "Ai.Rio Complete",
       "description": "The full package: audit, recovery, usage pricing, and AI tracking all in one. 90-day guarantee included.",
       "href": "/services/complete-billing",
-      "priceRange": "$8K-15K",
+      "priceRange": "$11,997",
       "duration": "3-4 weeks",
       "badge": "Best Value",
       "highlighted": false,
@@ -112,15 +112,15 @@
   "audit": {
     "badge": "Recommended First Step",
     "title": "Not Sure Where to Start?",
-    "description": "Begin with a billing audit. I will analyze your current billing infrastructure, identify revenue leaks, and provide a clear roadmap for improvements. The audit fee is credited back if you proceed with any implementation service.",
-    "primaryAction": "Start with Billing Audit",
-    "secondaryAction": "Book Consultation"
+    "description": "Begin with a billing audit. We'll analyze your current billing infrastructure, identify revenue leaks, and provide a clear roadmap for improvements. The audit fee is credited back if you proceed with any implementation service.",
+    "primaryAction": "Start with Ai.Rio Audit",
+    "secondaryAction": "Get Started"
   },
   "cta": {
     "title": "Let's Talk About Your Billing Needs",
     "subtitle": "No sales pressure. Just honest advice.",
-    "description": "Book a free discovery call. We will discuss your billing challenges and I will recommend the best service for your situation.",
-    "primaryAction": "Book Discovery Call",
+    "description": "Book a free discovery call. We'll discuss your billing challenges and recommend the best service for your situation.",
+    "primaryAction": "Get Started",
     "secondaryAction": "View Case Studies",
     "badge": "Response within 24 hours",
     "trustSignals": [
