@@ -3,11 +3,12 @@ import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 import { generatePageMetadata } from '@/lib/metadata/page-metadata';
 import { SimplifiedContactForm } from '@/components/simplified-contact-form';
+import type { Locale } from '@/lib/metadata/base-metadata';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   return generatePageMetadata({
-    locale: locale as any,
+    locale: locale as Locale,
     namespace: 'contact',
     path: '/contact',
   });
