@@ -1,0 +1,208 @@
+{
+  "meta": {
+    "title": "AI.RIO - AI Cost Visibility Platform | Billing Infrastructure Services",
+    "description": "Stop flying blind on LLM costs. Get real-time visibility into your AI infrastructure, track every token across providers, and know your true margins down to the cent."
+  },
+  "hero": {
+    "badge": "AI Cost Visibility Platform",
+    "title": "Your AI margins are a black box.",
+    "subtitle": "I built a flashlight.",
+    "description": "Stop flying blind on LLM costs. Get real-time visibility into your AI infrastructure, track every token across providers, and know your true margins down to the cent.",
+    "cta": {
+      "primary": "See the Infrastructure",
+      "secondary": "Book a Discovery Call"
+    },
+    "trust": {
+      "productionReady": "Production-ready",
+      "soc2": "SOC 2 Compliant",
+      "providers": "5 Providers Supported"
+    }
+  },
+  "infrastructure": {
+    "title": "Production-Grade Infrastructure",
+    "subtitle": "Real metrics from the actual codebase",
+    "metrics": {
+      "coverage": {
+        "label": "Test Coverage",
+        "description": "Comprehensive test suite"
+      },
+      "providers": {
+        "label": "Providers Supported",
+        "description": "OpenAI, Anthropic, OpenRouter, Groq, Mistral"
+      },
+      "policies": {
+        "label": "RLS Policies",
+        "description": "Row-level security policies"
+      },
+      "models": {
+        "label": "Models Tracked",
+        "description": "Across all providers"
+      }
+    }
+  },
+  "dashboard": {
+    "title": "See Your Costs in Real-Time",
+    "subtitle": "Monitor your LLM spending across all providers with a single dashboard. Track costs per customer, per feature, per token.",
+    "views": {
+      "title": "AI Cost Dashboard",
+      "description": "Real-time cost tracking with breakdown by provider and model",
+      "imageAlt": "AI.RIO dashboard showing LLM cost breakdown by provider and model",
+      "badge": "Live Demo"
+    },
+    "cta": "View Live Demo"
+  },
+  "problem": {
+    "title": "The AI Cost Black Box Problem",
+    "subtitle": "Most AI SaaS companies are losing money because they can't see their true margins",
+    "problems": {
+      "noVisibility": {
+        "title": "No Cost Visibility",
+        "description": "AI costs are scattered across multiple provider dashboards, making it impossible to track total spend or attribute costs to specific customers.",
+        "metric": "87% of AI SaaS companies"
+      },
+      "unknownMargins": {
+        "title": "Unknown True Margins",
+        "description": "Without per-customer cost tracking, you're flying blind on profitability. Some customers could be costing more than they pay."
+      },
+      "usageSpikes": {
+        "title": "Unexpected Usage Spikes",
+        "description": "A single heavy user can spike your costs by 10x overnight. Without alerts and limits, these surprises destroy margins."
+      },
+      "multiProvider": {
+        "title": "Multi-Provider Chaos",
+        "description": "Managing bills from OpenAI, Anthropic, Groq, and others is a nightmare. No unified view, no consolidated reporting."
+      }
+    },
+    "alert": {
+      "title": "The Margin Killer",
+      "description": "You can't optimize what you can't see. Most AI SaaS companies discover they're losing money on their top customers only when it's too late."
+    }
+  },
+  "services": {
+    "title": "Billing Infrastructure Services",
+    "subtitle": "Fixed-scope, fixed-price services. 2-week delivery. Production-ready code.",
+    "badges": {
+      "revenue": "Revenue",
+      "growth": "Growth",
+      "core": "Core",
+      "audit": "Audit",
+      "complete": "Complete",
+      "bestValue": "Best Value"
+    },
+    "features": {
+      "allServices": "All services included",
+      "warranty": "90-day warranty",
+      "support": "Priority support"
+    },
+    "cta": "Learn More",
+    "ctaFeatured": "Get Started",
+    "payment_recovery": {
+      "title": "Stripe Payment Recovery Accelerator",
+      "price": "$2,000-4,000",
+      "timeline": "7-10 days",
+      "description": "Stop losing revenue to failed payments. We implement automated dunning workflows that typically improve recovery rates from 47.6% to 65-70%."
+    },
+    "usage_pricing": {
+      "title": "Usage-Based Pricing Launch",
+      "price": "$3,000-5,000",
+      "timeline": "10-14 days",
+      "description": "Implement Stripe Meter billing in 2 weeks instead of 6 months. Usage-based pricing companies grow 54% faster than traditional models."
+    },
+    "ai_tracking": {
+      "title": "AI Cost Visibility System",
+      "price": "$3,000-5,000",
+      "timeline": "10-14 days",
+      "description": "Track LLM costs per customer across OpenAI, Anthropic, and OpenRouter (400+ models). Know your true margins."
+    },
+    "billing_audit": {
+      "title": "Revenue Leak Detection",
+      "price": "$1,500-3,000",
+      "timeline": "3-5 days",
+      "description": "Complete billing audit. Identify revenue leaks, edge cases, and optimization opportunities with a clear remediation roadmap."
+    },
+    "complete_billing": {
+      "title": "Billing Foundation",
+      "price": "$8,000-15,000",
+      "timeline": "3-4 weeks",
+      "description": "End-to-end billing infrastructure. All services integrated, priority support, 90-day warranty."
+    }
+  },
+  "process": {
+    "title": "How We Work",
+    "subtitle": "Transparent process, clear deliverables, fixed pricing. No surprises.",
+    "phases": {
+      "1": {
+        "title": "Discovery & Audit",
+        "duration": "Week 1",
+        "description": "We analyze your current billing setup and identify improvement opportunities.",
+        "deliverables": {
+          "billingAudit": {
+            "title": "Billing Audit",
+            "description": "Comprehensive analysis of your current billing infrastructure"
+          },
+          "costAnalysis": {
+            "title": "Cost Analysis",
+            "description": "AI cost breakdown with recommendations for optimization"
+          },
+          "implementationPlan": {
+            "title": "Implementation Plan",
+            "description": "Detailed roadmap with timeline and pricing"
+          }
+        }
+      },
+      "2": {
+        "title": "Foundation",
+        "duration": "Week 2",
+        "description": "We build the core billing infrastructure tailored to your needs.",
+        "deliverables": {
+          "coreImplementation": {
+            "title": "Core Implementation",
+            "description": "Billing system setup based on selected service package"
+          },
+          "integration": {
+            "title": "Integration",
+            "description": "Connect with your existing systems and providers"
+          }
+        }
+      },
+      "3": {
+        "title": "Launch & Optimize",
+        "duration": "Weeks 3-4",
+        "description": "We deploy, test, and optimize your new billing infrastructure.",
+        "deliverables": {
+          "testing": {
+            "title": "Testing & QA",
+            "description": "Comprehensive testing of all billing flows"
+          },
+          "deployment": {
+            "title": "Deployment",
+            "description": "Production deployment with monitoring setup"
+          },
+          "handover": {
+            "title": "Handover & Training",
+            "description": "Documentation, team training, and ongoing support"
+          }
+        }
+      }
+    },
+    "cta": "Start Your Project"
+  },
+  "about": {
+    "title": "Built by a Billing Specialist",
+    "description": "I built Margin, a production LLM metering platform, and extracted production billing code from QuoteKit. Now I help AI SaaS companies solve the same problems I've already solved.",
+    "badges": {
+      "openSource": "Open Source Contributor",
+      "production": "Production Experience",
+      "expert": "Billing Expert"
+    }
+  },
+  "contact": {
+    "contextText": "Start with an audit or book a call",
+    "description": "Tell me about your billing challenges. I'll respond within 24 hours with a clear path forward."
+  },
+  "footer": {
+    "copyright": "All rights reserved.",
+    "privacy": "Privacy",
+    "terms": "Terms"
+  }
+}

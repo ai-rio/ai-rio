@@ -1,0 +1,208 @@
+{
+  "meta": {
+    "title": "AI.RIO - Plataforma de Visibilidade de Custos de IA | Serviços de Infraestrutura de Cobrança",
+    "description": "Pare de voar às cegas nos custos de LLM. Obtenha visibilidade em tempo real da sua infraestrutura de IA, rastreie cada token entre provedores e conheça suas margens verdadeiras até o centavo."
+  },
+  "hero": {
+    "badge": "Plataforma de Visibilidade de Custos de IA",
+    "title": "Suas margens de IA são uma caixa preta.",
+    "subtitle": "Eu construí uma lanterna.",
+    "description": "Pare de voar às cegas nos custos de LLM. Obtenha visibilidade em tempo real da sua infraestrutura de IA, rastreie cada token entre provedores e conheça suas margens verdadeiras até o centavo.",
+    "cta": {
+      "primary": "Ver a Infraestrutura",
+      "secondary": "Agendar uma Chamada de Descoberta"
+    },
+    "trust": {
+      "productionReady": "Pronto para produção",
+      "soc2": "Conforme SOC 2",
+      "providers": "5 Provedores Suportados"
+    }
+  },
+  "infrastructure": {
+    "title": "Infraestrutura de Nível de Produção",
+    "subtitle": "Métricas reais do código real",
+    "metrics": {
+      "coverage": {
+        "label": "Cobertura de Testes",
+        "description": "Suite de testes abrangente"
+      },
+      "providers": {
+        "label": "Provedores Suportados",
+        "description": "OpenAI, Anthropic, OpenRouter, Groq, Mistral"
+      },
+      "policies": {
+        "label": "Políticas RLS",
+        "description": "Políticas de segurança em nível de linha"
+      },
+      "models": {
+        "label": "Modelos Rastreados",
+        "description": "Em todos os provedores"
+      }
+    }
+  },
+  "dashboard": {
+    "title": "Veja Seus Custos em Tempo Real",
+    "subtitle": "Monitore seus gastos com LLM em todos os provedores com um único painel. Rastreie custos por cliente, por recurso, por token.",
+    "views": {
+      "title": "Painel de Custos de IA",
+      "description": "Rastreamento de custos em tempo real com detalhamento por provedor e modelo",
+      "imageAlt": "Painel AI.RIO mostrando detalhamento de custos LLM por provedor e modelo",
+      "badge": "Demo ao Vivo"
+    },
+    "cta": "Ver Demo ao Vivo"
+  },
+  "problem": {
+    "title": "O Problema da Caixa Preta dos Custos de IA",
+    "subtitle": "A maioria das empresas de IA SaaS está perdendo dinheiro porque não consegue ver suas margens verdadeiras",
+    "problems": {
+      "noVisibility": {
+        "title": "Sem Visibilidade de Custos",
+        "description": "Os custos de IA estão espalhados por vários painéis de provedores, tornando impossível rastrear o gasto total ou atribuir custos a clientes específicos.",
+        "metric": "87% das empresas de IA SaaS"
+      },
+      "unknownMargins": {
+        "title": "Margens Verdadeiras Desconhecidas",
+        "description": "Sem rastreamento de custos por cliente, você está voando às cegas sobre a rentabilidade. Alguns clientes podem custar mais do que pagam."
+      },
+      "usageSpikes": {
+        "title": "Picos de Uso Inesperados",
+        "description": "Um único usuário pesado pode aumentar seus custos 10x durante a noite. Sem alertas e limites, essas surpresas destroem as margens."
+      },
+      "multiProvider": {
+        "title": "Caos Multi-Provedor",
+        "description": "Gerenciar contas de OpenAI, Anthropic, Groq e outros é um pesadelo. Nenhuma visão unificada, nenhum relatório consolidado."
+      }
+    },
+    "alert": {
+      "title": "O Matador de Margens",
+      "description": "Você não pode otimizar o que não pode ver. A maioria das empresas de IA SaaS descobre que está perdendo dinheiro nos melhores clientes apenas quando é tarde demais."
+    }
+  },
+  "services": {
+    "title": "Serviços de Infraestrutura de Cobrança",
+    "subtitle": "Serviços de escopo fixo, preço fixo. Entrega em 2 semanas. Código pronto para produção.",
+    "badges": {
+      "revenue": "Receita",
+      "growth": "Crescimento",
+      "core": "Núcleo",
+      "audit": "Auditoria",
+      "complete": "Completo",
+      "bestValue": "Melhor Valor"
+    },
+    "features": {
+      "allServices": "Todos os serviços incluídos",
+      "warranty": "Garantia de 90 dias",
+      "support": "Suporte prioritário"
+    },
+    "cta": "Saiba Mais",
+    "ctaFeatured": "Começar Agora",
+    "payment_recovery": {
+      "title": "Acelerador de Recuperação de Pagamentos Stripe",
+      "price": "$2,000-4,000",
+      "timeline": "7-10 dias",
+      "description": "Pare de perder receita com pagamentos falhos. Implementamos fluxos de trabalho de cobrança automáticos que normalmente melhoram as taxas de recuperação de 47.6% para 65-70%."
+    },
+    "usage_pricing": {
+      "title": "Lançamento de Preços Baseados em Uso",
+      "price": "$3,000-5,000",
+      "timeline": "10-14 dias",
+      "description": "Implemente a cobrança Stripe Meter em 2 semanas em vez de 6 meses. Empresas com preços baseados em uso crescem 54% mais rápido que modelos tradicionais."
+    },
+    "ai_tracking": {
+      "title": "Sistema de Visibilidade de Custos de IA",
+      "price": "$3,000-5,000",
+      "timeline": "10-14 dias",
+      "description": "Rastreie custos de LLM por cliente em OpenAI, Anthropic e OpenRouter (400+ modelos). Conheça suas margens verdadeiras."
+    },
+    "billing_audit": {
+      "title": "Detecção de Vazamentos de Receita",
+      "price": "$1,500-3,000",
+      "timeline": "3-5 dias",
+      "description": "Auditoria de cobrança completa. Identifique vazamentos de receita, casos extremos e oportunidades de otimização com um roadmap de remediação claro."
+    },
+    "complete_billing": {
+      "title": "Fundação de Cobrança",
+      "price": "$8,000-15,000",
+      "timeline": "3-4 semanas",
+      "description": "Infraestrutura de cobrança de ponta a ponta. Todos os serviços integrados, suporte prioritário, garantia de 90 dias."
+    }
+  },
+  "process": {
+    "title": "Como Trabalhamos",
+    "subtitle": "Processo transparente, entregas claras, preços fixos. Sem surpresas.",
+    "phases": {
+      "1": {
+        "title": "Descoberta e Auditoria",
+        "duration": "Semana 1",
+        "description": "Analisamos sua configuração de cobrança atual e identificamos oportunidades de melhoria.",
+        "deliverables": {
+          "billingAudit": {
+            "title": "Auditoria de Cobrança",
+            "description": "Análise abrangente da sua infraestrutura de cobrança atual"
+          },
+          "costAnalysis": {
+            "title": "Análise de Custos",
+            "description": "Detalhamento de custos de IA com recomendações de otimização"
+          },
+          "implementationPlan": {
+            "title": "Plano de Implementação",
+            "description": "Roadmap detalhado com cronograma e preços"
+          }
+        }
+      },
+      "2": {
+        "title": "Fundação",
+        "duration": "Semana 2",
+        "description": "Construímos a infraestrutura de cobrança principal personalizada para suas necessidades.",
+        "deliverables": {
+          "coreImplementation": {
+            "title": "Implementação Principal",
+            "description": "Configuração do sistema de cobrança baseado no pacote de serviço selecionado"
+          },
+          "integration": {
+            "title": "Integração",
+            "description": "Conecte-se com seus sistemas e provedores existentes"
+          }
+        }
+      },
+      "3": {
+        "title": "Lançamento e Otimização",
+        "duration": "Semanas 3-4",
+        "description": "Implantamos, testamos e otimizamos sua nova infraestrutura de cobrança.",
+        "deliverables": {
+          "testing": {
+            "title": "Testes e QA",
+            "description": "Testes abrangentes de todos os fluxos de cobrança"
+          },
+          "deployment": {
+            "title": "Implantação",
+            "description": "Implantação em produção com configuração de monitoramento"
+          },
+          "handover": {
+            "title": "Entrega e Treinamento",
+            "description": "Documentação, treinamento da equipe e suporte contínuo"
+          }
+        }
+      }
+    },
+    "cta": "Iniciar Seu Projeto"
+  },
+  "about": {
+    "title": "Construído por um Especialista em Cobrança",
+    "description": "Construí o Margin, uma plataforma de medição de LLM de produção, e extraí código de cobrança de produção do QuoteKit. Agora ajudo empresas de IA SaaS a resolver os mesmos problemas que já resolvi.",
+    "badges": {
+      "openSource": "Contribuidor Open Source",
+      "production": "Experiência em Produção",
+      "expert": "Especialista em Cobrança"
+    }
+  },
+  "contact": {
+    "contextText": "Comece com uma auditoria ou agende uma chamada",
+    "description": "Conte-me sobre seus desafios de cobrança. Responderei em até 24 horas com um caminho claro."
+  },
+  "footer": {
+    "copyright": "Todos os direitos reservados.",
+    "privacy": "Privacidade",
+    "terms": "Termos"
+  }
+}

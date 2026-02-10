@@ -1,0 +1,40 @@
+{
+  "name": {
+    "label": "Your name",
+    "placeholder": "John Doe",
+    "required": "Name is required"
+  },
+  "email": {
+    "label": "Email address",
+    "placeholder": "john@example.com",
+    "required": "Email is required",
+    "invalid": "Please enter a valid email address"
+  },
+  "company": {
+    "label": "Company",
+    "placeholder": "Acme Inc.",
+    "required": "Company is required"
+  },
+  "service": {
+    "label": "Which service interests you?",
+    "placeholder": "Select a service",
+    "required": "Please select a service",
+    "options": {
+      "payment_recovery": "Stripe Payment Recovery Accelerator",
+      "usage_pricing": "Usage-Based Pricing Launch",
+      "ai_tracking": "AI Cost Visibility System",
+      "billing_audit": "Revenue Leak Detection",
+      "complete_billing": "Billing Foundation",
+      "other": "Other"
+    }
+  },
+  "message": {
+    "label": "Tell me about your billing challenges",
+    "placeholder": "Describe your billing situation and what you'd like to achieve...",
+    "required": "Message is required",
+    "minLength": "Message must be at least 10 characters"
+  },
+  "submit": "Send Message",
+  "success": "Message sent successfully! I'll get back to you soon.",
+  "error": "Failed to send message. Please try again."
+}

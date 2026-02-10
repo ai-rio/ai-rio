@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "title": "Blog - AI.RIO | Perspectivas Técnicas sobre Infraestructura de Facturación",
+    "description": "Perspectivas técnicas sobre infraestructura de facturación, recuperación de pagos y optimización de ingresos para SaaS de IA."
+  },
+  "title": "Blog",
+  "description": "Perspectivas técnicas sobre infraestructura de facturación, recuperación de pagos y optimización de ingresos para SaaS de IA.",
+  "categories": "Categorías:",
+  "exploreByTopic": "Explorar por Tema",
+  "filterBy": "Filtrar por {category}",
+  "viewPostsTagged": "Ver publicaciones etiquetadas con {tag}",
+  "post": {
+    "authorBio": "Construyendo infraestructura de facturación que escala. Tus márgenes son una caja negra. Construí una linterna.",
+    "notFound": "Publicación No Encontrada"
+  }
+}

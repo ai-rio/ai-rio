@@ -1,0 +1,208 @@
+{
+  "meta": {
+    "title": "AI.RIO - Plataforma de Visibilidad de Costos de IA | Servicios de Infraestructura de Facturación",
+    "description": "Deja de volar a ciegas en los costos de LLM. Obtén visibilidad en tiempo real de tu infraestructura de IA, rastrea cada token entre proveedores y conoce tus márgenes verdaderos hasta el centavo."
+  },
+  "hero": {
+    "badge": "Plataforma de Visibilidad de Costos de IA",
+    "title": "Tus márgenes de IA son una caja negra.",
+    "subtitle": "Construí una linterna.",
+    "description": "Deja de volar a ciegas en los costos de LLM. Obtén visibilidad en tiempo real de tu infraestructura de IA, rastrea cada token entre proveedores y conoce tus márgenes verdaderos hasta el centavo.",
+    "cta": {
+      "primary": "Ver la Infraestructura",
+      "secondary": "Agendar una Llamada de Descubrimiento"
+    },
+    "trust": {
+      "productionReady": "Listo para producción",
+      "soc2": "Conforme SOC 2",
+      "providers": "5 Proveedores Soportados"
+    }
+  },
+  "infrastructure": {
+    "title": "Infraestructura de Nivel de Producción",
+    "subtitle": "Métricas reales del código real",
+    "metrics": {
+      "coverage": {
+        "label": "Cobertura de Pruebas",
+        "description": "Suite de pruebas integral"
+      },
+      "providers": {
+        "label": "Proveedores Soportados",
+        "description": "OpenAI, Anthropic, OpenRouter, Groq, Mistral"
+      },
+      "policies": {
+        "label": "Políticas RLS",
+        "description": "Políticas de seguridad a nivel de fila"
+      },
+      "models": {
+        "label": "Modelos Rastreados",
+        "description": "En todos los proveedores"
+      }
+    }
+  },
+  "dashboard": {
+    "title": "Ve Tus Costos en Tiempo Real",
+    "subtitle": "Monitorea tus gastos de LLM en todos los proveedores con un solo panel. Rastrea costos por cliente, por función, por token.",
+    "views": {
+      "title": "Panel de Costos de IA",
+      "description": "Rastreo de costos en tiempo real con desglose por proveedor y modelo",
+      "imageAlt": "Panel AI.RIO mostrando desglose de costos LLM por proveedor y modelo",
+      "badge": "Demo en Vivo"
+    },
+    "cta": "Ver Demo en Vivo"
+  },
+  "problem": {
+    "title": "El Problema de la Caja Negra de Costos de IA",
+    "subtitle": "La mayoría de las empresas de IA SaaS están perdiendo dinero porque no pueden ver sus márgenes verdaderos",
+    "problems": {
+      "noVisibility": {
+        "title": "Sin Visibilidad de Costos",
+        "description": "Los costos de IA están dispersos en varios paneles de proveedores, lo que hace imposible rastrear el gasto total o atribuir costos a clientes específicos.",
+        "metric": "87% de las empresas de IA SaaS"
+      },
+      "unknownMargins": {
+        "title": "Márgenes Verdaderos Desconocidos",
+        "description": "Sin rastreo de costos por cliente, estás volando a ciegas sobre la rentabilidad. Algunos clientes pueden costar más de lo que pagan."
+      },
+      "usageSpikes": {
+        "title": "Picos de Uso Inesperados",
+        "description": "Un único usuario pesado puede aumentar tus costos 10 veces durante la noche. Sin alertas y límites, estas sorpresas destruyen los márgenes."
+      },
+      "multiProvider": {
+        "title": "Caos Multi-Proveedor",
+        "description": "Administrar facturas de OpenAI, Anthropic, Groq y otros es una pesadilla. Sin visión unificada, sin informes consolidados."
+      }
+    },
+    "alert": {
+      "title": "El Destructor de Márgenes",
+      "description": "No puedes optimizar lo que no puedes ver. La mayoría de las empresas de IA SaaS descubren que están perdiendo dinero en sus mejores clientes solo cuando es demasiado tarde."
+    }
+  },
+  "services": {
+    "title": "Servicios de Infraestructura de Facturación",
+    "subtitle": "Servicios de alcance fijo, precio fijo. Entrega en 2 semanas. Código listo para producción.",
+    "badges": {
+      "revenue": "Ingresos",
+      "growth": "Crecimiento",
+      "core": "Núcleo",
+      "audit": "Auditoría",
+      "complete": "Completo",
+      "bestValue": "Mejor Valor"
+    },
+    "features": {
+      "allServices": "Todos los servicios incluidos",
+      "warranty": "Garantía de 90 días",
+      "support": "Soporte prioritario"
+    },
+    "cta": "Más Información",
+    "ctaFeatured": "Comenzar Ahora",
+    "payment_recovery": {
+      "title": "Acelerador de Recuperación de Pagos de Stripe",
+      "price": "$2,000-4,000",
+      "timeline": "7-10 días",
+      "description": "Deja de perder ingresos por pagos fallidos. Implementamos flujos de trabajo de cobranza automáticos que típicamente mejoran las tasas de recuperación de 47.6% a 65-70%."
+    },
+    "usage_pricing": {
+      "title": "Lanzamiento de Precios Basado en Uso",
+      "price": "$3,000-5,000",
+      "timeline": "10-14 días",
+      "description": "Implementa la facturación de Stripe Meter en 2 semanas en lugar de 6 meses. Las empresas con precios basados en uso crecen 54% más rápido que los modelos tradicionales."
+    },
+    "ai_tracking": {
+      "title": "Sistema de Visibilidad de Costos de IA",
+      "price": "$3,000-5,000",
+      "timeline": "10-14 días",
+      "description": "Rastrea los costos de LLM por cliente en OpenAI, Anthropic y OpenRouter (400+ modelos). Conoce tus márgenes verdaderos."
+    },
+    "billing_audit": {
+      "title": "Detección de Fugas de Ingresos",
+      "price": "$1,500-3,000",
+      "timeline": "3-5 días",
+      "description": "Auditoría de facturación completa. Identifica fugas de ingresos, casos extremos y oportunidades de optimización con un roadmap de remediación claro."
+    },
+    "complete_billing": {
+      "title": "Fundación de Facturación",
+      "price": "$8,000-15,000",
+      "timeline": "3-4 semanas",
+      "description": "Infraestructura de facturación de extremo a extremo. Todos los servicios integrados, soporte prioritario, garantía de 90 días."
+    }
+  },
+  "process": {
+    "title": "Cómo Trabajamos",
+    "subtitle": "Proceso transparente, entregas claras, precios fijos. Sin sorpresas.",
+    "phases": {
+      "1": {
+        "title": "Descubrimiento y Auditoría",
+        "duration": "Semana 1",
+        "description": "Analizamos tu configuración de facturación actual e identificamos oportunidades de mejora.",
+        "deliverables": {
+          "billingAudit": {
+            "title": "Auditoría de Facturación",
+            "description": "Análisis integral de tu infraestructura de facturación actual"
+          },
+          "costAnalysis": {
+            "title": "Análisis de Costos",
+            "description": "Desglose de costos de IA con recomendaciones de optimización"
+          },
+          "implementationPlan": {
+            "title": "Plan de Implementación",
+            "description": "Hoja de ruta detallada con cronograma y precios"
+          }
+        }
+      },
+      "2": {
+        "title": "Fundación",
+        "duration": "Semana 2",
+        "description": "Construimos la infraestructura de facturación principal personalizada para tus necesidades.",
+        "deliverables": {
+          "coreImplementation": {
+            "title": "Implementación Principal",
+            "description": "Configuración del sistema de facturación basado en el paquete de servicio seleccionado"
+          },
+          "integration": {
+            "title": "Integración",
+            "description": "Conexión con tus sistemas y proveedores existentes"
+          }
+        }
+      },
+      "3": {
+        "title": "Lanzamiento y Optimización",
+        "duration": "Semanas 3-4",
+        "description": "Desplegamos, probamos y optimizamos tu nueva infraestructura de facturación.",
+        "deliverables": {
+          "testing": {
+            "title": "Pruebas y Control de Calidad",
+            "description": "Pruebas integrales de todos los flujos de facturación"
+          },
+          "deployment": {
+            "title": "Despliegue",
+            "description": "Despliegue en producción con configuración de monitoreo"
+          },
+          "handover": {
+            "title": "Entrega y Capacitación",
+            "description": "Documentación, capacitación del equipo y soporte continuo"
+          }
+        }
+      }
+    },
+    "cta": "Iniciar Tu Proyecto"
+  },
+  "about": {
+    "title": "Construido por un Especialista en Facturación",
+    "description": "Construí Margin, una plataforma de medición de LLM de producción, y extraí código de facturación de producción de QuoteKit. Ahora ayudo a empresas de IA SaaS a resolver los mismos problemas que ya resolví.",
+    "badges": {
+      "openSource": "Contribuidor de Código Abierto",
+      "production": "Experiencia en Producción",
+      "expert": "Experto en Facturación"
+    }
+  },
+  "contact": {
+    "contextText": "Comienza con una auditoría o agenda una llamada",
+    "description": "Cuéntame sobre tus desafíos de facturación. Responderé en 24 horas con un camino claro hacia adelante."
+  },
+  "footer": {
+    "copyright": "Todos los derechos reservados.",
+    "privacy": "Privacidad",
+    "terms": "Términos"
+  }
+}

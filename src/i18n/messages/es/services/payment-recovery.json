@@ -1,0 +1,357 @@
+{
+  "hero": {
+    "timeline": "1 semana",
+    "price": "$2,000-4,000",
+    "title": "Recuperacion de Pagos Fallidos de Stripe",
+    "subtitle": "Deja de dejar ingresos en la mesa. Recupera el 65-70% de los pagos fallidos.",
+    "description": "La configuracion predeterminada de Stripe recupera menos de la mitad de los pagos fallidos. Creo flujos de trabajo de dunning automatizados que recuperan el 65-70%. Entregado en 1 semana."
+  },
+  "metrics": {
+    "title": "El Costo de la Recuperacion Pasiva",
+    "subtitle": "Los valores predeterminados de Stripe no son suficientes. Esto es lo que estas perdiendo.",
+    "items": [
+      {
+        "id": "1",
+        "label": "Mejora de la Tasa de Recuperacion",
+        "value": 68,
+        "suffix": "%",
+        "prefix": "47.6 -> 65-70",
+        "progress": 68,
+        "trend": "up",
+        "description": "De Stripe predeterminado a AI.RIO optimizado"
+      },
+      {
+        "id": "2",
+        "label": "Tiempo de Implementacion",
+        "value": 9,
+        "suffix": " dias",
+        "prefix": "7-10",
+        "progress": 45,
+        "trend": "neutral",
+        "description": "Desde el inicio hasta la produccion"
+      },
+      {
+        "id": "3",
+        "label": "Ingresos Ahorrados en Promedio",
+        "value": 52000,
+        "suffix": "",
+        "prefix": "$52K",
+        "progress": 52,
+        "trend": "up",
+        "description": "Para empresas con $100K MRR"
+      },
+      {
+        "id": "4",
+        "label": "Cronograma de ROI",
+        "value": 2,
+        "suffix": " meses",
+        "prefix": "<",
+        "progress": 20,
+        "trend": "down",
+        "description": "Periodo de recuperacion"
+      }
+    ]
+  },
+  "problems": {
+    "title": "Por Que Tu Tasa de Recuperacion Es del 47.6%",
+    "subtitle": "El dunning predeterminado de Stripe es pasivo. Tus clientes necesitan mejores recordatorios, mejor momento y reintentos mas inteligentes.",
+    "alert": {
+      "title": "La Perdida Involuntaria de Clientes Es Costosa",
+      "description": "Adquirir un nuevo cliente cuesta 5-25 veces mas que recuperar uno existente. La recuperacion de pagos fallidos es utilidad pura."
+    },
+    "items": [
+      {
+        "id": "1",
+        "title": "Tasa de Recuperacion Predeterminada del 47.6%",
+        "description": "La configuracion predeterminada de Stripe recupera menos de la mitad de los pagos fallidos. Estas dejando miles de dolares en la mesa cada mes.",
+        "severity": "critical",
+        "metric": "Perdida anual promedio de $52K para $100K MRR"
+      },
+      {
+        "id": "2",
+        "title": "Solo Dunning Pasivo",
+        "description": "Tus correos electronicos de pagos fallidos son genericos, mal programados y carecen de urgencia. Los clientes los ignoran.",
+        "severity": "high"
+      },
+      {
+        "id": "3",
+        "title": "Sin Logica de Reinteligente",
+        "description": "Stripe reintenta a ciegas, sin considerar el tipo de tarjeta, la razon del fallo o los patrones de pago del cliente.",
+        "severity": "high"
+      },
+      {
+        "id": "4",
+        "title": "Churn Clasificado Incorrectamente",
+        "description": "Crees que los clientes se fueron porque no querian tu producto. En realidad se fueron porque su tarjeta fallo.",
+        "severity": "medium"
+      }
+    ]
+  },
+  "solution": {
+    "title": "La Solucion de AI.RIO",
+    "subtitle": "Flujos de trabajo de dunning automatizados con logica de reinteligente.",
+    "items": [
+      {
+        "id": "1",
+        "title": "Flujos de Trabajo de Dunning Automatizados",
+        "description": "Secuencias estrategicas de correos electronicos con el mensaje, el momento y la urgencia adecuados para recuperar pagos.",
+        "icon": "mail",
+        "badge": "Tasa de recuperacion del 65-70%",
+        "highlighted": true
+      },
+      {
+        "id": "2",
+        "title": "Logica de Reinteligente",
+        "description": "Programacion inteligente de reintentos basada en la razon del fallo, la red de la tarjeta y el historial de pagos del cliente.",
+        "icon": "credit-card"
+      },
+      {
+        "id": "3",
+        "title": "Analisis de Patrones de Fallo",
+        "description": "Entiende por que fallan los pagos: rechazos duros vs rechazos suaves, fondos insuficientes, tarjetas vencidas, bloques de fraude.",
+        "icon": "alert-triangle"
+      },
+      {
+        "id": "4",
+        "title": "Plantillas de Correo Electronico Personalizadas",
+        "description": "Correos electronicos de dunning que coinciden con tu marca y voz. Prueba A/B de asuntos y mensajes.",
+        "icon": "mail"
+      },
+      {
+        "id": "5",
+        "title": "Panel de Recuperacion",
+        "description": "Rastrea las tasas de recuperacion, las tendencias de pagos fallidos y los ingresos ahorrados a lo largo del tiempo.",
+        "icon": "trending-up"
+      }
+    ]
+  },
+  "deliverables": {
+    "title": "Lo Que Obtendras",
+    "subtitle": "Alcance fijo, precio fijo. Entregado en 7-10 dias.",
+    "totalPrice": 4000,
+    "cta": {
+      "label": "Recupera Tus Ingresos",
+      "href": "/contact?service=payment-recovery"
+    },
+    "phases": [
+      {
+        "phase": "1",
+        "title": "Auditoria y Configuracion",
+        "description": "Analizar el rendimiento de recuperacion actual y configurar el dunning",
+        "duration": "Dias 1-2",
+        "price": 500,
+        "deliverables": [
+          {
+            "id": "1-1",
+            "title": "Analisis de Pagos Fallidos",
+            "description": "Analizar los ultimos 90 dias de pagos fallidos, identificar patrones y oportunidades de recuperacion",
+            "status": "pending",
+            "deliveryWeek": "Dia 1"
+          },
+          {
+            "id": "1-2",
+            "title": "Configuracion de Dunning de Stripe",
+            "description": "Configurar los ajustes de dunning de Stripe con un programa de reintento optimo",
+            "status": "pending",
+            "deliveryWeek": "Dia 2"
+          }
+        ]
+      },
+      {
+        "phase": "2",
+        "title": "Implementacion de Dunning",
+        "description": "Construir e implementar flujos de trabajo de recuperacion automatizados",
+        "duration": "Dias 3-5",
+        "price": 2000,
+        "deliverables": [
+          {
+            "id": "2-1",
+            "title": "Diseno de Secuencia de Correos",
+            "description": "Crear una secuencia estrategica de correos electronicos de dunning con 3-5 contactos durante 14 dias",
+            "status": "pending",
+            "deliveryWeek": "Dia 3"
+          },
+          {
+            "id": "2-2",
+            "title": "Logica de Reinteligente",
+            "description": "Implementar la programacion inteligente de reintentos basada en codigos y patrones de fallo",
+            "status": "pending",
+            "deliveryWeek": "Dia 4"
+          },
+          {
+            "id": "2-3",
+            "title": "Panel de Recuperacion",
+            "description": "Panel que muestra tasas de recuperacion, pagos fallidos e ingresos ahorrados",
+            "status": "pending",
+            "deliveryWeek": "Dia 5"
+          }
+        ]
+      },
+      {
+        "phase": "3",
+        "title": "Pruebas y Lanzamiento",
+        "description": "Probar los flujos de trabajo e implementar en produccion",
+        "duration": "Dias 6-7",
+        "price": 1500,
+        "deliverables": [
+          {
+            "id": "3-1",
+            "title": "Pruebas de Flujos de Trabajo",
+            "description": "Probar flujos de trabajo de dunning con pagos fallidos simulados",
+            "status": "pending",
+            "deliveryWeek": "Dia 6"
+          },
+          {
+            "id": "3-2",
+            "title": "Implementacion en Produccion",
+            "description": "Implementar en produccion con monitoreo y alertas",
+            "status": "pending",
+            "deliveryWeek": "Dia 7"
+          },
+          {
+            "id": "3-3",
+            "title": "Monitoreo de 30 Dias",
+            "description": "Monitorear las tasas de recuperacion y optimizar segun el rendimiento real",
+            "status": "pending",
+            "deliveryWeek": "Dias 7-37"
+          }
+        ]
+      }
+    ]
+  },
+  "whoFor": {
+    "title": "Para Quien Es Esto",
+    "subtitle": "Empresas SaaS B2B con $25K+ MRR y volumen significativo de pagos fallidos.",
+    "profiles": [
+      {
+        "id": "1",
+        "name": "Fundador de SaaS B2B",
+        "initials": "FB",
+        "stage": "Ronda Semilla - Serie A",
+        "mrr": { "min": 25000, "max": 150000 },
+        "description": "SaaS en crecimiento con volumen significativo de pagos fallidos. Cada pago recuperado es utilidad pura.",
+        "painPoints": [
+          "Alta perdida de clientes por pagos fallidos",
+          "Correos de dunning de Stripe genericos",
+          "Sin visibilidad de las tasas de recuperacion",
+          "Seguimiento manual de pagos fallidos"
+        ]
+      },
+      {
+        "id": "2",
+        "name": "Lider de Operaciones de Ingresos",
+        "initials": "LO",
+        "stage": "Etapa de Crecimiento",
+        "mrr": { "min": 100000, "max": 500000 },
+        "description": "Responsable de la retencion de ingresos. Necesita reducir la perdida involuntaria de clientes.",
+        "painPoints": [
+          "Perdida involuntaria de clientes no rastreada",
+          "No puede calcular el ROI de recuperacion",
+          "Solo dunning pasivo",
+          "Sin visibilidad de patrones de fallo"
+        ]
+      },
+      {
+        "id": "3",
+        "name": "Director de Finanzas",
+        "initials": "DF",
+        "stage": "Serie B+",
+        "mrr": { "min": 500000, "max": 2000000 },
+        "description": "Centrado en la optimizacion de margenes. Los pagos fallidos estan dejando dinero en la mesa.",
+        "painPoints": [
+          "Fugas de ingresos por pagos fallidos",
+          "Sin metricas de rendimiento de recuperacion",
+          "Infraestructura de recuperacion obsoleta",
+          "Conciliacion manual de ingresos"
+        ]
+      }
+    ]
+  },
+  "relatedServices": {
+    "title": "Servicios Relacionados",
+    "subtitle": "¿Necesitas mas que recuperacion de pagos? Estos servicios complementan el trabajo de recuperacion.",
+    "items": [
+      {
+        "id": "1",
+        "title": "Auditoria de Facturacion",
+        "description": "Identifica todas las fugas de ingresos y oportunidades de optimizacion. $1.5K-3K, 1 semana.",
+        "href": "/services/billing-audit",
+        "badge": "Comienza Aqui"
+      },
+      {
+        "id": "2",
+        "title": "Facturacion Completa",
+        "description": "Infraestructura de facturacion de extremo a extremo que incluye recuperacion de pagos. $8K-15K, 4-6 semanas.",
+        "href": "/services/complete-billing"
+      },
+      {
+        "id": "3",
+        "title": "Precios Basados en Uso",
+        "description": "Lanza Stripe Meter en 2 semanas. Las empresas con precios basados en uso crecen un 54% mas rapido.",
+        "href": "/services/usage-pricing"
+      }
+    ]
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "subtitle": "Respuestas directas sobre la recuperacion de pagos.",
+    "items": [
+      {
+        "id": "1",
+        "question": "¿Cual es la mejora real de la tasa de recuperacion?",
+        "answer": "La configuracion predeterminada de Stripe tipicamente recupera el 47-48% de los pagos fallidos. Mis clientes tipicamente ven tasas de recuperacion del 65-70% despues de implementar el dunning automatizado. Eso es un 17-22% mas de ingresos recuperados.",
+        "category": "Resultados"
+      },
+      {
+        "id": "2",
+        "question": "¿Por que no puedo usar simplemente el dunning predeterminado de Stripe?",
+        "answer": "Puedes, y deberias activarlo. Pero el predeterminado de Stripe es generico: un correo electronico, logica de reintento basica. Mi servicio agrega secuencias estrategicas de correos electronicos, programacion inteligente de reintentos y analisis de patrones de fallo. La diferencia es material.",
+        "category": "Tecnico"
+      },
+      {
+        "id": "3",
+        "question": "¿Cuanto tiempo toma la implementacion?",
+        "answer": "7-10 dias desde el inicio hasta el final. La mayor parte de ese tiempo se dedica a disenyar y probar secuencias de correos electronicos. La implementacion tecnica es sencilla.",
+        "category": "Cronograma"
+      },
+      {
+        "id": "4",
+        "question": "¿Que pasa si mis clientes son internacionales?",
+        "answer": "Las tarjetas internacionales tienen patrones de fallo diferentes. La logica de reintento tiene en cuenta las diferencias regionales, variaciones de la red de tarjetas y consideraciones de zona horaria.",
+        "category": "Tecnico"
+      },
+      {
+        "id": "5",
+        "question": "¿Necesito cambiar mi configuracion de Stripe?",
+        "answer": "No. Configuro el dunning sobre tu configuracion existente de Stripe. Sin migracion, sin tiempo de inactividad, sin cambios en tu logica de suscripcion.",
+        "category": "Proceso"
+      },
+      {
+        "id": "6",
+        "question": "¿Puedo personalizar las plantillas de correo electronico?",
+        "answer": "Si. Los correos electronicos de duning coinciden con la voz de tu marca e incluyen la identidad de tu empresa. Puedes editarlos en cualquier momento.",
+        "category": "Personalizacion"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Deja de Perder Ingresos por Pagos Fallidos",
+    "subtitle": "Cada pago fallido es recuperable. Dejame mostrarte como.",
+    "description": "Reserva una llamada de descubrimiento gratuita. Analizare tus pagos fallidos y estimare el potencial de recuperacion.",
+    "primaryAction": {
+      "label": "Reserva Llamada de Descubrimiento",
+      "href": "/contact?service=payment-recovery"
+    },
+    "secondaryAction": {
+      "label": "Ver Auditoria de Facturacion",
+      "href": "/services/billing-audit"
+    },
+    "badge": "Respuesta dentro de 24 horas",
+    "trustSignals": [
+      "Analisis gratuito de pagos fallidos",
+      "Estimacion clara de ROI",
+      "Entrega en 7-10 dias",
+      "Monitoreo de 30 dias incluido"
+    ]
+  }
+}

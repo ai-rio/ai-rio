@@ -1,0 +1,388 @@
+{
+  "hero": {
+    "timeline": "2 semanas",
+    "price": "$3,000-5,000",
+    "title": "Lancamento de Precos Baseados em Uso",
+    "subtitle": "Lance o Stripe Meter em 2 semanas em vez de 6 meses.",
+    "description": "Empresas com precos baseados em uso crescem 54% mais rapido que assinaturas tradicionais. Pare de deixar crescimento na mesa."
+  },
+  "metrics": {
+    "title": "A Vantagem dos Precos Baseados em Uso",
+    "subtitle": "Por que as empresas SaaS de crescimento mais rapido usam precos de uso.",
+    "items": [
+      {
+        "id": "1",
+        "label": "Taxa de Crescimento",
+        "value": 54,
+        "suffix": "%",
+        "progress": 54,
+        "trend": "up",
+        "description": "Empresas com precos baseados em uso vs assinaturas tradicionais"
+      },
+      {
+        "id": "2",
+        "label": "Tempo de Implementacao",
+        "value": 2,
+        "suffix": " semanas",
+        "progress": 90,
+        "trend": "up",
+        "description": "vs 6 meses de construcao interna"
+      },
+      {
+        "id": "3",
+        "label": "Alinhamento de Receita",
+        "value": 100,
+        "suffix": "%",
+        "progress": 100,
+        "trend": "up",
+        "description": "A receita escala com o valor do cliente"
+      },
+      {
+        "id": "4",
+        "label": "Modelos de Precos",
+        "value": 4,
+        "suffix": "+",
+        "progress": 80,
+        "trend": "up",
+        "description": "Em niveis, volume, excesso, hibrido"
+      }
+    ]
+  },
+  "problems": {
+    "title": "Por Que os Precos de Uso Estao Bloqueando Seu Crescimento",
+    "subtitle": "Voce sabe que precisa de precos baseados em uso. So nao pode pagar para construi-los.",
+    "alert": {
+      "title": "O Intervalo de 6 Meses",
+      "description": "Construir o Stripe Meter internamente leva 6 meses. Nesse tempo, concorrentes com precos de uso estao crescendo 54% mais rapido."
+    },
+    "items": [
+      {
+        "id": "1",
+        "title": "Precos Planos Limitam o Crescimento",
+        "description": "Empresas com precos baseados em uso crescem 54% mais rapido que modelos de assinatura tradicionais. Voce esta deixando crescimento na mesa.",
+        "severity": "high",
+        "metric": "54% de crescimento mais rapido com precos de uso"
+      },
+      {
+        "id": "2",
+        "title": "Stripe Meter Leva 6 Meses",
+        "description": "Construir o Stripe Meter internamente requer rastreamento de eventos, agregacao, logica de cobranca e manuseio de casos extremos. A maioria das equipes subestima isso.",
+        "severity": "critical",
+        "metric": "6 meses de tempo medio de implementacao"
+      },
+      {
+        "id": "3",
+        "title": "Nao Pode Cobrar pelo Valor Real",
+        "description": "Usuarios intensivos pagam o mesmo que usuarios ocasionais. Voce esta cobrando menos de seus melhores clientes e cobrando demais dos ocasionais.",
+        "severity": "high"
+      },
+      {
+        "id": "4",
+        "title": "Sem Visibilidade de Uso",
+        "description": "Voce nao pode dizer aos clientes quanto estao usando, pelo que estao sendo cobrados ou quando atingirao os limites.",
+        "severity": "medium"
+      },
+      {
+        "id": "5",
+        "title": "Engenharia Distraida",
+        "description": "Sua equipe de produto quer construir recursos, nao infraestrutura de cobranca. Os precos de uso continuam sendo adiados.",
+        "severity": "medium"
+      }
+    ]
+  },
+  "solution": {
+    "title": "A Solucao AI.RIO",
+    "subtitle": "Ja resolvi os problemas dificeis. Lance em 2 semanas.",
+    "items": [
+      {
+        "id": "1",
+        "title": "Implementacao do Stripe Meter",
+        "description": "Infraestrutura completa de precos baseados em uso com o Stripe Meter. Rastreie eventos, agregue uso e cobre com precisao.",
+        "icon": "zap",
+        "badge": "2 semanas vs 6 meses",
+        "highlighted": true
+      },
+      {
+        "id": "2",
+        "title": "Pipeline de Rastreamento de Eventos",
+        "description": "Capture eventos de uso de seu aplicativo, valide-os e envie para o Stripe para agregacao.",
+        "icon": "database"
+      },
+      {
+        "id": "3",
+        "title": "Painel de Uso",
+        "description": "Painel em tempo real mostrando o uso atual, cobranca projetada e tendencias de uso por cliente.",
+        "icon": "bar-chart"
+      },
+      {
+        "id": "4",
+        "title": "Logica de Cobranca e Proporcionalizacao",
+        "description": "Manuseie atualizacoes, downgrades, mudancas de meio ciclo e calculos de proporcionalizacao automaticamente.",
+        "icon": "settings"
+      },
+      {
+        "id": "5",
+        "title": "Modelos de Uso Personalizados",
+        "description": "Suporte precos em niveis, descontos por volume, cobrancas por excesso e configuracoes de medidor personalizadas.",
+        "icon": "trending-up"
+      },
+      {
+        "id": "6",
+        "title": "Notificacoes ao Cliente",
+        "description": "Alertas automaticos quando os clientes se aproximam dos limites de uso, com prompts de atualizacao e transparencia.",
+        "icon": "zap"
+      }
+    ]
+  },
+  "dashboardShowcase": {
+    "title": "Visibilidade de Uso Integrada",
+    "subtitle": "Seus clientes podem ver seu uso, cobranca projetada e tendencias.",
+    "views": [
+      {
+        "id": "1",
+        "title": "Uso Atual",
+        "description": "Vista em tempo real do uso do cliente neste periodo de cobranca",
+        "imageSrc": "/images/dashboard/usage-current.png",
+        "imageAlt": "Painel mostrando metricas de uso atual para o periodo de cobranca",
+        "device": "desktop"
+      },
+      {
+        "id": "2",
+        "title": "Cobranca Projetada",
+        "description": "Fatura prevista com base na trajetoria de uso atual",
+        "imageSrc": "/images/dashboard/usage-projected.png",
+        "imageAlt": "Painel mostrando previsao de cobranca com base no uso atual",
+        "device": "desktop"
+      },
+      {
+        "id": "3",
+        "title": "Tendencias de Uso",
+        "description": "Padroes de uso historicos e crescimento ao longo do tempo",
+        "imageSrc": "/images/dashboard/usage-trends.png",
+        "imageAlt": "Painel mostrando tendencias de uso historicas e padroes de crescimento",
+        "device": "desktop"
+      },
+      {
+        "id": "4",
+        "title": "Breakdown de Uso",
+        "description": "Breakdown detalhado por recurso, endpoint ou recurso",
+        "imageSrc": "/images/dashboard/usage-breakdown.png",
+        "imageAlt": "Painel mostrando breakdown de uso detalhado por recurso e",
+        "device": "desktop"
+      }
+    ]
+  },
+  "deliverables": {
+    "title": "O Que Voce Vai Receber",
+    "subtitle": "Escopo fixo, preco fixo. Pronto para producao em 2 semanas.",
+    "totalPrice": 4000,
+    "cta": {
+      "label": "Lancar Precos de Uso",
+      "href": "/contact?service=usage-pricing"
+    },
+    "phases": [
+      {
+        "phase": "1",
+        "title": "Descoberta e Design",
+        "description": "Definir modelo de uso e configuracao do medidor",
+        "duration": "Semana 1",
+        "price": 1500,
+        "deliverables": [
+          {
+            "id": "1-1",
+            "title": "Design do Modelo de Uso",
+            "description": "Definir o que medir, niveis de precos e regras de cobranca para seu produto especifico",
+            "status": "pending",
+            "deliveryWeek": "Semana 1"
+          },
+          {
+            "id": "1-2",
+            "title": "Configuracao do Stripe Meter",
+            "description": "Configurar o Stripe Meter com eventos personalizados, logica de agregacao e ciclos de cobranca",
+            "status": "pending",
+            "deliveryWeek": "Semana 1"
+          },
+          {
+            "id": "1-3",
+            "title": "Documentacao de Casos Extremos",
+            "description": "Documentar cenarios de atualizacao e proporcionalizacao, regras de proporcionalizacao e manuseio de limites",
+            "status": "pending",
+            "deliveryWeek": "Semana 1"
+          }
+        ]
+      },
+      {
+        "phase": "2",
+        "title": "Implementacao",
+        "description": "Construir pipeline de rastreamento de eventos e agregacao",
+        "duration": "Semana 2",
+        "price": 2500,
+        "deliverables": [
+          {
+            "id": "2-1",
+            "title": "Pipeline de Rastreamento de Eventos",
+            "description": "Middleware para capturar eventos de uso, valida-los e enviar para o Stripe",
+            "status": "pending",
+            "deliveryWeek": "Semana 2"
+          },
+          {
+            "id": "2-2",
+            "title": "Painel de Uso",
+            "description": "Painel em tempo real mostrando uso atual, cobranca projetada e tendencias",
+            "status": "pending",
+            "deliveryWeek": "Semana 2"
+          },
+          {
+            "id": "2-3",
+            "title": "Integracao de Logica de Cobranca",
+            "description": "Integrar a cobranca de uso com seu sistema de assinatura e fatura existente",
+            "status": "pending",
+            "deliveryWeek": "Semana 2"
+          }
+        ]
+      }
+    ]
+  },
+  "whoFor": {
+    "title": "Para Quem E Isso",
+    "subtitle": "Empresas SaaS que precisam cobrar com base no uso real, nao assinaturas planas.",
+    "profiles": [
+      {
+        "id": "1",
+        "name": "Fundador de Plataforma API",
+        "initials": "AP",
+        "stage": "Seed - Serie A",
+        "mrr": { "min": 25000, "max": 150000 },
+        "description": "Construindo uma API ou ferramenta de desenvolvedor. Precos baseados em uso sao o padrao, mas a implementacao esta bloqueando.",
+        "painPoints": [
+          "Nao pode cobrar com base em chamadas de API",
+          "A equipe de engenharia subestimou a complexidade",
+          "Precos de uso adiados por meses",
+          "Precos planos limitando o crescimento"
+        ]
+      },
+      {
+        "id": "2",
+        "name": "Startup de Infraestrutura de IA",
+        "initials": "AI",
+        "stage": "Serie A",
+        "mrr": { "min": 100000, "max": 500000 },
+        "description": "Vendendo computo de IA ou processamento. O uso e o unico modelo logico de precos.",
+        "painPoints": [
+          "Precisa cobrar por tokens/computo",
+          "Stripe Meter muito complexo",
+          "Receita nao alinhada com custos",
+          "Clientes empresariais exigindo precos de uso"
+        ]
+      },
+      {
+        "id": "3",
+        "name": "Lider de Crescimento SaaS",
+        "initials": "SG",
+        "stage": "Estagio de Crescimento",
+        "mrr": { "min": 200000, "max": 1000000 },
+        "description": "Sabe que precos baseados em uso impulsionam o crescimento. Precisa implementa-lo sem distrair a engenharia.",
+        "painPoints": [
+          "Metas de crescimento exigem precos de uso",
+          "Equipe de engenharia focada em recursos",
+          "Nao pode pagar implementacao de 6 meses",
+          "Concorrentes ja tem precos de uso"
+        ]
+      }
+    ]
+  },
+  "relatedServices": {
+    "title": "Servicos Relacionados",
+    "subtitle": "Os precos de uso funcionam ainda melhor quando combinados com estes servicos.",
+    "items": [
+      {
+        "id": "1",
+        "title": "Rastreamento de Custos de IA",
+        "description": "Rastreie custos de LLM por cliente em 5 provedores. $3K-5K, 2-3 semanas.",
+        "href": "/services/ai-tracking",
+        "badge": "Popular para SaaS de IA"
+      },
+      {
+        "id": "2",
+        "title": "Auditoria de Cobranca",
+        "description": "Audite sua infraestrutura de cobranca antes de implementar precos de uso. $1.5K-3K.",
+        "href": "/services/billing-audit"
+      },
+      {
+        "id": "3",
+        "title": "Recuperacao de Pagamentos",
+        "description": "Recupere 65-70% dos pagos falhados enquanto implementa precos de uso. $2K-4K.",
+        "href": "/services/payment-recovery"
+      },
+      {
+        "id": "4",
+        "title": "Cobranca Completa",
+        "description": "Precos de uso + recuperacao de pagamentos + rastreamento de IA tudo em um. $8K-15K.",
+        "href": "/services/complete-billing",
+        "badge": "Melhor Valor"
+      }
+    ]
+  },
+  "faq": {
+    "title": "Perguntas Frequentes",
+    "subtitle": "Perguntas sobre a implementacao de precos baseados em uso.",
+    "items": [
+      {
+        "id": "1",
+        "question": "Por que o Stripe Meter leva 6 meses para ser construido?",
+        "answer": "O Stripe Meter parece simples: enviar eventos, agregar uso, cobrar clientes. Mas os casos extremos sao massivos: validacao de eventos, idempotencia, retroalimentacao de dados historicos, manuseio de mudancas retroativas, proporcionalizacao em mudancas de plano de meio ciclo, depuracao de discrepancias e suporte ao cliente. Ja resolvi esses problemas.",
+        "category": "Tecnico"
+      },
+      {
+        "id": "2",
+        "question": "O que posso medir com o Stripe Meter?",
+        "answer": "Qualquer coisa que voce possa quantificar: chamadas de API, uso de tokens, armazenamento, tempo de computo, transacoes, usuarios, assentos, mensagens, pesquisas, etc. O limite e sua imaginacao.",
+        "category": "Tecnico"
+      },
+      {
+        "id": "3",
+        "question": "Como voce manuseia a proporcionalizacao e mudancas de plano?",
+        "answer": "A implementacao manuseia atualizacoes e proporcionalizacao de meio ciclo, calculando cobrancas proporcionais com base no uso no momento da mudanca. E aqui que a maioria das implementacoes caseiras quebra.",
+        "category": "Tecnico"
+      },
+      {
+        "id": "4",
+        "question": "Preciso mudar todo o meu modelo de precos?",
+        "answer": "Nao. Muitas empresas lancam precos baseados em uso junto com os planos existentes. Voce pode oferecer precos hibridos (assinatura base + excessos de uso) ou precos de uso puros. Projetamos o modelo que se adapta ao seu mercado.",
+        "category": "Precos"
+      },
+      {
+        "id": "5",
+        "question": "E se ja tiver eventos rastreados?",
+        "answer": "Melhor ainda. Posso retroalimentar dados de uso historicos no Stripe Meter e lancar com visibilidade imediata. A infraestrutura de eventos existente reduz o tempo de implementacao.",
+        "category": "Processo"
+      },
+      {
+        "id": "6",
+        "question": "Como os clientes veem seu uso?",
+        "answer": "O painel de uso mostra o uso atual, a cobranca projetada, as tendencias de uso e os alertas quando se aproximam dos limites. Os clientes tambem podem ver breakdowns de uso em suas faturas.",
+        "category": "Experiencia do Cliente"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Pronto para Lancar Precos Baseados em Uso?",
+    "subtitle": "Empresas com precos de uso crescem 54% mais rapido. O que voce esta esperando?",
+    "description": "Agende uma chamada de descoberta gratuita. Projetaremos seu modelo de uso e fornecerei uma cotacao fixa para a implementacao.",
+    "primaryAction": {
+      "label": "Agendar Chamada de Descoberta",
+      "href": "/contact?service=usage-pricing"
+    },
+    "secondaryAction": {
+      "label": "Ver Auditoria de Cobranca",
+      "href": "/services/billing-audit"
+    },
+    "badge": "Design de modelo de uso gratuito",
+    "trustSignals": [
+      "Resposta dentro de 24 horas",
+      "Implementacao de 2 semanas",
+      "Precos fixos, sem surpresas",
+      "Codigo pronto para producao"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "title": "Blog - AI.RIO | Insights Técnicos sobre Infraestrutura de Cobrança",
+    "description": "Insights técnicos sobre infraestrutura de cobrança, recuperação de pagamentos e otimização de receita para SaaS de IA."
+  },
+  "title": "Blog",
+  "description": "Insights técnicos sobre infraestrutura de cobrança, recuperação de pagamentos e otimização de receita para SaaS de IA.",
+  "categories": "Categorias:",
+  "exploreByTopic": "Explorar por Tópico",
+  "filterBy": "Filtrar por {category}",
+  "viewPostsTagged": "Ver posts marcados com {tag}",
+  "post": {
+    "authorBio": "Construindo infraestrutura de cobrança que escala. Suas margens são uma caixa preta. Construí uma lanterna.",
+    "notFound": "Post Não Encontrado"
+  }
+}

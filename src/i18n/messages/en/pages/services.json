@@ -1,0 +1,134 @@
+{
+  "meta": {
+    "title": "Fixed-Price Billing Services | AI.RIO",
+    "description": "No scope creep. No hourly billing. No surprises. Fixed-price billing services for AI SaaS companies."
+  },
+  "hero": {
+    "label": "Fixed-Price Services",
+    "title": "Fixed-Price Billing Services",
+    "subtitle": "No scope creep. No hourly billing. No surprises.",
+    "description": "Clear deliverables, fixed timelines, and transparent pricing. You know exactly what you are getting and when it will be done."
+  },
+  "title": "Choose Your Service",
+  "subtitle": "Each service is designed to solve a specific billing problem. Not sure where to start? Begin with a billing audit.",
+  "items": [
+    {
+      "id": "billing-audit",
+      "title": "Billing Audit",
+      "description": "Identify revenue leaks, edge cases, and optimization opportunities in your billing infrastructure. Get a clear remediation roadmap.",
+      "href": "/services/billing-audit",
+      "priceRange": "$1.5K-3K",
+      "duration": "3-5 days",
+      "badge": "Best Starting Point",
+      "highlighted": false,
+      "features": [
+        "Complete billing infrastructure audit",
+        "Revenue leak identification",
+        "Edge case documentation",
+        "Clear remediation roadmap"
+      ]
+    },
+    {
+      "id": "payment-recovery",
+      "title": "Payment Recovery",
+      "description": "Recover 47-65% of failed payments with automated dunning workflows. Stop leaving revenue on the table.",
+      "href": "/services/payment-recovery",
+      "priceRange": "$2K-4K",
+      "duration": "7-10 days",
+      "badge": "Quick Win",
+      "highlighted": false,
+      "features": [
+        "Automated dunning workflows",
+        "Intelligent retry logic",
+        "Email sequence templates",
+        "+17.4% recovery improvement"
+      ]
+    },
+    {
+      "id": "usage-pricing",
+      "title": "Usage-Based Pricing",
+      "description": "Launch Stripe Meter in 2 weeks. Companies with usage-based pricing grow 54% faster than traditional models.",
+      "href": "/services/usage-pricing",
+      "priceRange": "$3K-5K",
+      "duration": "2 weeks",
+      "badge": "54% Faster Growth",
+      "highlighted": true,
+      "features": [
+        "Stripe Meter implementation",
+        "Event tracking and aggregation",
+        "Real-time usage calculations",
+        "Flexible pricing tiers"
+      ]
+    },
+    {
+      "id": "ai-tracking",
+      "title": "AI Cost Tracking",
+      "description": "Track LLM costs per customer across OpenAI, Anthropic, and OpenRouter (400+ models). Know your true margins.",
+      "href": "/services/ai-tracking",
+      "priceRange": "$3K-5K",
+      "duration": "10-14 days",
+      "badge": "Popular",
+      "highlighted": false,
+      "features": [
+        "5 LLM providers integrated",
+        "400+ models supported",
+        "Per-customer cost attribution",
+        "Real-time margin dashboard"
+      ]
+    },
+    {
+      "id": "billing-infrastructure",
+      "title": "Billing Infrastructure",
+      "description": "Complete end-to-end billing infrastructure. Usage-based pricing, payment recovery, AI cost tracking, and edge case handling.",
+      "href": "/services/billing-infrastructure",
+      "priceRange": "Custom",
+      "duration": "4-6 weeks",
+      "badge": "Complete Solution",
+      "highlighted": true,
+      "features": [
+        "All services integrated",
+        "720-line edge case coordinator",
+        "99.5% test coverage",
+        "Priority support"
+      ]
+    },
+    {
+      "id": "complete-billing",
+      "title": "Complete Billing Foundation",
+      "description": "The full package: audit, recovery, usage pricing, and AI tracking all in one. 90-day guarantee included.",
+      "href": "/services/complete-billing",
+      "priceRange": "$8K-15K",
+      "duration": "3-4 weeks",
+      "badge": "Best Value",
+      "highlighted": false,
+      "features": [
+        "All services bundled",
+        "Priority implementation",
+        "90-day guarantee",
+        "Ongoing optimization"
+      ]
+    }
+  ],
+  "audit": {
+    "badge": "Recommended First Step",
+    "title": "Not Sure Where to Start?",
+    "description": "Begin with a billing audit. I will analyze your current billing infrastructure, identify revenue leaks, and provide a clear roadmap for improvements. The audit fee is credited back if you proceed with any implementation service.",
+    "primaryAction": "Start with Billing Audit",
+    "secondaryAction": "Book Consultation"
+  },
+  "cta": {
+    "title": "Let's Talk About Your Billing Needs",
+    "subtitle": "No sales pressure. Just honest advice.",
+    "description": "Book a free discovery call. We will discuss your billing challenges and I will recommend the best service for your situation.",
+    "primaryAction": "Book Discovery Call",
+    "secondaryAction": "View Case Studies",
+    "badge": "Response within 24 hours",
+    "trustSignals": [
+      "Free consultation",
+      "No commitment required",
+      "Clear scope and pricing",
+      "30-day post-launch support"
+    ]
+  },
+  "learnMore": "Learn More"
+}

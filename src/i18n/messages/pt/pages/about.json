@@ -1,0 +1,186 @@
+{
+  "hero": {
+    "title": "Construí Infraestrutura de Cobrança Do Zero",
+    "subtitle": "Agora vou construir para você.",
+    "description": "Passei 18 meses construindo o Margin (rastreamento de custos de LLM) e extraindo código de cobrança do QuoteKit. Resolvi os problemas que você está enfrentando agora."
+  },
+  "builderStory": {
+    "title": "A História do Construtor",
+    "subtitle": "Não aprendi isso em um curso. Construí porque precisava.",
+    "features": [
+      {
+        "id": "1",
+        "title": "Margin - Plataforma de Rastreamento de Custos de LLM",
+        "description": "Construí um sistema completo de rastreamento de custos de LLM para resolver o problema da \"caixa preta\" para empresas de IA SaaS. Rastreia o uso de tokens na OpenAI, Anthropic e OpenRouter (mais de 400 modelos). Fornece atribuição de custos em tempo real por cliente.",
+        "badge": "18 meses em desenvolvimento"
+      },
+      {
+        "id": "2",
+        "title": "Sistemas de Pagamento QuoteKit",
+        "description": "Extraí e refatorei a infraestrutura de cobrança do QuoteKit, lidando com casos extremos complexos como rateios, upgrades/downgrades, conversões de teste e empilhamento de cupons. Construí um coordenador de casos extremos de 720 linhas.",
+        "badge": "Testado em produção"
+      },
+      {
+        "id": "3",
+        "title": "Problemas Reais Resolvidos",
+        "description": "Estas não são soluções teóricas. Construí estes sistemas porque precisava deles. A recuperação de pagamentos falhou melhorou as taxas de recuperação de 47.6% para 65-70%. O rastreamento de custos resolveu o pânico real de margens.",
+        "badge": null
+      }
+    ]
+  },
+  "standards": {
+    "title": "Padrões de Nível Produção",
+    "subtitle": "Métricas reais do código real. Sem afirmações infladas.",
+    "metrics": [
+      {
+        "id": "1",
+        "label": "Cobertura de Testes",
+        "value": 99.5,
+        "suffix": "%",
+        "description": "866 de 871 testes passando",
+        "progress": 99.5,
+        "trend": "up"
+      },
+      {
+        "id": "2",
+        "label": "Provedores de LLM Suportados",
+        "value": 5,
+        "suffix": "+",
+        "description": "OpenAI, Anthropic, OpenRouter e mais",
+        "progress": 100,
+        "trend": "up"
+      },
+      {
+        "id": "3",
+        "label": "Políticas de Segurança",
+        "value": 45,
+        "suffix": " RLS",
+        "description": "Políticas de segurança em nível de linha, zero problemas",
+        "progress": 100,
+        "trend": "up"
+      },
+      {
+        "id": "4",
+        "label": "Casos Extremos Tratados",
+        "value": 720,
+        "suffix": " linhas",
+        "description": "Tratamento de casos extremos testado em produção",
+        "progress": 100,
+        "trend": "up"
+      }
+    ]
+  },
+  "howIWork": {
+    "title": "Como Trabalho com Clientes",
+    "subtitle": "Um processo simples e transparente. Você sabe o que está obtendo e quando.",
+    "phases": [
+      {
+        "phase": "1",
+        "title": "Chamada de Descoberta",
+        "description": "Discutimos seus desafios de cobrança e identifico o escopo",
+        "duration": "30-45 minutos",
+        "price": 0,
+        "deliverables": [
+          {
+            "id": "1-1",
+            "title": "Consultoria Gratuita",
+            "description": "Entender sua infraestrutura de cobrança, identificar pontos problemáticos e discutir possíveis soluções",
+            "status": "pending",
+            "deliveryWeek": "Dia 1"
+          },
+          {
+            "id": "1-2",
+            "title": "Definição de Escopo",
+            "description": "Resumo claro do trabalho necessário com preço fixo e cronograma",
+            "status": "pending",
+            "deliveryWeek": "Dia 1-2"
+          }
+        ]
+      },
+      {
+        "phase": "2",
+        "title": "Implementação",
+        "description": "Construo a solução enquanto você se foca no seu produto",
+        "duration": "1-6 semanas",
+        "price": 0,
+        "deliverables": [
+          {
+            "id": "2-1",
+            "title": "Desenvolvimento Paralelo",
+            "description": "Trabalho de forma independente com mínima entrada da sua equipa",
+            "status": "pending",
+            "deliveryWeek": "Semana 1+"
+          },
+          {
+            "id": "2-2",
+            "title": "Atualizações Regulares",
+            "description": "Atualizações de progresso e sessões de demonstração para garantir alinhamento",
+            "status": "pending",
+            "deliveryWeek": "Contínuo"
+          },
+          {
+            "id": "2-3",
+            "title": "Testes e Controlo de Qualidade",
+            "description": "Testes abrangentes com cobertura de 99.5%+",
+            "status": "pending",
+            "deliveryWeek": "Última semana"
+          }
+        ]
+      },
+      {
+        "phase": "3",
+        "title": "Entrega e Suporte",
+        "description": "Documentação completa e suporte pós-lançamento",
+        "duration": "30 dias",
+        "price": 0,
+        "deliverables": [
+          {
+            "id": "3-1",
+            "title": "Documentação",
+            "description": "Documentação técnica completa e entrega do código",
+            "status": "pending",
+            "deliveryWeek": "Lançamento"
+          },
+          {
+            "id": "3-2",
+            "title": "Treinamento da Equipa",
+            "description": "Sessão com a sua equipa para entender e manter o sistema",
+            "status": "pending",
+            "deliveryWeek": "Lançamento"
+          },
+          {
+            "id": "3-3",
+            "title": "Suporte de 30 Dias",
+            "description": "Suporte pós-lançamento para correções de erros e casos extremos",
+            "status": "pending",
+            "deliveryWeek": "Dias 1-30"
+          }
+        ]
+      }
+    ],
+    "cta": {
+      "label": "Agende uma Chamada de Descoberta",
+      "href": "/contact?service=consultation"
+    }
+  },
+  "cta": {
+    "title": "Pronto para Construir sua Infraestrutura de Cobrança?",
+    "subtitle": "Já cometi os erros para você não ter que cometê-los.",
+    "description": "Vamos discutir seus desafios de cobrança. Fornecerei um escopo e orçamento claros. Sem pressão de vendas, apenas conselhos honestos.",
+    "primaryAction": {
+      "label": "Agendar Chamada de Descoberta",
+      "href": "/contact?service=consultation"
+    },
+    "secondaryAction": {
+      "label": "Ver Estudos de Caso",
+      "href": "/blog"
+    },
+    "badge": "Sem compromisso necessário",
+    "trustSignals": [
+      "Resposta dentro de 24 horas",
+      "Chamada de descoberta gratuita",
+      "Escopo e preços claros",
+      "Suporte pós-lançamento de 30 dias"
+    ]
+  }
+}

@@ -1,0 +1,376 @@
+{
+  "hero": {
+    "timeline": "1 semana",
+    "price": "$1,500-3,000",
+    "title": "Auditoria de Cobranca e Detecao de Vazamentos de Receita",
+    "subtitle": "Encontre onde voce esta perdendo dinheiro. Corrija o que mais importa primeiro.",
+    "description": "Auditoria completa de sua infraestrutura de cobranca para identificar vazamentos de receita, casos extremos e oportunidades de otimizacao. Roadmap claro de remediacao com estimativas de ROI."
+  },
+  "metrics": {
+    "title": "O Custo dos Vazamentos Invisiveis",
+    "subtitle": "A maioria das empresas vazam 5-15% de receita para lacunas de cobranca. Voce nao pode corrigir o que nao pode ver.",
+    "items": [
+      {
+        "id": "1",
+        "label": "Vazamento Medio de Receita",
+        "value": 10,
+        "suffix": "%",
+        "progress": 10,
+        "trend": "down",
+        "description": "Receita tipica perdida para lacunas de cobranca"
+      },
+      {
+        "id": "2",
+        "label": "Duracao da Auditoria",
+        "value": 4,
+        "suffix": " dias",
+        "progress": 40,
+        "trend": "neutral",
+        "description": "Do inicio ao relatorio final"
+      },
+      {
+        "id": "3",
+        "label": "Multiplo de ROI",
+        "value": 55,
+        "suffix": "x",
+        "prefix": "10-100",
+        "progress": 55,
+        "trend": "up",
+        "description": "ROI tipico ao implementar recomendacoes"
+      },
+      {
+        "id": "4",
+        "label": "Tempo de Implementacao",
+        "value": 4,
+        "suffix": " semanas",
+        "prefix": "1-6",
+        "progress": 40,
+        "trend": "neutral",
+        "description": "Dependendo das recomendacoes"
+      }
+    ]
+  },
+  "problems": {
+    "title": "Por Que Voce Precisa de uma Auditoria de Cobranca",
+    "subtitle": "Sua infraestrutura de cobranca tem lacunas. Voce precisa saber onde e quanto elas estao custando.",
+    "alert": {
+      "title": "Vazamentos de Receita Sao Silenciosos",
+      "description": "Pagamentos falhados, erros de proporcionalizacao e custos nao atribuidos nao aparecem em seu grafico de MRR. Eles apenas drenam receita silenciosamente todos os meses."
+    },
+    "items": [
+      {
+        "id": "1",
+        "title": "Vazamentos de Receita em Todo Lugar",
+        "description": "Pagamentos falhados, custos de LLM nao atribuidos, erros de proporcionalizacao e casos extremos estao vazando receita todos os meses. Voce nao pode ve-los.",
+        "severity": "high",
+        "metric": "5-15% de vazamento de receita tipico"
+      },
+      {
+        "id": "2",
+        "title": "Sem Visibilidade de Cobranca",
+        "description": "Voce nao conhece sua taxa de recuperacao de pagamentos falhados, custos de aquisicao de clientes ou margens verdadeiras por cliente.",
+        "severity": "high"
+      },
+      {
+        "id": "3",
+        "title": "Casos Extremos Quebrando Receita",
+        "description": "Atualizacoes, downgrades, testes, cupons e proporcionalizacao criam casos extremos que configuracoes padrao do Stripe nao manuseiam.",
+        "severity": "medium"
+      },
+      {
+        "id": "4",
+        "title": "Inseguro Sobre o Que Corrigir Primeiro",
+        "description": "Voce sabe que a cobranca precisa de trabalho, mas nao sabe por onde começar. Tudo parece quebrado.",
+        "severity": "medium"
+      }
+    ]
+  },
+  "solution": {
+    "title": "O Que Eu Audito",
+    "subtitle": "Analise completo de toda a sua infraestrutura de cobranca.",
+    "items": [
+      {
+        "id": "1",
+        "title": "Detecao de Vazamentos de Receita",
+        "description": "Identifique exatamente onde voce esta perdendo dinheiro: pagamentos falhados, erros de proporcionalizacao, receita nao cobrada e lacunas de atribuicao de custos.",
+        "icon": "trending-down",
+        "badge": "5-15% de receita recuperada",
+        "highlighted": true
+      },
+      {
+        "id": "2",
+        "title": "Auditoria de Configuracao do Stripe",
+        "description": "Revisao completa de suas configuracoes do Stripe, regras de dunning, webhooks, configuracoes de impostos e metodos de pagamento.",
+        "icon": "search"
+      },
+      {
+        "id": "3",
+        "title": "Documentacao de Casos Extremos",
+        "description": "Documente cada caso extremo de cobranca: testes, cupons, proporcionalizacao, mudancas de plano, mudanca anual/mensal e fluxos empresariais.",
+        "icon": "alert-triangle"
+      },
+      {
+        "id": "4",
+        "title": "Analise de Atribuicao de Custos",
+        "description": "Mapeie custos de LLM para clientes. Identifique quais clientes nao sao rentaveis e por que.",
+        "icon": "dollar-sign"
+      },
+      {
+        "id": "5",
+        "title": "Benchmarking de Concorrentes",
+        "description": "Compare suas praticas de cobranca com padroes de mercado: precos de uso, recuperacao de pagamentos, rastreamento de custos.",
+        "icon": "file-text"
+      },
+      {
+        "id": "6",
+        "title": "Roadmap de Remediacao",
+        "description": "Plano de acao priorizado com estimativas claras de ROI. Corrija o que mais importa primeiro.",
+        "icon": "check-circle",
+        "badge": "Proximos passos claros"
+      }
+    ]
+  },
+  "deliverables": {
+    "title": "O Que Voce Vai Receber",
+    "subtitle": "Escopo fixo, preco fixo. Auditoria completa em 3-5 dias.",
+    "totalPrice": 3000,
+    "cta": {
+      "label": "Iniciar Auditoria de Cobranca",
+      "href": "/contact?service=billing-audit"
+    },
+    "phases": [
+      {
+        "phase": "1",
+        "title": "Coleta e Analise de Dados",
+        "description": "Coletar dados de cobranca e analisar o estado atual",
+        "duration": "Dias 1-2",
+        "price": 750,
+        "deliverables": [
+          {
+            "id": "1-1",
+            "title": "Revisao de Configuracao do Stripe",
+            "description": "Extrair e analisar todas as configuracoes do Stripe, webhooks e configuracoes de produtos",
+            "status": "pending",
+            "deliveryWeek": "Dia 1"
+          },
+          {
+            "id": "1-2",
+            "title": "Analise de Dados de Receita",
+            "description": "Analisar historico de pagamentos, pagamentos falhados, reembolsos e tendencias de receita",
+            "status": "pending",
+            "deliveryWeek": "Dia 1-2"
+          },
+          {
+            "id": "1-3",
+            "title": "Mapeamento de Atribuicao de Custos",
+            "description": "Mapear custos de LLM e infraestrutura para contas de clientes onde possivel",
+            "status": "pending",
+            "deliveryWeek": "Dia 2"
+          }
+        ]
+      },
+      {
+        "phase": "2",
+        "title": "Identificacao de Lacunas",
+        "description": "Identificar vazamentos de receita e oportunidades de otimizacao",
+        "duration": "Dias 3-4",
+        "price": 1250,
+        "deliverables": [
+          {
+            "id": "2-1",
+            "title": "Analise de Vazamentos de Receita",
+            "description": "Quantificar receita perdida para pagamentos falhados, erros de proporcionalizacao e receita nao cobrada",
+            "status": "pending",
+            "deliveryWeek": "Dia 3"
+          },
+          {
+            "id": "2-2",
+            "title": "Documentacao de Casos Extremos",
+            "description": "Documentar todos os casos extremos de cobranca e identificar lacunas no manuseio",
+            "status": "pending",
+            "deliveryWeek": "Dia 3-4"
+          },
+          {
+            "id": "2-3",
+            "title": "Benchmarking Competitivo",
+            "description": "Comparar praticas de cobranca com padroes de mercado e identificar lacunas",
+            "status": "pending",
+            "deliveryWeek": "Dia 4"
+          }
+        ]
+      },
+      {
+        "phase": "3",
+        "title": "Roadmap e Recomendacoes",
+        "description": "Criar plano de remediacao priorizado",
+        "duration": "Dia 5",
+        "price": 1000,
+        "deliverables": [
+          {
+            "id": "3-1",
+            "title": "Roadmap de Remediacao",
+            "description": "Plano de acao priorizado com estimativas de ROI para cada melhoria",
+            "status": "pending",
+            "deliveryWeek": "Dia 5"
+          },
+          {
+            "id": "3-2",
+            "title": "Resumo Executivo",
+            "description": "Resumo claro de descobertas, recomendacoes e proximos passos para lideranca",
+            "status": "pending",
+            "deliveryWeek": "Dia 5"
+          },
+          {
+            "id": "3-3",
+            "title": "Cotacoes de Implementacao",
+            "description": "Cotacoes de preco fixo para implementar qualquer recomendacao",
+            "status": "pending",
+            "deliveryWeek": "Dia 5"
+          }
+        ]
+      }
+    ]
+  },
+  "whoFor": {
+    "title": "Para Quem E Isso",
+    "subtitle": "Empresas SaaS que precisam de clareza sobre prioridades de cobranca e estimativas de ROI.",
+    "profiles": [
+      {
+        "id": "1",
+        "name": "Fundador de SaaS",
+        "initials": "SF",
+        "stage": "Seed - Serie B",
+        "mrr": { "min": 50000, "max": 500000 },
+        "description": "Sabe que a cobranca precisa de trabalho, mas nao tem certeza por onde começar. Precisa de clareza e estimativas de ROI.",
+        "painPoints": [
+          "Vazamentos de receita nao identificados",
+          "Nao sabe o que corrigir primeiro",
+          "Sem visibilidade da saude da cobranca",
+          "O orcamento precisa de justificativa de ROI"
+        ]
+      },
+      {
+        "id": "2",
+        "name": "Lider de Financas",
+        "initials": "FL",
+        "stage": "Estagio de Crescimento",
+        "mrr": { "min": 200000, "max": 2000000 },
+        "description": "Responsavel pela otimizacao de margens. Precisa de dados para priorizar melhorias.",
+        "painPoints": [
+          "Nao pode quantificar vazamentos de receita",
+          "Sem painel de metricas de cobranca",
+          "Economia unitaria pouco clara",
+          "Precisa de ROI para melhorias"
+        ]
+      },
+      {
+        "id": "3",
+        "name": "Novo CTO/Responsavel por Receita",
+        "initials": "NR",
+        "stage": "Qualquer Estagio",
+        "mrr": { "min": 100000, "max": 5000000 },
+        "description": "Novo papel e precisa entender a infraestrutura de cobranca rapidamente. Auditoria completa fornece fundacao.",
+        "painPoints": [
+          "Sistema de cobranca herdado",
+          "Nao sabe o que esta quebrado",
+          "Precisa de avaliacao rapida",
+          "Deve construir credibilidade rapido"
+        ]
+      }
+    ]
+  },
+  "relatedServices": {
+    "title": "Servicos Relacionados",
+    "subtitle": "Depois da auditoria, estes servicos implementam as recomendacoes.",
+    "items": [
+      {
+        "id": "1",
+        "title": "Recuperacao de Pagamentos",
+        "description": "Implemente recuperacao de pagamentos falhados com base em descobertas da auditoria. $2K-4K, 1 semana.",
+        "href": "/services/payment-recovery",
+        "badge": "Vitoria Rapida"
+      },
+      {
+        "id": "2",
+        "title": "Rastreamento de Custos de IA",
+        "description": "Implemente rastreamento de custos de LLM com base em lacunas da auditoria. $3K-5K, 2-3 semanas.",
+        "href": "/services/ai-tracking"
+      },
+      {
+        "id": "3",
+        "title": "Cobranca Completa",
+        "description": "Implemente todas as recomendacoes da auditoria em um unico projeto. $8K-15K, 4-6 semanas.",
+        "href": "/services/complete-billing",
+        "badge": "Melhor Valor"
+      },
+      {
+        "id": "4",
+        "title": "Precos Baseados em Uso",
+        "description": "Lance precos de uso se a auditoria mostrar que e certo para seu mercado. $3K-5K, 2 semanas.",
+        "href": "/services/usage-pricing"
+      }
+    ]
+  },
+  "faq": {
+    "title": "Perguntas Frequentes",
+    "subtitle": "Perguntas sobre o processo de auditoria de cobranca e os entregaveis.",
+    "items": [
+      {
+        "id": "1",
+        "question": "O que eu realmente recebo da auditoria?",
+        "answer": "Um relatorio completo identificando cada vazamento de receita, cada lacuna de cobranca e cada oportunidade de otimizacao. Alem de um roadmap priorizado com estimativas de ROI e cotacoes de preco fixo para implementar qualquer recomendacao.",
+        "category": "Entregaveis"
+      },
+      {
+        "id": "2",
+        "question": "Quanto tempo a auditoria leva?",
+        "answer": "3-5 dias uteis. A maior parte desse tempo e gasta analisando dados e documentando descobertas. Voce tera o relatorio completo dentro de uma semana.",
+        "category": "Cronograma"
+      },
+      {
+        "id": "3",
+        "question": "A que dados voce precisa de acesso?",
+        "answer": "Acesso a conta do Stripe (somente leitura), documentacao do sistema de cobranca e acesso a quaisquer dados de rastreamento de custos ou uso que voce tenha. Vou guia-lo exatamente sobre o que e necessario.",
+        "category": "Processo"
+      },
+      {
+        "id": "4",
+        "question": "A auditoria interrompera minhas operacoes de cobranca?",
+        "answer": "Nao. A auditoria e somente leitura. Analiso dados e configuracao. Nenhuma alteracao e feita em seu sistema de cobranca durante a auditoria.",
+        "category": "Processo"
+      },
+      {
+        "id": "5",
+        "question": "E se eu nao implementar as recomendacoes?",
+        "answer": "Tudo bem. O relatorio e seu para manter. Voce pode implementar quando quiser, usa-lo para justificar orcamento ou compartilhar com sua equipe para contexto. Sem obrigacao.",
+        "category": "Pos-Auditoria"
+      },
+      {
+        "id": "6",
+        "question": "Voce implementa as recomendacoes?",
+        "answer": "Sim. Forneco cotacoes de preco fixo para implementar qualquer recomendacao. Muitos clientes usam o relatorio de auditoria para obter aprovacao orcamentaria, entao me contratam para implementar.",
+        "category": "Implementacao"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Encontre Seus Vazamentos de Receita",
+    "subtitle": "Voce nao pode corrigir o que nao pode ver. Deixe-me brilhar uma luz sobre suas lacunas de cobranca.",
+    "description": "Agende uma chamada de descoberta gratuita. Explicarei o processo de auditoria e fornecerei uma cotacao fixa.",
+    "primaryAction": {
+      "label": "Agendar Chamada de Descoberta",
+      "href": "/contact?service=billing-audit"
+    },
+    "secondaryAction": {
+      "label": "Ver Cobranca Completa",
+      "href": "/services/complete-billing"
+    },
+    "badge": "Tempo de resposta de 3-5 dias",
+    "trustSignals": [
+      "Resposta dentro de 24 horas",
+      "Auditoria somente leitura (sem alteracoes)",
+      "Estimativas claras de ROI",
+      "Cotacoes de implementacao de preco fixo"
+    ]
+  }
+}

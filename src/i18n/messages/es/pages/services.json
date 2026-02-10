@@ -1,0 +1,134 @@
+{
+  "meta": {
+    "title": "Servicios de Facturacion de Precio Fijo | AI.RIO",
+    "description": "Sin alcance excesivo. Sin facturacion por horas. Sin sorpresas. Servicios de facturacion de precio fijo para empresas de SaaS de IA."
+  },
+  "hero": {
+    "label": "Servicios de Precio Fijo",
+    "title": "Servicios de Facturacion de Precio Fijo",
+    "subtitle": "Sin alcance excesivo. Sin facturacion por horas. Sin sorpresas.",
+    "description": "Entregables claros, plazos fijos y precios transparentes. Sabes exactamente lo que obtienes y cuando se hara."
+  },
+  "title": "Elige Tu Servicio",
+  "subtitle": "Cada servicio esta disenado para resolver un problema de facturacion especifico. No estas seguro de por donde empezar? Comienza con una auditoria de facturacion.",
+  "items": [
+    {
+      "id": "billing-audit",
+      "title": "Auditoria de Facturacion",
+      "description": "Identifica fugas de ingresos, casos extremos y oportunidades de optimizacion en tu infraestructura de facturacion. Obtén una hoja de ruta clara de remediacion.",
+      "href": "/services/billing-audit",
+      "priceRange": "$1.5K-3K",
+      "duration": "3-5 dias",
+      "badge": "Mejor Punto de Partida",
+      "highlighted": false,
+      "features": [
+        "Auditoria completa de infraestructura de facturacion",
+        "Identificacion de fugas de ingresos",
+        "Documentacion de casos extremos",
+        "Hoja de ruta clara de remediacion"
+      ]
+    },
+    {
+      "id": "payment-recovery",
+      "title": "Recuperacion de Pagos",
+      "description": "Recupera el 47-65% de los pagos fallidos con flujos de trabajo de dunning automatizados. Deja de dejar ingresos en la mesa.",
+      "href": "/services/payment-recovery",
+      "priceRange": "$2K-4K",
+      "duration": "7-10 dias",
+      "badge": "Victoria Rapida",
+      "highlighted": false,
+      "features": [
+        "Flujos de trabajo de dunning automatizados",
+        "Logica inteligente de reintento",
+        "Plantillas de secuencia de correos",
+        "+17.4% de mejora de recuperacion"
+      ]
+    },
+    {
+      "id": "usage-pricing",
+      "title": "Precios Basados en Uso",
+      "description": "Lanza Stripe Meter en 2 semanas. Las empresas con precios basados en uso crecen un 54% mas rapido que los modelos tradicionales.",
+      "href": "/services/usage-pricing",
+      "priceRange": "$3K-5K",
+      "duration": "2 semanas",
+      "badge": "54% Mas Rapido",
+      "highlighted": true,
+      "features": [
+        "Implementacion de Stripe Meter",
+        "Seguimiento y agregacion de eventos",
+        "Calculos de uso en tiempo real",
+        "Niveles de precios flexibles"
+      ]
+    },
+    {
+      "id": "ai-tracking",
+      "title": "Seguimiento de Costos de IA",
+      "description": "Rastrea los costos de LLM por cliente a través de OpenAI, Anthropic y OpenRouter (400+ modelos). Conoce tus verdaderos margenes.",
+      "href": "/services/ai-tracking",
+      "priceRange": "$3K-5K",
+      "duration": "10-14 dias",
+      "badge": "Popular",
+      "highlighted": false,
+      "features": [
+        "5 proveedores de LLM integrados",
+        "400+ modelos compatibles",
+        "Atribucion de costos por cliente",
+        "Panel de margenes en tiempo real"
+      ]
+    },
+    {
+      "id": "billing-infrastructure",
+      "title": "Infraestructura de Facturacion",
+      "description": "Infraestructura de facturacion de extremo a extremo completa. Precios basados en uso, recuperacion de pagos, seguimiento de costos de IA y manejo de casos extremos.",
+      "href": "/services/billing-infrastructure",
+      "priceRange": "Personalizado",
+      "duration": "4-6 semanas",
+      "badge": "Solucion Completa",
+      "highlighted": true,
+      "features": [
+        "Todos los servicios integrados",
+        "Coordinador de casos extremos de 720 lineas",
+        "99.5% de cobertura de pruebas",
+        "Soporte prioritario"
+      ]
+    },
+    {
+      "id": "complete-billing",
+      "title": "Fundacion de Facturacion Completa",
+      "description": "El paquete completo: auditoria, recuperacion, precios basados en uso y seguimiento de IA, todo en uno. Garantia de 90 dias incluida.",
+      "href": "/services/complete-billing",
+      "priceRange": "$8K-15K",
+      "duration": "3-4 semanas",
+      "badge": "Mejor Valor",
+      "highlighted": false,
+      "features": [
+        "Todos los servicios incluidos",
+        "Implementacion prioritaria",
+        "Garantia de 90 dias",
+        "Optimizacion continua"
+      ]
+    }
+  ],
+  "audit": {
+    "badge": "Primer Paso Recomendado",
+    "title": "No Estas Seguro de Por Donde Empezar?",
+    "description": "Comienza con una auditoria de facturacion. Analizare tu infraestructura de facturacion actual, identificare fugas de ingresos y proporcionare una hoja de ruta clara para mejoras. La tarifa de auditoria se acredita si procedes con cualquier servicio de implementacion.",
+    "primaryAction": "Comenzar con Auditoria de Facturacion",
+    "secondaryAction": "Reservar Consulta"
+  },
+  "cta": {
+    "title": "Hablemos de Tus Necesidades de Facturacion",
+    "subtitle": "Sin presion de ventas. Solo consejos honestos.",
+    "description": "Reserva una llamada de descubrimiento gratuita. Discutiremos tus desafios de facturacion y recomendare el mejor servicio para tu situacion.",
+    "primaryAction": "Reservar Llamada de Descubrimiento",
+    "secondaryAction": "Ver Estudios de Caso",
+    "badge": "Respuesta dentro de 24 horas",
+    "trustSignals": [
+      "Consulta gratuita",
+      "Sin compromiso requerido",
+      "Alcance y precios claros",
+      "Soporte de 30 dias posteriores al lanzamiento"
+    ]
+  },
+  "learnMore": "Mas Informacion"
+}

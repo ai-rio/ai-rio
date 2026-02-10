@@ -1,0 +1,429 @@
+{
+  "hero": {
+    "timeline": "4-6 weeks",
+    "price": "Custom pricing",
+    "title": "Complete Billing Infrastructure for AI SaaS",
+    "subtitle": "Your margins are a black box. I built a flashlight.",
+    "description": "Usage-based pricing, failed payment recovery, AI cost tracking, and edge case handling. Built for AI SaaS companies losing money to billing complexity."
+  },
+  "metrics": {
+    "title": "Built with Production-Grade Standards",
+    "subtitle": "18 months of development distilled into 6 weeks.",
+    "items": [
+      {
+        "id": "1",
+        "label": "Test Coverage",
+        "value": 99.5,
+        "suffix": "%",
+        "prefix": "",
+        "progress": 99.5,
+        "trend": "up",
+        "description": "866/871 tests passing"
+      },
+      {
+        "id": "2",
+        "label": "LLM Providers",
+        "value": 5,
+        "suffix": "",
+        "prefix": "",
+        "progress": 100,
+        "trend": "neutral",
+        "description": "Integrated and tracked"
+      },
+      {
+        "id": "3",
+        "label": "Edge Case Lines",
+        "value": 720,
+        "suffix": "",
+        "prefix": "",
+        "progress": 100,
+        "trend": "neutral",
+        "description": "Handling billing complexity"
+      },
+      {
+        "id": "4",
+        "label": "Security Policies",
+        "value": 45,
+        "suffix": "",
+        "prefix": "",
+        "progress": 100,
+        "trend": "up",
+        "description": "RLS policies, zero issues"
+      }
+    ]
+  },
+  "problems": {
+    "title": "Why Your Billing Is Broken",
+    "subtitle": "AI SaaS billing is harder than traditional SaaS. LLM costs, usage-based pricing, and edge cases everywhere.",
+    "alert": {
+      "title": "The Black Box Problem",
+      "description": "You cannot optimize your margins when you do not know your true costs per customer."
+    },
+    "items": [
+      {
+        "id": "1",
+        "title": "No Billing Foundation",
+        "description": "You built an AI SaaS but have no billing infrastructure. Stripe is default, and you are losing revenue to failed payments.",
+        "severity": "critical",
+        "metric": "47.6% default recovery rate"
+      },
+      {
+        "id": "2",
+        "title": "AI Costs Unattributed",
+        "description": "LLM costs are scattered across providers. You cannot calculate customer margins because you do not know who drove OpenAI/Anthropic costs.",
+        "severity": "critical",
+        "metric": "400+ models to track"
+      },
+      {
+        "id": "3",
+        "title": "Manual Revenue Operations",
+        "description": "Your team is manually reconciling invoices, updating usage limits, and handling proration. It does not scale.",
+        "severity": "high"
+      },
+      {
+        "id": "4",
+        "title": "No Usage-Based Pricing",
+        "description": "You cannot price based on actual usage. Flat pricing limits growth - usage-based companies grow 54% faster.",
+        "severity": "medium"
+      },
+      {
+        "id": "5",
+        "title": "Revenue Leaks Everywhere",
+        "description": "Edge cases like upgrades/downgrades, proration, and failed payments are leaking revenue every month.",
+        "severity": "high"
+      }
+    ]
+  },
+  "solution": {
+    "title": "The AI.RIO Solution",
+    "subtitle": "I spent 18 months building billing infrastructure. Now I will build it for you.",
+    "items": [
+      {
+        "id": "1",
+        "title": "Stripe Meter Integration",
+        "description": "Implement usage-based pricing in 2 weeks, not 6 months. Track events, aggregate usage, and bill accurately.",
+        "icon": "zap",
+        "badge": "54% faster growth",
+        "highlighted": true
+      },
+      {
+        "id": "2",
+        "title": "Failed Payment Recovery",
+        "description": "Automated dunning workflows that recover 65-70% of failed payments. Stop leaving revenue on the table.",
+        "icon": "credit-card",
+        "badge": "+17.4% recovery"
+      },
+      {
+        "id": "3",
+        "title": "Multi-Provider LLM Tracking",
+        "description": "Track OpenAI, Anthropic, OpenRouter (400+ models) per customer. Know your true margins per account.",
+        "icon": "bar-chart",
+        "badge": "5 providers"
+      },
+      {
+        "id": "4",
+        "title": "Edge Case Handling",
+        "description": "720-line edge case coordinator handles upgrades, downgrades, proration, trials, and coupon combinations.",
+        "icon": "shield"
+      },
+      {
+        "id": "5",
+        "title": "Real-Time Cost Visibility",
+        "description": "Dashboard showing LLM costs per customer. No more black box - see exactly where your margins go.",
+        "icon": "database"
+      },
+      {
+        "id": "6",
+        "title": "Audit & Documentation",
+        "description": "45 RLS policies, zero security issues. Complete documentation and handoff for your team.",
+        "icon": "shield",
+        "badge": "99.5% test coverage"
+      }
+    ]
+  },
+  "deliverables": {
+    "title": "What You Will Get",
+    "subtitle": "Phased delivery with clear milestones and pricing. You pay for results, not hours.",
+    "totalPrice": 15000,
+    "cta": {
+      "label": "Start Billing Foundation",
+      "href": "/contact?service=billing-infrastructure"
+    },
+    "phases": [
+      {
+        "phase": "1",
+        "title": "Discovery & Audit",
+        "description": "Understand your billing situation and identify gaps",
+        "duration": "Week 1",
+        "price": 2000,
+        "deliverables": [
+          {
+            "id": "1-1",
+            "title": "Billing Infrastructure Audit",
+            "description": "Complete analysis of your current Stripe setup, subscription logic, and revenue operations workflow",
+            "status": "pending",
+            "deliveryWeek": "Week 1"
+          },
+          {
+            "id": "1-2",
+            "title": "Edge Case Documentation",
+            "description": "Document all billing edge cases: trials, coupons, proration, upgrades/downgrades",
+            "status": "pending",
+            "deliveryWeek": "Week 1"
+          },
+          {
+            "id": "1-3",
+            "title": "Cost Attribution Analysis",
+            "description": "Map LLM costs to customers. Identify data gaps for tracking AI expenses",
+            "status": "pending",
+            "deliveryWeek": "Week 1"
+          }
+        ]
+      },
+      {
+        "phase": "2",
+        "title": "Foundation Building",
+        "description": "Core billing infrastructure and LLM cost tracking",
+        "duration": "Weeks 2-3",
+        "price": 6000,
+        "deliverables": [
+          {
+            "id": "2-1",
+            "title": "Stripe Meter Implementation",
+            "description": "Usage-based pricing infrastructure with event tracking and aggregation",
+            "status": "pending",
+            "deliveryWeek": "Week 2"
+          },
+          {
+            "id": "2-2",
+            "title": "Multi-Provider LLM Tracking",
+            "description": "Track OpenAI, Anthropic, OpenRouter costs per customer with 400+ model support",
+            "status": "pending",
+            "deliveryWeek": "Week 2-3"
+          },
+          {
+            "id": "2-3",
+            "title": "Edge Case Coordinator",
+            "description": "720-line system handling upgrades, downgrades, proration, trials, and coupons",
+            "status": "pending",
+            "deliveryWeek": "Week 3"
+          }
+        ]
+      },
+      {
+        "phase": "3",
+        "title": "Recovery & Optimization",
+        "description": "Revenue recovery and dashboard implementation",
+        "duration": "Weeks 4-5",
+        "price": 5000,
+        "deliverables": [
+          {
+            "id": "3-1",
+            "title": "Failed Payment Recovery System",
+            "description": "Automated dunning workflows with intelligent retry logic and email sequences",
+            "status": "pending",
+            "deliveryWeek": "Week 4"
+          },
+          {
+            "id": "3-2",
+            "title": "Margin Dashboard",
+            "description": "Real-time dashboard showing LLM costs and revenue per customer",
+            "status": "pending",
+            "deliveryWeek": "Week 4-5"
+          },
+          {
+            "id": "3-3",
+            "title": "Documentation & Handoff",
+            "description": "Complete documentation, test suite (99.5% coverage), and team training",
+            "status": "pending",
+            "deliveryWeek": "Week 5"
+          }
+        ]
+      },
+      {
+        "phase": "4",
+        "title": "Testing & Launch",
+        "description": "Rigorous testing and production deployment",
+        "duration": "Week 6",
+        "price": 2000,
+        "deliverables": [
+          {
+            "id": "4-1",
+            "title": "Test Suite Execution",
+            "description": "Run 866+ tests covering all edge cases and integration scenarios",
+            "status": "pending",
+            "deliveryWeek": "Week 6"
+          },
+          {
+            "id": "4-2",
+            "title": "Production Deployment",
+            "description": "Deploy to production with monitoring, alerts, and rollback procedures",
+            "status": "pending",
+            "deliveryWeek": "Week 6"
+          },
+          {
+            "id": "4-3",
+            "title": "30-Day Support",
+            "description": "Post-launch support for bug fixes and edge case handling",
+            "status": "pending",
+            "deliveryWeek": "Week 6-10"
+          }
+        ]
+      }
+    ]
+  },
+  "whoFor": {
+    "title": "Who This Is For",
+    "subtitle": "AI SaaS companies with $25K+ MRR who are bleeding margins on billing complexity.",
+    "profiles": [
+      {
+        "id": "1",
+        "name": "AI SaaS Founder",
+        "initials": "AF",
+        "stage": "Seed-Series A",
+        "mrr": { "min": 25000, "max": 200000 },
+        "description": "Building an AI-powered SaaS with LLM costs eating into margins. Needs visibility and control.",
+        "painPoints": [
+          "Cannot calculate true customer margins",
+          "AI costs scattered across providers",
+          "No usage-based pricing capability",
+          "Revenue leaking from failed payments"
+        ]
+      },
+      {
+        "id": "2",
+        "name": "CTO of AI Startup",
+        "initials": "CT",
+        "stage": "Growth Stage",
+        "mrr": { "min": 100000, "max": 500000 },
+        "description": "Technical leader whose team is drowning in billing edge cases. Needs a robust foundation.",
+        "painPoints": [
+          "Engineering team wasting time on billing",
+          "Proration and upgrade edge cases",
+          "No scalable billing infrastructure",
+          "Security and compliance concerns"
+        ]
+      },
+      {
+        "id": "3",
+        "name": "Finance Leader",
+        "initials": "FL",
+        "stage": "Series B+",
+        "mrr": { "min": 500000, "max": 2000000 },
+        "description": "Responsible for unit economics and margin optimization. Cannot manage what you cannot measure.",
+        "painPoints": [
+          "No visibility into LLM cost drivers",
+          "Cannot attribute AI costs to customers",
+          "Manual revenue operations processes",
+          "Revenue leaks going undetected"
+        ]
+      }
+    ]
+  },
+  "relatedServices": {
+    "title": "Related Services",
+    "subtitle": "Need something smaller or more focused? These services might fit better.",
+    "items": [
+      {
+        "id": "1",
+        "title": "Payment Recovery",
+        "description": "Recover 47-65% of failed payments with automated dunning. $2K-4K, 1 week.",
+        "href": "/services/payment-recovery",
+        "badge": "Quick Win"
+      },
+      {
+        "id": "2",
+        "title": "Usage-Based Pricing",
+        "description": "Launch Stripe Meter in 2 weeks. Companies with usage pricing grow 54% faster.",
+        "href": "/services/usage-pricing"
+      },
+      {
+        "id": "3",
+        "title": "AI Cost Tracking",
+        "description": "Track LLM costs per customer across 5 providers. $3K-5K, 2-3 weeks.",
+        "href": "/services/ai-tracking",
+        "badge": "Popular"
+      },
+      {
+        "id": "4",
+        "title": "Billing Audit",
+        "description": "Identify revenue leaks and optimization opportunities. $1.5K-3K, 1 week.",
+        "href": "/services/billing-audit"
+      }
+    ]
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Direct answers to common questions. No sales fluff.",
+    "items": [
+      {
+        "id": "1",
+        "question": "Why custom pricing instead of fixed?",
+        "answer": "Every AI SaaS has different billing complexity. Some have simple subscriptions, others have complex usage patterns, multi-seat plans, and enterprise contracts. I audit your situation first, then scope the work. You pay for what you need.",
+        "category": "Pricing"
+      },
+      {
+        "id": "2",
+        "question": "Do I need to pause feature development?",
+        "answer": "No. I build the billing infrastructure in parallel with your team. I need access to your Stripe account, database schema, and a few hours of your team's time for requirements gathering. The rest is on me.",
+        "category": "Process"
+      },
+      {
+        "id": "3",
+        "question": "What if I already have Stripe setup?",
+        "answer": "Great. I build on top of your existing Stripe configuration. The audit will reveal what you have and what is missing. Many companies have Stripe payments but lack usage-based pricing, failed payment recovery, or LLM cost tracking.",
+        "category": "Process"
+      },
+      {
+        "id": "4",
+        "question": "How do you track LLM costs?",
+        "answer": "I implement middleware that intercepts LLM API calls, extracts token usage and model information, and stores it per customer. Supports OpenAI, Anthropic, OpenRouter (400+ models). The data is aggregated and displayed in a margin dashboard.",
+        "category": "Technical"
+      },
+      {
+        "id": "5",
+        "question": "What is the edge case coordinator?",
+        "answer": "A 720-line system I built that handles the complex scenarios that break most billing implementations: upgrades/downgrades with proration, trial-to-paid conversions, coupon stacking, annual/monthly switching, and seat-based billing changes. It is the difference between something that works in demo and something that works in production.",
+        "category": "Technical"
+      },
+      {
+        "id": "6",
+        "question": "How long does support last after launch?",
+        "answer": "30 days of post-launch support included. This covers bug fixes, edge case handling, and minor adjustments. After that, you can purchase ongoing support or your team can take over - the code is documented and tested.",
+        "category": "Support"
+      },
+      {
+        "id": "7",
+        "question": "Can you handle enterprise billing requirements?",
+        "answer": "Yes. Enterprise billing often involves custom contracts, negotiated rates, PO-based billing, and net payment terms. I build infrastructure that supports both self-serve and enterprise flows.",
+        "category": "Enterprise"
+      },
+      {
+        "id": "8",
+        "question": "I spent 18 months building this. Now I will build it for you.",
+        "answer": "That is not a question, but it is the point. I built Margin (LLM cost tracking platform) and extracted billing code from QuoteKit. I have already made the mistakes so you do not have to.",
+        "category": "About"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to Fix Your Billing?",
+    "subtitle": "I spent 18 months building this. Now I will build it for you.",
+    "description": "Book a free discovery call. We will discuss your billing challenges and I will provide a clear scope and quote.",
+    "primaryAction": {
+      "label": "Book Discovery Call",
+      "href": "/contact?service=billing-infrastructure"
+    },
+    "secondaryAction": {
+      "label": "See Detailed Case Study",
+      "href": "/blog/margin-building-llm-cost-tracker"
+    },
+    "badge": "No commitment required",
+    "trustSignals": [
+      "Response within 24 hours",
+      "Free discovery call",
+      "Clear scope and pricing",
+      "30-day post-launch support"
+    ]
+  }
+}
