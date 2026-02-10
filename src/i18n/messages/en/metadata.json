@@ -39,6 +39,14 @@
         "description": "Productized billing services for AI SaaS. Stripe failed payment recovery, usage-based pricing launch, AI cost visibility system, revenue leak detection, and complete billing foundation."
       }
     },
+    "servicesBillingInfrastructure": {
+      "title": "Complete Billing Infrastructure for AI SaaS | AI.RIO",
+      "description": "End-to-end billing infrastructure for AI SaaS companies. Usage-based pricing, failed payment recovery, AI cost tracking, and edge case handling. Custom pricing, delivered in 4-6 weeks.",
+      "openGraph": {
+        "title": "Complete Billing Infrastructure for AI SaaS | AI.RIO",
+        "description": "Complete billing infrastructure for AI SaaS. I built Margin (LLM cost tracker) and extracted billing code from QuoteKit. Now I will build it for you. Usage pricing, payment recovery, cost tracking."
+      }
+    },
     "about": {
       "title": "About AI.RIO - Billing Infrastructure Specialist",
       "description": "I built Margin, an LLM cost tracking platform, and extracted billing code from QuoteKit. Now I help AI SaaS companies solve the same billing infrastructure problems.",

@@ -49,6 +49,7 @@ import {
 export type MetadataNamespace =
   | 'home'
   | 'services'
+  | 'services.billingInfrastructure'
   | 'about'
   | 'contact'
   | 'paymentRecovery'
