@@ -37,7 +37,34 @@ export function canAnimate(): boolean {
   return typeof requestAnimationFrame !== 'undefined';
 }
 
-export function parseCounterValue(value: string | number): number {
-  if (typeof value === 'number') return value;
-  return parseFloat(value.replace(/[^\d.-]/g, '')) || 0;
+export interface ParsedCounterValue {
+  numeric: number | null;
+  prefix: string;
+  suffix: string;
+}
+
+export function parseCounterValue(value: string | number): ParsedCounterValue {
+  if (typeof value === 'number') {
+    return { numeric: value, prefix: '', suffix: '' };
+  }
+
+  const strValue = String(value);
+  // Match patterns like '$15K', '66%', '1.5M', etc.
+  const match = strValue.match(/^([^0-9.-]*)([0-9.-]+)([^0-9.-]*)$/);
+
+  if (match) {
+    return {
+      prefix: match[1] || '',
+      numeric: parseFloat(match[2]) || null,
+      suffix: match[3] || '',
+    };
+  }
+
+  // If no pattern match, try to extract just the number
+  const numberOnly = parseFloat(strValue.replace(/[^\d.-]/g, ''));
+  return {
+    prefix: '',
+    numeric: isNaN(numberOnly) ? null : numberOnly,
+    suffix: '',
+  };
 }
