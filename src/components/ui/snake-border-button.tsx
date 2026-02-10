@@ -29,9 +29,9 @@ interface SnakeBorderButtonProps {
   href?: string;
   ariaLabel?: string;
   className?: string;
-  onClick?: () => void;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
   snakeSpeed?: number; // Duration of one full rotation in seconds
-  snakeColors?: string[]; // Gradient colors for the snake
+  snakeColors?: readonly string[]; // Gradient colors for the snake
 }
 
 /**

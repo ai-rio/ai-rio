@@ -16,11 +16,7 @@ export const BackgroundPaths = ({
 }) => {
   return (
     <div
-      className={
-        cn
-          ? cn('relative h-[24rem] md:h-screen w-full bg-white dark:bg-black', className)
-          : `relative h-screen w-full bg-white dark:bg-black ${className ?? ''}`
-      }
+      className={cn('relative h-[24rem] md:h-screen w-full bg-white dark:bg-black', className)}
     >
       <PathSVG svgOptions={svgOptions} />
       <div className="relative z-10">{children}</div>

@@ -41,7 +41,7 @@ export function AnimatedCounter({
   format,
   className = '',
 }: AnimatedCounterProps) {
-  const [displayValue, setDisplayValue] = useState(from);
+  const [displayValue, setDisplayValue] = useState(() => from);
   const [hasStarted, setHasStarted] = useState(false);
   const elementRef = useRef<HTMLSpanElement>(null);
 
@@ -74,10 +74,12 @@ export function AnimatedCounter({
   useEffect(() => {
     if (!hasStarted) return;
 
-    // If reduced motion is preferred, just set the final value
+    // If reduced motion is preferred, defer setState to avoid cascading renders
     if (prefersReducedMotion) {
-      setDisplayValue(to);
-      return;
+      const timeoutId = setTimeout(() => {
+        setDisplayValue(to);
+      }, 0);
+      return () => clearTimeout(timeoutId);
     }
 
     const startTime = performance.now();

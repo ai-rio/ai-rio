@@ -1,19 +1,19 @@
 import { motion, useInView } from 'framer-motion';
-import React, { type ReactNode } from 'react';
+import React, { type ReactNode, forwardRef, type HTMLAttributes } from 'react';
 
-interface AnimatedListProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'as'> {
+interface AnimatedListProps extends Omit<HTMLAttributes<HTMLDivElement>, 'as'> {
   children: ReactNode;
   staggerDelay?: number;
   duration?: number;
   delay?: number;
   threshold?: number;
-  as?: keyof React.JSX.IntrinsicElements | React.ComponentType<any>;
+  as?: React.ElementType;
   once?: boolean;
   direction?: 'up' | 'down' | 'left' | 'right';
   distance?: number;
 }
 
-const AnimatedList: React.FC<AnimatedListProps> = ({
+const AnimatedList = forwardRef<HTMLDivElement, AnimatedListProps>(({
   children,
   staggerDelay = 0.05,
   duration = 0.2,
@@ -25,8 +25,11 @@ const AnimatedList: React.FC<AnimatedListProps> = ({
   distance = 20,
   className = '',
   ...props
-}) => {
-  const ref = React.useRef<HTMLDivElement>(null);
+}, externalRef) => {
+  const internalRef = React.useRef<HTMLDivElement>(null);
+  // Use either external ref or internal ref
+  const ref = (externalRef as React.RefObject<HTMLDivElement>) || internalRef;
+
   const isInView = useInView(ref, {
     amount: threshold,
     once,
@@ -64,14 +67,20 @@ const AnimatedList: React.FC<AnimatedListProps> = ({
 
   const initial = getInitialPosition();
 
-  // Use createElement for better type safety
+  // Create props object for the dynamic component
+  const componentProps: HTMLAttributes<HTMLDivElement> = {
+    className,
+    ...props,
+  };
+
+  // Add ref only for intrinsic elements (div, span, etc.)
+  if (typeof Component === 'string') {
+    (componentProps as HTMLAttributes<HTMLDivElement> & { ref?: React.Ref<HTMLDivElement> }).ref = ref;
+  }
+
   return React.createElement(
     Component,
-    {
-      ref: ref as any,
-      className,
-      ...(props as any),
-    },
+    componentProps,
     childrenArray.map((child, index) =>
       React.createElement(
         motion.div,
@@ -89,6 +98,8 @@ const AnimatedList: React.FC<AnimatedListProps> = ({
       )
     )
   );
-};
+});
+
+AnimatedList.displayName = 'AnimatedList';
 
 export default AnimatedList;

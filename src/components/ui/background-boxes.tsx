@@ -17,9 +17,11 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
     '#a5b4fc',
     '#c4b5fd',
   ];
-  const getRandomColor = () => {
+
+  // Pre-compute a random color for each cell to avoid calling Math.random during render
+  const getRandomColor = React.useCallback(() => {
     return colors[Math.floor(Math.random() * colors.length)];
-  };
+  }, []);
 
   return (
     <div
@@ -38,7 +40,7 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
           {cols.map((_, j) => (
             <motion.div
               whileHover={{
-                backgroundColor: `${getRandomColor()}`,
+                backgroundColor: getRandomColor(),
                 transition: { duration: 0 },
               }}
               animate={{

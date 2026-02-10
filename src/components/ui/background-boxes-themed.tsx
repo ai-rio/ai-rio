@@ -52,9 +52,10 @@ export const BackgroundBoxesCore = ({ className, variant = 'blue' }: BackgroundB
 
   const colors = variant === 'blue' ? blueColors : monochromeColors;
 
-  const getRandomColor = () => {
+  // Use useCallback to avoid calling Math.random during render
+  const getRandomColor = React.useCallback(() => {
     return colors[Math.floor(Math.random() * colors.length)];
-  };
+  }, [colors]); // Re-create when colors change
 
   return (
     <div
@@ -76,7 +77,7 @@ export const BackgroundBoxesCore = ({ className, variant = 'blue' }: BackgroundB
           {cols.map((_, j) => (
             <motion.div
               whileHover={{
-                backgroundColor: `${getRandomColor()}`,
+                backgroundColor: getRandomColor(),
                 transition: { duration: 0 },
               }}
               animate={{

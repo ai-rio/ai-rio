@@ -55,7 +55,8 @@ export interface HoverBorderGradientProps extends React.PropsWithChildren {
    * Recommended for CTAs on light backgrounds for better accessibility
    */
   highContrast?: boolean;
-  [key: string]: any;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  type?: 'button' | 'submit' | 'reset';
 }
 
 export function HoverBorderGradient({
@@ -132,7 +133,7 @@ export function HoverBorderGradient({
         'relative flex rounded-full border border-brand-primary/30 dark:border-brand-primary/40 content-center bg-muted/20 hover:bg-muted/30 transition duration-500 items-center flex-col flex-nowrap gap-10 h-min justify-center overflow-visible p-px decoration-clone w-fit',
         containerClassName
       ),
-      ...(props as any),
+      ...props,
     },
     React.createElement(
       'div',
@@ -140,7 +141,7 @@ export function HoverBorderGradient({
         className: cn(
           'w-full text-foreground z-10 bg-background rounded-[inherit]',
           highContrast && 'dark:text-brand-primary text-brand-primary-dark',
-          getCtaClassName(size),
+          getCtaClassName('default', size),
           className
         ),
       },

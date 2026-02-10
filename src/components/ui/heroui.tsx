@@ -7,7 +7,7 @@ import LustreText from "@/components/ui/lustretext";
 import { useTheme } from "next-themes";
 import Globe from "@/components/ui/globe";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -95,7 +95,7 @@ export default function HeroUI({
   },
 }: HeroUIProps) {
   const { theme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const [mounted, setMounted] = useState(() => false);
   const ref = useRef<HTMLDivElement>(null);
 
   // Only use scroll tracking after mount to avoid "not hydrated" error
@@ -106,7 +106,9 @@ export default function HeroUI({
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
 
   useEffect(() => {
-    setMounted(true);
+    // Defer setMounted to avoid cascading renders
+    const timeoutId = setTimeout(() => setMounted(true), 0);
+    return () => clearTimeout(timeoutId);
   }, []);
 
   if (!mounted) return null;

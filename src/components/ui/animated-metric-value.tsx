@@ -41,7 +41,7 @@ export function AnimatedMetricValue({
   const parsed = useMemo(() => parseCounterValue(value), [value]);
 
   // Determine if we should animate this value
-  const shouldAnimate = animate && parsed.numeric !== null && canAnimate(value);
+  const shouldAnimate = animate && parsed.numeric !== null && canAnimate();
 
   // If we shouldn't animate, render static text
   if (!shouldAnimate) {

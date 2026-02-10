@@ -51,8 +51,9 @@ export const ShinyButton = React.forwardRef<HTMLButtonElement, ShinyButtonProps>
     const Comp = asChild ? Slot : 'button';
     const [isHovered, setIsHovered] = React.useState(false);
     const [currentAngle, setCurrentAngle] = React.useState(gradientAngle);
+    const [isTouchDevice, setIsTouchDevice] = React.useState(false);
     const angle = useMotionValue(gradientAngle);
-    const isTouchDevice = React.useRef(false);
+    const isTouchDeviceRef = React.useRef(false);
 
     const reset = React.useCallback(() => {
       angle.set(gradientAngle);
@@ -63,11 +64,13 @@ export const ShinyButton = React.forwardRef<HTMLButtonElement, ShinyButtonProps>
     const handlePointerMove = React.useCallback(
       (e: React.PointerEvent<HTMLButtonElement>) => {
         if (e.pointerType === 'touch') {
-          isTouchDevice.current = true;
+          isTouchDeviceRef.current = true;
+          setIsTouchDevice(true);
           return;
         }
 
-        isTouchDevice.current = false;
+        isTouchDeviceRef.current = false;
+        setIsTouchDevice(false);
         const rect = e.currentTarget.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
@@ -102,7 +105,7 @@ export const ShinyButton = React.forwardRef<HTMLButtonElement, ShinyButtonProps>
         onPointerLeave={reset}
         {...props}
       >
-        {isTouchDevice.current ? (
+        {isTouchDevice ? (
           <div
             className="absolute inset-0 rounded-[inherit]"
             style={{

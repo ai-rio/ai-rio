@@ -82,13 +82,18 @@ export const EncryptedText: React.FC<EncryptedTextProps> = ({
     if (!isInitializedRef.current) {
       const initial = text ? generateGibberishPreservingSpaces(text, charset) : '';
       scrambleCharsRef.current = initial.split('');
-      setScrambleChars(initial.split(''));
+      // Use setTimeout to defer setState and avoid cascading renders
+      const timeoutId = setTimeout(() => {
+        setScrambleChars(initial.split(''));
+      }, 0);
       isInitializedRef.current = true;
+      return () => clearTimeout(timeoutId);
     }
 
     startTimeRef.current = performance.now();
     lastFlipTimeRef.current = startTimeRef.current;
-    setRevealCount(0);
+    const timeoutId = setTimeout(() => setRevealCount(0), 0);
+    return () => clearTimeout(timeoutId);
 
     let isCancelled = false;
 
