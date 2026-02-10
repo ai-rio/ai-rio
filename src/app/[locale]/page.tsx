@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { Navbar } from '@/components/navbar';
 import { generatePageMetadata } from '@/lib/metadata/page-metadata';
@@ -10,12 +11,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ArrowRight, CheckCircle2, TrendingUp, Zap, Shield, Database, Code2, DollarSign } from 'lucide-react';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   return generatePageMetadata({
-    locale: locale as any,
+    locale: locale as 'en' | 'es' | 'pt',
     namespace: 'home',
     path: '/',
   });
@@ -23,7 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale });
+  const t = await getTranslations({ locale, namespace: 'home' });
 
   return (
     <div className="min-h-screen bg-zinc-950 dark:bg-black text-zinc-50 dark:text-zinc-400">
@@ -39,23 +40,19 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <div className="space-y-4">
               <Badge variant="secondary" className="mb-4">
                 <Zap className="h-3 w-3 mr-1" />
-                {locale === 'en' ? 'AI Cost Visibility Platform' : 'Plataforma de Visibilidade de Custos de IA'}
+                {t('hero.badge')}
               </Badge>
               <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl">
-                {locale === 'en'
-                  ? "Your AI margins are a black box."
-                  : "Suas margens de IA são uma caixa preta."}
+                {t('hero.title')}
               </h1>
               <h2 className="text-3xl font-bold tracking-tight text-indigo-400 sm:text-5xl">
-                {locale === 'en' ? "I built a flashlight." : "Eu construí uma lanterna."}
+                {t('hero.subtitle')}
               </h2>
             </div>
 
             {/* Subheadline */}
             <p className="mt-6 text-lg leading-8 text-zinc-300 sm:text-xl max-w-3xl mx-auto">
-              {locale === 'en'
-                ? "Stop flying blind on LLM costs. Get real-time visibility into your AI infrastructure, track every token across providers, and know your true margins down to the cent."
-                : "Pare de voar às cegas nos custos de LLM. Obtenha visibilidade em tempo real da sua infraestrutura de IA, rastreie cada token entre provedores e conheça suas margens verdadeiras até o centavo."}
+              {t('hero.description')}
             </p>
 
             {/* CTAs */}
@@ -66,7 +63,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 className="group gap-2 bg-indigo-600 hover:bg-indigo-500 text-white"
               >
                 <a href="#infrastructure">
-                  {locale === 'en' ? 'See the Infrastructure' : 'Ver a Infraestrutura'}
+                  {t('hero.cta.primary')}
                   <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </a>
               </Button>
@@ -77,7 +74,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 className="border-zinc-700 bg-zinc-900 text-white hover:bg-zinc-800"
               >
                 <a href="#contact">
-                  {locale === 'en' ? 'Book a Discovery Call' : 'Agendar uma Chamada de Descoberta'}
+                  {t('hero.cta.secondary')}
                 </a>
               </Button>
             </div>
@@ -86,15 +83,15 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <div className="pt-8 flex flex-wrap items-center justify-center gap-6 text-sm text-zinc-400">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="h-4 w-4 text-green-500" />
-                <span>{locale === 'en' ? 'Production-ready' : 'Pronto para produção'}</span>
+                <span>{t('hero.trust.productionReady')}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Shield className="h-4 w-4 text-blue-500" />
-                <span>{locale === 'en' ? 'SOC 2 Compliant' : 'Conforme SOC 2'}</span>
+                <span>{t('hero.trust.soc2')}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Database className="h-4 w-4 text-purple-500" />
-                <span>{locale === 'en' ? '5 Providers Supported' : '5 Provedores Suportados'}</span>
+                <span>{t('hero.trust.providers')}</span>
               </div>
             </div>
           </div>
@@ -106,40 +103,40 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <div className="mx-auto max-w-6xl">
           <TechnicalProof
             locale={locale}
-            title={locale === 'en' ? 'Production-Grade Infrastructure' : 'Infraestrutura de Nível de Produção'}
-            subtitle={locale === 'en' ? 'Real metrics from the actual codebase' : 'Métricas reais do código real'}
+            title={t('infrastructure.title')}
+            subtitle={t('infrastructure.subtitle')}
             metrics={[
               {
                 id: 'coverage',
-                label: locale === 'en' ? 'Test Coverage' : 'Cobertura de Testes',
+                label: t('infrastructure.metrics.coverage.label'),
                 value: 99.5,
                 suffix: '%',
-                description: locale === 'en' ? 'Comprehensive test suite' : 'Suite de testes abrangente',
+                description: t('infrastructure.metrics.coverage.description'),
                 progress: 99.5,
                 trend: 'up'
               },
               {
                 id: 'providers',
-                label: locale === 'en' ? 'Providers Supported' : 'Provedores Suportados',
+                label: t('infrastructure.metrics.providers.label'),
                 value: 5,
-                description: locale === 'en' ? 'OpenAI, Anthropic, OpenRouter, Groq, Mistral' : 'OpenAI, Anthropic, OpenRouter, Groq, Mistral',
+                description: t('infrastructure.metrics.providers.description'),
                 progress: 100,
                 trend: 'up'
               },
               {
                 id: 'policies',
-                label: locale === 'en' ? 'RLS Policies' : 'Políticas RLS',
+                label: t('infrastructure.metrics.policies.label'),
                 value: 45,
-                description: locale === 'en' ? 'Row-level security policies' : 'Políticas de segurança em nível de linha',
+                description: t('infrastructure.metrics.policies.description'),
                 progress: 100,
                 trend: 'up'
               },
               {
                 id: 'models',
-                label: locale === 'en' ? 'Models Tracked' : 'Modelos Rastreados',
+                label: t('infrastructure.metrics.models.label'),
                 value: 400,
                 suffix: '+',
-                description: locale === 'en' ? 'Across all providers' : 'Em todos os provedores',
+                description: t('infrastructure.metrics.models.description'),
                 progress: 95,
                 trend: 'up'
               }
@@ -155,28 +152,22 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <div className="mx-auto max-w-6xl">
           <DashboardShowcase
             locale={locale}
-            title={locale === 'en' ? 'See Your Costs in Real-Time' : 'Veja Seus Custos em Tempo Real'}
-            subtitle={locale === 'en'
-              ? 'Monitor your LLM spending across all providers with a single dashboard. Track costs per customer, per feature, per token.'
-              : 'Monitore seus gastos com LLM em todos os provedores com um único painel. Rastreie custos por cliente, por recurso, por token.'}
+            title={t('dashboard.title')}
+            subtitle={t('dashboard.subtitle')}
             views={[
               {
                 id: 'dashboard',
-                title: locale === 'en' ? 'AI Cost Dashboard' : 'Painel de Custos de IA',
-                description: locale === 'en'
-                  ? 'Real-time cost tracking with breakdown by provider and model'
-                  : 'Rastreamento de custos em tempo real com detalhamento por provedor e modelo',
+                title: t('dashboard.views.title'),
+                description: t('dashboard.views.description'),
                 imageSrc: '/dashboard-screenshot.png',
-                imageAlt: locale === 'en'
-                  ? 'AI.RIO dashboard showing LLM cost breakdown by provider and model'
-                  : 'Painel AI.RIO mostrando detalhamento de custos LLM por provedor e modelo',
+                imageAlt: t('dashboard.views.imageAlt'),
                 device: 'desktop',
-                badge: locale === 'en' ? 'Live Demo' : 'Demo ao Vivo'
+                badge: t('dashboard.views.badge')
               }
             ]}
             cta={{
-              label: locale === 'en' ? 'View Live Demo' : 'Ver Demo ao Vivo',
-              href: locale === 'en' ? 'https://demo.ai-rio.com' : 'https://demo.ai-rio.com',
+              label: t('dashboard.cta'),
+              href: 'https://demo.ai-rio.com',
               external: true
             }}
             aspectRatio="16/9"
@@ -188,50 +179,38 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <section className="px-6 py-24 lg:px-8 bg-zinc-900/30">
         <div className="mx-auto max-w-6xl">
           <ProblemSection
-            title={locale === 'en' ? 'The AI Cost Black Box Problem' : 'O Problema da Caixa Preta dos Custos de IA'}
-            subtitle={locale === 'en'
-              ? 'Most AI SaaS companies are losing money because they can\'t see their true margins'
-              : 'A maioria das empresas de IA SaaS está perdendo dinheiro porque não consegue ver suas margens verdadeiras'}
+            title={t('problem.title')}
+            subtitle={t('problem.subtitle')}
             problems={[
               {
                 id: 'no-visibility',
-                title: locale === 'en' ? 'No Cost Visibility' : 'Sem Visibilidade de Custos',
-                description: locale === 'en'
-                  ? 'AI costs are scattered across multiple provider dashboards, making it impossible to track total spend or attribute costs to specific customers.'
-                  : 'Os custos de IA estão espalhados por vários painéis de provedores, tornando impossível rastrear o gasto total ou atribuir custos a clientes específicos.',
+                title: t('problem.problems.noVisibility.title'),
+                description: t('problem.problems.noVisibility.description'),
                 severity: 'critical',
-                metric: locale === 'en' ? '87% of AI SaaS companies' : '87% das empresas de IA SaaS'
+                metric: t('problem.problems.noVisibility.metric')
               },
               {
                 id: 'unknown-margins',
-                title: locale === 'en' ? 'Unknown True Margins' : 'Margens Verdadeiras Desconhecidas',
-                description: locale === 'en'
-                  ? 'Without per-customer cost tracking, you\'re flying blind on profitability. Some customers could be costing more than they pay.'
-                  : 'Sem rastreamento de custos por cliente, você está voando às cegas sobre a rentabilidade. Alguns clientes podem custar mais do que pagam.',
+                title: t('problem.problems.unknownMargins.title'),
+                description: t('problem.problems.unknownMargins.description'),
                 severity: 'critical'
               },
               {
                 id: 'usage-spikes',
-                title: locale === 'en' ? 'Unexpected Usage Spikes' : 'Picos de Uso Inesperados',
-                description: locale === 'en'
-                  ? 'A single heavy user can spike your costs by 10x overnight. Without alerts and limits, these surprises destroy margins.'
-                  : 'Um único usuário pesado pode aumentar seus custos 10x durante a noite. Sem alertas e limites, essas surpresas destroem as margens.',
+                title: t('problem.problems.usageSpikes.title'),
+                description: t('problem.problems.usageSpikes.description'),
                 severity: 'high'
               },
               {
                 id: 'multi-provider',
-                title: locale === 'en' ? 'Multi-Provider Chaos' : 'Caos Multi-Provedor',
-                description: locale === 'en'
-                  ? 'Managing bills from OpenAI, Anthropic, Groq, and others is a nightmare. No unified view, no consolidated reporting.'
-                  : 'Gerenciar contas de OpenAI, Anthropic, Groq e outros é um pesadelo. Nenhuma visão unificada, nenhum relatório consolidado.',
+                title: t('problem.problems.multiProvider.title'),
+                description: t('problem.problems.multiProvider.description'),
                 severity: 'medium'
               }
             ]}
             alertMessage={{
-              title: locale === 'en' ? 'The Margin Killer' : 'O Matador de Margens',
-              description: locale === 'en'
-                ? 'You can\'t optimize what you can\'t see. Most AI SaaS companies discover they\'re losing money on their top customers only when it\'s too late.'
-                : 'Você não pode otimizar o que não pode ver. A maioria das empresas de IA SaaS descobre que está perdendo dinheiro nos melhores clientes apenas quando é tarde demais.'
+              title: t('problem.alert.title'),
+              description: t('problem.alert.description')
             }}
           />
         </div>
@@ -242,12 +221,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <div className="mx-auto max-w-6xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-white mb-4">
-              {locale === 'en' ? 'Billing Infrastructure Services' : 'Serviços de Infraestrutura de Cobrança'}
+              {t('services.title')}
             </h2>
             <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
-              {locale === 'en'
-                ? 'Fixed-scope, fixed-price services. 2-week delivery. Production-ready code.'
-                : 'Serviços de escopo fixo, preço fixo. Entrega em 2 semanas. Código pronto para produção.'}
+              {t('services.subtitle')}
             </p>
           </div>
 
@@ -258,7 +235,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 <div className="flex items-start justify-between">
                   <Badge variant="secondary" className="shrink-0">
                     <TrendingUp className="h-3 w-3 mr-1" />
-                    {locale === 'en' ? 'Revenue' : 'Receita'}
+                    {t('services.badges.revenue')}
                   </Badge>
                 </div>
                 <CardTitle className="text-xl mt-4">
@@ -276,8 +253,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                   {t("services.payment_recovery.description")}
                 </p>
                 <Button asChild className="w-full" variant="outline">
-                  <Link href={`/${locale}/services/payment-recovery`}>
-                    {locale === 'en' ? 'Learn More' : 'Saiba Mais'}
+                  <Link href="/services/payment-recovery">
+                    {t('services.cta')}
                     <ArrowRight className="h-4 w-4 ml-2" />
                   </Link>
                 </Button>
@@ -290,7 +267,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 <div className="flex items-start justify-between">
                   <Badge variant="secondary" className="shrink-0">
                     <Zap className="h-3 w-3 mr-1" />
-                    {locale === 'en' ? 'Growth' : 'Crescimento'}
+                    {t('services.badges.growth')}
                   </Badge>
                 </div>
                 <CardTitle className="text-xl mt-4">
@@ -308,8 +285,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                   {t("services.usage_pricing.description")}
                 </p>
                 <Button asChild className="w-full" variant="outline">
-                  <Link href={`/${locale}/services/usage-pricing`}>
-                    {locale === 'en' ? 'Learn More' : 'Saiba Mais'}
+                  <Link href="/services/usage-pricing">
+                    {t('services.cta')}
                     <ArrowRight className="h-4 w-4 ml-2" />
                   </Link>
                 </Button>
@@ -322,7 +299,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 <div className="flex items-start justify-between">
                   <Badge variant="default" className="shrink-0">
                     <Database className="h-3 w-3 mr-1" />
-                    {locale === 'en' ? 'Core' : 'Núcleo'}
+                    {t('services.badges.core')}
                   </Badge>
                 </div>
                 <CardTitle className="text-xl mt-4">
@@ -340,8 +317,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                   {t("services.ai_tracking.description")}
                 </p>
                 <Button asChild className="w-full" variant="outline">
-                  <Link href={`/${locale}/services/ai-tracking`}>
-                    {locale === 'en' ? 'Learn More' : 'Saiba Mais'}
+                  <Link href="/services/ai-tracking">
+                    {t('services.cta')}
                     <ArrowRight className="h-4 w-4 ml-2" />
                   </Link>
                 </Button>
@@ -354,7 +331,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 <div className="flex items-start justify-between">
                   <Badge variant="secondary" className="shrink-0">
                     <Shield className="h-3 w-3 mr-1" />
-                    {locale === 'en' ? 'Audit' : 'Auditoria'}
+                    {t('services.badges.audit')}
                   </Badge>
                 </div>
                 <CardTitle className="text-xl mt-4">
@@ -372,8 +349,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                   {t("services.billing_audit.description")}
                 </p>
                 <Button asChild className="w-full" variant="outline">
-                  <Link href={`/${locale}/services/billing-audit`}>
-                    {locale === 'en' ? 'Learn More' : 'Saiba Mais'}
+                  <Link href="/services/billing-audit">
+                    {t('services.cta')}
                     <ArrowRight className="h-4 w-4 ml-2" />
                   </Link>
                 </Button>
@@ -386,10 +363,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 <div className="flex items-start justify-between">
                   <Badge variant="default" className="shrink-0">
                     <Code2 className="h-3 w-3 mr-1" />
-                    {locale === 'en' ? 'Complete' : 'Completo'}
+                    {t('services.badges.complete')}
                   </Badge>
                   <Badge variant="outline" className="shrink-0">
-                    {locale === 'en' ? 'Best Value' : 'Melhor Valor'}
+                    {t('services.badges.bestValue')}
                   </Badge>
                 </div>
                 <CardTitle className="text-2xl mt-4">
@@ -409,20 +386,20 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 <div className="flex flex-wrap gap-4 text-sm text-zinc-400">
                   <span className="flex items-center gap-1">
                     <CheckCircle2 className="h-4 w-4 text-green-500" />
-                    {locale === 'en' ? 'All services included' : 'Todos os serviços incluídos'}
+                    {t('services.features.allServices')}
                   </span>
                   <span className="flex items-center gap-1">
                     <CheckCircle2 className="h-4 w-4 text-green-500" />
-                    {locale === 'en' ? '90-day warranty' : 'Garantia de 90 dias'}
+                    {t('services.features.warranty')}
                   </span>
                   <span className="flex items-center gap-1">
                     <CheckCircle2 className="h-4 w-4 text-green-500" />
-                    {locale === 'en' ? 'Priority support' : 'Suporte prioritário'}
+                    {t('services.features.support')}
                   </span>
                 </div>
                 <Button asChild className="w-full" size="lg">
-                  <Link href={`/${locale}/services/complete-billing`}>
-                    {locale === 'en' ? 'Get Started' : 'Começar Agora'}
+                  <Link href="/services/complete-billing">
+                    {t('services.ctaFeatured')}
                     <ArrowRight className="h-4 w-4 ml-2" />
                   </Link>
                 </Button>
@@ -437,120 +414,96 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <div className="mx-auto max-w-6xl">
           <DeliverablesSection
             locale={locale}
-            title={locale === 'en' ? 'How We Work' : 'Como Trabalhamos'}
-            subtitle={locale === 'en'
-              ? 'Transparent process, clear deliverables, fixed pricing. No surprises.'
-              : 'Processo transparente, entregas claras, preços fixos. Sem surpresas.'}
+            title={t('process.title')}
+            subtitle={t('process.subtitle')}
             phases={[
               {
                 phase: '1',
-                title: locale === 'en' ? 'Discovery & Audit' : 'Descoberta e Auditoria',
-                duration: locale === 'en' ? 'Week 1' : 'Semana 1',
-                price: locale === 'en' ? 0 : 0,
-                description: locale === 'en'
-                  ? 'We analyze your current billing setup and identify improvement opportunities.'
-                  : 'Analisamos sua configuração de cobrança atual e identificamos oportunidades de melhoria.',
+                title: t('process.phases.1.title'),
+                duration: t('process.phases.1.duration'),
+                price: 0,
+                description: t('process.phases.1.description'),
                 deliverables: [
                   {
                     id: 'd1',
-                    title: locale === 'en' ? 'Billing Audit' : 'Auditoria de Cobrança',
-                    description: locale === 'en'
-                      ? 'Comprehensive analysis of your current billing infrastructure'
-                      : 'Análise abrangente da sua infraestrutura de cobrança atual',
+                    title: t('process.phases.1.deliverables.billingAudit.title'),
+                    description: t('process.phases.1.deliverables.billingAudit.description'),
                     status: 'pending',
-                    deliveryWeek: locale === 'en' ? 'Day 1-3' : 'Dia 1-3'
+                    deliveryWeek: 'Day 1-3'
                   },
                   {
                     id: 'd2',
-                    title: locale === 'en' ? 'Cost Analysis' : 'Análise de Custos',
-                    description: locale === 'en'
-                      ? 'AI cost breakdown with recommendations for optimization'
-                      : 'Detalhamento de custos de IA com recomendações de otimização',
+                    title: t('process.phases.1.deliverables.costAnalysis.title'),
+                    description: t('process.phases.1.deliverables.costAnalysis.description'),
                     status: 'pending',
-                    deliveryWeek: locale === 'en' ? 'Day 4-5' : 'Dia 4-5'
+                    deliveryWeek: 'Day 4-5'
                   },
                   {
                     id: 'd3',
-                    title: locale === 'en' ? 'Implementation Plan' : 'Plano de Implementação',
-                    description: locale === 'en'
-                      ? 'Detailed roadmap with timeline and pricing'
-                      : 'Roadmap detalhado com cronograma e preços',
+                    title: t('process.phases.1.deliverables.implementationPlan.title'),
+                    description: t('process.phases.1.deliverables.implementationPlan.description'),
                     status: 'pending',
-                    deliveryWeek: locale === 'en' ? 'Day 5' : 'Dia 5'
+                    deliveryWeek: 'Day 5'
                   }
                 ]
               },
               {
                 phase: '2',
-                title: locale === 'en' ? 'Foundation' : 'Fundação',
-                duration: locale === 'en' ? 'Week 2' : 'Semana 2',
-                price: locale === 'en' ? 3000 : 3000,
-                description: locale === 'en'
-                  ? 'We build the core billing infrastructure tailored to your needs.'
-                  : 'Construímos a infraestrutura de cobrança principal personalizada para suas necessidades.',
+                title: t('process.phases.2.title'),
+                duration: t('process.phases.2.duration'),
+                price: 3000,
+                description: t('process.phases.2.description'),
                 deliverables: [
                   {
                     id: 'd4',
-                    title: locale === 'en' ? 'Core Implementation' : 'Implementação Principal',
-                    description: locale === 'en'
-                      ? 'Billing system setup based on selected service package'
-                      : 'Configuração do sistema de cobrança baseado no pacote de serviço selecionado',
+                    title: t('process.phases.2.deliverables.coreImplementation.title'),
+                    description: t('process.phases.2.deliverables.coreImplementation.description'),
                     status: 'pending',
-                    deliveryWeek: locale === 'en' ? 'Day 1-7' : 'Dia 1-7'
+                    deliveryWeek: 'Day 1-7'
                   },
                   {
                     id: 'd5',
-                    title: locale === 'en' ? 'Integration' : 'Integração',
-                    description: locale === 'en'
-                      ? 'Connect with your existing systems and providers'
-                      : 'Conecte-se com seus sistemas e provedores existentes',
+                    title: t('process.phases.2.deliverables.integration.title'),
+                    description: t('process.phases.2.deliverables.integration.description'),
                     status: 'pending',
-                    deliveryWeek: locale === 'en' ? 'Day 8-10' : 'Dia 8-10'
+                    deliveryWeek: 'Day 8-10'
                   }
                 ]
               },
               {
                 phase: '3',
-                title: locale === 'en' ? 'Launch & Optimize' : 'Lançamento e Otimização',
-                duration: locale === 'en' ? 'Weeks 3-4' : 'Semanas 3-4',
-                price: locale === 'en' ? 2000 : 2000,
-                description: locale === 'en'
-                  ? 'We deploy, test, and optimize your new billing infrastructure.'
-                  : 'Implantamos, testamos e otimizamos sua nova infraestrutura de cobrança.',
+                title: t('process.phases.3.title'),
+                duration: t('process.phases.3.duration'),
+                price: 2000,
+                description: t('process.phases.3.description'),
                 deliverables: [
                   {
                     id: 'd6',
-                    title: locale === 'en' ? 'Testing & QA' : 'Testes e QA',
-                    description: locale === 'en'
-                      ? 'Comprehensive testing of all billing flows'
-                      : 'Testes abrangentes de todos os fluxos de cobrança',
+                    title: t('process.phases.3.deliverables.testing.title'),
+                    description: t('process.phases.3.deliverables.testing.description'),
                     status: 'pending',
-                    deliveryWeek: locale === 'en' ? 'Day 1-3' : 'Dia 1-3'
+                    deliveryWeek: 'Day 1-3'
                   },
                   {
                     id: 'd7',
-                    title: locale === 'en' ? 'Deployment' : 'Implantação',
-                    description: locale === 'en'
-                      ? 'Production deployment with monitoring setup'
-                      : 'Implantação em produção com configuração de monitoramento',
+                    title: t('process.phases.3.deliverables.deployment.title'),
+                    description: t('process.phases.3.deliverables.deployment.description'),
                     status: 'pending',
-                    deliveryWeek: locale === 'en' ? 'Day 4-5' : 'Dia 4-5'
+                    deliveryWeek: 'Day 4-5'
                   },
                   {
                     id: 'd8',
-                    title: locale === 'en' ? 'Handover & Training' : 'Entrega e Treinamento',
-                    description: locale === 'en'
-                      ? 'Documentation, team training, and ongoing support'
-                      : 'Documentação, treinamento da equipe e suporte contínuo',
+                    title: t('process.phases.3.deliverables.handover.title'),
+                    description: t('process.phases.3.deliverables.handover.description'),
                     status: 'pending',
-                    deliveryWeek: locale === 'en' ? 'Day 6-10' : 'Dia 6-10'
+                    deliveryWeek: 'Day 6-10'
                   }
                 ]
               }
             ]}
-            totalPrice={locale === 'en' ? 5000 : 5000}
+            totalPrice={5000}
             cta={{
-              label: locale === 'en' ? 'Start Your Project' : 'Iniciar Seu Projeto',
+              label: t('process.cta'),
               href: '#contact'
             }}
           />
@@ -561,26 +514,24 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <section id="about" className="px-6 py-24 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-bold text-white mb-6">
-            {locale === 'en' ? 'Built by a Billing Specialist' : 'Construído por um Especialista em Cobrança'}
+            {t('about.title')}
           </h2>
           <div className="prose prose-invert max-w-none">
             <p className="text-lg text-zinc-400 mb-6">
-              {locale === 'en'
-                ? "I built Margin, a production LLM metering platform, and extracted production billing code from QuoteKit. Now I help AI SaaS companies solve the same problems I've already solved."
-                : "Construí Margin, uma plataforma de medição de LLM de produção, e extraí código de cobrança de produção do QuoteKit. Agora ajudo empresas de IA SaaS a resolver os mesmos problemas que já resolvi."}
+              {t('about.description')}
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm text-zinc-500">
               <Badge variant="outline" className="gap-2">
                 <Code2 className="h-3 w-3" />
-                {locale === 'en' ? 'Open Source Contributor' : 'Contribuidor Open Source'}
+                {t('about.badges.openSource')}
               </Badge>
               <Badge variant="outline" className="gap-2">
                 <Shield className="h-3 w-3" />
-                {locale === 'en' ? 'Production Experience' : 'Experiência em Produção'}
+                {t('about.badges.production')}
               </Badge>
               <Badge variant="outline" className="gap-2">
                 <DollarSign className="h-3 w-3" />
-                {locale === 'en' ? 'Billing Expert' : 'Especialista em Cobrança'}
+                {t('about.badges.expert')}
               </Badge>
             </div>
           </div>
@@ -592,10 +543,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <div className="mx-auto max-w-2xl">
           <SimplifiedContactForm
             locale={locale}
-            contextText={locale === 'en' ? 'Start with an audit or book a call' : 'Comece com uma auditoria ou agende uma chamada'}
-            description={locale === 'en'
-              ? 'Tell me about your billing challenges. I\'ll respond within 24 hours with a clear path forward.'
-              : 'Conte-me sobre seus desafios de cobrança. Responderei em até 24 horas com um caminho claro.'}
+            contextText={t('contact.contextText')}
+            description={t('contact.description')}
             emailAddress="hello@ai-rio.com"
           />
         </div>
@@ -606,15 +555,15 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <div className="mx-auto max-w-6xl">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-zinc-500">
-              © 2026 AI.RIO - {locale === 'pt' ? 'Todos os direitos reservados.' : locale === 'es' ? 'Todos los derechos reservados.' : 'All rights reserved.'}
+              © 2026 AI.RIO - {t('footer.copyright')}
             </p>
             <div className="flex items-center gap-6 text-sm text-zinc-500">
-              <a href={`/${locale}/privacy`} className="hover:text-zinc-400 transition-colors">
-                {locale === 'en' ? 'Privacy' : 'Privacidade'}
-              </a>
-              <a href={`/${locale}/terms`} className="hover:text-zinc-400 transition-colors">
-                {locale === 'en' ? 'Terms' : 'Termos'}
-              </a>
+              <Link href="/privacy" className="hover:text-zinc-400 transition-colors">
+                {t('footer.privacy')}
+              </Link>
+              <Link href="/terms" className="hover:text-zinc-400 transition-colors">
+                {t('footer.terms')}
+              </Link>
             </div>
           </div>
         </div>
