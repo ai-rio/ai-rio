@@ -77,5 +77,11 @@
       "message": "Tell me about your billing challenges",
       "submit": "Send Message"
     }
+  },
+  "Blog": {
+    "meta": {
+      "title": "Billing Infrastructure Blog | AI.RIO",
+      "description": "Technical insights on billing infrastructure, payment recovery, and revenue optimization for AI SaaS."
+    }
   }
 }
