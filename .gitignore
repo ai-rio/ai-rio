@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Claude Code project config
+.claude/
+
+# Persona and research data
+persona_research_data.json
