@@ -15,7 +15,7 @@ export function Navbar({ locale }: { locale: string }) {
           {/* Logo */}
           <div className="flex items-center">
             <Link href="/" className="text-xl font-bold text-white">
-              AI.RIO
+              Ai.Rio
             </Link>
           </div>
 

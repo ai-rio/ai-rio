@@ -1,4 +1,4 @@
-# AI.RIO
+# Ai.Rio
 
 > Billing Infrastructure Specialist for AI SaaS Companies
 

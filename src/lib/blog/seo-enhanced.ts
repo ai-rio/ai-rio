@@ -55,7 +55,7 @@ export function generateEnhancedBlogMetadata(config: BlogSEOConfig) {
       title,
       description,
       url,
-      siteName: 'AI.RIO',
+      siteName: 'Ai.Rio',
       locale,
       localeAlternate: ['en_US', 'es_ES', 'pt_BR'],
       type: 'article',
@@ -109,7 +109,7 @@ export function generateArticleStructuredData(
     },
     publisher: {
       '@type': 'Organization',
-      name: 'AI.RIO',
+      name: 'Ai.Rio',
       logo: {
         '@type': 'ImageObject',
         url: `${baseUrl}/logo.png`,
@@ -161,7 +161,7 @@ export function generateOrganizationStructuredData() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'AI.RIO',
+    name: 'Ai.Rio',
     url: baseUrl,
     logo: {
       '@type': 'ImageObject',
@@ -169,7 +169,7 @@ export function generateOrganizationStructuredData() {
       width: 512,
       height: 512,
     },
-    description: 'Billing infrastructure specialist for AI SaaS. Your margins are a black box. I built a flashlight.',
+    description: 'Billing infrastructure specialist for AI SaaS. Your margins are a black box. Ai.Rio built a flashlight.',
     sameAs: [
       'https://twitter.com/ai_rio',
       'https://linkedin.com/company/ai-rio',
@@ -212,7 +212,7 @@ export function generateWebSiteStructuredData() {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     url: baseUrl,
-    name: 'AI.RIO',
+    name: 'Ai.Rio',
     description: 'Billing infrastructure specialist for AI SaaS',
     potentialAction: {
       '@type': 'SearchAction',
@@ -239,7 +239,7 @@ export function generatePersonStructuredData(name: string) {
     jobTitle: 'Billing Infrastructure Specialist',
     worksFor: {
       '@type': 'Organization',
-      name: 'AI.RIO',
+      name: 'Ai.Rio',
       url: baseUrl,
     },
   };

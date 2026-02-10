@@ -555,7 +555,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <div className="mx-auto max-w-6xl">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-zinc-500">
-              © 2026 AI.RIO - {t('footer.copyright')}
+              © 2026 Ai.Rio - {t('footer.copyright')}
             </p>
             <div className="flex items-center gap-6 text-sm text-zinc-500">
               <Link href="/privacy" className="hover:text-zinc-400 transition-colors">

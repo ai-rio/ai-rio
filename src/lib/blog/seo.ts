@@ -42,7 +42,7 @@ export function generateBlogMetadata(config: SEOConfig) {
       title,
       description,
       url,
-      siteName: 'AI.RIO',
+      siteName: 'Ai.Rio',
       locale: 'en_US',
       type,
       images: [
@@ -93,7 +93,7 @@ export function generateArticleStructuredData(metadata: BlogPostMetadata, slug: 
     },
     publisher: {
       '@type': 'Organization',
-      name: 'AI.RIO',
+      name: 'Ai.Rio',
       logo: {
         '@type': 'ImageObject',
         url: `${baseUrl}/logo.png`,
@@ -117,12 +117,12 @@ export function generateBlogStructuredData(posts: Array<{ slug: string; title: s
   return {
     '@context': 'https://schema.org',
     '@type': 'Blog',
-    name: 'AI.RIO Blog',
+    name: 'Ai.Rio Blog',
     description: 'Technical insights on billing infrastructure, payment recovery, and revenue optimization for AI SaaS.',
     url: `${baseUrl}/${locale}/blog`,
     publisher: {
       '@type': 'Organization',
-      name: 'AI.RIO',
+      name: 'Ai.Rio',
       logo: {
         '@type': 'ImageObject',
         url: `${baseUrl}/logo.png`,

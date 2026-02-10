@@ -13,7 +13,7 @@ export function Footer({ locale }: { locale: string }) {
           <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
             {/* Company Info */}
             <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-white">AI.RIO</h3>
+              <h3 className="text-lg font-semibold text-white">Ai.Rio</h3>
               <p className="text-sm text-zinc-400">
                 {t('tagline')}
               </p>

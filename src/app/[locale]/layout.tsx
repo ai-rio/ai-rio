@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AI.RIO - Billing Infrastructure Specialist",
-  description: "I help AI SaaS companies track and optimize their LLM costs—so you know your true margins and stop losing money on heavy users.",
+  title: "Ai.Rio - Billing infrastructure for AI SaaS",
+  description: "We stop your margin bleed. Fixed-scope, fixed-price billing infrastructure services delivered in two weeks.",
 };
 
 export default async function RootLayout({

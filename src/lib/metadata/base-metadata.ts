@@ -112,7 +112,7 @@ export function generateOpenGraph(params: {
     title,
     description,
     url: buildUrl(path, locale),
-    siteName: 'AI.RIO',
+    siteName: 'Ai.Rio',
     locale: ogLocale,
     alternateLocale: Object.values(LOCALE_TO_OG_LOCALE).filter(
       (l) => l !== ogLocale
