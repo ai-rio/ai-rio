@@ -18,7 +18,7 @@
         "prefix": "47.6 -> 65-70",
         "progress": 68,
         "trend": "up",
-        "description": "De padrao Stripe para AI.RIO otimizado"
+        "description": "De padrão Stripe para Ai.Rio otimizado"
       },
       {
         "id": "2",
@@ -88,7 +88,7 @@
     ]
   },
   "solution": {
-    "title": "A Solucao AI.RIO",
+    "title": "A Solução Ai.Rio",
     "subtitle": "Fluxos de trabalho de dunning automatizados com logica inteligente de nova tentativa.",
     "items": [
       {

@@ -3,12 +3,12 @@
     "timeline": "2-3 semanas",
     "price": "$3,000-5,000",
     "title": "Sistema de Visibilidade de Custos de IA",
-    "subtitle": "Suas margens sao uma caixa preta. Construi uma lanterna.",
+    "subtitle": "Suas margens sao uma caixa preta. A Ai.Rio construiu uma lanterna.",
     "description": "Rastreie custos de LLM por cliente em OpenAI, Anthropic e OpenRouter (400+ modelos). Conheca suas verdadeiras margens. Pare de perder dinheiro em usuarios intensivos."
   },
   "metrics": {
     "title": "Construido sobre Infraestrutura Testada em Producao",
-    "subtitle": "Construi o Margin, uma plataforma de rastreamento de custos de LLM. Agora vou construi-la para voce.",
+    "subtitle": "A Ai.Rio construiu o Margin, uma plataforma de rastreamento de custos de LLM. Agora vamos construi-la para voce.",
     "items": [
       {
         "id": "1",
@@ -92,7 +92,7 @@
     ]
   },
   "solution": {
-    "title": "A Solucao AI.RIO",
+    "title": "A Solução Ai.Rio",
     "subtitle": "Rastreamento de custos multi-provedor com atribuicao por cliente.",
     "items": [
       {
@@ -392,14 +392,14 @@
       {
         "id": "6",
         "question": "Construi o Margin. Agora vou construi-lo para voce.",
-        "answer": "Isso nao e uma pergunta, mas e relevante. Construi uma plataforma de rastreamento de custos de LLM chamada Margin. Extraio o codigo de rastreamento central e agora ofereço como servico.",
+        "answer": "Isso nao e uma pergunta, mas e relevante. A Ai.Rio construiu uma plataforma de rastreamento de custos de LLM chamada Margin. Extraimos o codigo de rastreamento central e agora oferecemos como servico.",
         "category": "Sobre"
       }
     ]
   },
   "cta": {
     "title": "Conheca Suas Verdadeiras Margens",
-    "subtitle": "Suas margens sao uma caixa preta. Construi uma lanterna.",
+    "subtitle": "Suas margens sao uma caixa preta. A Ai.Rio construiu uma lanterna.",
     "description": "Agende uma chamada de descoberta gratuita. Vou auditar suas lacunas de rastreamento de custos de LLM e fornecerei uma cotacao fixa.",
     "primaryAction": {
       "label": "Agendar Chamada de Descoberta",
@@ -409,7 +409,7 @@
       "label": "Ver Auditoria de Cobranca",
       "href": "/services/billing-audit"
     },
-    "badge": "Construi o Margin para isso",
+    "badge": "A Ai.Rio construiu o Margin para isso",
     "trustSignals": [
       "Resposta dentro de 24 horas",
       "Implementacao de 2-3 semanas",

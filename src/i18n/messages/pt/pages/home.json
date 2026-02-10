@@ -1,16 +1,16 @@
 {
   "meta": {
-    "title": "AI.RIO - Plataforma de Visibilidade de Custos de IA | Serviços de Infraestrutura de Cobrança",
-    "description": "Pare de voar às cegas nos custos de LLM. Obtenha visibilidade em tempo real da sua infraestrutura de IA, rastreie cada token entre provedores e conheça suas margens verdadeiras até o centavo."
+    "title": "Ai.Rio - Infraestrutura de cobranca para AI SaaS",
+    "description": "Suas margens estao sangrando. Paramos o vazamento em duas semanas. Servicos de infraestrutura de cobranca de escopo fixo e preco fixo."
   },
   "hero": {
-    "badge": "Plataforma de Visibilidade de Custos de IA",
-    "title": "Suas margens de IA são uma caixa preta.",
-    "subtitle": "Eu construí uma lanterna.",
-    "description": "Pare de voar às cegas nos custos de LLM. Obtenha visibilidade em tempo real da sua infraestrutura de IA, rastreie cada token entre provedores e conheça suas margens verdadeiras até o centavo.",
+    "badge": "Infraestrutura de cobranca para AI SaaS",
+    "title": "Suas margens estao sangrando.",
+    "subtitle": "Paramos o vazamento em duas semanas.",
+    "description": "Pare de voar as cegas sobre os custos de LLM. Obtenha visibilidade em tempo real de sua infraestrutura de IA, rastreie cada token em todos os provedores e conheca suas verdadeiras margens ate o ultimo centavo.",
     "cta": {
-      "primary": "Ver a Infraestrutura",
-      "secondary": "Agendar uma Chamada de Descoberta"
+      "primary": "Comecar",
+      "secondary": "Ver Como Funciona"
     },
     "trust": {
       "productionReady": "Pronto para produção",
@@ -97,34 +97,34 @@
     "cta": "Saiba Mais",
     "ctaFeatured": "Começar Agora",
     "payment_recovery": {
-      "title": "Acelerador de Recuperação de Pagamentos Stripe",
-      "price": "$2,000-4,000",
+      "title": "Ai.Rio Recover",
+      "price": "$2,997",
       "timeline": "7-10 dias",
-      "description": "Pare de perder receita com pagamentos falhos. Implementamos fluxos de trabalho de cobrança automáticos que normalmente melhoram as taxas de recuperação de 47.6% para 65-70%."
+      "description": "Pare de perder receita com pagamentos falhados. Implementamos fluxos de trabalho de dunning automatizados que melhoram tipicamente as taxas de recuperacao de 47.6% para 65-70%."
     },
     "usage_pricing": {
-      "title": "Lançamento de Preços Baseados em Uso",
-      "price": "$3,000-5,000",
+      "title": "Ai.Rio Meter",
+      "price": "$3,997",
       "timeline": "10-14 dias",
-      "description": "Implemente a cobrança Stripe Meter em 2 semanas em vez de 6 meses. Empresas com preços baseados em uso crescem 54% mais rápido que modelos tradicionais."
+      "description": "Implemente a cobranca baseada em uso em 2 semanas em vez de 6 meses. Empresas com precos baseados em uso crescem 54% mais rapido que modelos tradicionais."
     },
     "ai_tracking": {
-      "title": "Sistema de Visibilidade de Custos de IA",
-      "price": "$3,000-5,000",
+      "title": "Ai.Rio Track",
+      "price": "$4,997",
       "timeline": "10-14 dias",
-      "description": "Rastreie custos de LLM por cliente em OpenAI, Anthropic e OpenRouter (400+ modelos). Conheça suas margens verdadeiras."
+      "description": "Rastreie custos de LLM por cliente atraves de OpenAI, Anthropic e OpenRouter (400+ modelos). Conheca suas verdadeiras margens."
     },
     "billing_audit": {
-      "title": "Detecção de Vazamentos de Receita",
-      "price": "$1,500-3,000",
+      "title": "Ai.Rio Audit",
+      "price": "$1,997",
       "timeline": "3-5 dias",
-      "description": "Auditoria de cobrança completa. Identifique vazamentos de receita, casos extremos e oportunidades de otimização com um roadmap de remediação claro."
+      "description": "Auditoria de cobranca completa. Identifique vazamentos de receita, casos extremos e oportunidades de otimizacao com um roteiro claro de remediacao."
     },
     "complete_billing": {
-      "title": "Fundação de Cobrança",
-      "price": "$8,000-15,000",
+      "title": "Ai.Rio Complete",
+      "price": "$11,997",
       "timeline": "3-4 semanas",
-      "description": "Infraestrutura de cobrança de ponta a ponta. Todos os serviços integrados, suporte prioritário, garantia de 90 dias."
+      "description": "Infraestrutura de cobranca de ponta a ponta. Todos os servicos integrados, suporte prioritario, garantia de 90 dias."
     }
   },
   "process": {
@@ -188,8 +188,8 @@
     "cta": "Iniciar Seu Projeto"
   },
   "about": {
-    "title": "Construído por um Especialista em Cobrança",
-    "description": "Construí o Margin, uma plataforma de medição de LLM de produção, e extraí código de cobrança de produção do QuoteKit. Agora ajudo empresas de IA SaaS a resolver os mesmos problemas que já resolvi.",
+    "title": "Construido pela Ai.Rio",
+    "description": "A Ai.Rio construiu o Margin, uma plataforma de medicao de LLM de producao, e extraiu codigo de cobranca de producao do QuoteKit. Agora ajudamos empresas de IA SaaS a resolver os mesmos problemas que ja resolvemos.",
     "badges": {
       "openSource": "Contribuidor Open Source",
       "production": "Experiência em Produção",

@@ -112,8 +112,8 @@
   "audit": {
     "badge": "Primeiro Passo Recomendado",
     "title": "Nao Tem Certeza de Por Onde Comecar?",
-    "description": "Comece com uma auditoria de cobranca. Vou analisar sua infraestrutura de cobranca atual, identificar vazamentos de receita e fornecer um roteiro claro para melhorias. A taxa de auditoria e creditada se voce prosseguir com qualquer servico de implementacao.",
-    "primaryAction": "Comecar com Auditoria de Cobranca",
+    "description": "Comece com uma auditoria de cobranca. A Ai.Rio analisara sua infraestrutura de cobranca atual, identificara vazamentos de receita e fornecera um roteiro claro para melhorias. A taxa de auditoria e creditada se voce prosseguir com qualquer servico de implementacao.",
+    "primaryAction": "Comecar com a Auditoria de Cobranca da Ai.Rio",
     "secondaryAction": "Agendar Consulta"
   },
   "cta": {

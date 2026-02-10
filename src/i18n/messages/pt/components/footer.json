@@ -1,16 +1,16 @@
 {
-  "tagline": "Especialista em Infraestrutura de Cobrança para AI SaaS",
-  "navigation": "Navegação",
-  "home": "Início",
-  "services": "Serviços",
+  "tagline": "Infraestrutura de cobranca para AI SaaS",
+  "navigation": "Navegacao",
+  "home": "Inicio",
+  "services": "Servicos",
   "about": "Sobre",
   "blog": "Blog",
-  "services_title": "Serviços",
-  "payment_recovery": "Recuperação de Pagamentos",
-  "usage_pricing": "Preços por Uso",
-  "ai_tracking": "Rastreamento de IA",
-  "billing_audit": "Auditoria de Cobrança",
+  "services_title": "Servicos",
+  "payment_recovery": "Ai.Rio Recover",
+  "usage_pricing": "Ai.Rio Meter",
+  "ai_tracking": "Ai.Rio Track",
+  "billing_audit": "Ai.Rio Audit",
   "contact_title": "Contato",
   "get_in_touch": "Entre em Contato",
-  "copyright": "© {year} AI.RIO. Todos os direitos reservados."
+  "copyright": "© {year} Ai.Rio. Todos os direitos reservados."
 }
