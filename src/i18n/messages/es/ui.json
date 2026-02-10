@@ -77,5 +77,11 @@
       "message": "Cuéntame sobre tus desafíos de facturación",
       "submit": "Enviar Mensaje"
     }
+  },
+  "Blog": {
+    "meta": {
+      "title": "Blog de Infraestructura de Facturación | AI.RIO",
+      "description": "Perspectivas técnicas sobre infraestructura de facturación, recuperación de pagos y optimización de ingresos para SaaS de IA."
+    }
   }
 }

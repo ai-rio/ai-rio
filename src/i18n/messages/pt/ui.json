@@ -77,5 +77,11 @@
       "message": "Conte-me sobre seus desafios de cobrança",
       "submit": "Enviar Mensagem"
     }
+  },
+  "Blog": {
+    "meta": {
+      "title": "Blog de Infraestrutura de Cobrança | AI.RIO",
+      "description": "Insights técnicos sobre infraestrutura de cobrança, recuperação de pagamentos e otimização de receita para SaaS de IA."
+    }
   }
 }
