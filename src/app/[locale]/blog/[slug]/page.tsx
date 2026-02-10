@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { getTranslations } from 'next-intl/server';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeSlug from 'rehype-slug';
@@ -33,10 +34,11 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
   const { locale, slug } = await params;
   const post = await getBlogPost(slug, locale);
+  const t = await getTranslations({ locale, namespace: 'blog' });
 
   if (!post) {
     return {
-      title: 'Post Not Found',
+      title: t('post.notFound'),
     };
   }
 
@@ -187,6 +189,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
+  const t = await getTranslations({ locale, namespace: 'blog' });
+
   // Generate structured data
   const structuredData = generateArticleStructuredData(post.metadata, slug, locale);
 
@@ -233,11 +237,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <div>
             <h3 className="font-semibold mb-1">{post.metadata.author}</h3>
             <p className="text-sm text-muted-foreground">
-              {locale === 'en'
-                ? 'Building billing infrastructure that scales. Your margins are a black box. I built a flashlight.'
-                : locale === 'es'
-                ? 'Construyendo infraestructura de facturación que escala. Tus márgenes son una caja negra. Construí una linterna.'
-                : 'Construindo infraestrutura de cobrança que escala. Suas margens são uma caixa preta. Construí uma lanterna.'}
+              {t('post.authorBio')}
             </p>
           </div>
         </div>

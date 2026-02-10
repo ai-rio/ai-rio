@@ -16,7 +16,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default async function ContactPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'contact' });
+  const t = await getTranslations('pages/contact');
+  const alternativeContact = {
+    label: t('alternativeContact.label'),
+    email: t('alternativeContact.email')
+  };
 
   return (
     <div className="min-h-screen bg-zinc-950 dark:bg-black text-zinc-50 dark:text-zinc-400">
@@ -42,16 +46,12 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
           {/* Alternative Contact Info */}
           <div className="mt-12 text-center">
             <p className="text-sm text-zinc-400">
-              {locale === 'en'
-                ? 'Prefer email? Reach out directly at '
-                : locale === 'es'
-                ? '¿Prefieres email? Escríbeme directamente a '
-                : 'Prefere email? Entre em contato diretamente em '}
+              <span>{alternativeContact.label}</span>
               <a
-                href="mailto:contact@ai.rio.br"
+                href={`mailto:${alternativeContact.email}`}
                 className="text-indigo-400 hover:text-indigo-300 transition-colors"
               >
-                contact@ai.rio.br
+                {alternativeContact.email}
               </a>
             </p>
           </div>
