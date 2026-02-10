@@ -1,0 +1,94 @@
+import { motion, useInView } from 'framer-motion';
+import React, { type ReactNode } from 'react';
+
+interface AnimatedListProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'as'> {
+  children: ReactNode;
+  staggerDelay?: number;
+  duration?: number;
+  delay?: number;
+  threshold?: number;
+  as?: keyof React.JSX.IntrinsicElements | React.ComponentType<any>;
+  once?: boolean;
+  direction?: 'up' | 'down' | 'left' | 'right';
+  distance?: number;
+}
+
+const AnimatedList: React.FC<AnimatedListProps> = ({
+  children,
+  staggerDelay = 0.05,
+  duration = 0.2,
+  delay = 0,
+  threshold = 0.1,
+  as: Component = 'div',
+  once = true,
+  direction = 'up',
+  distance = 20,
+  className = '',
+  ...props
+}) => {
+  const ref = React.useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, {
+    amount: threshold,
+    once,
+  });
+
+  // Check for reduced motion preference
+  const prefersReducedMotion = React.useMemo(() => {
+    if (typeof window === 'undefined') return false;
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }, []);
+
+  // Disable animation if user prefers reduced motion
+  const effectiveDuration = prefersReducedMotion ? 0 : duration;
+  const effectiveStaggerDelay = prefersReducedMotion ? 0 : staggerDelay;
+  const effectiveDistance = prefersReducedMotion ? 0 : distance;
+
+  // Convert children to array and filter out falsy values
+  const childrenArray = React.Children.toArray(children).filter(Boolean);
+
+  // Map direction to motion values
+  const getInitialPosition = () => {
+    switch (direction) {
+      case 'up':
+        return { y: effectiveDistance, opacity: 0 };
+      case 'down':
+        return { y: -effectiveDistance, opacity: 0 };
+      case 'left':
+        return { x: effectiveDistance, opacity: 0 };
+      case 'right':
+        return { x: -effectiveDistance, opacity: 0 };
+      default:
+        return { y: effectiveDistance, opacity: 0 };
+    }
+  };
+
+  const initial = getInitialPosition();
+
+  // Use createElement for better type safety
+  return React.createElement(
+    Component,
+    {
+      ref: ref as any,
+      className,
+      ...(props as any),
+    },
+    childrenArray.map((child, index) =>
+      React.createElement(
+        motion.div,
+        {
+          key: index,
+          initial,
+          animate: isInView ? { x: 0, y: 0, opacity: 1 } : initial,
+          transition: {
+            duration: effectiveDuration,
+            delay: delay + index * effectiveStaggerDelay,
+            ease: 'easeOut',
+          },
+        },
+        child
+      )
+    )
+  );
+};
+
+export default AnimatedList;
