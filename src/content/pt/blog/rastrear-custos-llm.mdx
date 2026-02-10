@@ -1,0 +1,135 @@
+---
+title: "Rastreie Custos de LLM em mais de 5 Provedores"
+description: "Uma abordagem unificada para rastrear e otimizar custos de IA em OpenAI, Anthropic, Google e outros provedores de LLM em produção."
+date: "2025-02-08"
+author: "AI.RIO"
+category: "Gestão de Custos de IA"
+tags: ["llm", "rastreamento-custos", "openai", "anthropic", "otimizacao"]
+---
+
+# Rastreie Custos de LLM em mais de 5 Provedores
+
+Seu SaaS de IA usa múltiplos provedores de LLM. OpenAI para chat, Anthropic para análise, talvez Google para embeddings. Cada um tem preços diferentes, limites de taxa diferentes, ciclos de cobrança diferentes. Seus custos estão fragmentados em vários dashboards, e você não pode responder à pergunta mais simples: "Quanto gastamos em inferência no mês passado?"
+
+Aqui está como consertar.
+
+## O Problema
+
+Custos de LLM são notoriamente difíceis de rastrear porque:
+
+1. **Cobrança fragmentada**: Cada provedor tem dashboards separados
+2. **Modelos de preços diferentes**: Por token, por segundo, por requisição
+3. **Limites de taxa afetando gastos**: Você está sendo limitado sem saber
+4. **Sem atribuição de usuário**: Você não pode vincular custos a clientes
+5. **Picos de uso**: Um único cliente pode aumentar seus custos em 10x
+
+Sem rastreamento unificado, você está voando às cegas. Você otimiza o que mede, e você não está medindo.
+
+## A Solução
+
+Construa uma camada de rastreamento de custos unificada que fique entre sua aplicação e provedores de LLM.
+
+### Arquitetura de Visão Geral
+
+```
+┌─────────────┐
+│  Seu App   │
+└──────┬──────┘
+       │
+       ▼
+┌─────────────────┐
+│  Rastreador de  │ ← API Unificada
+│   Custos (LLM)  │
+└──────┬──────────┘
+       │
+       ▼
+┌─────────────────────────────┐
+│   Abstração de Provedor    │
+│  (OpenAI, Anthropic, etc.)  │
+└─────────────────────────────┘
+```
+
+## Implementação
+
+### 1. Camada de Abstração de Provedor
+
+Crie uma interface unificada para todos os provedores de LLM:
+
+```typescript
+// lib/llm/providers/base.ts
+export interface LLMProvider {
+  name: string;
+  complete(params: CompletionParams): Promise<CompletionResponse>;
+  embed(params: EmbedParams): Promise<EmbedResponse>;
+  getCost(response: CompletionResponse): number;
+}
+```
+
+### 2. Implementação OpenAI
+
+```typescript
+// lib/llm/providers/openai.ts
+import { OpenAI } from 'openai';
+
+export class OpenAIProvider implements LLMProvider {
+  name = 'openai';
+  private client: OpenAI;
+
+  constructor(apiKey: string) {
+    this.client = new OpenAI({ apiKey });
+  }
+
+  async complete(params: CompletionParams): Promise<CompletionResponse> {
+    const response = await this.client.chat.completions.create({
+      model: params.model,
+      messages: params.messages as any,
+      max_tokens: params.maxTokens,
+      temperature: params.temperature,
+    });
+
+    return {
+      content: response.choices[0].message.content || '',
+      usage: {
+        promptTokens: response.usage?.prompt_tokens || 0,
+        completionTokens: response.usage?.completion_tokens || 0,
+        totalTokens: response.usage?.total_tokens || 0,
+      },
+      model: response.model,
+      provider: this.name,
+    };
+  }
+
+  getCost(response: CompletionResponse): number {
+    // Preços OpenAI
+    const pricing: Record<string, { input: number; output: number }> = {
+      'gpt-4': { input: 0.03, output: 0.06 },
+      'gpt-4-turbo': { input: 0.01, output: 0.03 },
+      'gpt-3.5-turbo': { input: 0.0005, output: 0.0015 },
+    };
+
+    const modelPricing = pricing[response.model] || pricing['gpt-3.5-turbo'];
+
+    return (
+      (response.usage.promptTokens / 1000) * modelPricing.input +
+      (response.usage.completionTokens / 1000) * modelPricing.output
+    );
+  }
+}
+```
+
+## Conclusão
+
+Rastrear custos de LLM em múltiplos provedores não é opcional para SaaS de IA. Suas margens dependem disso.
+
+**Pontos principais:**
+1. Construa uma camada de abstração de provedor unificada
+2. Rastreie cada requisição com metadados de custo
+3. Atribua custos a clientes e recursos
+4. Configure alertas e orçamentos automatizados
+5. Use dados para otimizar a seleção de provedores
+
+Seus custos de IA são previsíveis. Seu rastreamento de custos também deveria ser.
+
+---
+
+**Quer ver como a AI.RIO pode ajudá-lo a construir infraestrutura de cobrança que lida com preços baseados em uso para serviços de IA?** Suas margens são uma caixa preta. Construí uma lanterna.

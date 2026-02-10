@@ -1,0 +1,152 @@
+---
+title: "Lance Preços Baseados em Uso em 2 Semanas"
+description: "Um guia prático para implementar preços baseados em uso para seu SaaS de IA, desde medição até infraestrutura de cobrança."
+date: "2025-02-08"
+author: "AI.RIO"
+category: "Estratégia de Preços"
+tags: ["precos-uso", "cobranca", "infraestrutura", "stripe", "saas"]
+---
+
+# Lance Preços Baseados em Uso em 2 Semanas
+
+Preços fixos são seguros. Preços baseados em uso são lucrativos. Margens de SaaS de IA são apertadas, e seus custos escalam com uso. Seus preços também deveriam.
+
+Aqui está como lançar preços baseados em uso em 2 semanas.
+
+## O Problema
+
+Você está cobrando $49/mês independentemente do uso. Alguns clientes usam seus recursos de IA 100 vezes, outros 100,000 vezes. Seus custos variam enormemente, mas sua receita não.
+
+Com SaaS de IA:
+- **Custos de computação escalam linearmente** com uso
+- **Preços fixos perdem dinheiro** em usuários pesados
+- **Preços por níveis criam decisões de borda abrupta**
+- **Você não pode prever margens** sem correlação de uso
+
+## A Solução
+
+Preços baseados em uso alinham seus custos com sua receita. Aqui está o plano de 2 semanas.
+
+### Semana 1: Configuração de Infraestrutura
+
+#### Dia 1-2: Sistema de Medição
+
+```typescript
+// lib/metering/events.ts
+export interface UsageEvent {
+  customerId: string;
+  eventType: string;
+  quantity: number;
+  timestamp: Date;
+  metadata?: Record<string, any>;
+}
+
+export class MeteringService {
+  async recordEvent(event: UsageEvent) {
+    // Escrever no armazenamento de eventos
+    await db.usageEvents.create({
+      data: {
+        customerId: event.customerId,
+        eventType: event.eventType,
+        quantity: event.quantity,
+        timestamp: event.timestamp,
+        metadata: event.metadata,
+      },
+    });
+
+    // Atualizar uso atual do cliente
+    await this.updateCustomerUsage(event.customerId, event.eventType, event.quantity);
+  }
+}
+```
+
+#### Dia 3-4: Integração de API
+
+```typescript
+// app/api/usage/track/route.ts
+import { MeteringService } from '@/lib/metering/events';
+
+const metering = new MeteringService();
+
+export async function POST(req: Request) {
+  const { customerId, eventType, quantity = 1, metadata } = await req.json();
+
+  await metering.recordEvent({
+    customerId,
+    eventType,
+    quantity,
+    timestamp: new Date(),
+    metadata,
+  });
+
+  return Response.json({ success: true });
+}
+```
+
+#### Dia 5-7: Integração de Cobrança
+
+```typescript
+// lib/billing/stripe.ts
+import Stripe from 'stripe';
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
+
+export async function createUsageBasedSubscription(
+  customerId: string,
+  priceId: string
+) {
+  return await stripe.subscriptions.create({
+    customer: customerId,
+    items: [{ price: priceId }],
+    payment_behavior: 'default_incomplete',
+    payment_settings: { save_default_payment_method: 'on_subscription' },
+    expand: ['latest_invoice.payment_intent'],
+  });
+}
+```
+
+### Semana 2: Preços e Lançamento
+
+#### Dia 8-9: Defina seus Preços
+
+Não adivinhe. Calcule seus custos e adicione margem:
+
+```typescript
+// lib/pricing/calculator.ts
+export function calculatePricing(
+  costPerUnit: number,
+  targetMargin: number
+): PricingTier {
+  const unitPrice = costPerUnit * (1 + targetMargin);
+
+  return {
+    name: 'Pay-as-you-go',
+    basePrice: 0,
+    includedUnits: 0,
+    unitPrice,
+    costPerUnit,
+  };
+}
+
+// Exemplo: Completions de IA
+const completionCost = 0.002; // $0.002 por 1K tokens
+const targetMargin = 0.5; // 50% de margem
+const pricing = calculatePricing(completionCost, targetMargin);
+```
+
+## Conclusão
+
+Preços baseados em uso não são mais apenas para infraestrutura. Margens de SaaS de IA dependem de alinhar custos com receita.
+
+**Pontos principais:**
+1. Meça tudo desde o primeiro dia
+2. Calcule custos antes de definir preços
+3. Mantenha preços simples e transparentes
+4. Dê aos clientes visibilidade de uso
+5. Migrar gradualmente, não force
+
+Você pode lançar preços baseados em uso em 2 semanas. Suas margens vão agradecer.
+
+---
+
+**Quer ver como a AI.RIO pode ajudá-lo a construir infraestrutura de cobrança que lida com qualquer modelo de preços?** Suas margens são uma caixa preta. Construí uma lanterna.

@@ -1,0 +1,164 @@
+---
+title: "La Lista de Verificación de Casos Extremos de Facturación"
+description: "Una lista de verificación completa de casos extremos de facturación que destruyen los ingresos si no se manejan correctamente en producción."
+date: "2025-02-08"
+author: "AI.RIO"
+category: "Operaciones de Facturación"
+tags: ["facturacion", "casos-extremos", "stripe", "produccion", "lista"]
+---
+
+# La Lista de Verificación de Casos Extremos de Facturación
+
+Tu facturación funciona para el 99% de los clientes. El 1% de casos extremos te está costando el 20% de tus ingresos. Pagos fallidos, errores de prorrateo, bugs de actualización/baja—todos están sangrando ingresos silenciosamente.
+
+Aquí está la lista.
+
+## El Problema
+
+Los casos extremos de facturación son complicados porque:
+- Son raros (1-5% de transacciones)
+- Son costosos (clientes de alto valor)
+- Son silenciosos (los clientes no los reportan)
+- Se acumulan (afecta facturas futuras)
+
+Los datos de la industria:
+- **15%** de ingresos perdidos por casos extremos no manejados
+- **40%** de los clientes experimentan al menos un problema de facturación anualmente
+- **60%** de los clientes no te darán una segunda oportunidad
+
+## La Lista de Verificación
+
+### 1. Fallos de Pago
+
+#### 1.1 Fondos Insuficientes
+```typescript
+// MALO: Solo reintentar inmediatamente
+if (error.code === 'insufficient_funds') {
+  await retryPayment(invoiceId);
+}
+
+// BUENO: Cronograma de reintentos inteligente
+const retrySchedule = {
+  'insufficient_funds': [2, 5, 9, 14], // Días a esperar
+  'expired_card': [1, 3, 7],
+  'generic_decline': [3, 7, 14],
+};
+
+await scheduleRetry(invoiceId, retrySchedule[error.code]);
+```
+
+#### 1.2 Tarjeta Vencida a Mitad de Ciclo
+```typescript
+// Detectar vencimientos próximos
+async function checkExpiringCards() {
+  const nextMonth = new Date();
+  nextMonth.setMonth(nextMonth.getMonth() + 1);
+
+  const customers = await stripe.customers.list({
+    limit: 100,
+    expand: ['data.sources'],
+  });
+
+  for (const customer of customers.data) {
+    const card = customer.default_source as any;
+    if (card && card.exp_year === nextMonth.getFullYear() &&
+        card.exp_month === nextMonth.getMonth() + 1) {
+      await sendCardExpiringNotification(customer.id, card.last4);
+    }
+  }
+}
+```
+
+### 2. Casos Extremos de Prorrateo
+
+#### 2.1 Actualización a Mitad de Ciclo
+```typescript
+// Al actualizar, acreditar tiempo no usado
+async function handleUpgrade(
+  subscriptionId: string,
+  newPriceId: string
+) {
+  const subscription = await stripe.subscriptions.retrieve(subscriptionId);
+  const currentPeriodEnd = subscription.current_period_end;
+
+  // Calcular tiempo restante
+  const now = Math.floor(Date.now() / 1000);
+  const remainingSeconds = currentPeriodEnd - now;
+  const remainingRatio = remainingSeconds / subscription.items.data[0].plan.interval_count;
+
+  // Calcular crédito por tiempo no usado
+  const currentPrice = subscription.items.data[0].price.unit_amount!;
+  const credit = Math.floor(currentPrice * remainingRatio);
+
+  // Aplicar crédito al nuevo plan
+  await stripe.subscriptions.update(subscriptionId, {
+    items: [{
+      id: subscription.items.data[0].id,
+      price: newPriceId,
+    }],
+    proration_behavior: 'always_invoice',
+    promotion_code: await createCredit(credit),
+  });
+}
+```
+
+### 3. Transiciones de Estado de Suscripción
+
+#### 3.1 Cancelar → Reactivar
+```typescript
+// Manejar reactivación con mismo plan
+async function reactivateSubscription(subscriptionId: string) {
+  const subscription = await stripe.subscriptions.retrieve(subscriptionId);
+
+  if (subscription.status === 'canceled') {
+    // Crear nueva suscripción
+    const newSubscription = await stripe.subscriptions.create({
+      customer: subscription.customer as string,
+      items: subscription.items.data.map(item => ({
+        price: item.price.id,
+        quantity: item.quantity,
+      })),
+      coupon: 'welcome_back', // Incentivo opcional
+    });
+
+    return newSubscription;
+  }
+
+  // Reanudar suscripción pausada
+  return await stripe.subscriptions.update(subscriptionId, {
+    pause_collection: null as any,
+  });
+}
+```
+
+## Lista de Verificación de Pruebas
+
+Antes de desplegar cambios de facturación:
+
+- [ ] Probar escenarios de fallo de pago
+- [ ] Probar flujos de actualización/baja
+- [ ] Probar aplicación y expiración de cupones
+- [ ] Probar cálculo de impuestos para diferentes regiones
+- [ ] Probar entrega y reproducción de webhooks
+- [ ] Probar cálculos de prorrateo
+- [ ] Probar transiciones de estado de suscripción
+- [ ] Probar generación y finalización de facturas
+- [ ] Probar procesamiento de reembolsos
+- [ ] Probar migración desde sistemas heredados
+
+## La Conclusión
+
+Los casos extremremos de facturación son donde los ingresos viven o mueren. El 1% de casos extremos te cuesta el 20% de ingresos.
+
+**Puntos clave:**
+1. Prueba cada caso extremo en staging
+2. Monitorea patrones de casos extremos en producción
+3. Construye remediación automatizada donde sea posible
+4. Revisión manual para clientes de alto valor
+5. Mantén un manual de casos extremos comunes
+
+Tu facturación debería manejar el 1% tan grácilmente como el 99%.
+
+---
+
+**¿Quieres ver cómo AI.RIO puede ayudarte a construir infraestructura de facturación que maneja todos los casos extremos automáticamente?** Tus márgenes son una caja negra. Construí una linterna.

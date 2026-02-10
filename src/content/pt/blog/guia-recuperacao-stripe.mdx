@@ -1,0 +1,208 @@
+---
+title: "Como Recuperar 70% dos Pagamentos Falhados do Stripe"
+description: "Um guia técnico para recuperar pagamentos falhados no seu SaaS de IA usando webhooks do Stripe, lógica inteligente de retry e gestão de dunning."
+date: "2025-02-08"
+author: "AI.RIO"
+category: "Recuperação de Pagamentos"
+tags: ["stripe", "pagamentos", "recuperacao", "receita", "webhooks"]
+---
+
+# Como Recuperar 70% dos Pagamentos Falhados do Stripe
+
+Pagamentos falhados estão matando as margens do seu SaaS de IA. Seus clientes estão usando seu produto, seus custos de IA são previsíveis, mas sua receita não. Aqui está como consertar.
+
+## O Problema
+
+Seu SaaS de IA tem uma estrutura de custos previsível: computação, chamadas de API, tempo de inferência. Mas sua receita? Está à mercê de falhas de pagamento. O Stripe lida com a complexidade, mas não otimiza sua taxa de recuperação.
+
+Dados da indústria mostram:
+- **30-40%** dos pagamentos de assinatura falham inicialmente
+- **70%** dos pagamentos falhados podem ser recuperados com dunning adequado
+- **20%** da receita recuperada vem da otimização da lógica de retry
+
+## A Solução
+
+Recuperação inteligente de pagamentos não é sobre tentar tudo novamente imediatamente. É sobre entender por que os pagamentos falham e adaptar sua estratégia.
+
+### Por Que os Pagamentos Falham
+
+1. **Fundos insuficientes** (40%): Problemas temporários de fluxo de caixa
+2. **Cartão expirado/atualizado** (25%): Cliente mudou de cartão
+3. **Recusas bancárias** (20%): Detecção de fraude ou limites
+4. **Erros técnicos** (10%): Problemas de rede, tempo de inatividade
+5. **Outros** (5%): Chargebacks, disputas
+
+## Implementação
+
+### 1. Configuração do Handler de Webhooks
+
+Primeiro, configure os listeners de webhooks para eventos de pagamento:
+
+```typescript
+// app/api/webhooks/stripe/route.ts
+import { headers } from 'next/headers';
+import { Stripe } from 'stripe';
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
+const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET!;
+
+export async function POST(req: Request) {
+  const body = await req.text();
+  const signature = headers().get('stripe-signature')!;
+
+  let event: Stripe.Event;
+
+  try {
+    event = stripe.webhooks.constructEvent(body, signature, webhookSecret);
+  } catch (err) {
+    return new Response('Assinatura inválida', { status: 400 });
+  }
+
+  switch (event.type) {
+    case 'invoice.payment_failed':
+      await handlePaymentFailed(event.data.object);
+      break;
+    case 'customer.subscription.deleted':
+      await handleSubscriptionCancelled(event.data.object);
+      break;
+  }
+
+  return new Response(null, { status: 200 });
+}
+
+async function handlePaymentFailed(invoice: Stripe.Invoice) {
+  // Obter metadados do cliente
+  const customer = await stripe.customers.retrieve(invoice.customer as string);
+
+  // Calcular cronograma de retry baseado no motivo da falha
+  const retrySchedule = calculateRetrySchedule(invoice);
+
+  // Atualizar metadados do cliente com informações de retry
+  await stripe.customers.update(invoice.customer as string, {
+    metadata: {
+      payment_failed_at: new Date().toISOString(),
+      retry_count: '0',
+      next_retry_at: retrySchedule[0].toISOString(),
+    },
+  });
+
+  // Acionar fluxo de notificações
+  await sendPaymentFailedNotification(invoice, retrySchedule);
+}
+```
+
+### 2. Lógica Inteligente de Retry
+
+Diferentes motivos de falha precisam de diferentes estratégias de retry:
+
+```typescript
+function calculateRetrySchedule(invoice: Stripe.Invoice): Date[] {
+  const lastPaymentError = invoice.last_payment_error;
+  const declineCode = lastPaymentError?.decline_code;
+
+  // Fundos insuficientes: tentar novamente em 2, 5, 9 dias
+  if (declineCode === 'insufficient_funds') {
+    return [
+      addDays(new Date(), 2),
+      addDays(new Date(), 5),
+      addDays(new Date(), 9),
+    ];
+  }
+
+  // Cartão expirado: retry imediato uma vez, depois intervalos mais longos
+  if (declineCode === 'expired_card') {
+    return [
+      addDays(new Date(), 1),
+      addDays(new Date(), 7),
+      addDays(new Date(), 14),
+    ];
+  }
+
+  // Recusa genérica: cronograma padrão
+  return [
+    addDays(new Date(), 3),
+    addDays(new Date(), 7),
+    addDays(new Date(), 14),
+  ];
+}
+```
+
+### 3. Sequência de Emails de Dunning
+
+Sua taxa de recuperação depende muito da sua comunicação:
+
+```typescript
+async function sendPaymentFailedNotification(
+  invoice: Stripe.Invoice,
+  retrySchedule: Date[]
+) {
+  const customer = await stripe.customers.retrieve(
+    invoice.customer as string
+  ) as Stripe.Customer;
+
+  const emailData = {
+    to: customer.email,
+    subject: 'Ação necessária: Atualize seu método de pagamento',
+    template: 'payment_failed',
+    data: {
+      invoice_url: invoice.hosted_invoice_url,
+      amount: formatCurrency(invoice.amount_due / 100),
+      next_retry: formatDate(retrySchedule[0]),
+      retry_count: retrySchedule.length,
+    },
+  };
+
+  await sendEmail(emailData);
+
+  // Agendar emails de acompanhamento
+  for (let i = 1; i < retrySchedule.length; i++) {
+    await scheduleEmail({
+      ...emailData,
+      send_at: retrySchedule[i],
+      template: i === retrySchedule.length - 1
+        ? 'final_notice'
+        : 'payment_reminder',
+    });
+  }
+}
+```
+
+## Táticas Avançadas
+
+### 1. Recuperação Preditiva
+
+Analise o histórico de pagamentos do cliente para prever falhas:
+
+```typescript
+async function predictPaymentFailure(customerId: string): Promise<number> {
+  const paymentHistory = await getPaymentHistory(customerId);
+
+  // Calcular taxa de falha
+  const failureRate =
+    paymentHistory.filter((p) => p.status === 'failed').length /
+    paymentHistory.length;
+
+  // Considerar a idade do cliente
+  const customerAge = await getCustomerAge(customerId);
+  const adjustedRate = failureRate * (1 / Math.log(customerAge + 2));
+
+  return adjustedRate;
+}
+```
+
+## Conclusão
+
+Implementar recuperação inteligente de pagamentos não é opcional para SaaS de IA com custos previsíveis. Suas margens dependem de receita previsível.
+
+**Pontos principais:**
+1. Handlers de webhooks são sua primeira linha de defesa
+2. Diferentes códigos de recusa precisam de diferentes estratégias de retry
+3. Emails de dunning devem educar, não apenas notificar
+4. Clientes de alto valor recebem tratamento especial
+5. Monitore sua taxa de recuperação religiosamente
+
+Uma taxa de recuperação de 70% não é apenas possível—é esperada quando você implementa a estratégia correta. Seus custos de IA são previsíveis. Sua receita também deveria ser.
+
+---
+
+**Quer ver como a AI.RIO pode ajudá-lo a construir infraestrutura de cobrança que escala?** Suas margens são uma caixa preta. Construí uma lanterna.

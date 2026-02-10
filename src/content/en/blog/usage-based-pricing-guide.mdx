@@ -1,0 +1,419 @@
+---
+title: "Launch Usage-Based Pricing in 2 Weeks"
+description: "A practical guide to implementing usage-based pricing for your AI SaaS, from metering to billing infrastructure."
+date: "2025-02-08"
+author: "AI.RIO"
+category: "Pricing Strategy"
+tags: ["usage-based-pricing", "billing", "infrastructure", "stripe", "saas"]
+---
+
+# Launch Usage-Based Pricing in 2 Weeks
+
+Flat-rate pricing is safe. Usage-based pricing is profitable. AI SaaS margins are tight, and your costs scale with usage. Your pricing should too.
+
+Here's how to launch usage-based pricing in 2 weeks.
+
+## The Problem
+
+You're charging $49/month regardless of usage. Some customers use your AI features 100 times, others use 100,000 times. Your costs vary wildly, but your revenue doesn't.
+
+With AI SaaS:
+- **Compute costs scale linearly** with usage
+- **Flat-rate pricing** loses money on heavy users
+- **Tiered pricing** creates cliff-edge decisions
+- **You can't predict margins** without usage correlation
+
+## The Solution
+
+Usage-based pricing aligns your costs with your revenue. Here's the 2-week sprint plan.
+
+### Week 1: Infrastructure Setup
+
+#### Day 1-2: Metering System
+
+```typescript
+// lib/metering/events.ts
+export interface UsageEvent {
+  customerId: string;
+  eventType: string;
+  quantity: number;
+  timestamp: Date;
+  metadata?: Record<string, any>;
+}
+
+export class MeteringService {
+  async recordEvent(event: UsageEvent) {
+    // Write to event store
+    await db.usageEvents.create({
+      data: {
+        customerId: event.customerId,
+        eventType: event.eventType,
+        quantity: event.quantity,
+        timestamp: event.timestamp,
+        metadata: event.metadata,
+      },
+    });
+
+    // Update customer's current usage
+    await this.updateCustomerUsage(event.customerId, event.eventType, event.quantity);
+  }
+
+  private async updateCustomerUsage(customerId: string, eventType: string, quantity: number) {
+    const period = getCurrentBillingPeriod();
+
+    await db.customerUsage.upsert({
+      where: {
+        customerId_eventType_period: {
+          customerId,
+          eventType,
+          period,
+        },
+      },
+      create: {
+        customerId,
+        eventType,
+        period,
+        quantity,
+      },
+      update: {
+        quantity: { increment: quantity },
+      },
+    });
+  }
+}
+```
+
+#### Day 3-4: API Integration
+
+```typescript
+// app/api/usage/track/route.ts
+import { MeteringService } from '@/lib/metering/events';
+
+const metering = new MeteringService();
+
+export async function POST(req: Request) {
+  const { customerId, eventType, quantity = 1, metadata } = await req.json();
+
+  await metering.recordEvent({
+    customerId,
+    eventType,
+    quantity,
+    timestamp: new Date(),
+    metadata,
+  });
+
+  return Response.json({ success: true });
+}
+```
+
+#### Day 5-7: Billing Integration
+
+```typescript
+// lib/billing/stripe.ts
+import Stripe from 'stripe';
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
+
+export async function createUsageBasedSubscription(
+  customerId: string,
+  priceId: string
+) {
+  return await stripe.subscriptions.create({
+    customer: customerId,
+    items: [{ price: priceId }],
+    payment_behavior: 'default_incomplete',
+    payment_settings: { save_default_payment_method: 'on_subscription' },
+    expand: ['latest_invoice.payment_intent'],
+  });
+}
+
+export async function reportUsage(subscriptionItemId: string, quantity: number) {
+  return await stripe.subscriptionItems.createUsageRecord(
+    subscriptionItemId,
+    { quantity, action: 'increment' },
+    { idempotencyKey: `${subscriptionItemId}-${Date.now()}` }
+  );
+}
+```
+
+### Week 2: Pricing & Launch
+
+#### Day 8-9: Price Your Usage
+
+Don't guess. Calculate your costs and add margin:
+
+```typescript
+// lib/pricing/calculator.ts
+export interface PricingTier {
+  name: string;
+  basePrice: number;
+  includedUnits: number;
+  unitPrice: number;
+  costPerUnit: number;
+}
+
+export function calculatePricing(
+  costPerUnit: number,
+  targetMargin: number
+): PricingTier {
+  const unitPrice = costPerUnit * (1 + targetMargin);
+
+  return {
+    name: 'Pay-as-you-go',
+    basePrice: 0,
+    includedUnits: 0,
+    unitPrice,
+    costPerUnit,
+  };
+}
+
+// Example: AI completions
+const completionCost = 0.002; // $0.002 per 1K tokens
+const targetMargin = 0.5; // 50% margin
+const pricing = calculatePricing(completionCost, targetMargin);
+
+console.log(pricing);
+// {
+//   unitPrice: 0.003, // $0.003 per 1K tokens
+//   margin: 33%
+// }
+```
+
+#### Day 10-11: Create Stripe Prices
+
+```typescript
+// scripts/create-usage-prices.ts
+import Stripe from 'stripe';
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
+
+async function createUsagePrices() {
+  const product = await stripe.products.create({
+    name: 'AI Completions',
+    description: 'Usage-based pricing for AI completions',
+  });
+
+  // Price per 1K tokens
+  const price = await stripe.prices.create({
+    product: product.id,
+    unit_amount: 3, // $0.003 per unit
+    currency: 'usd',
+    recurring: {
+      aggregate_usage: 'sum',
+      interval: 'month',
+      usage_type: 'metered',
+    },
+    nickname: 'Per 1K tokens',
+  });
+
+  console.log('Price created:', price.id);
+}
+
+createUsagePrices();
+```
+
+#### Day 12-13: Customer Migration
+
+```typescript
+// lib/migration/usage-based.ts
+export async function migrateCustomerToUsageBased(customerId: string) {
+  // 1. Calculate their average usage
+  const avgUsage = await calculateAverageUsage(customerId, 90);
+
+  // 2. Estimate their new monthly cost
+  const estimatedCost = avgUsage * 0.003;
+
+  // 3. Compare with current plan
+  const currentPlan = await getCurrentPlan(customerId);
+
+  // 4. Send migration email if beneficial
+  if (estimatedCost < currentPlan.price) {
+    await sendMigrationEmail({
+      customerId,
+      currentPrice: currentPlan.price,
+      estimatedNewPrice: estimatedCost,
+      savings: currentPlan.price - estimatedCost,
+    });
+  }
+
+  // 5. Create new subscription
+  const newSubscription = await createUsageBasedSubscription(
+    customerId,
+    process.env.STRIPE_USAGE_PRICE_ID!
+  );
+
+  return newSubscription;
+}
+```
+
+#### Day 14: Launch
+
+```typescript
+// app/api/pricing/migrate/route.ts
+export async function POST(req: Request) {
+  const { customerId } = await req.json();
+
+  try {
+    const subscription = await migrateCustomerToUsageBased(customerId);
+
+    return Response.json({
+      success: true,
+      subscriptionId: subscription.id,
+    });
+  } catch (error) {
+    return Response.json(
+      { error: 'Migration failed' },
+      { status: 500 }
+    );
+  }
+}
+```
+
+## Advanced Features
+
+### 1. Hybrid Pricing (Base + Usage)
+
+```typescript
+export async function createHybridSubscription(
+  customerId: string,
+  basePriceId: string,
+  usagePriceId: string
+) {
+  return await stripe.subscriptions.create({
+    customer: customerId,
+    items: [
+      { price: basePriceId }, // Base fee: $29/month
+      { price: usagePriceId }, // Usage: $0.003/1K tokens
+    ],
+    payment_behavior: 'default_incomplete',
+  });
+}
+```
+
+### 2. Volume Discounts
+
+```typescript
+export function calculateVolumePrice(units: number): number {
+  // Tiered pricing
+  const tiers = [
+    { min: 0, max: 10000, price: 0.003 },
+    { min: 10001, max: 50000, price: 0.002 },
+    { min: 50001, max: Infinity, price: 0.001 },
+  ];
+
+  let total = 0;
+  let remaining = units;
+
+  for (const tier of tiers) {
+    const tierUnits = Math.min(remaining, tier.max - tier.min);
+    total += tierUnits * tier.price;
+    remaining -= tierUnits;
+
+    if (remaining <= 0) break;
+  }
+
+  return total;
+}
+```
+
+### 3. Usage Dashboard
+
+```typescript
+// app/dashboard/usage/page.tsx
+export async function UsageDashboard({ customerId }: { customerId: string }) {
+  const usage = await getCustomerUsage(customerId);
+
+  return (
+    <div>
+      <h2>Current Usage</h2>
+      <UsageCard
+        metric="AI Completions"
+        value={usage.completions}
+        unit="tokens"
+        cost={usage.completions * 0.003}
+      />
+      <UsageChart data={usage.history} />
+    </div>
+  );
+}
+```
+
+## Common Pitfalls
+
+### 1. Not Setting Limits
+
+```typescript
+// BAD: Unlimited usage
+await recordUsage(customerId, quantity);
+
+// GOOD: Enforce limits
+const usage = await getCurrentUsage(customerId);
+const limit = await getCustomerLimit(customerId);
+
+if (usage + quantity > limit) {
+  throw new Error('Usage limit exceeded');
+}
+
+await recordUsage(customerId, quantity);
+```
+
+### 2. Billing Sync Delays
+
+```typescript
+// Don't rely on Stripe's real-time reporting
+// Instead, batch your usage reports
+
+export async function syncUsageToStripe() {
+  const subscriptions = await stripe.subscriptions.list({
+    status: 'active',
+    limit: 100,
+  });
+
+  for (const subscription of subscriptions.data) {
+    const customerId = subscription.customer as string;
+    const usage = await getUnreportedUsage(customerId);
+
+    if (usage.quantity > 0) {
+      await reportUsage(subscription.items.data[0].id, usage.quantity);
+      await markUsageAsReported(customerId, usage.period);
+    }
+  }
+}
+```
+
+### 3. Complex Pricing Tiers
+
+Keep it simple:
+
+```typescript
+// BAD: Too many tiers
+const tiers = [
+  { units: 0, price: 0.01 },
+  { units: 100, price: 0.009 },
+  { units: 500, price: 0.008 },
+  { units: 1000, price: 0.007 },
+  { units: 5000, price: 0.006 },
+  // ... 10 more tiers
+];
+
+// GOOD: Simple structure
+const basePrice = 29; // $29/month
+const unitPrice = 0.003; // $0.003 per 1K tokens
+```
+
+## The Bottom Line
+
+Usage-based pricing isn't just for infrastructure anymore. AI SaaS margins depend on aligning costs with revenue.
+
+**Key takeaways:**
+1. Meter everything from day one
+2. Calculate costs before setting prices
+3. Keep pricing simple and transparent
+4. Give customers usage visibility
+5. Migrate gradually, don't force it
+
+You can launch usage-based pricing in 2 weeks. Your margins will thank you.
+
+---
+
+**Want to see how AI.RIO can help you build billing infrastructure that handles any pricing model?** Your margins are a black box. I built a flashlight.

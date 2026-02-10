@@ -1,0 +1,177 @@
+---
+title: "Encontre Vazamentos de Receita Ocultos na sua Cobrança"
+description: "Abordagem sistemática para detectar e corrigir vazamentos de receita na infraestrutura de cobrança do seu SaaS de IA."
+date: "2025-02-08"
+author: "AI.RIO"
+category: "Operações de Receita"
+tags: ["vazamento-receita", "cobranca", "analitica", "stripe", "otimizacao"]
+---
+
+# Encontre Vazamentos de Receita Ocultos na sua Cobrança
+
+Seu SaaS de IA está crescendo. MRR está aumentando, clientes estão felizes. Mas sua conta bancária não corresponde às suas métricas. Receita está vazando em algum lugar.
+
+Aqui está como encontrar os vazamentos e corrigi-los.
+
+## O Problema
+
+Vazamento de receita é a lacuna entre o que você deveria ganhar e o que você realmente deposita. Para SaaS de IA, é especialmente insidioso porque:
+
+1. **Preços baseados em uso** criam faturas complexas
+2. **Complementos e upgrades** são perdidos
+3. **Cálculos de prorrateo** são propensos a erros
+4. **Códigos de desconto** nem sempre são aplicados corretamente
+5. **Pagamentos falhados** ficam sem cobrança
+
+Dados da indústria mostram que **5-15% de vazamento de receita** é comum. Em $25K MRR, isso é $1,250-$3,750/mês desaparecendo.
+
+## A Solução
+
+Construa um sistema de conciliação de receita que detecte vazamentos antes que se multipliquem.
+
+### A Arquitetura
+
+```
+┌─────────────────────────────────────────────────┐
+│       Motor de Conciliação de Receita           │
+├─────────────────────────────────────────────────┤
+│  1. Cálculo de Receita Esperada                │
+│  2. Coleta de Receita Real                     │
+│  3. Análise de Lacuna e Detecção de Vazamento │
+│  4. Auto-Remediação                            │
+└─────────────────────────────────────────────────┘
+```
+
+## Implementação
+
+### 1. Calculadora de Receita Esperada
+
+```typescript
+// lib/revenue/expected.ts
+export async function calculateExpectedRevenue(
+  startDate: Date,
+  endDate: Date
+): Promise<ExpectedRevenue> {
+  const activeSubscriptions = await stripe.subscriptions.list({
+    status: 'active',
+    limit: 100,
+  });
+
+  let expected = 0;
+  const breakdown = {
+    baseSubscriptions: 0,
+    usageFees: 0,
+    addOns: 0,
+    prorations: 0,
+  };
+
+  for (const subscription of activeSubscriptions.data) {
+    // Custo base da assinatura
+    const baseCost = subscription.items.data.reduce(
+      (sum, item) => sum + item.price.unit_amount! * item.quantity,
+      0
+    );
+    breakdown.baseSubscriptions += baseCost;
+
+    // Itens baseados em uso (estimativa baseada em dados históricos)
+    for (const item of subscription.items.data) {
+      if (item.price.recurring?.usage_type === 'metered') {
+        const avgUsage = await getAverageUsage(
+          subscription.id,
+          item.price.id
+        );
+        breakdown.usageFees += avgUsage * item.price.unit_amount!;
+      }
+    }
+
+    expected += baseCost + breakdown.usageFees + breakdown.addOns;
+  }
+
+  return {
+    total: expected,
+    breakdown,
+    period: { startDate, endDate },
+  };
+}
+```
+
+### 2. Rastreador de Receita Real
+
+```typescript
+// lib/revenue/actual.ts
+export async function calculateActualRevenue(
+  startDate: Date,
+  endDate: Date
+): Promise<ActualRevenue> {
+  const invoices = await stripe.invoices.list({
+    created: { gte: Math.floor(startDate.getTime() / 1000) },
+    limit: 100,
+  });
+
+  let total = 0;
+  const successful = [];
+  const failed = [];
+  const pending = [];
+
+  for (const invoice of invoices.data) {
+    const amount = invoice.total;
+
+    switch (invoice.status) {
+      case 'paid':
+        total += amount;
+        successful.push({
+          id: invoice.id,
+          amount,
+          customer: invoice.customer,
+        });
+        break;
+
+      case 'void':
+      case 'uncollectible':
+        failed.push({
+          id: invoice.id,
+          amount,
+          customer: invoice.customer,
+          reason: invoice.status,
+        });
+        break;
+
+      case 'open':
+        pending.push({
+          id: invoice.id,
+          amount,
+          customer: invoice.customer,
+          dueDate: invoice.due_date,
+        });
+        break;
+    }
+  }
+
+  return {
+    total,
+    breakdown: {
+      successful: successful.reduce((sum, i) => sum + i.amount, 0),
+      failed: failed.reduce((sum, i) => sum + i.amount, 0),
+      pending: pending.reduce((sum, i) => sum + i.amount, 0),
+    },
+    details: { successful, failed, pending },
+  };
+}
+```
+
+## Conclusão
+
+Vazamento de receita é silencioso mas mortal. Com 10% de vazamento, você está deixando 36 dias de receita na mesa a cada ano.
+
+**Pontos principais:**
+1. Calcule receita esperada desde primeiros princípios
+2. Concilie com cobranças reais diariamente
+3. Automatize detecção e remediação de vazamentos
+4. Monitore padrões comuns proativamente
+5. Construa alertas para violações de limite
+
+Suas margens já estão apertadas o suficiente sem vazamentos invisíveis. Corrija-os sistematicamente.
+
+---
+
+**Quer ver como a AI.RIO pode ajudá-lo a construir conciliação de receita que detecta vazamentos automaticamente?** Suas margens são uma caixa preta. Construí uma lanterna.

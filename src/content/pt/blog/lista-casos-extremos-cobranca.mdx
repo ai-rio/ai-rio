@@ -1,0 +1,192 @@
+---
+title: "O Checklist de Casos Extremos de Cobrança"
+description: "Um checklist completo de casos extremos de cobrança que destroem a receita se não forem tratados corretamente em produção."
+date: "2025-02-08"
+author: "AI.RIO"
+category: "Operações de Cobrança"
+tags: ["cobranca", "casos-extremos", "stripe", "producao", "checklist"]
+---
+
+# O Checklist de Casos Extremos de Cobrança
+
+Sua cobrança funciona para 99% dos clientes. O 1% de casos extremos está custando 20% da sua receita. Pagamentos falhados, erros de prorrateo, bugs de upgrade/downgrade—todos estão sangrando receita silenciosamente.
+
+Aqui está o checklist.
+
+## O Problema
+
+Casos extremos de cobrança são difíceis porque:
+- São raros (1-5% das transações)
+- São caros (clientes de alto valor)
+- São silenciosos (clientes não reportam)
+- Se acumulam (afeta faturas futuras)
+
+Dados da indústria:
+- **15%** de receita perdida por casos extremos não tratados
+- **40%** dos clientes experimentam pelo menos um problema de cobrança anualmente
+- **60%** dos clientes não te darão uma segunda chance
+
+## O Checklist
+
+### 1. Falhas de Pagamento
+
+#### 1.1 Fundos Insuficientes
+```typescript
+// RUIM: Apenas tentar novamente imediatamente
+if (error.code === 'insufficient_funds') {
+  await retryPayment(invoiceId);
+}
+
+// BOM: Cronograma inteligente de retry
+const retrySchedule = {
+  'insufficient_funds': [2, 5, 9, 14], // Dias para esperar
+  'expired_card': [1, 3, 7],
+  'generic_decline': [3, 7, 14],
+};
+
+await scheduleRetry(invoiceId, retrySchedule[error.code]);
+```
+
+#### 1.2 Cartão Expirado no Meio do Ciclo
+```typescript
+// Detectar expirações próximas
+async function checkExpiringCards() {
+  const nextMonth = new Date();
+  nextMonth.setMonth(nextMonth.getMonth() + 1);
+
+  const customers = await stripe.customers.list({
+    limit: 100,
+    expand: ['data.sources'],
+  });
+
+  for (const customer of customers.data) {
+    const card = customer.default_source as any;
+    if (card && card.exp_year === nextMonth.getFullYear() &&
+        card.exp_month === nextMonth.getMonth() + 1) {
+      await sendCardExpiringNotification(customer.id, card.last4);
+    }
+  }
+}
+```
+
+### 2. Casos Extremos de Prorrateo
+
+#### 2.1 Upgrade no Meio do Ciclo
+```typescript
+// Ao fazer upgrade, creditar tempo não usado
+async function handleUpgrade(
+  subscriptionId: string,
+  newPriceId: string
+) {
+  const subscription = await stripe.subscriptions.retrieve(subscriptionId);
+  const currentPeriodEnd = subscription.current_period_end;
+
+  // Calcular tempo restante
+  const now = Math.floor(Date.now() / 1000);
+  const remainingSeconds = currentPeriodEnd - now;
+  const remainingRatio = remainingSeconds / subscription.items.data[0].plan.interval_count;
+
+  // Calcular crédito por tempo não usado
+  const currentPrice = subscription.items.data[0].price.unit_amount!;
+  const credit = Math.floor(currentPrice * remainingRatio);
+
+  // Aplicar crédito ao novo plano
+  await stripe.subscriptions.update(subscriptionId, {
+    items: [{
+      id: subscription.items.data[0].id,
+      price: newPriceId,
+    }],
+    proration_behavior: 'always_invoice',
+    promotion_code: await createCredit(credit),
+  });
+}
+```
+
+### 3. Transições de Estado de Assinatura
+
+#### 3.1 Cancelar → Reativar
+```typescript
+// Lidar com reativação com mesmo plano
+async function reactivateSubscription(subscriptionId: string) {
+  const subscription = await stripe.subscriptions.retrieve(subscriptionId);
+
+  if (subscription.status === 'canceled') {
+    // Criar nova assinatura
+    const newSubscription = await stripe.subscriptions.create({
+      customer: subscription.customer as string,
+      items: subscription.items.data.map(item => ({
+        price: item.price.id,
+        quantity: item.quantity,
+      })),
+      coupon: 'welcome_back', // Incentivo opcional
+    });
+
+    return newSubscription;
+  }
+
+  // Retomar assinatura pausada
+  return await stripe.subscriptions.update(subscriptionId, {
+    pause_collection: null as any,
+  });
+}
+```
+
+## Checklist de Testes
+
+Antes de fazer deploy de mudanças de cobrança:
+
+- [ ] Testar cenários de falha de pagamento
+- [ ] Testar fluxos de upgrade/downgrade
+- [ ] Testar aplicação e expiração de cupons
+- [ ] Testar cálculo de impostos para diferentes regiões
+- [ ] Testar entrega e replay de webhooks
+- [ ] Testar cálculos de prorrateo
+- [ ] Testar transições de estado de assinatura
+- [ ] Testar geração e finalização de faturas
+- [ ] Testar processamento de reembolsos
+- [ ] Testar migração de sistemas legados
+
+## Monitoramento
+
+```typescript
+// Configurar alertas para casos extremos
+async function setupEdgeCaseAlerts() {
+  // Taxa de falha de pagamento > 5%
+  await createAlert({
+    name: 'high_payment_failure_rate',
+    condition: 'payment_failure_rate > 0.05',
+    action: 'notify_team',
+  });
+
+  // Discrepância de prorrateo > $10
+  await createAlert({
+    name: 'proration_discrepancy',
+    condition: 'proration_difference > 10',
+    action: 'flag_for_review',
+  });
+
+  // Falha na geração de fatura
+  await createAlert({
+    name: 'invoice_generation_failure',
+    condition: 'invoice_failed = true',
+    action: 'immediate_notification',
+  });
+}
+```
+
+## Conclusão
+
+Casos extremos de cobrança são onde a receita vive ou morre. O 1% de casos extremos custa 20% da receita.
+
+**Pontos principais:**
+1. Teste cada caso extremo em staging
+2. Monitore padrões de casos extremos em produção
+3. Construa remediação automatizada onde possível
+4. Revisão manual para clientes de alto valor
+5. Mantenha um runbook de casos extremos comuns
+
+Sua cobrança deve lidar com o 1% tão graciosamente quanto o 99%.
+
+---
+
+**Quer ver como a AI.RIO pode ajudá-lo a construir infraestrutura de cobrança que lida com todos os casos extremos automaticamente?** Suas margens são uma caixa preta. Construí uma lanterna.

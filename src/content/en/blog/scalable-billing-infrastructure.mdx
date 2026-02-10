@@ -1,0 +1,521 @@
+---
+title: "Build Billing Infrastructure That Scales"
+description: "Architectural patterns for building billing infrastructure that handles millions in revenue without breaking."
+date: "2025-02-08"
+author: "AI.RIO"
+category: "Infrastructure"
+tags: ["infrastructure", "scalability", "stripe", "architecture", "billing"]
+---
+
+# Build Billing Infrastructure That Scales
+
+Your AI SaaS is growing. $25K MRR today, $250K MRR tomorrow. Your billing infrastructure needs to handle the growth without rewriting everything.
+
+Here's how to build billing infrastructure that scales.
+
+## The Problem
+
+Most billing infrastructure starts simple:
+
+```typescript
+// Quick and dirty billing
+async function chargeCustomer(customerId: string, amount: number) {
+  const customer = await db.customers.findUnique({ where: { id: customerId } });
+  await stripe.paymentIntents.create({
+    amount: amount * 100,
+    currency: 'usd',
+    customer: customer.stripeId,
+  });
+}
+```
+
+This works at $25K MRR. It breaks at $250K MRR when:
+- Webhooks arrive out of order
+- Payment retries create race conditions
+- Reporting queries take minutes
+- Refunds require manual spreadsheet work
+- Proration calculations are inconsistent
+
+## The Solution
+
+Build billing infrastructure around these principles:
+1. **Idempotency**: Every operation is safe to retry
+2. **Event sourcing**: Audit trail for every billing event
+3. **Async processing**: Webhooks don't block
+4. **Read replicas**: Reporting doesn't impact transactions
+5. **Circuit breakers**: Third-party failures don't cascade
+
+### Architecture Overview
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                     Your Application                    │
+└───────────────────────┬─────────────────────────────────┘
+                        │
+                        ▼
+┌─────────────────────────────────────────────────────────┐
+│              Billing Service Layer                      │
+│  ┌─────────────┐  ┌─────────────┐  ┌──────────────┐   │
+│  │ Subscription│  │   Invoice   │  │   Payment    │   │
+│  │   Service   │  │   Service   │  │   Service    │   │
+│  └──────┬──────┘  └──────┬──────┘  └──────┬───────┘   │
+└─────────┼────────────────┼────────────────┼─────────────┘
+          │                │                │
+          ▼                ▼                ▼
+┌─────────────────────────────────────────────────────────┐
+│              Event Bus (Message Queue)                   │
+└───────────────────────┬─────────────────────────────────┘
+                        │
+                        ▼
+┌─────────────────────────────────────────────────────────┐
+│              Event Handlers (Workers)                    │
+│  ┌─────────────┐  ┌─────────────┐  ┌──────────────┐   │
+│  │   Webhook   │  │   Reporting │  │ Notification │   │
+│  │  Processor  │  │   Aggregator│  │   Service    │   │
+│  └─────────────┘  └─────────────┘  └──────────────┘   │
+└───────────────────────┬─────────────────────────────────┘
+                        │
+                        ▼
+┌─────────────────────────────────────────────────────────┐
+│              Data Layer                                 │
+│  ┌─────────────┐  ┌─────────────┐  ┌──────────────┐   │
+│  │ Primary DB  │  │  Read Replica│  │Event Store   │   │
+│  │ (Transactional)│  (Reporting) │  │  (Audit)     │   │
+│  └─────────────┘  └─────────────┘  └──────────────┘   │
+└─────────────────────────────────────────────────────────┘
+```
+
+## Implementation
+
+### 1. Idempotent Operations
+
+```typescript
+// lib/billing/idempotency.ts
+export class IdempotentOperation {
+  async execute<T>(
+    key: string,
+    fn: () => Promise<T>,
+    options: { ttl?: number } = {}
+  ): Promise<T> {
+    // Check if already executed
+    const existing = await db.idempotencyKeys.findUnique({
+      where: { key },
+    });
+
+    if (existing) {
+      if (existing.status === 'completed') {
+        return JSON.parse(existing.response) as T;
+      }
+      if (existing.status === 'processing') {
+        // Already processing, wait and retry
+        await sleep(100);
+        return this.execute(key, fn, options);
+      }
+    }
+
+    // Mark as processing
+    await db.idempotencyKeys.upsert({
+      where: { key },
+      create: { key, status: 'processing' },
+      update: { status: 'processing' },
+    });
+
+    try {
+      const result = await fn();
+
+      // Store result
+      await db.idempotencyKeys.update({
+        where: { key },
+        data: {
+          status: 'completed',
+          response: JSON.stringify(result),
+          expiresAt: new Date(Date.now() + (options.ttl || 86400000)),
+        },
+      });
+
+      return result;
+    } catch (error) {
+      // Mark as failed
+      await db.idempotencyKeys.update({
+        where: { key },
+        data: { status: 'failed' },
+      });
+      throw error;
+    }
+  }
+}
+
+// Usage
+const idempotency = new IdempotentOperation();
+
+async function createSubscription(customerId: string, priceId: string) {
+  return await idempotency.execute(
+    `subscription:${customerId}:${priceId}`,
+    async () => {
+      return await stripe.subscriptions.create({
+        customer: customerId,
+        items: [{ price: priceId }],
+      });
+    }
+  );
+}
+```
+
+### 2. Event Sourcing for Billing Events
+
+```typescript
+// lib/billing/events.ts
+export interface BillingEvent {
+  id: string;
+  type: string;
+  aggregateId: string;
+  data: Record<string, any>;
+  timestamp: Date;
+  version: number;
+}
+
+export class BillingEventStore {
+  async saveEvent(event: BillingEvent) {
+    await db.$transaction(async (tx) => {
+      // Get current version
+      const aggregate = await tx.billingAggregate.findUnique({
+        where: { id: event.aggregateId },
+      });
+
+      const version = (aggregate?.version || 0) + 1;
+
+      // Save event
+      await tx.billingEvent.create({
+        data: {
+          id: event.id,
+          type: event.type,
+          aggregateId: event.aggregateId,
+          data: event.data,
+          timestamp: event.timestamp,
+          version,
+        },
+      });
+
+      // Update aggregate version
+      await tx.billingAggregate.upsert({
+        where: { id: event.aggregateId },
+        create: { id: event.aggregateId, version },
+        update: { version },
+      });
+    });
+  }
+
+  async getEvents(aggregateId: string): Promise<BillingEvent[]> {
+    return await db.billingEvent.findMany({
+      where: { aggregateId },
+      orderBy: { version: 'asc' },
+    });
+  }
+
+  async replay(aggregateId: string) {
+    const events = await this.getEvents(aggregateId);
+    let state = {};
+
+    for (const event of events) {
+      state = applyEvent(state, event);
+    }
+
+    return state;
+  }
+}
+
+// Event types
+export const BillingEventTypes = {
+  SUBSCRIPTION_CREATED: 'subscription.created',
+  SUBSCRIPTION_UPDATED: 'subscription.updated',
+  SUBSCRIPTION_CANCELLED: 'subscription.cancelled',
+  INVOICE_CREATED: 'invoice.created',
+  INVOICE_PAID: 'invoice.paid',
+  INVOICE_FAILED: 'invoice.failed',
+  PAYMENT_SUCCEEDED: 'payment.succeeded',
+  PAYMENT_FAILED: 'payment.failed',
+  REFUND_ISSUED: 'refund.issued',
+  CREDIT_ISSUED: 'credit.issued',
+};
+```
+
+### 3. Async Webhook Processing
+
+```typescript
+// lib/billing/webhooks.ts
+import { Queue } from 'bull';
+
+const webhookQueue = new Queue('webhooks', process.env.REDIS_URL!);
+
+export async function handleWebhook(event: Stripe.Event) {
+  // Validate webhook signature
+  const signature = headers().get('stripe-signature')!;
+  try {
+    stripe.webhooks.constructEvent(
+      await req.text(),
+      signature,
+      process.env.STRIPE_WEBHOOK_SECRET!
+    );
+  } catch (err) {
+    return new Response('Invalid signature', { status: 400 });
+  }
+
+  // Queue for async processing
+  await webhookQueue.add('process-webhook', {
+    eventId: event.id,
+    type: event.type,
+    data: event.data,
+  });
+
+  return new Response(null, { status: 200 });
+}
+
+// Worker
+webhookQueue.process('process-webhook', async (job) => {
+  const { eventId, type, data } = job.data;
+
+  // Check idempotency
+  const processed = await db.webhookEvents.findUnique({
+    where: { id: eventId },
+  });
+
+  if (processed) {
+    return { status: 'already_processed' };
+  }
+
+  // Process event
+  await processBillingEvent(type, data);
+
+  // Mark as processed
+  await db.webhookEvents.create({
+    data: {
+      id: eventId,
+      type,
+      data: data as any,
+      processedAt: new Date(),
+    },
+  });
+
+  return { status: 'processed' };
+});
+```
+
+### 4. Read Replicas for Reporting
+
+```typescript
+// lib/billing/reporting.ts
+const primaryDb = new PrismaClient();
+const readReplicaDb = new PrismaClient({
+  datasources: {
+    db: { url: process.env.DATABASE_READ_REPLICA_URL },
+  },
+});
+
+export class ReportingService {
+  async getMRRHistory(months: number = 12) {
+    // Query from read replica
+    return await readReplicaDb.$queryRaw`
+      SELECT
+        DATE_TRUNC('month', created_at) as month,
+        SUM(amount) / 100 as mrr
+      FROM invoices
+      WHERE status = 'paid'
+        AND created_at >= NOW() - INTERVAL '${months} months'
+      GROUP BY DATE_TRUNC('month', created_at)
+      ORDER BY month DESC
+    `;
+  }
+
+  async getCustomerLifetimeValue() {
+    return await readReplicaDb.customer.aggregate({
+      _avg: { totalSpent: true },
+      _max: { totalSpent: true },
+      _min: { totalSpent: true },
+    });
+  }
+
+  async getChurnRate() {
+    const thirtyDaysAgo = new Date(Date.now() - 30 * 86400000);
+
+    const [activeThen, cancelledNow] = await Promise.all([
+      readReplicaDb.subscription.count({
+        where: {
+          status: 'active',
+          createdAt: { lte: thirtyDaysAgo },
+        },
+      }),
+      readReplicaDb.subscription.count({
+        where: {
+          status: 'canceled',
+          canceledAt: { gte: thirtyDaysAgo },
+        },
+      }),
+    ]);
+
+    return cancelledNow / activeThen;
+  }
+}
+```
+
+### 5. Circuit Breakers
+
+```typescript
+// lib/billing/circuit-breaker.ts
+export class CircuitBreaker {
+  private failures = 0;
+  private lastFailureTime?: Date;
+  private state: 'closed' | 'open' | 'half-open' = 'closed';
+
+  constructor(
+    private threshold: number = 5,
+    private timeout: number = 60000 // 1 minute
+  ) {}
+
+  async execute<T>(fn: () => Promise<T>): Promise<T> {
+    if (this.state === 'open') {
+      if (Date.now() - this.lastFailureTime!.getTime() > this.timeout) {
+        this.state = 'half-open';
+      } else {
+        throw new Error('Circuit breaker is open');
+      }
+    }
+
+    try {
+      const result = await fn();
+      this.onSuccess();
+      return result;
+    } catch (error) {
+      this.onFailure();
+      throw error;
+    }
+  }
+
+  private onSuccess() {
+    this.failures = 0;
+    this.state = 'closed';
+  }
+
+  private onFailure() {
+    this.failures++;
+    this.lastFailureTime = new Date();
+
+    if (this.failures >= this.threshold) {
+      this.state = 'open';
+    }
+  }
+}
+
+// Usage
+const stripeCircuitBreaker = new CircuitBreaker();
+
+async function createStripeCharge(amount: number) {
+  return await stripeCircuitBreaker.execute(() =>
+    stripe.charges.create({
+      amount: amount * 100,
+      currency: 'usd',
+    })
+  );
+}
+```
+
+### 6. Graceful Degradation
+
+```typescript
+// lib/billing/graceful-degradation.ts
+export class BillingService {
+  async getInvoice(invoiceId: string) {
+    try {
+      // Try Stripe first
+      return await this.getInvoiceFromStripe(invoiceId);
+    } catch (error) {
+      // Fallback to local cache
+      const cached = await this.getInvoiceFromCache(invoiceId);
+      if (cached) {
+        return cached;
+      }
+
+      // Last resort: return placeholder
+      return {
+        id: invoiceId,
+        status: 'unknown',
+        amount: 0,
+        message: 'Invoice temporarily unavailable',
+      };
+    }
+  }
+
+  private async getInvoiceFromStripe(invoiceId: string) {
+    return await stripe.invoices.retrieve(invoiceId);
+  }
+
+  private async getInvoiceFromCache(invoiceId: string) {
+    return await db.invoiceCache.findUnique({
+      where: { id: invoiceId },
+    });
+  }
+}
+```
+
+## Monitoring & Observability
+
+```typescript
+// lib/billing/monitoring.ts
+export class BillingMetrics {
+  async recordPaymentAttempt(amount: number, success: boolean) {
+    metrics.increment('billing.payment.attempt');
+    if (success) {
+      metrics.increment('billing.payment.success');
+      metrics.histogram('billing.payment.amount', amount);
+    } else {
+      metrics.increment('billing.payment.failure');
+    }
+  }
+
+  async recordWebhookProcessing(eventType: string, duration: number) {
+    metrics.histogram('billing.webhook.duration', duration, {
+      event_type: eventType,
+    });
+  }
+
+  async getCurrentMetrics() {
+    return {
+      paymentSuccessRate: await this.getPaymentSuccessRate(),
+      avgWebhookProcessingTime: await this.getAvgWebhookTime(),
+      activeSubscriptions: await this.getActiveSubscriptionCount(),
+      mrr: await this.calculateMRR(),
+    };
+  }
+}
+```
+
+## Scaling Checklist
+
+- [ ] All operations are idempotent
+- [ ] Webhooks are processed asynchronously
+- [ ] Events are stored for audit trail
+- [ ] Read replicas for reporting queries
+- [ ] Circuit breakers for external APIs
+- [ ] Graceful degradation for failures
+- [ ] Comprehensive monitoring and alerting
+- [ ] Automated failover testing
+- [ ] Database connection pooling
+- [ ] Query optimization and indexing
+- [ ] Caching strategy for expensive operations
+- [ ] Rate limiting for API endpoints
+
+## The Bottom Line
+
+Building billing infrastructure that scales isn't about handling more traffic. It's about handling complexity while maintaining reliability.
+
+**Key takeaways:**
+1. Design for idempotency from day one
+2. Event sourcing gives you an audit trail
+3. Async processing prevents bottlenecks
+4. Read replicas keep reporting fast
+5. Circuit breakers prevent cascading failures
+
+Your billing infrastructure should be boring. Reliable. Predictable. Your customers shouldn't think about it.
+
+---
+
+**Want to see how AI.RIO can help you build billing infrastructure that scales from $25K to $250K MRR?** Your margins are a black box. I built a flashlight.

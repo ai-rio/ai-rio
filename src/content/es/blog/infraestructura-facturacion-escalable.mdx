@@ -1,0 +1,80 @@
+---
+title: "Construye Infraestructura de Facturación que Escale"
+description: "Patrones arquitectónicos para construir infraestructura de facturación que maneje millones en ingresos sin romperse."
+date: "2025-02-08"
+author: "AI.RIO"
+category: "Infraestructura"
+tags: ["infraestructura", "escalabilidad", "stripe", "arquitectura", "facturacion"]
+---
+
+# Construye Infraestructura de Facturación que Escale
+
+Tu SaaS de IA está creciendo. $25K MRR hoy, $250K MRR mañana. Tu infraestructura de facturación necesita manejar el crecimiento sin reescribir todo.
+
+Así es como construir infraestructura de facturación que escala.
+
+## El Problema
+
+La mayoría de la infraestructura de facturación comienza simple:
+
+```typescript
+// Facturación rápida y sucia
+async function chargeCustomer(customerId: string, amount: number) {
+  const customer = await db.customers.findUnique({ where: { id: customerId } });
+  await stripe.paymentIntents.create({
+    amount: amount * 100,
+    currency: 'usd',
+    customer: customer.stripeId,
+  });
+}
+```
+
+Esto funciona a $25K MRR. Se rompe a $250K MRR cuando:
+- Los webhooks llegan desordenados
+- Los reintentos de pago crean condiciones de carrera
+- Las consultas de reporte toman minutos
+- Los reembolsos requieren trabajo manual en hojas de cálculo
+- Los cálculos de prorrateo son inconsistentes
+
+## La Solución
+
+Construye infraestructura de facturación alrededor de estos principios:
+1. **Idempotencia**: Cada operación es segura para reintentar
+2. **Event sourcing**: Rastro de auditoría para cada evento de facturación
+3. **Procesamiento asíncrono**: Los webhooks no bloquean
+4. **Réplicas de lectura**: Los reportes no impactan las transacciones
+5. **Circuit breakers**: Los fallos de terceros no se propagan
+
+[Incluir implementación detallada...]
+
+## Lista de Verificación de Escalabilidad
+
+- [ ] Todas las operaciones son idempotentes
+- [ ] Los webhooks se procesan de forma asíncrona
+- [ ] Los eventos se almacenan para rastro de auditoría
+- [ ] Réplicas de lectura para consultas de reporte
+- [ ] Circuit breakers para APIs externas
+- [ ] Degradación elegante para fallos
+- [ ] Monitoreo y alertas completos
+- [ ] Pruebas automatizadas de failover
+- [ ] Pooling de conexiones de base de datos
+- [ ] Optimización de consultas e indexación
+- [ ] Estrategia de caché para operaciones costosas
+- [ ] Limitación de tasa para endpoints API
+
+## La Conclusión
+
+Construir infraestructura de facturación que escala no se trata de manejar más tráfico. Se trata de manejar complejidad mientras mantienes confiabilidad.
+
+**Puntos clave:**
+1. Diseña para idempotencia desde el primer día
+2. Event sourcing te da un rastro de auditoría
+3. El procesamiento asíncrono previene cuellos de botella
+4. Las réplicas de lectura mantienen los reportes rápidos
+5. Los circuit breakers previenen fallos en cascada
+
+Tu infraestructura de facturación debería ser aburrida. Confiable. Predecible. Tus clientes no deberían pensar en ella.
+
+---
+
+**¿Quieres ver cómo AI.RIO puede ayudarte a construir infraestructura de facturación que escala de $25K a $250K MRR?** Tus márgenes son una caja negra. Construí una linterna.

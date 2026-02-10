@@ -1,0 +1,183 @@
+---
+title: "Lanza Precios Basados en Uso en 2 Semanas"
+description: "Una guía práctica para implementar precios basados en uso para tu SaaS de IA, desde la medición hasta la infraestructura de facturación."
+date: "2025-02-08"
+author: "AI.RIO"
+category: "Estrategia de Precios"
+tags: ["precio-basado-uso", "facturacion", "infraestructura", "stripe", "saas"]
+---
+
+# Lanza Precios Basados en Uso en 2 Semanas
+
+Los precios planos son seguros. Los precios basados en uso son rentables. Los márgenes del SaaS de IA son ajustados, y tus costos escalan con el uso. Tus precios también deberían.
+
+Así es como lanzar precios basados en uso en 2 semanas.
+
+## El Problema
+
+Estás cobrando $49/mes independientemente del uso. Algunos clientes usan tus funciones de IA 100 veces, otros 100,000 veces. Tus costos varían enormemente, pero tus ingresos no.
+
+Con SaaS de IA:
+- **Los costos de computación escalan linealmente** con el uso
+- **Los precios planos pierden dinero** con usuarios intensivos
+- **Los precios por niveles crean decisiones de borde abrupto**
+- **No puedes predecir márgenes** sin correlación de uso
+
+## La Solución
+
+Los precios basados en uso alinean tus costos con tus ingresos. Aquí está el plan de 2 semanas.
+
+### Semana 1: Configuración de Infraestructura
+
+#### Día 1-2: Sistema de Medición
+
+```typescript
+// lib/metering/events.ts
+export interface UsageEvent {
+  customerId: string;
+  eventType: string;
+  quantity: number;
+  timestamp: Date;
+  metadata?: Record<string, any>;
+}
+
+export class MeteringService {
+  async recordEvent(event: UsageEvent) {
+    // Escribir en el almacén de eventos
+    await db.usageEvents.create({
+      data: {
+        customerId: event.customerId,
+        eventType: event.eventType,
+        quantity: event.quantity,
+        timestamp: event.timestamp,
+        metadata: event.metadata,
+      },
+    });
+
+    // Actualizar el uso actual del cliente
+    await this.updateCustomerUsage(event.customerId, event.eventType, event.quantity);
+  }
+
+  private async updateCustomerUsage(customerId: string, eventType: string, quantity: number) {
+    const period = getCurrentBillingPeriod();
+
+    await db.customerUsage.upsert({
+      where: {
+        customerId_eventType_period: {
+          customerId,
+          eventType,
+          period,
+        },
+      },
+      create: {
+        customerId,
+        eventType,
+        period,
+        quantity,
+      },
+      update: {
+        quantity: { increment: quantity },
+      },
+    });
+  }
+}
+```
+
+#### Día 3-4: Integración de API
+
+```typescript
+// app/api/usage/track/route.ts
+import { MeteringService } from '@/lib/metering/events';
+
+const metering = new MeteringService();
+
+export async function POST(req: Request) {
+  const { customerId, eventType, quantity = 1, metadata } = await req.json();
+
+  await metering.recordEvent({
+    customerId,
+    eventType,
+    quantity,
+    timestamp: new Date(),
+    metadata,
+  });
+
+  return Response.json({ success: true });
+}
+```
+
+#### Día 5-7: Integración de Facturación
+
+```typescript
+// lib/billing/stripe.ts
+import Stripe from 'stripe';
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
+
+export async function createUsageBasedSubscription(
+  customerId: string,
+  priceId: string
+) {
+  return await stripe.subscriptions.create({
+    customer: customerId,
+    items: [{ price: priceId }],
+    payment_behavior: 'default_incomplete',
+    payment_settings: { save_default_payment_method: 'on_subscription' },
+    expand: ['latest_invoice.payment_intent'],
+  });
+}
+
+export async function reportUsage(subscriptionItemId: string, quantity: number) {
+  return await stripe.subscriptionItems.createUsageRecord(
+    subscriptionItemId,
+    { quantity, action: 'increment' },
+    { idempotencyKey: `${subscriptionItemId}-${Date.now()}` }
+  );
+}
+```
+
+### Semana 2: Precios y Lanzamiento
+
+#### Día 8-9: Calcula tus Precios
+
+No adivines. Calcula tus costos y agrega margen:
+
+```typescript
+// lib/pricing/calculator.ts
+export function calculatePricing(
+  costPerUnit: number,
+  targetMargin: number
+): PricingTier {
+  const unitPrice = costPerUnit * (1 + targetMargin);
+
+  return {
+    name: 'Pago por uso',
+    basePrice: 0,
+    includedUnits: 0,
+    unitPrice,
+    costPerUnit,
+  };
+}
+
+// Ejemplo: Completaciones de IA
+const completionCost = 0.002; // $0.002 por 1K tokens
+const targetMargin = 0.5; // 50% de margen
+const pricing = calculatePricing(completionCost, targetMargin);
+```
+
+## La Conclusión
+
+Los precios basados en uso no son solo para infraestructura más. Los márgenes del SaaS de IA dependen de alinear costos con ingresos.
+
+**Puntos clave:**
+1. Mide todo desde el primer día
+2. Calcula los costos antes de fijar los precios
+3. Mantén los precios simples y transparentes
+4. Da a los clientes visibilidad del uso
+5. Migra gradualmente, no lo fuerces
+
+Puedes lanzar precios basados en uso en 2 semanas. Tus márgenes te lo agradecerán.
+
+---
+
+**¿Quieres ver cómo AI.RIO puede ayudarte a construir infraestructura de facturación que maneja cualquier modelo de precios?** Tus márgenes son una caja negra. Construí una linterna.
