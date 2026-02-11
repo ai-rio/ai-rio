@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { Navbar } from '@/components/navbar';
+import { HeroBackground } from '@/components/hero/HeroBackground';
 import { generatePageMetadata } from '@/lib/metadata/page-metadata';
 import { TechnicalProof } from '@/components/service-sections/technical-proof';
 import { DashboardShowcase } from '@/components/service-sections/dashboard-showcase';
@@ -64,11 +65,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <div className="min-h-screen bg-dark-page text-text">
         <Navbar locale={locale} />
 
-        {/* Commit 21: Enhanced Hero Section */}
-        <section className="relative px-4 py-32 sm:px-6 sm:py-40 lg:px-8 overflow-hidden border-b border-surface-mixed-300">
-          {/* Background gradient */}
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-transparent" />
-          <div className="mx-auto max-w-5xl relative">
+        {/* Commit 21: Enhanced Hero Section with Three.js Animation */}
+        <section className="relative isolate px-4 py-32 sm:px-6 sm:py-40 lg:px-8 overflow-hidden border-b border-surface-mixed-300">
+          <HeroBackground scene="particles" />
+          <div className="mx-auto max-w-5xl relative z-10">
           <div className="text-center space-y-10">
             {/* Main headline */}
             <div className="space-y-4">
