@@ -20,6 +20,8 @@ const withMDX = createMDX({
 const nextConfig: NextConfig = {
   // Enable MDX files in pages
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+  // Transpile Three.js for client-side bundling
+  transpilePackages: ['three'],
 };
 
 export default withNextIntl(withMDX(nextConfig));
