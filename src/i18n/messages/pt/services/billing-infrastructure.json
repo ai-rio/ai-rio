@@ -3,7 +3,7 @@
     "timeline": "4-6 semanas",
     "price": "Preço personalizado",
     "title": "Infraestrutura de Cobranca Completa para SaaS de IA",
-    "subtitle": "Seus margens sao uma caixa preta. A Ai.Rio construiu uma lanterna.",
+    "subtitle": "Suas margens sao uma caixa preta. A Ai.Rio construiu uma lanterna.",
     "description": "Precos baseados em uso, recuperacao de pagamentos falhados, rastreamento de custos de IA e tratamento de casos extremos. Construido para empresas SaaS de IA que estao perdendo dinheiro devido a complexidade da cobranca."
   },
   "metrics": {
@@ -281,7 +281,10 @@
         "name": "Fundador de SaaS de IA",
         "initials": "FA",
         "stage": "Seed - Serie A",
-        "mrr": { "min": 25000, "max": 200000 },
+        "mrr": {
+          "min": 25000,
+          "max": 200000
+        },
         "description": "Construindo um SaaS alimentado por IA com custos de LLM comendo os margens. Precisa de visibilidade e controle.",
         "painPoints": [
           "Nao pode calcular verdadeiros margens do cliente",
@@ -295,7 +298,10 @@
         "name": "CTO de Startup de IA",
         "initials": "CT",
         "stage": "Estagio de Crescimento",
-        "mrr": { "min": 100000, "max": 500000 },
+        "mrr": {
+          "min": 100000,
+          "max": 500000
+        },
         "description": "Lider tecnico cuja equipe esta se afogando em casos extremos de cobranca. Precisa de uma base robusta.",
         "painPoints": [
           "Equipe de engenharia perdendo tempo em cobranca",
@@ -309,7 +315,10 @@
         "name": "Lider Financeiro",
         "initials": "LF",
         "stage": "Serie B+",
-        "mrr": { "min": 500000, "max": 2000000 },
+        "mrr": {
+          "min": 500000,
+          "max": 2000000
+        },
         "description": "Responsavel pela economia unitaria e otimizacao de margens. Voce nao pode gerenciar o que nao pode medir.",
         "painPoints": [
           "Sem visibilidade dos direcionadores de custos de LLM",
