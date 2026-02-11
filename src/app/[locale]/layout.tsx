@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://ai.rio.br'),
   title: "Ai.Rio - Billing infrastructure for AI SaaS",
   description: "We stop your margin bleed. Fixed-scope, fixed-price billing infrastructure services delivered in two weeks.",
 };

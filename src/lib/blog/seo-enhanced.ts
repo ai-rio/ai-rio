@@ -37,7 +37,7 @@ export function generateEnhancedBlogMetadata(config: BlogSEOConfig) {
     locale,
   } = config;
 
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ai.rio';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ai.rio.br';
   const url = canonical ? `${baseUrl}${canonical}` : baseUrl;
 
   return {
@@ -91,7 +91,7 @@ export function generateArticleStructuredData(
   slug: string,
   locale: string
 ) {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ai.rio';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ai.rio.br';
   const url = `${baseUrl}/${locale}/blog/${slug}`;
 
   return {
@@ -138,7 +138,7 @@ export function generateBreadcrumbStructuredData(
   items: Array<{ name: string; url: string }>,
   locale: string
 ) {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ai.rio';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ai.rio.br';
 
   return {
     '@context': 'https://schema.org',
@@ -156,7 +156,7 @@ export function generateBreadcrumbStructuredData(
  * Generate Organization structured data
  */
 export function generateOrganizationStructuredData() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ai.rio';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ai.rio.br';
 
   return {
     '@context': 'https://schema.org',
@@ -206,7 +206,7 @@ export function generateFAQStructuredData(
  * Generate WebSite structured data for search
  */
 export function generateWebSiteStructuredData() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ai.rio';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ai.rio.br';
 
   return {
     '@context': 'https://schema.org',
@@ -229,7 +229,7 @@ export function generateWebSiteStructuredData() {
  * Generate Person/Author structured data
  */
 export function generatePersonStructuredData(name: string) {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ai.rio';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ai.rio.br';
 
   return {
     '@context': 'https://schema.org',

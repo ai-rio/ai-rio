@@ -32,7 +32,7 @@ export function generateBlogMetadata(config: SEOConfig) {
     tags,
   } = config;
 
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ai.rio';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ai.rio.br';
   const url = canonical ? `${baseUrl}${canonical}` : baseUrl;
 
   return {
@@ -75,7 +75,7 @@ export function generateBlogMetadata(config: SEOConfig) {
  * Generate structured data (JSON-LD) for blog posts
  */
 export function generateArticleStructuredData(metadata: BlogPostMetadata, slug: string, locale: string) {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ai.rio';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ai.rio.br';
   const url = `${baseUrl}/${locale}/blog/${slug}`;
 
   return {
@@ -112,7 +112,7 @@ export function generateArticleStructuredData(metadata: BlogPostMetadata, slug: 
  * Generate structured data for blog index page
  */
 export function generateBlogStructuredData(posts: Array<{ slug: string; title: string; date: string }>, locale: string) {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ai.rio';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ai.rio.br';
 
   return {
     '@context': 'https://schema.org',
