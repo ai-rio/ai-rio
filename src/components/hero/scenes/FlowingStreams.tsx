@@ -1,7 +1,7 @@
 'use client'
 
 import { useFrame } from '@react-three/fiber'
-import { useMemo, useRef, useState } from 'react'
+import { useMemo, useRef, useEffect } from 'react'
 import * as THREE from 'three'
 
 interface FlowingStreamsProps {
@@ -34,7 +34,6 @@ interface StreamData {
 }
 
 function createStream(index: number, total: number): StreamData {
-  // Convergence point in the right-center area
   const convergeX = 2 + Math.random() * 2
   const convergeY = -1 + Math.random() * 1
 
@@ -87,107 +86,153 @@ function createStream(index: number, total: number): StreamData {
   }
 }
 
-function bezierPoint(t: number, p0: THREE.Vector3, p1: THREE.Vector3, p2: THREE.Vector3, p3: THREE.Vector3): THREE.Vector3 {
-  const u = 1 - t
-  const tt = t * t
-  const uu = u * u
-  const uuu = uu * u
-  const ttt = tt * t
-  return new THREE.Vector3(
-    uuu * p0.x + 3 * uu * t * p1.x + 3 * u * tt * p2.x + ttt * p3.x,
-    uuu * p0.y + 3 * uu * t * p1.y + 3 * u * tt * p2.y + ttt * p3.y,
-    uuu * p0.z + 3 * uu * t * p1.z + 3 * u * tt * p2.z + ttt * p3.z,
-  )
-}
+/**
+ * Optimized stream trail with pre-allocated geometry
+ * Only updates position attribute buffer, no geometry recreation
+ */
+function StreamTrail({ stream }: { stream: StreamData }) {
+  const lineRef = useRef<THREE.Line>(null)
+  const materialRef = useRef<THREE.LineBasicMaterial | null>(null)
+  const geometryRef = useRef<THREE.BufferGeometry | null>(null)
 
-function StreamTrail({ stream, time }: { stream: StreamData; time: number }) {
-  const segments = 64
-  const positions = useMemo(() => new Float32Array(segments * 3), [])
-  const colors = useMemo(() => new Float32Array(segments * 3), [])
+  // Create geometry ONCE with pre-allocated buffers
+  const geometry = useMemo(() => {
+    const segments = 64
+    const positions = new Float32Array(segments * 3)
+    const colors = new Float32Array(segments * 3)
 
-  const progress = ((time * stream.speed + stream.offset) % 1.4) - 0.2
-  const headT = Math.max(0, Math.min(1, progress))
-  const tailT = Math.max(0, headT - stream.trailLength)
+    const geo = new THREE.BufferGeometry()
+    geo.setAttribute('position', new THREE.BufferAttribute(positions, 3))
+    geo.setAttribute('color', new THREE.BufferAttribute(colors, 3))
 
-  if (headT <= 0 || headT - tailT < 0.01) return null
+    return geo
+  }, [])
 
-  for (let i = 0; i < segments; i++) {
-    const segT = i / (segments - 1)
-    const curveT = tailT + segT * (headT - tailT)
-    const point = bezierPoint(curveT, stream.p0, stream.p1, stream.p2, stream.p3)
-    positions[i * 3] = point.x
-    positions[i * 3 + 1] = point.y
-    positions[i * 3 + 2] = point.z
+  // Store refs via useEffect, not during render
+  useEffect(() => {
+    geometryRef.current = geometry
+  }, [geometry])
 
-    const brightness = Math.pow(segT, 2)
-    colors[i * 3] = stream.color.r * brightness
-    colors[i * 3 + 1] = stream.color.g * brightness
-    colors[i * 3 + 2] = stream.color.b * brightness
-  }
+  const material = useMemo(() => {
+    const mat = new THREE.LineBasicMaterial({
+      vertexColors: true,
+      transparent: true,
+      opacity: 0.8,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false,
+    })
+    return mat
+  }, [])
 
-  const geometry = new THREE.BufferGeometry()
-  geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3))
-  geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3))
+  useEffect(() => {
+    materialRef.current = material
+  }, [material])
 
-  return (
-    <line geometry={geometry}>
-      <lineBasicMaterial
-        vertexColors
-        transparent
-        opacity={0.8}
-        blending={THREE.AdditiveBlending}
-        depthWrite={false}
-      />
-    </line>
-  )
-}
+  useFrame(({ clock }) => {
+    if (!lineRef.current || !geometryRef.current) return
 
-function StreamHead({ stream, glowTexture, time }: { stream: StreamData; glowTexture: THREE.Texture; time: number }) {
-  const progress = ((time * stream.speed + stream.offset) % 1.4) - 0.2
-  const headT = Math.max(0, Math.min(1, progress))
+    const positions = geometryRef.current.attributes.position as THREE.BufferAttribute
+    const colors = geometryRef.current.attributes.color as THREE.BufferAttribute
+    const posArr = positions.array as Float32Array
+    const colorArr = colors.array as Float32Array
 
-  if (headT <= 0 || headT >= 1) return null
+    const progress = ((clock.elapsedTime * stream.speed + stream.offset) % 1.4) - 0.2
+    const headT = Math.max(0, Math.min(1, progress))
+    const tailT = Math.max(0, headT - stream.trailLength)
 
-  const headPos = bezierPoint(headT, stream.p0, stream.p1, stream.p2, stream.p3)
-  const s = stream.width * 6
+    // Early exit if stream is not visible
+    if (headT <= 0 || headT - tailT < 0.01) {
+      positions.needsUpdate = true
+      colors.needsUpdate = true
+      return
+    }
 
-  return (
-    <sprite position={headPos} scale={[s, s, 1]}>
-      <spriteMaterial
-        map={glowTexture}
-        color={stream.color}
-        transparent
-        opacity={0.9}
-        blending={THREE.AdditiveBlending}
-        depthWrite={false}
-      />
-    </sprite>
-  )
-}
+    const segments = 64
+    for (let i = 0; i < segments; i++) {
+      const segT = i / (segments - 1)
+      const curveT = tailT + segT * (headT - tailT)
 
-function StreamsRenderer({
-  streams,
-  glowTexture,
-}: {
-  streams: StreamData[]
-  glowTexture: THREE.Texture
-}) {
-  const [time, setTime] = useState(0)
+      // Cubic bezier
+      const t = curveT
+      const u = 1 - t
+      const uu = u * u
+      const uuu = uu * u
+      const tt = t * t
+      const ttt = tt * t
 
-  useFrame((_, delta) => {
-    setTime((t) => t + delta)
+      posArr[i * 3] = uuu * stream.p0.x + 3 * uu * t * stream.p1.x + 3 * u * tt * stream.p2.x + ttt * stream.p3.x
+      posArr[i * 3 + 1] = uuu * stream.p0.y + 3 * uu * t * stream.p1.y + 3 * u * tt * stream.p2.y + ttt * stream.p3.y
+      posArr[i * 3 + 2] = uuu * stream.p0.z + 3 * uu * t * stream.p1.z + 3 * u * tt * stream.p2.z + ttt * stream.p3.z
+
+      // Fade from tail to head
+      const brightness = Math.pow(segT, 2)
+      colorArr[i * 3] = stream.color.r * brightness
+      colorArr[i * 3 + 1] = stream.color.g * brightness
+      colorArr[i * 3 + 2] = stream.color.b * brightness
+    }
+
+    positions.needsUpdate = true
+    colors.needsUpdate = true
   })
 
-  return (
-    <>
-      {streams.map((stream, i) => (
-        <group key={i}>
-          <StreamTrail stream={stream} time={time} />
-          <StreamHead stream={stream} glowTexture={glowTexture} time={time} />
-        </group>
-      ))}
-    </>
-  )
+  return <primitive ref={lineRef} object={new THREE.Line(geometry, material)} />
+}
+
+/**
+ * Stream head glow sprite
+ */
+function StreamHead({ stream, glowTexture }: { stream: StreamData; glowTexture: THREE.Texture }) {
+  const spriteRef = useRef<THREE.Sprite>(null)
+  const materialRef = useRef<THREE.SpriteMaterial | null>(null)
+
+  const material = useMemo(() => {
+    const mat = new THREE.SpriteMaterial({
+      map: glowTexture,
+      color: stream.color,
+      transparent: true,
+      opacity: 0.9,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false,
+    })
+    return mat
+  }, [stream, glowTexture])
+
+  useEffect(() => {
+    materialRef.current = material
+  }, [material])
+
+  useFrame(({ clock }) => {
+    if (!spriteRef.current || !materialRef.current) return
+
+    const progress = ((clock.elapsedTime * stream.speed + stream.offset) % 1.4) - 0.2
+    const headT = Math.max(0, Math.min(1, progress))
+
+    if (headT <= 0 || headT >= 1) {
+      spriteRef.current.visible = false
+      return
+    }
+
+    spriteRef.current.visible = true
+
+    // Cubic bezier for head position
+    const t = headT
+    const u = 1 - t
+    const uu = u * u
+    const uuu = uu * u
+    const tt = t * t
+    const ttt = tt * t
+
+    spriteRef.current.position.set(
+      uuu * stream.p0.x + 3 * uu * t * stream.p1.x + 3 * u * tt * stream.p2.x + ttt * stream.p3.x,
+      uuu * stream.p0.y + 3 * uu * t * stream.p1.y + 3 * u * tt * stream.p2.y + ttt * stream.p3.y,
+      uuu * stream.p0.z + 3 * uu * t * stream.p1.z + 3 * u * tt * stream.p2.z + ttt * stream.p3.z
+    )
+
+    const s = stream.width * 6
+    spriteRef.current.scale.set(s, s, 1)
+  })
+
+  return <primitive ref={spriteRef} object={new THREE.Sprite(material)} />
 }
 
 export function FlowingStreams({ streamCount }: FlowingStreamsProps) {
@@ -198,15 +243,13 @@ export function FlowingStreams({ streamCount }: FlowingStreamsProps) {
     canvas.height = size
     const ctx = canvas.getContext('2d')!
     const gradient = ctx.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2)
-    gradient.addColorStop(0, 'rgba(255, 255, 255, 1)')
-    gradient.addColorStop(0.2, 'rgba(255, 255, 255, 0.6)')
-    gradient.addColorStop(0.5, 'rgba(255, 255, 255, 0.1)')
-    gradient.addColorStop(1, 'rgba(255, 255, 255, 0)')
+    gradient.addColorStop(0, 'rgba(255,255,255,1)')
+    gradient.addColorStop(0.2, 'rgba(255,255,255,0.6)')
+    gradient.addColorStop(0.5, 'rgba(255,255,255,0.1)')
+    gradient.addColorStop(1, 'rgba(255,255,255,0)')
     ctx.fillStyle = gradient
     ctx.fillRect(0, 0, size, size)
-    const tex = new THREE.CanvasTexture(canvas)
-    tex.needsUpdate = true
-    return tex
+    return new THREE.CanvasTexture(canvas)
   }, [])
 
   const streams = useMemo(() => {
@@ -219,7 +262,12 @@ export function FlowingStreams({ streamCount }: FlowingStreamsProps) {
 
   return (
     <group>
-      <StreamsRenderer streams={streams} glowTexture={glowTexture} />
+      {streams.map((stream, i) => (
+        <group key={i}>
+          <StreamTrail stream={stream} />
+          <StreamHead stream={stream} glowTexture={glowTexture} />
+        </group>
+      ))}
     </group>
   )
 }

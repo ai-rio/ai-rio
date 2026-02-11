@@ -1,7 +1,7 @@
 'use client'
 
 import { useFrame } from '@react-three/fiber'
-import { useState, useMemo, useRef } from 'react'
+import { useMemo, useRef, useState, useCallback } from 'react'
 import * as THREE from 'three'
 
 interface LaserControllerProps {
@@ -62,6 +62,9 @@ function createLaser(id: number): Laser {
   }
 }
 
+// Pre-generate random intervals for laser spawning
+const RANDOM_INTERVALS = [800, 950, 1100, 1250, 1400, 1550, 1700]
+
 /**
  * Creates a CanvasTexture for a laser beam with:
  * - Bright white core center line
@@ -83,21 +86,17 @@ function createLaserTexture(): THREE.Texture {
 
   // Outer glow - wide soft band
   const outerGlow = ctx.createLinearGradient(0, 0, 0, height)
-  outerGlow.addColorStop(0, 'rgba(255, 255, 255, 0)')
-  outerGlow.addColorStop(0.25, 'rgba(255, 255, 255, 0.05)')
-  outerGlow.addColorStop(0.4, 'rgba(255, 255, 255, 0.15)')
-  outerGlow.addColorStop(0.5, 'rgba(255, 255, 255, 0.6)')
-  outerGlow.addColorStop(0.6, 'rgba(255, 255, 255, 0.15)')
-  outerGlow.addColorStop(0.75, 'rgba(255, 255, 255, 0.05)')
-  outerGlow.addColorStop(1, 'rgba(255, 255, 255, 0)')
+  outerGlow.addColorStop(0, 'rgba(255,255,255,0)')
+  outerGlow.addColorStop(0.25, 'rgba(255,255,255,0.05)')
+  outerGlow.addColorStop(0.4, 'rgba(255,255,255,0.15)')
+  outerGlow.addColorStop(0.5, 'rgba(255,255,255,0.6)')
+  outerGlow.addColorStop(0.75, 'rgba(255,255,255,0.15)')
+  outerGlow.addColorStop(1, 'rgba(255,255,255,0)')
 
   // Horizontal taper - fade at both ends
   for (let x = 0; x < width; x++) {
     const t = x / width
-    // Smooth taper: quick fade at start, long tail at end
-    const taper = Math.pow(Math.sin(t * Math.PI), 0.5)
-
-    ctx.globalAlpha = taper
+    ctx.globalAlpha = Math.pow(Math.sin(t * Math.PI), 0.5)
     ctx.fillStyle = outerGlow
     ctx.fillRect(x, 0, 1, height)
   }
@@ -106,17 +105,15 @@ function createLaserTexture(): THREE.Texture {
   ctx.globalAlpha = 1
   for (let x = 0; x < width; x++) {
     const t = x / width
-    const taper = Math.pow(Math.sin(t * Math.PI), 0.5)
     const coreHeight = 4
 
     const coreGrad = ctx.createLinearGradient(0, centerY - coreHeight, 0, centerY + coreHeight)
-    coreGrad.addColorStop(0, 'rgba(255, 255, 255, 0)')
-    coreGrad.addColorStop(0.3, 'rgba(255, 255, 255, 0.8)')
-    coreGrad.addColorStop(0.5, 'rgba(255, 255, 255, 1)')
-    coreGrad.addColorStop(0.7, 'rgba(255, 255, 255, 0.8)')
-    coreGrad.addColorStop(1, 'rgba(255, 255, 255, 0)')
+    coreGrad.addColorStop(0, 'rgba(255,255,255,0)')
+    coreGrad.addColorStop(0.3, 'rgba(255,255,255,0.8)')
+    coreGrad.addColorStop(0.5, 'rgba(255,255,255,1)')
+    coreGrad.addColorStop(0.7, 'rgba(255,255,255,0.8)')
+    coreGrad.addColorStop(1, 'rgba(255,255,255,0)')
 
-    ctx.globalAlpha = taper
     ctx.fillStyle = coreGrad
     ctx.fillRect(x, centerY - coreHeight, 1, coreHeight * 2)
   }
@@ -128,90 +125,122 @@ function createLaserTexture(): THREE.Texture {
   return texture
 }
 
+/**
+ * Single laser mesh component
+ * Updates position/scale/opacity directly without React re-renders
+ */
 function LaserStreak({ laser, texture }: { laser: Laser; texture: THREE.Texture }) {
   const meshRef = useRef<THREE.Mesh>(null)
+  const materialRef = useRef<THREE.MeshBasicMaterial | null>(null)
 
-  const { position, rotation, scale } = useMemo(() => {
+  // Calculate initial transform (memoized to avoid recalcs)
+  const initialTransform = useMemo(() => {
     const pos = new THREE.Vector3().addVectors(laser.start, laser.end).multiplyScalar(0.5)
     const dir = new THREE.Vector3().subVectors(laser.end, laser.start)
     const len = dir.length()
     dir.normalize()
-
-    // Rotate plane to align with beam direction
     const angle = Math.atan2(dir.y, dir.x)
     const rot = new THREE.Euler(0, 0, angle)
+
+    const scaleVec = new THREE.Vector3(len, laser.width * 8, 1)
 
     return {
       position: pos,
       rotation: rot,
-      scale: new THREE.Vector3(len, laser.width * 8, 1),
+      scale: scaleVec,
     }
   }, [laser.start, laser.end, laser.width])
 
+  const material = useMemo(() => {
+    const mat = new THREE.MeshBasicMaterial({
+      map: texture,
+      color: laser.color,
+      transparent: true,
+      opacity: laser.opacity,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false,
+      side: THREE.DoubleSide,
+    })
+    materialRef.current = mat
+    return mat
+  }, [laser.color, texture, laser.opacity])
+
+  // Direct mesh property updates
+  useFrame(() => {
+    if (!meshRef.current || !materialRef.current) return
+
+    // Update progress and opacity
+    const delta = 1 / 60
+    const updatedProgress = laser.progress + delta * laser.speed
+    const updatedOpacity = Math.max(0, laser.opacity - delta * 0.4)
+
+    // Update mesh properties directly
+    meshRef.current.position.set(
+      (1 - updatedProgress) * laser.start.x + updatedProgress * laser.end.x,
+      (1 - updatedProgress) * laser.start.y + updatedProgress * laser.end.y,
+      (1 - updatedProgress) * laser.start.z + updatedProgress * laser.end.z
+    )
+
+    // Update scale based on opacity (fade out effect)
+    const fadeScale = Math.max(0, updatedOpacity)
+    meshRef.current.scale.set(
+      initialTransform.scale.x * fadeScale,
+      initialTransform.scale.y * fadeScale,
+      fadeScale
+    )
+
+    // Update material opacity directly
+    if (materialRef.current) {
+      materialRef.current.opacity = updatedOpacity
+    }
+  })
+  })
+
   return (
-    <mesh ref={meshRef} position={position} rotation={rotation} scale={scale}>
+    <mesh ref={meshRef} {...initialTransform}>
       <planeGeometry args={[1, 1]} />
-      <meshBasicMaterial
-        map={texture}
-        color={laser.color}
-        transparent
-        opacity={laser.opacity}
-        blending={THREE.AdditiveBlending}
-        depthWrite={false}
-        side={THREE.DoubleSide}
-      />
+      <primitive object={material} />
     </mesh>
   )
 }
 
 export function LaserController({ maxLasers }: LaserControllerProps) {
-  const texture = useMemo(() => createLaserTexture(), [])
+  const glowTexture = useMemo(() => createLaserTexture(), [])
 
-  const initialLasers = useMemo(() => {
-    const init: Laser[] = []
-    for (let i = 0; i < Math.min(2, maxLasers); i++) {
-      init.push(createLaser(i))
-    }
-    return init
-  }, [maxLasers])
+  // State for lasers
+  const [lasers, setLasers] = useState<Laser[]>([])
 
-  const [lasers, setLasers] = useState<Laser[]>(initialLasers)
-  const lasersRef = useRef<Laser[]>(initialLasers)
   const lastFlashRef = useRef(0)
-  const nextIntervalRef = useRef(800 + Math.random() * 1500)
-  const idRef = useRef(initialLasers.length)
+  const nextIntervalIndexRef = useRef(0)
+  const nextIntervalRef = useRef(RANDOM_INTERVALS[0])
+  const idRef = useRef(0)
 
-  useFrame((_, delta) => {
+  // Callback-based state update to avoid modifying loop variables
+  const spawnLaser = useCallback((newLaser: Laser) => {
+    setLasers(prev => [...prev, newLaser])
+  }, [])
+
+  useFrame(() => {
     const now = Date.now()
 
-    // Update existing lasers
-    const updated = lasersRef.current
-      .map((l) => ({
-        ...l,
-        progress: l.progress + l.speed * delta,
-        opacity: Math.max(0, l.opacity - delta * 0.4),
-        active: l.opacity - delta * 0.4 > 0,
-      }))
-      .filter((l) => l.active)
+    // Spawn new lasers (time-based, not frame-based to avoid jitter)
+    const activeCount = lasers.filter(l => l.active).length
 
-    lasersRef.current = updated
-
-    // Spawn new laser
-    const activeCount = updated.length
     if (now - lastFlashRef.current > nextIntervalRef.current && activeCount < maxLasers) {
       lastFlashRef.current = now
-      nextIntervalRef.current = 800 + Math.random() * 1500
-      const newLaser = createLaser(idRef.current++)
-      lasersRef.current = [...updated, newLaser]
-    }
 
-    setLasers([...lasersRef.current])
+      // Cycle through pre-generated intervals
+      nextIntervalIndexRef.current = (nextIntervalIndexRef.current + 1) % RANDOM_INTERVALS.length
+      nextIntervalRef.current = RANDOM_INTERVALS[nextIntervalIndexRef.current]
+
+      spawnLaser(createLaser(idRef.current++))
+    }
   })
 
   return (
     <group>
       {lasers.map((laser) => (
-        <LaserStreak key={laser.id} laser={laser} texture={texture} />
+        <LaserStreak key={laser.id} laser={laser} texture={glowTexture} />
       ))}
     </group>
   )

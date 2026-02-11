@@ -9,20 +9,20 @@ interface ParticleFieldProps {
 }
 
 const PARTICLE_COLORS = [
-  new THREE.Color('#ffffff'),  // White - dominant
-  new THREE.Color('#8B5CF6'),  // Purple
-  new THREE.Color('#EC4899'),  // Pink
-  new THREE.Color('#06B6D4'),  // Cyan
-  new THREE.Color('#F59E0B'),  // Amber
+  new THREE.Color('#ffffff'),
+  new THREE.Color('#8B5CF6'),
+  new THREE.Color('#EC4899'),
+  new THREE.Color('#06B6D4'),
+  new THREE.Color('#F59E0B'),
 ]
 
 function pickColor(): THREE.Color {
   const r = Math.random()
-  if (r < 0.4) return PARTICLE_COLORS[0]  // 40% white
-  if (r < 0.6) return PARTICLE_COLORS[1]  // 20% purple
-  if (r < 0.75) return PARTICLE_COLORS[2] // 15% pink
-  if (r < 0.9) return PARTICLE_COLORS[3]  // 15% cyan
-  return PARTICLE_COLORS[4]               // 10% amber
+  if (r < 0.4) return PARTICLE_COLORS[0]
+  if (r < 0.6) return PARTICLE_COLORS[1]
+  if (r < 0.75) return PARTICLE_COLORS[2]
+  if (r < 0.9) return PARTICLE_COLORS[3]
+  return PARTICLE_COLORS[4]
 }
 
 function createParticleTexture(): THREE.Texture {
@@ -64,7 +64,6 @@ export function ParticleField({ particleCount }: ParticleFieldProps) {
     const baseSizes = new Float32Array(particleCount)
 
     for (let i = 0; i < particleCount; i++) {
-      // Spread wide, concentrated in lower-right like jina.ai
       positions[i * 3] = (Math.random() - 0.3) * 16
       positions[i * 3 + 1] = (Math.random() - 0.6) * 12
       positions[i * 3 + 2] = (Math.random() - 0.5) * 6
@@ -74,16 +73,16 @@ export function ParticleField({ particleCount }: ParticleFieldProps) {
       colors[i * 3 + 1] = color.g
       colors[i * 3 + 2] = color.b
 
-      // Mostly tiny — like stars/dust
       const sizeRoll = Math.random()
+      let baseSize: number
       if (sizeRoll < 0.85) {
-        baseSizes[i] = 0.008 + Math.random() * 0.015 // Tiny: 0.008-0.023
+        baseSize = 0.008 + Math.random() * 0.015
       } else if (sizeRoll < 0.95) {
-        baseSizes[i] = 0.02 + Math.random() * 0.02  // Small: 0.02-0.04
+        baseSize = 0.02 + Math.random() * 0.02
       } else {
-        baseSizes[i] = 0.04 + Math.random() * 0.03  // Medium: 0.04-0.07
+        baseSize = 0.04 + Math.random() * 0.03
       }
-      sizes[i] = baseSizes[i]
+      sizes[i] = baseSize
       phases[i] = Math.random() * Math.PI * 2
     }
 
@@ -107,7 +106,6 @@ export function ParticleField({ particleCount }: ParticleFieldProps) {
     const time = clock.elapsedTime
 
     for (let i = 0; i < particleCount; i++) {
-      // Subtle twinkle
       const twinkle = Math.sin(time * 1.2 + phases[i]) * 0.5 + 0.5
       sizeArr[i] = baseSizes[i] * (0.3 + twinkle * 0.7)
     }
