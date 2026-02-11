@@ -9,12 +9,12 @@ export function Navbar({ locale }: { locale: string }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/95 backdrop-blur supports-[backdrop-filter]:bg-zinc-950/60">
+    <nav className="sticky top-0 z-50 border-b border-surface-mixed-300 bg-surface-mixed-100 backdrop-blur supports-[backdrop-filter]:bg-surface-mixed-100/60">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <Link href="/" className="text-xl font-bold text-white">
+            <Link href="/" className="text-xl font-bold text-text">
               Ai.Rio
             </Link>
           </div>
@@ -23,25 +23,25 @@ export function Navbar({ locale }: { locale: string }) {
           <div className="hidden md:flex md:items-center md:gap-8">
             <Link
               href="/services"
-              className="text-sm font-medium text-zinc-300 transition-colors hover:text-white"
+              className="text-sm font-medium text-surface-700 transition-colors hover:text-text"
             >
               {t('services')}
             </Link>
             <Link
               href="/about"
-              className="text-sm font-medium text-zinc-300 transition-colors hover:text-white"
+              className="text-sm font-medium text-surface-700 transition-colors hover:text-text"
             >
               {t('about')}
             </Link>
             <Link
               href="/blog"
-              className="text-sm font-medium text-zinc-300 transition-colors hover:text-white"
+              className="text-sm font-medium text-surface-700 transition-colors hover:text-text"
             >
               {t('blog')}
             </Link>
             <Link
               href="/contact"
-              className="text-sm font-medium text-zinc-300 transition-colors hover:text-white"
+              className="text-sm font-medium text-surface-700 transition-colors hover:text-text"
             >
               {t('contact')}
             </Link>
@@ -50,7 +50,7 @@ export function Navbar({ locale }: { locale: string }) {
           {/* Mobile menu button */}
           <button
             type="button"
-            className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-zinc-400 hover:text-white hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+            className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-surface-700 hover:text-text hover:bg-surface-300 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-expanded={mobileMenuOpen}
             aria-label="Toggle navigation menu"
@@ -80,31 +80,31 @@ export function Navbar({ locale }: { locale: string }) {
 
       {/* Mobile menu */}
       <div className={`${mobileMenuOpen ? 'block' : 'hidden'} md:hidden`}>
-        <div className="px-4 pt-2 pb-3 space-y-1 border-t border-zinc-800">
+        <div className="px-4 pt-2 pb-3 space-y-1 border-t border-surface-mixed-300">
           <Link
             href="/services"
-            className="block px-3 py-2 rounded-md text-base font-medium text-zinc-300 hover:text-white hover:bg-zinc-800"
+            className="block px-3 py-2 rounded-md text-base font-medium text-surface-700 hover:text-text hover:bg-surface-300"
             onClick={() => setMobileMenuOpen(false)}
           >
             {t('services')}
           </Link>
           <Link
             href="/about"
-            className="block px-3 py-2 rounded-md text-base font-medium text-zinc-300 hover:text-white hover:bg-zinc-800"
+            className="block px-3 py-2 rounded-md text-base font-medium text-surface-700 hover:text-text hover:bg-surface-300"
             onClick={() => setMobileMenuOpen(false)}
           >
             {t('about')}
           </Link>
           <Link
             href="/blog"
-            className="block px-3 py-2 rounded-md text-base font-medium text-zinc-300 hover:text-white hover:bg-zinc-800"
+            className="block px-3 py-2 rounded-md text-base font-medium text-surface-700 hover:text-text hover:bg-surface-300"
             onClick={() => setMobileMenuOpen(false)}
           >
             {t('blog')}
           </Link>
           <Link
             href="/contact"
-            className="block px-3 py-2 rounded-md text-base font-medium text-zinc-300 hover:text-white hover:bg-zinc-800"
+            className="block px-3 py-2 rounded-md text-base font-medium text-surface-700 hover:text-text hover:bg-surface-300"
             onClick={() => setMobileMenuOpen(false)}
           >
             {t('contact')}

@@ -61,31 +61,31 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         }}
       />
 
-      <div className="min-h-screen bg-zinc-950 dark:bg-black text-zinc-50 dark:text-zinc-400">
+      <div className="min-h-screen bg-dark-page text-text">
         <Navbar locale={locale} />
 
-      {/* Commit 21: Enhanced Hero Section */}
-      <section className="relative px-6 py-24 lg:px-8 overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-indigo-950/20 via-transparent to-transparent" />
-        <div className="mx-auto max-w-4xl relative">
-          <div className="text-center space-y-8">
+        {/* Commit 21: Enhanced Hero Section */}
+        <section className="relative px-4 py-32 sm:px-6 sm:py-40 lg:px-8 overflow-hidden border-b border-surface-mixed-300">
+          {/* Background gradient */}
+          <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-transparent" />
+          <div className="mx-auto max-w-5xl relative">
+          <div className="text-center space-y-10">
             {/* Main headline */}
             <div className="space-y-4">
               <Badge variant="secondary" className="mb-4">
                 <Zap className="h-3 w-3 mr-1" />
                 {t('hero.badge')}
               </Badge>
-              <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl">
+              <h1 className="text-4xl font-bold tracking-tight text-text sm:text-6xl lg:text-7xl">
                 {t('hero.title')}
               </h1>
-              <h2 className="text-3xl font-bold tracking-tight text-indigo-400 sm:text-5xl">
+              <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-5xl">
                 {t('hero.subtitle')}
               </h2>
             </div>
 
             {/* Subheadline */}
-            <p className="mt-6 text-lg leading-8 text-zinc-300 sm:text-xl max-w-3xl mx-auto">
+            <p className="mt-6 text-lg leading-8 text-surface-700 sm:text-xl max-w-3xl mx-auto">
               {t('hero.description')}
             </p>
 
@@ -94,7 +94,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               <Button
                 asChild
                 size="lg"
-                className="group gap-2 bg-indigo-600 hover:bg-indigo-500 text-white"
+                className="group gap-2 bg-primary hover:bg-primary/90 text-white"
               >
                 <a href="#infrastructure">
                   {t('hero.cta.primary')}
@@ -105,7 +105,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 asChild
                 size="lg"
                 variant="outline"
-                className="border-zinc-700 bg-zinc-900 text-white hover:bg-zinc-800"
+                className="border-surface-mixed-300 bg-surface-mixed-100 text-text hover:bg-primary/50"
               >
                 <a href="#contact">
                   {t('hero.cta.secondary')}
@@ -114,7 +114,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             </div>
 
             {/* Trust indicators */}
-            <div className="pt-8 flex flex-wrap items-center justify-center gap-6 text-sm text-zinc-400">
+            <div className="pt-8 flex flex-wrap items-center justify-center gap-6 text-sm text-surface-700">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="h-4 w-4 text-green-500" />
                 <span>{t('hero.trust.productionReady')}</span>
@@ -130,11 +130,11 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             </div>
           </div>
         </div>
-      </section>
+        </section>
 
-      {/* Commit 21: Technical Proof Section */}
-      <section id="infrastructure" className="px-6 py-24 lg:px-8 bg-zinc-900/30">
-        <div className="mx-auto max-w-6xl">
+        {/* Commit 21: Technical Proof Section */}
+        <section id="infrastructure" className="px-4 py-32 sm:px-6 sm:py-40 lg:px-8 bg-surface-mixed-100/50 border-b border-surface-mixed-300">
+          <div className="mx-auto max-w-7xl">
           <TechnicalProof
             locale={locale}
             title={t('infrastructure.title')}
@@ -179,11 +179,11 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             layout="grid"
           />
         </div>
-      </section>
+        </section>
 
-      {/* Commit 21: Dashboard Screenshot Showcase */}
-      <section className="px-6 py-24 lg:px-8">
-        <div className="mx-auto max-w-6xl">
+        {/* Commit 21: Dashboard Screenshot Showcase */}
+        <section className="px-4 py-32 sm:px-6 sm:py-40 lg:px-8 border-b border-surface-mixed-300">
+          <div className="mx-auto max-w-7xl">
           <DashboardShowcase
             locale={locale}
             title={t('dashboard.title')}
@@ -207,11 +207,11 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             aspectRatio="16/9"
           />
         </div>
-      </section>
+        </section>
 
-      {/* Commit 22: Problem Section */}
-      <section className="px-6 py-24 lg:px-8 bg-zinc-900/30">
-        <div className="mx-auto max-w-6xl">
+        {/* Commit 22: Problem Section */}
+        <section className="px-4 py-32 sm:px-6 sm:py-40 lg:px-8 bg-surface-mixed-100/50 border-b border-surface-mixed-300">
+          <div className="mx-auto max-w-7xl">
           <ProblemSection
             title={t('problem.title')}
             subtitle={t('problem.subtitle')}
@@ -248,23 +248,23 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             }}
           />
         </div>
-      </section>
+        </section>
 
-      {/* Commit 22: Services Section */}
-      <section id="services" className="px-6 py-24 lg:px-8">
-        <div className="mx-auto max-w-6xl">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">
+        {/* Commit 22: Services Section */}
+        <section id="services" className="px-4 py-32 sm:px-6 sm:py-40 lg:px-8 border-b border-surface-mixed-300">
+          <div className="mx-auto max-w-7xl">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-text mb-4">
               {t('services.title')}
             </h2>
-            <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
+            <p className="text-lg text-surface-700 max-w-2xl mx-auto">
               {t('services.subtitle')}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Payment Recovery */}
-            <Card className="border-zinc-800 bg-zinc-900 hover:border-indigo-500/50 transition-all hover:shadow-lg hover:shadow-indigo-500/10">
+            <Card className="border-surface-mixed-300 bg-surface-mixed-100/80 hover:bg-surface-mixed-100 hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-primary/10">
               <CardHeader>
                 <div className="flex items-start justify-between">
                   <Badge variant="secondary" className="shrink-0">
@@ -275,7 +275,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 <CardTitle className="text-xl mt-4">
                   {t("services.payment_recovery.title")}
                 </CardTitle>
-                <div className="text-2xl font-bold text-indigo-400">
+                <div className="text-2xl font-bold text-primary">
                   {t("services.payment_recovery.price")}
                 </div>
                 <CardDescription className="text-sm">
@@ -283,7 +283,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                <p className="text-sm text-zinc-300">
+                <p className="text-sm text-surface-700">
                   {t("services.payment_recovery.description")}
                 </p>
                 <Button asChild className="w-full" variant="outline">
@@ -296,7 +296,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             </Card>
 
             {/* Usage-Based Pricing */}
-            <Card className="border-zinc-800 bg-zinc-900 hover:border-indigo-500/50 transition-all hover:shadow-lg hover:shadow-indigo-500/10">
+            <Card className="border-surface-mixed-300 bg-surface-mixed-100/80 hover:bg-surface-mixed-100 hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-primary/10">
               <CardHeader>
                 <div className="flex items-start justify-between">
                   <Badge variant="secondary" className="shrink-0">
@@ -307,7 +307,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 <CardTitle className="text-xl mt-4">
                   {t("services.usage_pricing.title")}
                 </CardTitle>
-                <div className="text-2xl font-bold text-indigo-400">
+                <div className="text-2xl font-bold text-primary">
                   {t("services.usage_pricing.price")}
                 </div>
                 <CardDescription className="text-sm">
@@ -315,7 +315,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                <p className="text-sm text-zinc-300">
+                <p className="text-sm text-muted-foreground">
                   {t("services.usage_pricing.description")}
                 </p>
                 <Button asChild className="w-full" variant="outline">
@@ -328,7 +328,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             </Card>
 
             {/* AI Cost Tracking */}
-            <Card className="border-zinc-800 bg-zinc-900 hover:border-indigo-500/50 transition-all hover:shadow-lg hover:shadow-indigo-500/10">
+            <Card className="border-surface-mixed-300 bg-surface-mixed-100/80 hover:bg-surface-mixed-100 hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-primary/10">
               <CardHeader>
                 <div className="flex items-start justify-between">
                   <Badge variant="default" className="shrink-0">
@@ -339,7 +339,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 <CardTitle className="text-xl mt-4">
                   {t("services.ai_tracking.title")}
                 </CardTitle>
-                <div className="text-2xl font-bold text-indigo-400">
+                <div className="text-2xl font-bold text-primary">
                   {t("services.ai_tracking.price")}
                 </div>
                 <CardDescription className="text-sm">
@@ -347,7 +347,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                <p className="text-sm text-zinc-300">
+                <p className="text-sm text-muted-foreground">
                   {t("services.ai_tracking.description")}
                 </p>
                 <Button asChild className="w-full" variant="outline">
@@ -360,7 +360,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             </Card>
 
             {/* Billing Audit */}
-            <Card className="border-zinc-800 bg-zinc-900 hover:border-indigo-500/50 transition-all hover:shadow-lg hover:shadow-indigo-500/10">
+            <Card className="border-surface-mixed-300 bg-surface-mixed-100/80 hover:bg-surface-mixed-100 hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-primary/10">
               <CardHeader>
                 <div className="flex items-start justify-between">
                   <Badge variant="secondary" className="shrink-0">
@@ -371,7 +371,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 <CardTitle className="text-xl mt-4">
                   {t("services.billing_audit.title")}
                 </CardTitle>
-                <div className="text-2xl font-bold text-indigo-400">
+                <div className="text-2xl font-bold text-primary">
                   {t("services.billing_audit.price")}
                 </div>
                 <CardDescription className="text-sm">
@@ -379,7 +379,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                <p className="text-sm text-zinc-300">
+                <p className="text-sm text-muted-foreground">
                   {t("services.billing_audit.description")}
                 </p>
                 <Button asChild className="w-full" variant="outline">
@@ -392,7 +392,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             </Card>
 
             {/* Complete Billing - Featured */}
-            <Card className="md:col-span-2 border-indigo-500/50 bg-gradient-to-br from-indigo-950/50 to-zinc-900 hover:border-indigo-500 transition-all hover:shadow-xl hover:shadow-indigo-500/20">
+            <Card className="md:col-span-2 border-primary/50 bg-gradient-to-br from-primary/5 to-surface-mixed-100 hover:border-primary transition-all hover:shadow-xl hover:shadow-primary/20">
               <CardHeader>
                 <div className="flex items-start justify-between">
                   <Badge variant="default" className="shrink-0">
@@ -406,7 +406,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 <CardTitle className="text-2xl mt-4">
                   {t("services.complete_billing.title")}
                 </CardTitle>
-                <div className="text-3xl font-bold text-indigo-400">
+                <div className="text-3xl font-bold text-primary">
                   {t("services.complete_billing.price")}
                 </div>
                 <CardDescription className="text-sm">
@@ -414,10 +414,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                <p className="text-sm text-zinc-300">
+                <p className="text-sm text-surface-700">
                   {t("services.complete_billing.description")}
                 </p>
-                <div className="flex flex-wrap gap-4 text-sm text-zinc-400">
+                <div className="flex flex-wrap gap-4 text-sm text-surface-700">
                   <span className="flex items-center gap-1">
                     <CheckCircle2 className="h-4 w-4 text-green-500" />
                     {t('services.features.allServices')}
@@ -441,11 +441,11 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             </Card>
           </div>
         </div>
-      </section>
+        </section>
 
-      {/* Commit 22: Process Section */}
-      <section id="process" className="px-6 py-24 lg:px-8 bg-zinc-900/30">
-        <div className="mx-auto max-w-6xl">
+        {/* Commit 22: Process Section */}
+        <section id="process" className="px-4 py-32 sm:px-6 sm:py-40 lg:px-8 bg-surface-mixed-100/50 border-b border-surface-mixed-300">
+          <div className="mx-auto max-w-7xl">
           <DeliverablesSection
             locale={locale}
             title={t('process.title')}
@@ -542,19 +542,19 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             }}
           />
         </div>
-      </section>
+        </section>
 
-      {/* About Section */}
-      <section id="about" className="px-6 py-24 lg:px-8">
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl font-bold text-white mb-6">
+        {/* About Section */}
+        <section id="about" className="px-4 py-32 sm:px-6 sm:py-40 lg:px-8 border-b border-surface-mixed-300">
+          <div className="mx-auto max-w-4xl text-center">
+          <h2 className="text-3xl font-bold text-text mb-6">
             {t('about.title')}
           </h2>
           <div className="prose prose-invert max-w-none">
-            <p className="text-lg text-zinc-400 mb-6">
+            <p className="text-lg text-surface-700 mb-6">
               {t('about.description')}
             </p>
-            <div className="flex flex-wrap justify-center gap-4 text-sm text-zinc-500">
+            <div className="flex flex-wrap justify-center gap-4 text-sm text-surface-700">
               <Badge variant="outline" className="gap-2">
                 <Code2 className="h-3 w-3" />
                 {t('about.badges.openSource')}
@@ -570,11 +570,11 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             </div>
           </div>
         </div>
-      </section>
+        </section>
 
-      {/* Commit 23: Simplified Contact Form */}
-      <section id="contact" className="px-6 py-24 lg:px-8 bg-zinc-900/30">
-        <div className="mx-auto max-w-2xl">
+        {/* Commit 23: Simplified Contact Form */}
+        <section id="contact" className="px-4 py-32 sm:px-6 sm:py-40 lg:px-8 bg-surface-mixed-100/50 border-b border-surface-mixed-300">
+          <div className="mx-auto max-w-2xl">
           <SimplifiedContactForm
             locale={locale}
             contextText={t('contact.contextText')}
@@ -582,27 +582,27 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             emailAddress="hello@ai-rio.com"
           />
         </div>
-      </section>
+        </section>
 
-      {/* Footer */}
-      <footer className="px-6 py-12 border-t border-zinc-800">
-        <div className="mx-auto max-w-6xl">
+        {/* Footer */}
+        <footer className="px-4 py-16 sm:px-6 border-t border-surface-mixed-300 bg-surface-mixed-100/50">
+          <div className="mx-auto max-w-7xl">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-sm text-zinc-500">
+            <p className="text-sm text-surface-700">
               © 2026 Ai.Rio - {t('footer.copyright')}
             </p>
-            <div className="flex items-center gap-6 text-sm text-zinc-500">
-              <Link href="/privacy" className="hover:text-zinc-400 transition-colors">
+            <div className="flex items-center gap-6 text-sm text-surface-700">
+              <Link href="/privacy" className="hover:text-text transition-colors">
                 {t('footer.privacy')}
               </Link>
-              <Link href="/terms" className="hover:text-zinc-400 transition-colors">
+              <Link href="/privacy" className="hover:text-surface-700 transition-colors">
                 {t('footer.terms')}
               </Link>
             </div>
           </div>
         </div>
-      </footer>
-    </div>
+        </footer>
+      </div>
     </>
   );
 }

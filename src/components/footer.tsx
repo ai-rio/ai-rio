@@ -7,39 +7,39 @@ export function Footer({ locale }: { locale: string }) {
   const t = useTranslations('components/footer');
 
   return (
-    <footer className="border-t border-zinc-800 bg-zinc-950">
+    <footer className="border-t border-surface-mixed-300 bg-surface-mixed-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="py-12">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
             {/* Company Info */}
             <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-white">Ai.Rio</h3>
-              <p className="text-sm text-zinc-400">
+              <h3 className="text-lg font-semibold text-text">Ai.Rio</h3>
+              <p className="text-sm text-surface-700">
                 {t('tagline')}
               </p>
             </div>
 
             {/* Navigation */}
             <div className="space-y-4">
-              <h4 className="text-sm font-semibold text-white">{t('navigation')}</h4>
+              <h4 className="text-sm font-semibold text-text">{t('navigation')}</h4>
               <ul className="space-y-2">
                 <li>
-                  <Link href="/" className="text-sm text-zinc-400 hover:text-white transition-colors">
+                  <Link href="/" className="text-sm text-surface-700 hover:text-text transition-colors">
                     {t('home')}
                   </Link>
                 </li>
                 <li>
-                  <Link href="/services" className="text-sm text-zinc-400 hover:text-white transition-colors">
+                  <Link href="/services" className="text-sm text-surface-700 hover:text-text transition-colors">
                     {t('services')}
                   </Link>
                 </li>
                 <li>
-                  <Link href="/about" className="text-sm text-zinc-400 hover:text-white transition-colors">
+                  <Link href="/about" className="text-sm text-surface-700 hover:text-text transition-colors">
                     {t('about')}
                   </Link>
                 </li>
                 <li>
-                  <Link href="/blog" className="text-sm text-zinc-400 hover:text-white transition-colors">
+                  <Link href="/blog" className="text-sm text-surface-700 hover:text-text transition-colors">
                     {t('blog')}
                   </Link>
                 </li>
@@ -48,25 +48,25 @@ export function Footer({ locale }: { locale: string }) {
 
             {/* Services */}
             <div className="space-y-4">
-              <h4 className="text-sm font-semibold text-white">{t('services_title')}</h4>
+              <h4 className="text-sm font-semibold text-text">{t('services_title')}</h4>
               <ul className="space-y-2">
                 <li>
-                  <Link href="/services/payment-recovery" className="text-sm text-zinc-400 hover:text-white transition-colors">
+                  <Link href="/services/payment-recovery" className="text-sm text-surface-700 hover:text-text transition-colors">
                     {t('payment_recovery')}
                   </Link>
                 </li>
                 <li>
-                  <Link href="/services/usage-pricing" className="text-sm text-zinc-400 hover:text-white transition-colors">
+                  <Link href="/services/usage-pricing" className="text-sm text-surface-700 hover:text-text transition-colors">
                     {t('usage_pricing')}
                   </Link>
                 </li>
                 <li>
-                  <Link href="/services/ai-tracking" className="text-sm text-zinc-400 hover:text-white transition-colors">
+                  <Link href="/services/ai-tracking" className="text-sm text-surface-700 hover:text-text transition-colors">
                     {t('ai_tracking')}
                   </Link>
                 </li>
                 <li>
-                  <Link href="/services/billing-audit" className="text-sm text-zinc-400 hover:text-white transition-colors">
+                  <Link href="/services/billing-audit" className="text-sm text-surface-700 hover:text-text transition-colors">
                     {t('billing_audit')}
                   </Link>
                 </li>
@@ -75,10 +75,10 @@ export function Footer({ locale }: { locale: string }) {
 
             {/* Contact */}
             <div className="space-y-4">
-              <h4 className="text-sm font-semibold text-white">{t('contact_title')}</h4>
+              <h4 className="text-sm font-semibold text-text">{t('contact_title')}</h4>
               <ul className="space-y-2">
                 <li>
-                  <Link href="/contact" className="text-sm text-zinc-400 hover:text-white transition-colors">
+                  <Link href="/contact" className="text-sm text-surface-700 hover:text-text transition-colors">
                     {t('get_in_touch')}
                   </Link>
                 </li>
@@ -87,9 +87,9 @@ export function Footer({ locale }: { locale: string }) {
           </div>
 
           {/* Bottom bar */}
-          <div className="mt-12 border-t border-zinc-800 pt-8">
+          <div className="mt-12 border-t border-surface-mixed-300 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-sm text-zinc-400">
+              <p className="text-sm text-surface-700">
                 {t('copyright', { year: new Date().getFullYear() })}
               </p>
               <div className="flex items-center gap-6">
@@ -97,7 +97,7 @@ export function Footer({ locale }: { locale: string }) {
                   href="https://twitter.com/airio_br"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-zinc-400 hover:text-white transition-colors"
+                  className="text-sm text-surface-700 hover:text-text transition-colors"
                   aria-label="Twitter"
                 >
                   Twitter
@@ -106,7 +106,7 @@ export function Footer({ locale }: { locale: string }) {
                   href="https://linkedin.com/company/ai-rio"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-zinc-400 hover:text-white transition-colors"
+                  className="text-sm text-surface-700 hover:text-text transition-colors"
                   aria-label="LinkedIn"
                 >
                   LinkedIn
@@ -115,7 +115,7 @@ export function Footer({ locale }: { locale: string }) {
                   href="https://github.com/ai-rio"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-zinc-400 hover:text-white transition-colors"
+                  className="text-sm text-surface-700 hover:text-text transition-colors"
                   aria-label="GitHub"
                 >
                   GitHub

@@ -23,33 +23,33 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
   };
 
   return (
-    <div className="min-h-screen bg-zinc-950 dark:bg-black text-zinc-50 dark:text-zinc-400">
+    <div className="min-h-screen bg-background text-foreground">
       <Navbar locale={locale} />
 
       <main className="py-24">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-4">
+            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl mb-4">
               {t('title')}
             </h1>
-            <p className="text-lg text-zinc-300">
+            <p className="text-lg text-muted-foreground">
               {t('description')}
             </p>
           </div>
 
           {/* Contact Form */}
-          <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-8">
+          <div className="bg-card border border-border rounded-lg p-8">
             <SimplifiedContactForm locale={locale} />
           </div>
 
           {/* Alternative Contact Info */}
           <div className="mt-12 text-center">
-            <p className="text-sm text-zinc-400">
+            <p className="text-sm text-muted-foreground">
               <span>{alternativeContact.label}</span>
               <a
                 href={`mailto:${alternativeContact.email}`}
-                className="text-indigo-400 hover:text-indigo-300 transition-colors"
+                className="text-primary hover:text-primary-foreground transition-colors"
               >
                 {alternativeContact.email}
               </a>

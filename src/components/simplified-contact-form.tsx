@@ -109,12 +109,12 @@ export function SimplifiedContactForm({
       <Card className={cn('border-green-500/50 bg-green-500/5', className)}>
         <CardContent className="flex flex-col items-center justify-center py-12 text-center">
           <div className="flex h-12 w-12 items-center justify-center rounded-full bg-green-500/20 mb-4">
-            <Send className="h-6 w-6 text-green-600 dark:text-green-500" />
+            <Send className="h-6 w-6 text-green-600 text-green-500" />
           </div>
           <h3 className="text-xl font-semibold mb-2">
             {locale === 'en' ? 'Message Sent!' : 'Mensagem Enviada!'}
           </h3>
-          <p className="text-muted-foreground">
+          <p className="text-surface-700">
             {locale === 'en'
               ? "I'll get back to you within 24 hours."
               : 'Responderei em até 24 horas.'}
@@ -128,7 +128,7 @@ export function SimplifiedContactForm({
     <Card className={className}>
       <CardHeader className="space-y-4">
         {contextText && (
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <div className="flex items-center gap-2 text-sm text-surface-700">
             <Mail className="h-4 w-4" aria-hidden="true" />
             <span>{contextText}</span>
           </div>
@@ -214,7 +214,7 @@ export function SimplifiedContactForm({
             />
 
             {/* Helper Text */}
-            <p className="text-xs text-muted-foreground">
+            <p className="text-xs text-surface-700">
               {locale === 'en'
                 ? 'Next steps: I\'ll review your message and reach out within 24 hours to schedule a call.'
                 : 'Próximos passos: Analisarei sua mensagem e entrarei em contato em até 24 horas para agendar uma chamada.'}
