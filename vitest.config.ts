@@ -18,10 +18,15 @@ export default defineConfig({
         '**/i18n/messages/**',
       ],
     },
+    globals: true,
   },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
     },
+  },
+  // Add support for Three.js imports
+  define: {
+    'process.env.NODE_ENV': JSON.stringify('test'),
   },
 })
