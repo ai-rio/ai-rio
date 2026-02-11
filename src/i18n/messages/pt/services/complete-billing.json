@@ -1,0 +1,474 @@
+{
+  "hero": {
+    "timeline": "4-6 semanas",
+    "price": "$8,000-15,000",
+    "title": "Fundacao de Cobranca Completa",
+    "subtitle": "Infraestrutura de cobranca de ponta a ponta para SaaS de IA. Todos os servicos integrados.",
+    "description": "Recuperacao de pagamentos, precos baseados em uso, rastreamento de custos de IA e auditoria de cobranca. Um fornecedor, uma integracao, garantia de 90 dias."
+  },
+  "metrics": {
+    "title": "Tudo o Que Voce Precisa, Nada Que Nao",
+    "subtitle": "Quatro servicos essenciais. Uma implementacao. Responsabilidade completa.",
+    "items": [
+      {
+        "id": "1",
+        "label": "Servicos Incluidos",
+        "value": 4,
+        "suffix": " servicos",
+        "description": "Recuperacao de pagamentos, precos de uso, rastreamento de custos, auditoria",
+        "progress": 100,
+        "trend": "neutral"
+      },
+      {
+        "id": "2",
+        "label": "Tempo de Implementacao",
+        "value": 6,
+        "suffix": " semanas",
+        "description": "Do inicio a producao",
+        "progress": 100,
+        "trend": "neutral"
+      },
+      {
+        "id": "3",
+        "label": "Cobertura de Testes",
+        "value": 99.5,
+        "suffix": "%",
+        "description": "866/871 testes passando",
+        "progress": 99.5,
+        "trend": "up"
+      },
+      {
+        "id": "4",
+        "label": "Periodo de Garantia",
+        "value": 90,
+        "suffix": " dias",
+        "description": "Suporte completo incluido",
+        "progress": 100,
+        "trend": "up"
+      }
+    ]
+  },
+  "problems": {
+    "title": "Por Que a Cobranca Fragmentada Falha",
+    "subtitle": "Multiplos fornecedores, integracoes e apontamentos de culpa. Voce precisa de uma solucao que realmente funciona.",
+    "alert": {
+      "title": "O Pesadelo de Integracao",
+      "description": "Recuperacao de pagamentos do fornecedor A, precos de uso do fornecedor B, rastreamento de custos do fornecedor C. Quando eles nao se integram, voce fica preso no meio depurando."
+    },
+    "items": [
+      {
+        "id": "1",
+        "title": "Sem Fundacao de Cobranca",
+        "description": "Seu SaaS de IA nao tem infraestrutura de cobranca. Voce esta usando configuracoes padrao do Stripe e perdendo receita para pagamentos falhados, custos nao atribuidos e processos manuais.",
+        "severity": "critical",
+        "metric": "20-30%+ de receita em risco"
+      },
+      {
+        "id": "2",
+        "title": "Multiplos Fornecedores, Solucao Fragmentada",
+        "description": "Voce poderia contratar diferentes fornecedores para recuperacao de pagamentos, precos de uso, rastreamento de custos e auditoria. As integracoes quebrarao, os custos se acumularao e a responsabilidade ficara pouco clara.",
+        "severity": "high"
+      },
+      {
+        "id": "3",
+        "title": "Equipe de Engenharia Distraida",
+        "description": "Seus engenheiros querem construir recursos do produto, nao infraestrutura de cobranca. Cada sprint gasto em cobranca e um recurso nao enviado.",
+        "severity": "high"
+      },
+      {
+        "id": "4",
+        "title": "Pressao de Tempo de Mercado",
+        "description": "Concorrentes estao lancando com precos de uso, melhores margens e recuperacao mais rapida. Voce precisa de infraestrutura de cobranca agora.",
+        "severity": "medium"
+      }
+    ]
+  },
+  "solution": {
+    "title": "A Solução Completa Ai.Rio",
+    "subtitle": "Quatro servicos, uma implementacao, ponto unico de responsabilidade.",
+    "items": [
+      {
+        "id": "1",
+        "title": "Recuperacao de Pagamentos Falhados",
+        "description": "Fluxos de trabalho de dunning automatizados que recuperam 65-70% dos pagamentos falhados. Pare de deixar receita na mesa.",
+        "icon": "credit-card",
+        "badge": "+17.4% de recuperacao",
+        "highlighted": true
+      },
+      {
+        "id": "2",
+        "title": "Precos Baseados em Uso",
+        "description": "Lance o Stripe Meter em 2 semanas. Empresas com precos de uso crescem 54% mais rapido.",
+        "icon": "zap",
+        "badge": "54% de crescimento mais rapido"
+      },
+      {
+        "id": "3",
+        "title": "Rastreamento de Custos de IA",
+        "description": "Rastreie custos de LLM por cliente em 5 provedores (400+ modelos). Conheca suas verdadeiras margens.",
+        "icon": "bar-chart",
+        "badge": "5 provedores"
+      },
+      {
+        "id": "4",
+        "title": "Auditoria e Roadmap de Cobranca",
+        "description": "Identifique vazamentos de receita e crie um roadmap de otimizacao priorizado.",
+        "icon": "database"
+      },
+      {
+        "id": "5",
+        "title": "Coordenador de Casos Extremos",
+        "description": "Sistema de 720 linhas manuseando atualizacoes, downgrades, proporcionalizacao, testes, cupons e mais.",
+        "icon": "shield",
+        "badge": "De grau de producao"
+      },
+      {
+        "id": "6",
+        "title": "Garantia de 90 Dias",
+        "description": "Se algo quebrar dentro de 90 dias, eu corrigo. Sem perguntas, sem custo adicional.",
+        "icon": "shield",
+        "badge": "Tranquilidade mental"
+      }
+    ]
+  },
+  "dashboardShowcase": {
+    "title": "Painel de Cobranca Unificado",
+    "subtitle": "Um painel para margens, recuperacao, uso e custos.",
+    "views": [
+      {
+        "id": "1",
+        "title": "Resumo de Margens",
+        "description": "Verdadeiras margens por cliente apos contabilizar custos de LLM",
+        "imageSrc": "/images/dashboard/billing-margin-overview.png",
+        "imageAlt": "Painel mostrando verdadeiras margens de lucro por cliente apos custos de LLM",
+        "device": "desktop"
+      },
+      {
+        "id": "2",
+        "title": "Recuperacao de Receita",
+        "description": "Pagamentos falhados recuperados e receita economizada",
+        "imageSrc": "/images/dashboard/billing-revenue-recovery.png",
+        "imageAlt": "Painel mostrando metricas de recuperacao de pagamentos falhados e receita economizada",
+        "device": "desktop"
+      },
+      {
+        "id": "3",
+        "title": "Tendencias de Uso",
+        "description": "Padroes de uso do cliente e cobranca projetada",
+        "imageSrc": "/images/dashboard/billing-usage-trends.png",
+        "imageAlt": "Painel mostrando padroes de uso do cliente e projecoes de cobranca",
+        "device": "desktop"
+      },
+      {
+        "id": "4",
+        "title": "Atribuicao de Custos",
+        "description": "Custos de LLM divididos por provedor, modelo e cliente",
+        "imageSrc": "/images/dashboard/billing-cost-attribution.png",
+        "imageAlt": "Painel mostrando divisao de custos de LLM por provedor, modelo e cliente",
+        "device": "desktop"
+      }
+    ]
+  },
+  "deliverables": {
+    "title": "O Que Voce Vai Receber",
+    "subtitle": "Entrega por fases com marcos claros. Pronto para producao em 4-6 semanas.",
+    "totalPrice": 15000,
+    "cta": {
+      "label": "Construir Cobranca Completa",
+      "href": "/contact?service=complete-billing"
+    },
+    "phases": [
+      {
+        "phase": "1",
+        "title": "Auditoria e Estrategia",
+        "description": "Auditoria completa de cobranca e roadmap de implementacao",
+        "duration": "Semana 1",
+        "price": 2000,
+        "deliverables": [
+          {
+            "id": "1-1",
+            "title": "Auditoria de Infraestrutura de Cobranca",
+            "description": "Analise completo da configuracao atual, lacunas e vazamentos de receita",
+            "status": "pending",
+            "deliveryWeek": "Semana 1"
+          },
+          {
+            "id": "1-2",
+            "title": "Roadmap de Implementacao",
+            "description": "Plano priorizado com marcos claros e cronograma",
+            "status": "pending",
+            "deliveryWeek": "Semana 1"
+          },
+          {
+            "id": "1-3",
+            "title": "Documentacao de Casos Extremos",
+            "description": "Documentar todos os casos extremos de cobranca e requisitos de manuseio",
+            "status": "pending",
+            "deliveryWeek": "Semana 1"
+          }
+        ]
+      },
+      {
+        "phase": "2",
+        "title": "Fundacao: Recuperacao e Auditoria",
+        "description": "Implementar recuperacao de pagamentos e auditoria completa de cobranca",
+        "duration": "Semana 2",
+        "price": 4000,
+        "deliverables": [
+          {
+            "id": "2-1",
+            "title": "Sistema de Recuperacao de Pagamentos",
+            "description": "Fluxos de trabalho de dunning automatizados com taxa de recuperacao de 65-70%",
+            "status": "pending",
+            "deliveryWeek": "Semana 2"
+          },
+          {
+            "id": "2-2",
+            "title": "Relatorio de Auditoria de Cobranca",
+            "description": "Relatorio detalhado de todas as lacunas de cobranca e oportunidades de otimizacao",
+            "status": "pending",
+            "deliveryWeek": "Semana 2"
+          },
+          {
+            "id": "2-3",
+            "title": "Correcoes de Vazamentos de Receita",
+            "description": "Corrigir vazamentos de receita imediatos identificados na auditoria",
+            "status": "pending",
+            "deliveryWeek": "Semana 2"
+          }
+        ]
+      },
+      {
+        "phase": "3",
+        "title": "Rastreamento de Uso e Custos",
+        "description": "Implementar precos baseados em uso e rastreamento de custos de IA",
+        "duration": "Semanas 3-4",
+        "price": 5000,
+        "deliverables": [
+          {
+            "id": "3-1",
+            "title": "Implementacao do Stripe Meter",
+            "description": "Infraestrutura de precos baseados em uso com rastreamento de eventos",
+            "status": "pending",
+            "deliveryWeek": "Semana 3"
+          },
+          {
+            "id": "3-2",
+            "title": "Rastreamento de Custos de LLM",
+            "description": "Rastreamento de custos multi-provedor com atribuicao de clientes",
+            "status": "pending",
+            "deliveryWeek": "Semana 3-4"
+          },
+          {
+            "id": "3-3",
+            "title": "Paineis de Uso e Custos",
+            "description": "Paineis em tempo real para uso e custos por cliente",
+            "status": "pending",
+            "deliveryWeek": "Semana 4"
+          }
+        ]
+      },
+      {
+        "phase": "4",
+        "title": "Integracao e Testes",
+        "description": "Integrar todos os sistemas e testes rigorosos",
+        "duration": "Semana 5",
+        "price": 2500,
+        "deliverables": [
+          {
+            "id": "4-1",
+            "title": "Coordenador de Casos Extremos",
+            "description": "Sistema de 720 linhas manuseando todos os casos extremos de cobranca",
+            "status": "pending",
+            "deliveryWeek": "Semana 5"
+          },
+          {
+            "id": "4-2",
+            "title": "Execucao de Suite de Testes",
+            "description": "Executar 866+ testes cobrindo todos os cenarios",
+            "status": "pending",
+            "deliveryWeek": "Semana 5"
+          },
+          {
+            "id": "4-3",
+            "title": "Testes de Integracao",
+            "description": "Verificar que todos os sistemas funcionam corretamente juntos",
+            "status": "pending",
+            "deliveryWeek": "Semana 5"
+          }
+        ]
+      },
+      {
+        "phase": "5",
+        "title": "Lancamento e Suporte",
+        "description": "Implantacao de producao e suporte estendido",
+        "duration": "Semana 6",
+        "price": 1500,
+        "deliverables": [
+          {
+            "id": "5-1",
+            "title": "Implantacao de Producao",
+            "description": "Implantar em producao com monitoramento e alertas",
+            "status": "pending",
+            "deliveryWeek": "Semana 6"
+          },
+          {
+            "id": "5-2",
+            "title": "Documentacao e Entrega",
+            "description": "Documentacao completa e treinamento da equipe",
+            "status": "pending",
+            "deliveryWeek": "Semana 6"
+          },
+          {
+            "id": "5-3",
+            "title": "Garantia de 90 Dias",
+            "description": "Suporte completo e correcoes de bugs por 90 dias apos o lancamento",
+            "status": "pending",
+            "deliveryWeek": "Semanas 6-18"
+          }
+        ]
+      }
+    ]
+  },
+  "whoFor": {
+    "title": "Para Quem E Isso",
+    "subtitle": "Empresas SaaS de IA que precisam de infraestrutura de cobranca completa, nao solucoes pontuais fragmentadas.",
+    "profiles": [
+      {
+        "id": "1",
+        "name": "Fundador de SaaS de IA de Serie A",
+        "initials": "AF",
+        "stage": "Serie A",
+        "mrr": { "min": 100000, "max": 500000 },
+        "description": "Escalando rapidamente sem fundacao de cobranca. Precisa de tudo, precisa agora e precisa que funcione.",
+        "painPoints": [
+          "Sem infraestrutura de cobranca",
+          "Receita vazando de lacunas",
+          "Equipe de engenharia distraida",
+          "Concorrentes movendo-se mais rapido"
+        ]
+      },
+      {
+        "id": "2",
+        "name": "CTO de Estagio de Crescimento",
+        "initials": "GC",
+        "stage": "Estagio de Crescimento",
+        "mrr": { "min": 500000, "max": 2000000 },
+        "description": "Lider tecnico que quer um fornecedor, uma integracao e responsabilidade clara. Sem fragmentacao entre fornecedores.",
+        "painPoints": [
+          "Risco de multiplos fornecedores",
+          "Complexidade de integracao",
+          "Fragmentacao de responsabilidade",
+          "Largura de banda da equipe de engenharia"
+        ]
+      },
+      {
+        "id": "3",
+        "name": "VP de Engenharia Pre-IPO",
+        "initials": "PE",
+        "stage": "Estagio Tardio",
+        "mrr": { "min": 2000000, "max": 10000000 },
+        "description": "Construindo infraestrutura robusta antes do IPO. Quer cobranca de grau de producao com garantias.",
+        "painPoints": [
+          "Precisa de sistemas de grau de producao",
+          "Conformidade e preparacao de auditoria",
+          "Requisitos de escalabilidade",
+          "Mitigacao de riscos critica"
+        ]
+      }
+    ]
+  },
+  "relatedServices": {
+    "title": "Servicos Individuais",
+    "subtitle": "Nao precisa de tudo? Cada servico esta disponivel separadamente.",
+    "items": [
+      {
+        "id": "1",
+        "title": "Recuperacao de Pagamentos",
+        "description": "So precisa de recuperacao de pagamentos? $2K-4K, 1 semana.",
+        "href": "/services/payment-recovery"
+      },
+      {
+        "id": "2",
+        "title": "Precos Baseados em Uso",
+        "description": "So precisa de precos de uso? $3K-5K, 2 semanas.",
+        "href": "/services/usage-pricing"
+      },
+      {
+        "id": "3",
+        "title": "Rastreamento de Custos de IA",
+        "description": "So precisa de rastreamento de custos? $3K-5K, 2-3 semanas.",
+        "href": "/services/ai-tracking"
+      },
+      {
+        "id": "4",
+        "title": "Auditoria de Cobranca",
+        "description": "Comece com uma auditoria para avaliar necessidades. $1.5K-3K, 1 semana.",
+        "href": "/services/billing-audit",
+        "badge": "Comece Aqui"
+      }
+    ]
+  },
+  "faq": {
+    "title": "Perguntas Frequentes",
+    "subtitle": "Perguntas sobre o pacote de cobranca completo.",
+    "items": [
+      {
+        "id": "1",
+        "question": "Por que agrupar em vez de comprar servicos separadamente?",
+        "answer": "Tres razoes: (1) Custo - os precos agrupados sao 15-25% mais baratos do que comprar separadamente. (2) Integracao - um fornecedor significa que tudo funciona perfeitamente junto. (3) Responsabilidade - ponto unico de contato, sem apontamentos de culpa quando algo quebra.",
+        "category": "Valor"
+      },
+      {
+        "id": "2",
+        "question": "O que a garantia de 90 dias cobre?",
+        "answer": "Tudo. Se qualquer parte da infraestrutura de cobranca quebrar dentro de 90 dias do lancamento, eu corrijo. Sem custo adicional, sem perguntas. Isso cobre bugs, casos extremos, problemas de integracao, qualquer coisa.",
+        "category": "Garantia"
+      },
+      {
+        "id": "3",
+        "question": "Quanto tempo a implementacao completa leva?",
+        "answer": "4-6 semanas do inicio ao lancamento de producao. Algumas fases podem ser executadas em paralelo, e posso ajustar o cronograma com base em sua urgencia.",
+        "category": "Cronograma"
+      },
+      {
+        "id": "4",
+        "question": "E se eu ja tiver alguma infraestrutura de cobranca?",
+        "answer": "Construo sobre o que voce tem. A auditoria inicial identifica o que existe e o que esta faltando. Voce so paga pelo que precisa. A cobranca completa tem seu escopo ajustado a sua situacao especifica.",
+        "category": "Personalizacao"
+      },
+      {
+        "id": "5",
+        "question": "Preciso que minha equipe de engenharia participe?",
+        "answer": "Minimamente. Preciso de algumas horas para coleta de requisitos, acesso a sistemas e uma revisao da implementacao. Sua equipe pode focar em recursos do produto.",
+        "category": "Processo"
+      },
+      {
+        "id": "6",
+        "question": "E se eu precisar de mudancas apos os 90 dias?",
+        "answer": "Ofereço pacotes de suporte continuo, ou sua equipe pode assumir. O codigo esta documentado e testado, entao qualquer engenheiro competente pode manuten-lo.",
+        "category": "Suporte"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Pronto para Infraestrutura de Cobranca Completa?",
+    "subtitle": "Um fornecedor. Uma integracao. Garantia de 90 dias.",
+    "description": "Agende uma chamada de descoberta gratuita. Vou auditar sua situacao de cobranca e fornecer uma cotacao fixa para o pacote completo.",
+    "primaryAction": {
+      "label": "Agendar Chamada de Descoberta",
+      "href": "/contact?service=complete-billing"
+    },
+    "secondaryAction": {
+      "label": "Comecar com Auditoria",
+      "href": "/services/billing-audit"
+    },
+    "badge": "15-25% mais barato do que comprar separadamente",
+    "trustSignals": [
+      "Resposta dentro de 24 horas",
+      "Implementacao de 4-6 semanas",
+      "Garantia de 90 dias",
+      "Ponto unico de responsabilidade"
+    ]
+  }
+}

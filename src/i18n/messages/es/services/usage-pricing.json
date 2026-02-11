@@ -1,0 +1,388 @@
+{
+  "hero": {
+    "timeline": "2 semanas",
+    "price": "$3,000-5,000",
+    "title": "Lanzamiento de Precios Basados en Uso",
+    "subtitle": "Lanza Stripe Meter en 2 semanas en lugar de 6 meses.",
+    "description": "Las empresas con precios basados en uso crecen un 54% mas rapido que las suscripciones tradicionales. Deja de dejar crecimiento en la mesa."
+  },
+  "metrics": {
+    "title": "La Ventaja de los Precios Basados en Uso",
+    "subtitle": "Por que las empresas SaaS de mas rapido crecimiento usan precios basados en uso.",
+    "items": [
+      {
+        "id": "1",
+        "label": "Tasa de Crecimiento",
+        "value": 54,
+        "suffix": "%",
+        "progress": 54,
+        "trend": "up",
+        "description": "Empresas con precios basados en uso vs suscripciones tradicionales"
+      },
+      {
+        "id": "2",
+        "label": "Tiempo de Implementacion",
+        "value": 2,
+        "suffix": " semanas",
+        "progress": 90,
+        "trend": "up",
+        "description": "vs 6 meses de construccion interna"
+      },
+      {
+        "id": "3",
+        "label": "Alineacion de Ingresos",
+        "value": 100,
+        "suffix": "%",
+        "progress": 100,
+        "trend": "up",
+        "description": "Los ingresos escalan con el valor del cliente"
+      },
+      {
+        "id": "4",
+        "label": "Modelos de Precios",
+        "value": 4,
+        "suffix": "+",
+        "progress": 80,
+        "trend": "up",
+        "description": "Por niveles, volumen, exceso, hibrido"
+      }
+    ]
+  },
+  "problems": {
+    "title": "Por Que los Precios de Uso Estan Bloqueando Tu Crecimiento",
+    "subtitle": "Sabes que necesitas precios basados en uso. Simplemente no te permite construirlos.",
+    "alert": {
+      "title": "La Brecha de 6 Meses",
+      "description": "Construir Stripe Meter internamente toma 6 meses. En ese tiempo, los competidores con precios de uso estan creciendo un 54% mas rapido."
+    },
+    "items": [
+      {
+        "id": "1",
+        "title": "Los Precios Planos Limitan el Crecimiento",
+        "description": "Las empresas con precios basados en uso crecen un 54% mas rapido que los modelos de suscripcion tradicionales. Estas dejando crecimiento en la mesa.",
+        "severity": "high",
+        "metric": "54% de crecimiento mas rapido con precios de uso"
+      },
+      {
+        "id": "2",
+        "title": "Stripe Meter Toma 6 Meses",
+        "description": "Construir Stripe Meter internamente requiere seguimiento de eventos, agregacion, logica de facturacion y manejo de casos extremos. La mayoria de los equipos subestiman esto.",
+        "severity": "critical",
+        "metric": "6 meses de tiempo de implementacion promedio"
+      },
+      {
+        "id": "3",
+        "title": "No Puedes Cobrar por el Valor Real",
+        "description": "Los usuarios intensivos pagan lo mismo que los usuarios ocasionales. Estas cobrando menos a tus mejores clientes y cobrando demasiado a los ocasionales.",
+        "severity": "high"
+      },
+      {
+        "id": "4",
+        "title": "Sin Visibilidad de Uso",
+        "description": "No puedes decir a los clientes cuanto estan usando, por lo que se les esta cobrando, o cuando alcanzaran los limites.",
+        "severity": "medium"
+      },
+      {
+        "id": "5",
+        "title": "Ingenieria Distrada",
+        "description": "Tu equipo de producto quiere construir características, no infraestructura de facturacion. Los precios de uso siguen posponiendose.",
+        "severity": "medium"
+      }
+    ]
+  },
+  "solution": {
+    "title": "Solucion Ai.Rio",
+    "subtitle": "Ya he resuelto los problemas dificiles. Lanza en 2 semanas.",
+    "items": [
+      {
+        "id": "1",
+        "title": "Implementacion de Stripe Meter",
+        "description": "Infraestructura completa de precios basados en uso con Stripe Meter. Rastrea eventos, agrega uso y factura con precision.",
+        "icon": "zap",
+        "badge": "2 semanas vs 6 meses",
+        "highlighted": true
+      },
+      {
+        "id": "2",
+        "title": "Canalización de Seguimiento de Eventos",
+        "description": "Captura eventos de uso de tu aplicacion, validalos y envialos a Stripe para su agregacion.",
+        "icon": "database"
+      },
+      {
+        "id": "3",
+        "title": "Panel de Uso",
+        "description": "Panel en tiempo real que muestra el uso actual, la facturacion proyectada y las tendencias de uso por cliente.",
+        "icon": "bar-chart"
+      },
+      {
+        "id": "4",
+        "title": "Logica de Facturacion y Prorrateo",
+        "description": "Maneja actualizaciones, degradaciones, cambios de medio ciclo y calculos de prorrateo automaticamente.",
+        "icon": "settings"
+      },
+      {
+        "id": "5",
+        "title": "Modelos de Uso Personalizados",
+        "description": "Admite precios por niveles, descuentos por volumen, cargos por exceso y configuraciones de medidor personalizadas.",
+        "icon": "trending-up"
+      },
+      {
+        "id": "6",
+        "title": "Notificaciones al Cliente",
+        "description": "Alertas automaticas cuando los clientes se acercan a los limites de uso, con indicaciones de actualizacion y transparencia.",
+        "icon": "zap"
+      }
+    ]
+  },
+  "dashboardShowcase": {
+    "title": "Visibilidad de Uso Integrada",
+    "subtitle": "Tus clientes pueden ver su uso, facturacion proyectada y tendencias.",
+    "views": [
+      {
+        "id": "1",
+        "title": "Uso Actual",
+        "description": "Vista en tiempo real del uso del cliente en este periodo de facturacion",
+        "imageSrc": "/images/dashboard/usage-current.png",
+        "imageAlt": "Panel que muestra metricas de uso actual para el periodo de facturacion",
+        "device": "desktop"
+      },
+      {
+        "id": "2",
+        "title": "Facturacion Proyectada",
+        "description": "Factura pronosticada basada en la trayectoria de uso actual",
+        "imageSrc": "/images/dashboard/usage-projected.png",
+        "imageAlt": "Panel que muestra el pronostico de facturacion basado en el uso actual",
+        "device": "desktop"
+      },
+      {
+        "id": "3",
+        "title": "Tendencias de Uso",
+        "description": "Patrones de uso historicos y crecimiento a lo largo del tiempo",
+        "imageSrc": "/images/dashboard/usage-trends.png",
+        "imageAlt": "Panel que muestra tendencias de uso historicas y patrones de crecimiento",
+        "device": "desktop"
+      },
+      {
+        "id": "4",
+        "title": "Desglose de Uso",
+        "description": "Desglose detallado por caracteristica, punto final o recurso",
+        "imageSrc": "/images/dashboard/usage-breakdown.png",
+        "imageAlt": "Panel que muestra desglose de uso detallado por caracteristica y recurso",
+        "device": "desktop"
+      }
+    ]
+  },
+  "deliverables": {
+    "title": "Lo Que Obtendras",
+    "subtitle": "Alcance fijo, precio fijo. Listo para produccion en 2 semanas.",
+    "totalPrice": 4000,
+    "cta": {
+      "label": "Lanzar Precios de Uso",
+      "href": "/contact?service=usage-pricing"
+    },
+    "phases": [
+      {
+        "phase": "1",
+        "title": "Descubrimiento y Diseno",
+        "description": "Definir modelo de uso y configuracion del medidor",
+        "duration": "Semana 1",
+        "price": 1500,
+        "deliverables": [
+          {
+            "id": "1-1",
+            "title": "Diseno del Modelo de Uso",
+            "description": "Definir que medir, niveles de precios y reglas de facturacion para tu producto especifico",
+            "status": "pending",
+            "deliveryWeek": "Semana 1"
+          },
+          {
+            "id": "1-2",
+            "title": "Configuracion de Stripe Meter",
+            "description": "Configurar Stripe Meter con eventos personalizados, logica de agregacion y ciclos de facturacion",
+            "status": "pending",
+            "deliveryWeek": "Semana 1"
+          },
+          {
+            "id": "1-3",
+            "title": "Documentacion de Casos Extremos",
+            "description": "Documentar escenarios de actualizacion/degradacion, reglas de prorrateo y manejo de limites",
+            "status": "pending",
+            "deliveryWeek": "Semana 1"
+          }
+        ]
+      },
+      {
+        "phase": "2",
+        "title": "Implementacion",
+        "description": "Construir canalizacion de seguimiento de eventos y agregacion",
+        "duration": "Semana 2",
+        "price": 2500,
+        "deliverables": [
+          {
+            "id": "2-1",
+            "title": "Canalizacion de Seguimiento de Eventos",
+            "description": "Middleware para capturar eventos de uso, validarlos y enviar a Stripe",
+            "status": "pending",
+            "deliveryWeek": "Semana 2"
+          },
+          {
+            "id": "2-2",
+            "title": "Panel de Uso",
+            "description": "Panel en tiempo real que muestra uso actual, facturacion proyectada y tendencias",
+            "status": "pending",
+            "deliveryWeek": "Semana 2"
+          },
+          {
+            "id": "2-3",
+            "title": "Integracion de Logica de Facturacion",
+            "description": "Integrar la facturacion de uso con tu sistema de suscripcion y facturacion existente",
+            "status": "pending",
+            "deliveryWeek": "Semana 2"
+          }
+        ]
+      }
+    ]
+  },
+  "whoFor": {
+    "title": "Para Quien Es Esto",
+    "subtitle": "Empresas SaaS que necesitan cobrar segun el uso real, no suscripciones planas.",
+    "profiles": [
+      {
+        "id": "1",
+        "name": "Fundador de Plataforma API",
+        "initials": "AP",
+        "stage": "Ronda Semilla - Serie A",
+        "mrr": { "min": 25000, "max": 150000 },
+        "description": "Construyendo una API o herramienta para desarrolladores. Los precios basados en uso son el estandar, pero la implementacion esta bloqueando.",
+        "painPoints": [
+          "No puede cobrar basado en llamadas a la API",
+          "El equipo de ingenieria subestimo la complejidad",
+          "Precios de uso retrasados por meses",
+          "Precios planos limitando el crecimiento"
+        ]
+      },
+      {
+        "id": "2",
+        "name": "Startup de Infraestructura de IA",
+        "initials": "AI",
+        "stage": "Serie A",
+        "mrr": { "min": 100000, "max": 500000 },
+        "description": "Vendiendo computo de IA o procesamiento. El uso es el unico modelo de precios logico.",
+        "painPoints": [
+          "Necesita cobrar por tokens/computo",
+          "Stripe Meter demasiado complejo",
+          "Ingresos no alineados con los costos",
+          "Clientes empresariales exigiendo precios de uso"
+        ]
+      },
+      {
+        "id": "3",
+        "name": "Lider de Crecimiento SaaS",
+        "initials": "SG",
+        "stage": "Etapa de Crecimiento",
+        "mrr": { "min": 200000, "max": 1000000 },
+        "description": "Sabe que los precios basados en uso impulsan el crecimiento. Necesita implementarlo sin distraer a la ingenieria.",
+        "painPoints": [
+          "Los objetivos de crecimiento requieren precios de uso",
+          "Equipo de ingenieria enfocado en caracteristicas",
+          "No puede permitirse una implementacion de 6 meses",
+          "Los competidores ya tienen precios de uso"
+        ]
+      }
+    ]
+  },
+  "relatedServices": {
+    "title": "Servicios Relacionados",
+    "subtitle": "Los precios de uso funcionan aun mejor cuando se combinan con estos servicios.",
+    "items": [
+      {
+        "id": "1",
+        "title": "Seguimiento de Costos de IA",
+        "description": "Rastrea los costos de LLM por cliente en 5 proveedores. $3K-5K, 2-3 semanas.",
+        "href": "/services/ai-tracking",
+        "badge": "Popular para SaaS de IA"
+      },
+      {
+        "id": "2",
+        "title": "Auditoria de Facturacion",
+        "description": "Audita tu infraestructura de facturacion antes de implementar precios de uso. $1.5K-3K.",
+        "href": "/services/billing-audit"
+      },
+      {
+        "id": "3",
+        "title": "Recuperacion de Pagos",
+        "description": "Recupera el 65-70% de los pagos fallidos mientras implementas precios de uso. $2K-4K.",
+        "href": "/services/payment-recovery"
+      },
+      {
+        "id": "4",
+        "title": "Facturacion Completa",
+        "description": "Precios de uso + recuperacion de pagos + seguimiento de IA todo en uno. $8K-15K.",
+        "href": "/services/complete-billing",
+        "badge": "Mejor Valor"
+      }
+    ]
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "subtitle": "Preguntas sobre la implementacion de precios basados en uso.",
+    "items": [
+      {
+        "id": "1",
+        "question": "¿Por que Stripe Meter toma 6 meses en construirse?",
+        "answer": "Stripe Meter parece simple: enviar eventos, agregar uso, facturar clientes. Pero los casos extremos son masivos: validacion de eventos, idempotencia, retroalimentacion de datos historicos, manejo de cambios retroactivos, prorrateo en cambios de plan a medio ciclo, depuracion de discrepancias y soporte al cliente. Ya he resuelto estos problemas.",
+        "category": "Tecnico"
+      },
+      {
+        "id": "2",
+        "question": "¿Que puedo medir con Stripe Meter?",
+        "answer": "Cualquier cosa que puedas cuantificar: llamadas a la API, uso de tokens, almacenamiento, tiempo de computo, transacciones, usuarios, asientos, mensajes, busquedas, etc. El limite es tu imaginacion.",
+        "category": "Tecnico"
+      },
+      {
+        "id": "3",
+        "question": "¿Como manejas el prorrateo y los cambios de plan?",
+        "answer": "La implementacion maneja actualizaciones/degradaciones a medio ciclo, calculando cargos prorrateados basados en el uso en el momento del cambio. Aqui es donde la mayoria de las implementaciones caseras se rompen.",
+        "category": "Tecnico"
+      },
+      {
+        "id": "4",
+        "question": "¿Necesito cambiar todo mi modelo de precios?",
+        "answer": "No. Muchas empresas lanzan precios basados en uso junto con los planes existentes. Puedes ofrecer precios hibridos (suscripcion base + excesos de uso) o precios de uso puros. Disenamos el modelo que se ajuste a tu mercado.",
+        "category": "Precios"
+      },
+      {
+        "id": "5",
+        "question": "¿Que si ya tengo eventos rastreados?",
+        "answer": "Mejor aun. Puedo retroalimentar datos de uso historicos en Stripe Meter y lanzar con visibilidad inmediata. La infraestructura de eventos existente reduce el tiempo de implementacion.",
+        "category": "Proceso"
+      },
+      {
+        "id": "6",
+        "question": "¿Como ven los clientes su uso?",
+        "answer": "El panel de uso muestra el uso actual, la facturacion proyectada, las tendencias de uso y las alertas cuando se aproximan a los limites. Los clientes tambien pueden ver desgloses de uso en sus facturas.",
+        "category": "Experiencia del Cliente"
+      }
+    ]
+  },
+  "cta": {
+    "title": "¿Listo para Lanzar Precios Basados en Uso?",
+    "subtitle": "Las empresas con precios de uso crecen un 54% mas rapido. ¿Que estas esperando?",
+    "description": "Reserva una llamada de descubrimiento gratuita. Disenaremos tu modelo de uso y proporcionare una cotizacion fija para la implementacion.",
+    "primaryAction": {
+      "label": "Reservar Llamada de Descubrimiento",
+      "href": "/contact?service=usage-pricing"
+    },
+    "secondaryAction": {
+      "label": "Ver Auditoria de Facturacion",
+      "href": "/services/billing-audit"
+    },
+    "badge": "Diseno de modelo de uso gratuito",
+    "trustSignals": [
+      "Respuesta dentro de 24 horas",
+      "Implementacion de 2 semanas",
+      "Precios fijos, sin sorpresas",
+      "Codigo listo para produccion"
+    ]
+  }
+}

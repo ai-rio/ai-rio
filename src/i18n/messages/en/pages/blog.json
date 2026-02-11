@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "title": "Blog - AI.RIO | Technical Insights on Billing Infrastructure",
+    "description": "Technical insights on billing infrastructure, payment recovery, and revenue optimization for AI SaaS."
+  },
+  "title": "Blog",
+  "description": "Technical insights on billing infrastructure, payment recovery, and revenue optimization for AI SaaS.",
+  "categories": "Categories:",
+  "exploreByTopic": "Explore by Topic",
+  "filterBy": "Filter by {category}",
+  "viewPostsTagged": "View posts tagged with {tag}",
+  "post": {
+    "authorBio": "Building billing infrastructure that scales. Your margins are a black box. Ai.Rio built a flashlight.",
+    "notFound": "Post Not Found"
+  }
+}

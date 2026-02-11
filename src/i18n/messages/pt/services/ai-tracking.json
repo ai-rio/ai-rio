@@ -1,0 +1,420 @@
+{
+  "hero": {
+    "timeline": "2-3 semanas",
+    "price": "$3,000-5,000",
+    "title": "Sistema de Visibilidade de Custos de IA",
+    "subtitle": "Suas margens sao uma caixa preta. A Ai.Rio construiu uma lanterna.",
+    "description": "Rastreie custos de LLM por cliente em OpenAI, Anthropic e OpenRouter (400+ modelos). Conheca suas verdadeiras margens. Pare de perder dinheiro em usuarios intensivos."
+  },
+  "metrics": {
+    "title": "Construido sobre Infraestrutura Testada em Producao",
+    "subtitle": "A Ai.Rio construiu o Margin, uma plataforma de rastreamento de custos de LLM. Agora vamos construi-la para voce.",
+    "items": [
+      {
+        "id": "1",
+        "label": "Provedores Suportados",
+        "value": 5,
+        "suffix": " provedores",
+        "description": "OpenAI, Anthropic, OpenRouter, Cohere, Replicate",
+        "progress": 100,
+        "trend": "neutral"
+      },
+      {
+        "id": "2",
+        "label": "Modelos Rastreados",
+        "value": 400,
+        "suffix": "+",
+        "description": "Todos os modelos em todos os provedores",
+        "progress": 100,
+        "trend": "up"
+      },
+      {
+        "id": "3",
+        "label": "Tempo de Implementacao",
+        "value": 3,
+        "suffix": " semanas",
+        "description": "Do zero a visibilidade de custos",
+        "progress": 100,
+        "trend": "neutral"
+      },
+      {
+        "id": "4",
+        "label": "Cobertura de Testes",
+        "value": 99.5,
+        "suffix": "%",
+        "description": "866/871 testes passando",
+        "progress": 99.5,
+        "trend": "up"
+      }
+    ]
+  },
+  "problems": {
+    "title": "Por Que Seus Custos de IA Sao Invisiveis",
+    "subtitle": "Voce nao pode otimizar o que nao pode ver. Os custos de LLM estao espalhados, nao atribuidos e crescendo.",
+    "alert": {
+      "title": "O Panico de Margem",
+      "description": "Alguns clientes custam mais em despesas de LLM do que pagam em assinatura. Voce nao sabe quem sao ate que seja tarde demais."
+    },
+    "items": [
+      {
+        "id": "1",
+        "title": "Suas Margens Sao uma Caixa Preta",
+        "description": "Voce conhece sua receita, mas nao conhece seus verdadeiros custos. As despesas de LLM estao espalhadas por OpenAI, Anthropic, OpenRouter e mais.",
+        "severity": "critical",
+        "metric": "Custo por cliente desconhecido"
+      },
+      {
+        "id": "2",
+        "title": "Nao Pode Calcular a Economia Unitaria",
+        "description": "Os calculos de CAC, LTV e margem sao impossiveis sem conhecer custos de IA por cliente. Voce esta voando as cegas.",
+        "severity": "critical",
+        "metric": "400+ modelos de LLM para rastrear"
+      },
+      {
+        "id": "3",
+        "title": "Usuarios Intensivos Estao Perdendo Dinheiro",
+        "description": "Alguns clientes estao custando mais em despesas de LLM do que pagam em assinatura. Voce nao sabe quem sao.",
+        "severity": "high",
+        "metric": "30-50% de clientes nao rentaveis"
+      },
+      {
+        "id": "4",
+        "title": "Sem Atribuicao de Custos",
+        "description": "Voce nao pode dizer quais recursos, equipes ou areas de produto estao impulsionando custos de IA. A otimizacao e impossivel.",
+        "severity": "high"
+      },
+      {
+        "id": "5",
+        "title": "Caos Multi-Provedor",
+        "description": "OpenAI, Anthropic, OpenRouter, Cohere, Replicate - os custos estao fragmentados em paines e faturas.",
+        "severity": "medium"
+      }
+    ]
+  },
+  "solution": {
+    "title": "A Solução Ai.Rio",
+    "subtitle": "Rastreamento de custos multi-provedor com atribuicao por cliente.",
+    "items": [
+      {
+        "id": "1",
+        "title": "Rastreamento de Custos Multi-Provedor",
+        "description": "Rastreie custos de LLM em OpenAI, Anthropic, OpenRouter, Cohere e Replicate (400+ modelos) em um so lugar.",
+        "icon": "database",
+        "badge": "5 provedores integrados",
+        "highlighted": true
+      },
+      {
+        "id": "2",
+        "title": "Atribuicao de Custos por Cliente",
+        "description": "Saiba exatamente quanto cada cliente custa em despesas de LLM. Calcule verdadeiras margens e economia unitaria.",
+        "icon": "dollar-sign",
+        "badge": "Verdadeira economia unitaria"
+      },
+      {
+        "id": "3",
+        "title": "Painel de Custos em Tempo Real",
+        "description": "Painel ao vivo mostrando custos de LLM por cliente, modelo e recurso. Não ha mais surpresas mensais.",
+        "icon": "bar-chart"
+      },
+      {
+        "id": "4",
+        "title": "Granularidade em Nivel de Token",
+        "description": "Rastreie tokens de prompt, tokens de conclusao e custos para cada solicitacao. Depure consultas caras.",
+        "icon": "zap"
+      },
+      {
+        "id": "5",
+        "title": "Alertas de Custos",
+        "description": "Receba alertas quando os clientes atingirem limites de custos ou padroes de gastos anomalous surgirem.",
+        "icon": "eye"
+      },
+      {
+        "id": "6",
+        "title": "Insights de Desempenho de Modelos",
+        "description": "Compare custos entre modelos e provedores. Identifique oportunidades para trocar modelos e economizar dinheiro.",
+        "icon": "brain"
+      }
+    ]
+  },
+  "dashboardShowcase": {
+    "title": "Painel de Custos ao Vivo",
+    "subtitle": "Veja seus custos de LLM por cliente, por modelo, em tempo real.",
+    "views": [
+      {
+        "id": "1",
+        "title": "Custos por Cliente",
+        "description": "Custos de LLM por cliente este mes com visualizacao de tendencias",
+        "imageSrc": "/images/dashboard/ai-customer-costs.png",
+        "imageAlt": "Painel mostrando custos de LLM por cliente com tendencias mensais",
+        "device": "desktop"
+      },
+      {
+        "id": "2",
+        "title": "Breakdown por Modelo",
+        "description": "Custos por modelo e provedor (GPT-4, Claude, etc.)",
+        "imageSrc": "/images/dashboard/ai-model-breakdown.png",
+        "imageAlt": "Painel mostrando breakdown de custos por modelo e provedor de LLM",
+        "device": "desktop"
+      },
+      {
+        "id": "3",
+        "title": "Uso de Tokens",
+        "description": "Tokens de prompt vs conclusao, custo por solicitacao",
+        "imageSrc": "/images/dashboard/ai-token-usage.png",
+        "imageAlt": "Painel mostrando uso de tokens com breakdown de prompt vs conclusao",
+        "device": "desktop"
+      },
+      {
+        "id": "4",
+        "title": "Atribuicao de Recursos",
+        "description": "Quais recursos ou endpoints estao impulsionando custos de LLM",
+        "imageSrc": "/images/dashboard/ai-feature-attribution.png",
+        "imageAlt": "Painel mostrando atribuicao de custos de LLM por recurso e endpoint",
+        "device": "desktop"
+      }
+    ]
+  },
+  "deliverables": {
+    "title": "O Que Voce Vai Receber",
+    "subtitle": "Escopo fixo, preco fixo. Visibilidade de custos em 2-3 semanas.",
+    "totalPrice": 5000,
+    "cta": {
+      "label": "Obter Visibilidade de Custos",
+      "href": "/contact?service=ai-tracking"
+    },
+    "phases": [
+      {
+        "phase": "1",
+        "title": "Descoberta e Configuracao",
+        "description": "Analisar o uso atual de LLM e projetar arquitetura de rastreamento",
+        "duration": "Semana 1",
+        "price": 1500,
+        "deliverables": [
+          {
+            "id": "1-1",
+            "title": "Auditoria de Uso de LLM",
+            "description": "Mapear todos os provedores de LLM, modelos e pontos de integracao em sua base de codigo",
+            "status": "pending",
+            "deliveryWeek": "Semana 1"
+          },
+          {
+            "id": "1-2",
+            "title": "Design de Arquitetura de Rastreamento",
+            "description": "Projetar middleware para interceptar chamadas LLM e extrair dados de custos",
+            "status": "pending",
+            "deliveryWeek": "Semana 1"
+          },
+          {
+            "id": "1-3",
+            "title": "Design de Esquema",
+            "description": "Projetar esquema de banco de dados para armazenar uso de tokens, custos e atribuicao de clientes",
+            "status": "pending",
+            "deliveryWeek": "Semana 1"
+          }
+        ]
+      },
+      {
+        "phase": "2",
+        "title": "Implementacao",
+        "description": "Construir middleware de rastreamento e agregacao de custos",
+        "duration": "Semana 2",
+        "price": 2500,
+        "deliverables": [
+          {
+            "id": "2-1",
+            "title": "Integracao de Provedores",
+            "description": "Integrar com as APIs de OpenAI, Anthropic, OpenRouter para rastreamento de custos",
+            "status": "pending",
+            "deliveryWeek": "Semana 2"
+          },
+          {
+            "id": "2-2",
+            "title": "Atribuicao de Clientes",
+            "description": "Vincular custos de LLM a contas de clientes e assinaturas",
+            "status": "pending",
+            "deliveryWeek": "Semana 2"
+          },
+          {
+            "id": "2-3",
+            "title": "Pipeline de Agregacao de Custos",
+            "description": "Construir pipeline para agregar custos por cliente, modelo e periodo de tempo",
+            "status": "pending",
+            "deliveryWeek": "Semana 2"
+          }
+        ]
+      },
+      {
+        "phase": "3",
+        "title": "Painel e Lancamento",
+        "description": "Construir painel de custos e implantar em producao",
+        "duration": "Semana 3",
+        "price": 1000,
+        "deliverables": [
+          {
+            "id": "3-1",
+            "title": "Painel de Custos",
+            "description": "Painel em tempo real mostrando custos de LLM por cliente e modelo",
+            "status": "pending",
+            "deliveryWeek": "Semana 3"
+          },
+          {
+            "id": "3-2",
+            "title": "Alertas de Custos",
+            "description": "Configurar alertas para limites de custos e gastos anomalous",
+            "status": "pending",
+            "deliveryWeek": "Semana 3"
+          },
+          {
+            "id": "3-3",
+            "title": "Documentacao e Entrega",
+            "description": "Documentacao completa e treinamento da equipe",
+            "status": "pending",
+            "deliveryWeek": "Semana 3"
+          }
+        ]
+      }
+    ]
+  },
+  "whoFor": {
+    "title": "Para Quem E Isso",
+    "subtitle": "Empresas SaaS de IA com custos significativos de LLM e visibilidade zero.",
+    "profiles": [
+      {
+        "id": "1",
+        "name": "Fundador de SaaS de IA",
+        "initials": "AF",
+        "stage": "Seed - Serie A",
+        "mrr": { "min": 25000, "max": 150000 },
+        "description": "Construindo um produto alimentado por IA, mas nao pode calcular margens de clientes. Os custos de LLM sao um misterio.",
+        "painPoints": [
+          "Nao pode calcular margens verdadeiras",
+          "Nao sabe quais clientes sao rentaveis",
+          "Custos de LLM crescendo mais rapido que a receita",
+          "Economia unitaria desconhecida"
+        ]
+      },
+      {
+        "id": "2",
+        "name": "CTO de Startup de IA",
+        "initials": "AT",
+        "stage": "Serie A",
+        "mrr": { "min": 100000, "max": 500000 },
+        "description": "Lider de engenharia gerenciando infraestrutura de IA complexa. Precisa de visibilidade nos drivers de custos.",
+        "painPoints": [
+          "Multiplos provedores de LLM",
+          "Sem rastreamento de custos centralizado",
+          "Nao pode atribuir custos a recursos",
+          "Compromissos de desempenho vs custo pouco claros"
+        ]
+      },
+      {
+        "id": "3",
+        "name": "Lider de Financas/Operacoes",
+        "initials": "FO",
+        "stage": "Estagio de Crescimento",
+        "mrr": { "min": 200000, "max": 1000000 },
+        "description": "Responsavel pela economia unitaria e otimizacao de margens. Nao pode gerenciar o que nao e medido.",
+        "painPoints": [
+          "Sem visibilidade dos gastos de LLM por cliente",
+          "Nao pode calcular CAC/LTV com precisao",
+          "Orcamentacao e previsao impossiveis",
+          "Reconhecimento de receita complicado por custos de uso"
+        ]
+      }
+    ]
+  },
+  "relatedServices": {
+    "title": "Servicos Relacionados",
+    "subtitle": "O rastreamento de custos e poderoso. Combine com estes para maximo impacto.",
+    "items": [
+      {
+        "id": "1",
+        "title": "Auditoria de Cobranca",
+        "description": "Identifique vazamentos de receita e oportunidades de otimizacao de custos. $1.5K-3K, 1 semana.",
+        "href": "/services/billing-audit",
+        "badge": "Comece Aqui"
+      },
+      {
+        "id": "2",
+        "title": "Precos Baseados em Uso",
+        "description": "Cobre clientes com base no uso real de LLM. $3K-5K, 2 semanas.",
+        "href": "/services/usage-pricing"
+      },
+      {
+        "id": "3",
+        "title": "Cobranca Completa",
+        "description": "Rastreamento de IA + precos de uso + recuperacao de pagos tudo em um. $8K-15K.",
+        "href": "/services/complete-billing",
+        "badge": "Melhor Valor"
+      },
+      {
+        "id": "4",
+        "title": "Recuperacao de Pagamentos",
+        "description": "Recupere 65-70% dos pagos falhados. $2K-4K, 1 semana.",
+        "href": "/services/payment-recovery"
+      }
+    ]
+  },
+  "faq": {
+    "title": "Perguntas Frequentes",
+    "subtitle": "Perguntas sobre a implementacao do rastreamento de custos de IA.",
+    "items": [
+      {
+        "id": "1",
+        "question": "Como voce rastreia custos de LLM?",
+        "answer": "Implemento middleware que intercepta chamadas de API de LLM, extrai uso de tokens e informacoes de modelo das respostas e as armazena com atribuicao de clientes. Suporta OpenAI, Anthropic, OpenRouter (400+ modelos), Cohere e Replicate.",
+        "category": "Tecnico"
+      },
+      {
+        "id": "2",
+        "question": "Isso vai desacelerar minhas chamadas de API?",
+        "answer": "Nao. O middleware e nao bloqueante. Ele extrai dados de custos de forma assincrona apos a resposta LLM ser recebida. Sua latencia de API nao e afetada.",
+        "category": "Desempenho"
+      },
+      {
+        "id": "3",
+        "question": "E se eu usar multiplos provedores de LLM?",
+        "answer": "Esse e o ponto. Rastreio custos em todos os provedores em um so lugar. Voce pode ver custos totais por cliente, divididos por provedor e modelo.",
+        "category": "Tecnico"
+      },
+      {
+        "id": "4",
+        "question": "Posso rastrear custos por recurso ou endpoint?",
+        "answer": "Sim. O sistema de rastreamento captura qual endpoint ou recurso acionou cada chamada LLM. Voce pode ver quais recursos estao impulsionando custos.",
+        "category": "Recursos"
+      },
+      {
+        "id": "5",
+        "question": "Como voce manuseia diferentes modelos de precos?",
+        "answer": "Cada provedor tem precos diferentes (por token, por minuto, por caractere). O sistema puxa precos atuais das APIs de provedores e calcula custos com precisao.",
+        "category": "Precos"
+      },
+      {
+        "id": "6",
+        "question": "Construi o Margin. Agora vou construi-lo para voce.",
+        "answer": "Isso nao e uma pergunta, mas e relevante. A Ai.Rio construiu uma plataforma de rastreamento de custos de LLM chamada Margin. Extraimos o codigo de rastreamento central e agora oferecemos como servico.",
+        "category": "Sobre"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Conheca Suas Verdadeiras Margens",
+    "subtitle": "Suas margens sao uma caixa preta. A Ai.Rio construiu uma lanterna.",
+    "description": "Agende uma chamada de descoberta gratuita. Vou auditar suas lacunas de rastreamento de custos de LLM e fornecerei uma cotacao fixa.",
+    "primaryAction": {
+      "label": "Agendar Chamada de Descoberta",
+      "href": "/contact?service=ai-tracking"
+    },
+    "secondaryAction": {
+      "label": "Ver Auditoria de Cobranca",
+      "href": "/services/billing-audit"
+    },
+    "badge": "A Ai.Rio construiu o Margin para isso",
+    "trustSignals": [
+      "Resposta dentro de 24 horas",
+      "Implementacao de 2-3 semanas",
+      "5 provedores suportados",
+      "99.5% de cobertura de testes"
+    ]
+  }
+}

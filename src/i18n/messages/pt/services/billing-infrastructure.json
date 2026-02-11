@@ -1,0 +1,438 @@
+{
+  "hero": {
+    "timeline": "4-6 semanas",
+    "price": "Preço personalizado",
+    "title": "Infraestrutura de Cobranca Completa para SaaS de IA",
+    "subtitle": "Suas margens sao uma caixa preta. A Ai.Rio construiu uma lanterna.",
+    "description": "Precos baseados em uso, recuperacao de pagamentos falhados, rastreamento de custos de IA e tratamento de casos extremos. Construido para empresas SaaS de IA que estao perdendo dinheiro devido a complexidade da cobranca."
+  },
+  "metrics": {
+    "title": "Construido com Padroes de Grau de Producao",
+    "subtitle": "18 meses de desenvolvimento destilados em 6 semanas.",
+    "items": [
+      {
+        "id": "1",
+        "label": "Cobertura de Testes",
+        "value": 99.5,
+        "suffix": "%",
+        "prefix": "",
+        "progress": 99.5,
+        "trend": "up",
+        "description": "866/871 testes aprovados"
+      },
+      {
+        "id": "2",
+        "label": "Provedores de LLM",
+        "value": 5,
+        "suffix": "",
+        "prefix": "",
+        "progress": 100,
+        "trend": "neutral",
+        "description": "Integrados e rastreados"
+      },
+      {
+        "id": "3",
+        "label": "Linhas de Casos Extremos",
+        "value": 720,
+        "suffix": "",
+        "prefix": "",
+        "progress": 100,
+        "trend": "neutral",
+        "description": "Tratando complexidade de cobranca"
+      },
+      {
+        "id": "4",
+        "label": "Politicas de Seguranca",
+        "value": 45,
+        "suffix": "",
+        "prefix": "",
+        "progress": 100,
+        "trend": "up",
+        "description": "Politicas RLS, zero problemas"
+      }
+    ]
+  },
+  "problems": {
+    "title": "Por Que Sua Cobranca Esta Quebrada",
+    "subtitle": "A cobranca de SaaS de IA e mais dificil que o SaaS tradicional. Custos de LLM, precos baseados em uso e casos extremos em todos os lugares.",
+    "alert": {
+      "title": "O Problema da Caixa Preta",
+      "description": "Voce nao pode otimizar seus margens quando nao conhece seus verdadeiros custos por cliente."
+    },
+    "items": [
+      {
+        "id": "1",
+        "title": "Sem Base de Cobranca",
+        "description": "Voce construiu um SaaS de IA mas nao tem infraestrutura de cobranca. O Stripe e padrao e voce esta perdendo receita com pagamentos falhados.",
+        "severity": "critical",
+        "metric": "Taxa de recuperacao padrao de 47.6%"
+      },
+      {
+        "id": "2",
+        "title": "Custos de IA Nao Atribuidos",
+        "description": "Os custos de LLM estao espalhados entre provedores. Voce nao pode calcular os margens do cliente porque nao sabe quem gerou os custos da OpenAI/Anthropic.",
+        "severity": "critical",
+        "metric": "400+ modelos para rastrear"
+      },
+      {
+        "id": "3",
+        "title": "Operacoes de Receita Manuais",
+        "description": "Sua equipe esta reconciliando manualmente faturas, atualizando limites de uso e tratando proporcionalizacao. Nao escala.",
+        "severity": "high"
+      },
+      {
+        "id": "4",
+        "title": "Sem Precos Baseados em Uso",
+        "description": "Voce nao pode precificar com base no uso real. Precos fixos limitam o crescimento - empresas com precos baseados em uso crescem 54% mais rapido.",
+        "severity": "medium"
+      },
+      {
+        "id": "5",
+        "title": "Vazamentos de Receita em Todos os Lugares",
+        "description": "Casos extremos como upgrades/downgrades, proporcionalizacao e pagamentos falhados estao vazando receita todos os meses.",
+        "severity": "high"
+      }
+    ]
+  },
+  "solution": {
+    "title": "Solucao Ai.Rio",
+    "subtitle": "Passei 18 meses construindo infraestrutura de cobranca. Agora vou construir para voce.",
+    "items": [
+      {
+        "id": "1",
+        "title": "Integracao do Stripe Meter",
+        "description": "Implemente precos baseados em uso em 2 semanas, nao 6 meses. Rastreie eventos, agregue uso e cobre com precisao.",
+        "icon": "zap",
+        "badge": "Crescimento 54% mais rapido",
+        "highlighted": true
+      },
+      {
+        "id": "2",
+        "title": "Recuperacao de Pagamentos Falhados",
+        "description": "Fluxos de trabalho de dunning automatizados que recuperam 65-70% dos pagamentos falhados. Pare de deixar receita na mesa.",
+        "icon": "credit-card",
+        "badge": "+17.4% de recuperacao"
+      },
+      {
+        "id": "3",
+        "title": "Rastreamento de LLM Multi-Provedor",
+        "description": "Rastreie OpenAI, Anthropic, OpenRouter (400+ modelos) por cliente. Conheca seus verdadeiros margens por conta.",
+        "icon": "bar-chart",
+        "badge": "5 provedores"
+      },
+      {
+        "id": "4",
+        "title": "Tratamento de Casos Extremos",
+        "description": "Coordenador de casos extremos de 720 linhas que trata upgrades, downgrades, proporcionalizacao, testes e combinacoes de cupons.",
+        "icon": "shield"
+      },
+      {
+        "id": "5",
+        "title": "Visibilidade de Custos em Tempo Real",
+        "description": "Painel mostrando custos de LLM por cliente. Não mais caixa preta - veja exatamente para onde seus margens vao.",
+        "icon": "database"
+      },
+      {
+        "id": "6",
+        "title": "Auditoria e Documentacao",
+        "description": "45 politicas RLS, zero problemas de seguranca. Documentacao completa e entrega para sua equipe.",
+        "icon": "shield",
+        "badge": "Cobertura de testes de 99.5%"
+      }
+    ]
+  },
+  "deliverables": {
+    "title": "O Que Voce Vai Receber",
+    "subtitle": "Entrega por fases com marcos claros e precos. Voce paga por resultados, nao por horas.",
+    "totalPrice": 15000,
+    "cta": {
+      "label": "Comecar Base de Cobranca",
+      "href": "/contact?service=billing-infrastructure"
+    },
+    "phases": [
+      {
+        "phase": "1",
+        "title": "Descoberta e Auditoria",
+        "description": "Entender sua situacao de cobranca e identificar lacunas",
+        "duration": "Semana 1",
+        "price": 2000,
+        "deliverables": [
+          {
+            "id": "1-1",
+            "title": "Auditoria de Infraestrutura de Cobranca",
+            "description": "Analise completa de sua configuracao atual do Stripe, logica de assinatura e fluxo de trabalho de operacoes de receita",
+            "status": "pending",
+            "deliveryWeek": "Semana 1"
+          },
+          {
+            "id": "1-2",
+            "title": "Documentacao de Casos Extremos",
+            "description": "Documentar todos os casos extremos de cobranca: testes, cupons, proporcionalizacao, upgrades/downgrades",
+            "status": "pending",
+            "deliveryWeek": "Semana 1"
+          },
+          {
+            "id": "1-3",
+            "title": "Analise de Atribuicao de Custos",
+            "description": "Mapear custos de LLM para clientes. Identificar lacunas de dados para rastrear despesas de IA",
+            "status": "pending",
+            "deliveryWeek": "Semana 1"
+          }
+        ]
+      },
+      {
+        "phase": "2",
+        "title": "Construcao de Base",
+        "description": "Infraestrutura central de cobranca e rastreamento de custos de LLM",
+        "duration": "Semanas 2-3",
+        "price": 6000,
+        "deliverables": [
+          {
+            "id": "2-1",
+            "title": "Implementacao do Stripe Meter",
+            "description": "Infraestrutura de precos baseados em uso com rastreamento e agregacao de eventos",
+            "status": "pending",
+            "deliveryWeek": "Semana 2"
+          },
+          {
+            "id": "2-2",
+            "title": "Rastreamento de LLM Multi-Provedor",
+            "description": "Rastreie custos da OpenAI, Anthropic, OpenRouter por cliente com suporte para 400+ modelos",
+            "status": "pending",
+            "deliveryWeek": "Semanas 2-3"
+          },
+          {
+            "id": "2-3",
+            "title": "Coordenador de Casos Extremos",
+            "description": "Sistema de 720 linhas que trata upgrades, downgrades, proporcionalizacao, testes e cupons",
+            "status": "pending",
+            "deliveryWeek": "Semana 3"
+          }
+        ]
+      },
+      {
+        "phase": "3",
+        "title": "Recuperacao e Otimizacao",
+        "description": "Recuperacao de receita e implementacao de painel",
+        "duration": "Semanas 4-5",
+        "price": 5000,
+        "deliverables": [
+          {
+            "id": "3-1",
+            "title": "Sistema de Recuperacao de Pagamentos Falhados",
+            "description": "Fluxos de trabalho de dunning automatizados com logica inteligente de nova tentativa e sequencias de e-mails",
+            "status": "pending",
+            "deliveryWeek": "Semana 4"
+          },
+          {
+            "id": "3-2",
+            "title": "Painel de Margens",
+            "description": "Painel em tempo real mostrando custos de LLM e receita por cliente",
+            "status": "pending",
+            "deliveryWeek": "Semanas 4-5"
+          },
+          {
+            "id": "3-3",
+            "title": "Documentacao e Entrega",
+            "description": "Documentacao completa, suite de testes (cobertura de 99.5%) e treinamento da equipe",
+            "status": "pending",
+            "deliveryWeek": "Semana 5"
+          }
+        ]
+      },
+      {
+        "phase": "4",
+        "title": "Testes e Lancamento",
+        "description": "Testes rigorosos e implantacao em producao",
+        "duration": "Semana 6",
+        "price": 2000,
+        "deliverables": [
+          {
+            "id": "4-1",
+            "title": "Execucao da Suite de Testes",
+            "description": "Executar 866+ testes cobrindo todos os casos extremos e cenarios de integracao",
+            "status": "pending",
+            "deliveryWeek": "Semana 6"
+          },
+          {
+            "id": "4-2",
+            "title": "Implantacao em Producao",
+            "description": "Implantar em producao com monitoramento, alertas e procedimentos de rollback",
+            "status": "pending",
+            "deliveryWeek": "Semana 6"
+          },
+          {
+            "id": "4-3",
+            "title": "Suporte de 30 Dias",
+            "description": "Suporte pos-lancamento para correcoes de bugs e tratamento de casos extremos",
+            "status": "pending",
+            "deliveryWeek": "Semanas 6-10"
+          }
+        ]
+      }
+    ]
+  },
+  "whoFor": {
+    "title": "Para Quem E Isso",
+    "subtitle": "Empresas SaaS de IA com $25K+ MRR que estao sangrando margens na complexidade da cobranca.",
+    "profiles": [
+      {
+        "id": "1",
+        "name": "Fundador de SaaS de IA",
+        "initials": "FA",
+        "stage": "Seed - Serie A",
+        "mrr": {
+          "min": 25000,
+          "max": 200000
+        },
+        "description": "Construindo um SaaS alimentado por IA com custos de LLM comendo os margens. Precisa de visibilidade e controle.",
+        "painPoints": [
+          "Nao pode calcular verdadeiros margens do cliente",
+          "Custos de IA espalhados entre provedores",
+          "Sem capacidade de precos baseados em uso",
+          "Receita vazando de pagamentos falhados"
+        ]
+      },
+      {
+        "id": "2",
+        "name": "CTO de Startup de IA",
+        "initials": "CT",
+        "stage": "Estagio de Crescimento",
+        "mrr": {
+          "min": 100000,
+          "max": 500000
+        },
+        "description": "Lider tecnico cuja equipe esta se afogando em casos extremos de cobranca. Precisa de uma base robusta.",
+        "painPoints": [
+          "Equipe de engenharia perdendo tempo em cobranca",
+          "Casos extremos de proporcionalizacao e upgrade",
+          "Sem infraestrutura de cobranca escalavel",
+          "Preocupacoes de seguranca e conformidade"
+        ]
+      },
+      {
+        "id": "3",
+        "name": "Lider Financeiro",
+        "initials": "LF",
+        "stage": "Serie B+",
+        "mrr": {
+          "min": 500000,
+          "max": 2000000
+        },
+        "description": "Responsavel pela economia unitaria e otimizacao de margens. Voce nao pode gerenciar o que nao pode medir.",
+        "painPoints": [
+          "Sem visibilidade dos direcionadores de custos de LLM",
+          "Nao pode atribuir custos de IA a clientes",
+          "Processos manuais de operacoes de receita",
+          "Vazamentos de receita nao detectados"
+        ]
+      }
+    ]
+  },
+  "relatedServices": {
+    "title": "Servicos Relacionados",
+    "subtitle": "Precisa de algo menor ou mais focado? Esses servicos podem se adequar melhor.",
+    "items": [
+      {
+        "id": "1",
+        "title": "Recuperacao de Pagamentos",
+        "description": "Recupere 47-65% dos pagamentos falhados com dunning automatizado. $2K-4K, 1 semana.",
+        "href": "/services/payment-recovery",
+        "badge": "Vitoria Rapida"
+      },
+      {
+        "id": "2",
+        "title": "Precos Baseados em Uso",
+        "description": "Lance o Stripe Meter em 2 semanas. Empresas com precos baseados em uso crescem 54% mais rapido.",
+        "href": "/services/usage-pricing"
+      },
+      {
+        "id": "3",
+        "title": "Rastreamento de Custos de IA",
+        "description": "Rastreie custos de LLM por cliente em 5 provedores. $3K-5K, 2-3 semanas.",
+        "href": "/services/ai-tracking",
+        "badge": "Popular"
+      },
+      {
+        "id": "4",
+        "title": "Auditoria de Cobranca",
+        "description": "Identifique vazamentos de receita e oportunidades de otimizacao. $1.5K-3K, 1 semana.",
+        "href": "/services/billing-audit"
+      }
+    ]
+  },
+  "faq": {
+    "title": "Perguntas Frequentes",
+    "subtitle": "Respostas diretas a perguntas comuns. Sem floreios de vendas.",
+    "items": [
+      {
+        "id": "1",
+        "question": "Por que precos personalizados em vez de fixos?",
+        "answer": "Cada SaaS de IA tem uma complexidade de cobranca diferente. Alguns tem assinaturas simples, outros tem padroes de uso complexos, planos multi-assento e contratos corporativos. Eu audito sua situacao primeiro, depois escopo o trabalho. Voce paga pelo que precisa.",
+        "category": "Precos"
+      },
+      {
+        "id": "2",
+        "question": "Preciso pausar o desenvolvimento de recursos?",
+        "answer": "Nao. Eu construo a infraestrutura de cobranca em paralelo com sua equipe. Preciso de acesso a sua conta do Stripe, esquema de banco de dados e algumas horas do tempo de sua equipe para coleta de requisitos. O resto e comigo.",
+        "category": "Processo"
+      },
+      {
+        "id": "3",
+        "question": "E se eu ja tiver configuracao do Stripe?",
+        "answer": "Otimo. Eu construo sobre sua configuracao existente do Stripe. A auditoria revelara o que voce tem e o que esta faltando. Muitas empresas tem pagamentos do Stripe mas carecem de precos baseados em uso, recuperacao de pagamentos falhados ou rastreamento de custos de LLM.",
+        "category": "Processo"
+      },
+      {
+        "id": "4",
+        "question": "Como voce rastreia custos de LLM?",
+        "answer": "Eu implemento middleware que intercepta chamadas de API de LLM, extrai uso de tokens e informacoes do modelo e armazena por cliente. Suporta OpenAI, Anthropic, OpenRouter (400+ modelos). Os dados sao agregados e exibidos em um painel de margens.",
+        "category": "Tecnico"
+      },
+      {
+        "id": "5",
+        "question": "O que e o coordenador de casos extremos?",
+        "answer": "Um sistema de 720 linhas que construi que trata os cenarios complexos que quebram a maioria das implementacoes de cobranca: upgrades/downgrades com proporcionalizacao, conversoes de teste para pago, empilhamento de cupons, alternancia anual/mensal e mudancas de cobranca baseadas em assentos. E a diferenca entre algo que funciona em demo e algo que funciona em producao.",
+        "category": "Tecnico"
+      },
+      {
+        "id": "6",
+        "question": "Quanto tempo dura o suporte apos o lancamento?",
+        "answer": "30 dias de suporte pos-lancamento incluidos. Isso cobre correcoes de bugs, tratamento de casos extremos e ajustes menores. Depois disso, voce pode comprar suporte continuo ou sua equipe pode assumir - o codigo esta documentado e testado.",
+        "category": "Suporte"
+      },
+      {
+        "id": "7",
+        "question": "Voce pode tratar requisitos de cobranca corporativa?",
+        "answer": "Sim. A cobranca corporativa frequentemente envolve contratos personalizados, taxas negociadas, cobranca baseada em PO e prazos de pagamento liquidos. Eu construo infraestrutura que suporta fluxos de autoservico e corporativos.",
+        "category": "Corporativo"
+      },
+      {
+        "id": "8",
+        "question": "Passei 18 meses construindo isso. Agora vou construir para voce.",
+        "answer": "Isso nao e uma pergunta, mas e o ponto. Eu construi o Margin (plataforma de rastreamento de custos de LLM) e extra codigo de cobranca do QuoteKit. Ja cometi os erros para que voce nao precise cometê-los.",
+        "category": "Sobre"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Pronto para Consertar Sua Cobranca?",
+    "subtitle": "Passei 18 meses construindo isso. Agora vou construir para voce.",
+    "description": "Agende uma chamada de descoberta gratuita. Discutiremos seus desafios de cobranca e fornecerei um escopo e orcamento claros.",
+    "primaryAction": {
+      "label": "Agendar Chamada de Descoberta",
+      "href": "/contact?service=billing-infrastructure"
+    },
+    "secondaryAction": {
+      "label": "Ver Estudo de Caso Detalhado",
+      "href": "/blog/margin-building-llm-cost-tracker"
+    },
+    "badge": "Sem compromisso necessario",
+    "trustSignals": [
+      "Resposta dentro de 24 horas",
+      "Chamada de descoberta gratuita",
+      "Escopo e precos claros",
+      "Suporte pos-lancamento de 30 dias"
+    ]
+  }
+}

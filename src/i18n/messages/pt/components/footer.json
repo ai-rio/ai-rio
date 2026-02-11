@@ -1,0 +1,16 @@
+{
+  "tagline": "Infraestrutura de cobranca para AI SaaS",
+  "navigation": "Navegacao",
+  "home": "Inicio",
+  "services": "Servicos",
+  "about": "Sobre",
+  "blog": "Blog",
+  "services_title": "Servicos",
+  "payment_recovery": "Ai.Rio Recover",
+  "usage_pricing": "Ai.Rio Meter",
+  "ai_tracking": "Ai.Rio Track",
+  "billing_audit": "Ai.Rio Audit",
+  "contact_title": "Contato",
+  "get_in_touch": "Entre em Contato",
+  "copyright": "© {year} Ai.Rio. Todos os direitos reservados."
+}

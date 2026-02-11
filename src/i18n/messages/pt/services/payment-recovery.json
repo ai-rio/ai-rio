@@ -1,0 +1,357 @@
+{
+  "hero": {
+    "timeline": "1 semana",
+    "price": "$2,000-4,000",
+    "title": "Recuperacao de Pagos Falhados da Stripe",
+    "subtitle": "Pare de deixar receita na mesa. Recupere 65-70% dos pagos falhados.",
+    "description": "As configuracoes padrao da Stripe recuperam menos da metade dos pagos falhados. Crio fluxos de trabalho de dunning automatizados que recuperam 65-70%. Entregue em 1 semana."
+  },
+  "metrics": {
+    "title": "O Custo da Recuperacao Passiva",
+    "subtitle": "Os padroes da Stripe nao sao suficientes. Aqui esta o que voce esta perdendo.",
+    "items": [
+      {
+        "id": "1",
+        "label": "Melhoria da Taxa de Recuperacao",
+        "value": 68,
+        "suffix": "%",
+        "prefix": "47.6 -> 65-70",
+        "progress": 68,
+        "trend": "up",
+        "description": "De padrão Stripe para Ai.Rio otimizado"
+      },
+      {
+        "id": "2",
+        "label": "Tempo de Implementacao",
+        "value": 9,
+        "suffix": " dias",
+        "prefix": "7-10",
+        "progress": 45,
+        "trend": "neutral",
+        "description": "Do inicio a producao"
+      },
+      {
+        "id": "3",
+        "label": "Receita Economizada em Media",
+        "value": 52000,
+        "suffix": "",
+        "prefix": "$52K",
+        "progress": 52,
+        "trend": "up",
+        "description": "Para empresas com $100K MRR"
+      },
+      {
+        "id": "4",
+        "label": "Cronograma de ROI",
+        "value": 2,
+        "suffix": " meses",
+        "prefix": "<",
+        "progress": 20,
+        "trend": "down",
+        "description": "Periodo de retorno"
+      }
+    ]
+  },
+  "problems": {
+    "title": "Por Que Sua Taxa de Recuperacao e 47.6%",
+    "subtitle": "O dunning padrao da Stripe e passivo. Seus clientes precisam de lembretes melhores, melhor momento e tentativas mais inteligentes.",
+    "alert": {
+      "title": "Churn Involuntario e Caro",
+      "description": "Adquirir um novo cliente custa 5-25 vezes mais do que recuperar um existente. A recuperacao de pagos falhados e lucro puro."
+    },
+    "items": [
+      {
+        "id": "1",
+        "title": "Taxa de Recuperacao Padrao de 47.6%",
+        "description": "As configuracoes padrao da Stripe recuperam menos da metade dos pagos falhados. Voce esta deixando milhares na mesa todos os meses.",
+        "severity": "critical",
+        "metric": "Perda anual media de $52K para $100K MRR"
+      },
+      {
+        "id": "2",
+        "title": "Apenas Dunning Passivo",
+        "description": "Seus e-mails de pagos falhados sao genericos, mal temporizados e carecem de urgencia. Os clientes os ignoram.",
+        "severity": "high"
+      },
+      {
+        "id": "3",
+        "title": "Sem Logica de Nova Tentativa Inteligente",
+        "description": "A Stripe tenta cegamente, sem considerar o tipo de cartao, o motivo da falha ou os padroes de pagamento do cliente.",
+        "severity": "high"
+      },
+      {
+        "id": "4",
+        "title": "Churn Classificado Incorretamente",
+        "description": "Voce acha que os clientes sairam porque nao queriam seu produto. Na verdade, eles sairam porque o cartao falhou.",
+        "severity": "medium"
+      }
+    ]
+  },
+  "solution": {
+    "title": "A Solução Ai.Rio",
+    "subtitle": "Fluxos de trabalho de dunning automatizados com logica inteligente de nova tentativa.",
+    "items": [
+      {
+        "id": "1",
+        "title": "Fluxos de Trabalho de Dunning Automatizados",
+        "description": "Sequencias estrategicas de e-mails com a mensagem certa, timing e urgencia para recuperar pagos.",
+        "icon": "mail",
+        "badge": "Taxa de recuperacao de 65-70%",
+        "highlighted": true
+      },
+      {
+        "id": "2",
+        "title": "Logica Inteligente de Nova Tentativa",
+        "description": "Agendamento inteligente de novas tentativas baseado no motivo da falha, rede do cartao e historico de pagamento do cliente.",
+        "icon": "credit-card"
+      },
+      {
+        "id": "3",
+        "title": "Analise de Padroes de Falha",
+        "description": "Entenda por que os pagos falham: recusas duras vs recusas suaves, fundos insuficientes, cartoes expirados, blocos de fraude.",
+        "icon": "alert-triangle"
+      },
+      {
+        "id": "4",
+        "title": "Modelos de E-mail Personalizados",
+        "description": "E-mails de dunning que correspondem a sua marca e voz. Teste A/B de assunto e mensagens.",
+        "icon": "mail"
+      },
+      {
+        "id": "5",
+        "title": "Painel de Recuperacao",
+        "description": "Acompanhe taxas de recuperacao, tendencias de pagos falhados e receita economizada ao longo do tempo.",
+        "icon": "trending-up"
+      }
+    ]
+  },
+  "deliverables": {
+    "title": "O Que Voce Vai Receber",
+    "subtitle": "Escopo fixo, preco fixo. Entregue em 7-10 dias.",
+    "totalPrice": 4000,
+    "cta": {
+      "label": "Recupere Sua Receita",
+      "href": "/contact?service=payment-recovery"
+    },
+    "phases": [
+      {
+        "phase": "1",
+        "title": "Auditoria e Configuracao",
+        "description": "Analisar o desempenho de recuperacao atual e configurar o dunning",
+        "duration": "Dias 1-2",
+        "price": 500,
+        "deliverables": [
+          {
+            "id": "1-1",
+            "title": "Analise de Pagos Falhados",
+            "description": "Analisar os ultimos 90 dias de pagos falhados, identificar padroes e oportunidades de recuperacao",
+            "status": "pending",
+            "deliveryWeek": "Dia 1"
+          },
+          {
+            "id": "1-2",
+            "title": "Configuracao de Dunning da Stripe",
+            "description": "Configurar as configuracoes de dunning da Stripe com cronograma de nova tentativa otimo",
+            "status": "pending",
+            "deliveryWeek": "Dia 2"
+          }
+        ]
+      },
+      {
+        "phase": "2",
+        "title": "Implementacao de Dunning",
+        "description": "Construir e implantar fluxos de trabalho de recuperacao automatizados",
+        "duration": "Dias 3-5",
+        "price": 2000,
+        "deliverables": [
+          {
+            "id": "2-1",
+            "title": "Design de Sequencia de E-mails",
+            "description": "Criar sequencia estrategica de e-mails de dunning com 3-5 contatos ao longo de 14 dias",
+            "status": "pending",
+            "deliveryWeek": "Dia 3"
+          },
+          {
+            "id": "2-2",
+            "title": "Logica Inteligente de Nova Tentativa",
+            "description": "Implementar agendamento inteligente de novas tentativas baseado em codigos e padroes de falha",
+            "status": "pending",
+            "deliveryWeek": "Dia 4"
+          },
+          {
+            "id": "2-3",
+            "title": "Painel de Recuperacao",
+            "description": "Painel mostrando taxas de recuperacao, pagos falhados e receita economizada",
+            "status": "pending",
+            "deliveryWeek": "Dia 5"
+          }
+        ]
+      },
+      {
+        "phase": "3",
+        "title": "Testes e Lancamento",
+        "description": "Testar fluxos de trabalho e implantar em producao",
+        "duration": "Dias 6-7",
+        "price": 1500,
+        "deliverables": [
+          {
+            "id": "3-1",
+            "title": "Testes de Fluxo de Trabalho",
+            "description": "Testar fluxos de trabalho de dunning com pagos falhados simulados",
+            "status": "pending",
+            "deliveryWeek": "Dia 6"
+          },
+          {
+            "id": "3-2",
+            "title": "Implantacao em Producao",
+            "description": "Implantar em producao com monitoramento e alertas",
+            "status": "pending",
+            "deliveryWeek": "Dia 7"
+          },
+          {
+            "id": "3-3",
+            "title": "Monitoramento de 30 Dias",
+            "description": "Monitorar taxas de recuperacao e otimizar com base no desempenho real",
+            "status": "pending",
+            "deliveryWeek": "Dias 7-37"
+          }
+        ]
+      }
+    ]
+  },
+  "whoFor": {
+    "title": "Para Quem É Este",
+    "subtitle": "Empresas SaaS B2B com $25K+ MRR e volume significativo de pagos falhados.",
+    "profiles": [
+      {
+        "id": "1",
+        "name": "Fundador de SaaS B2B",
+        "initials": "FS",
+        "stage": "Seed - Serie A",
+        "mrr": { "min": 25000, "max": 150000 },
+        "description": "SaaS em crescimento com volume significativo de pagos falhados. Cada pagamento recuperado e lucro puro.",
+        "painPoints": [
+          "Alta taxa de churn por pagos falhados",
+          "E-mails de dunning da Stripe genericos",
+          "Sem visibilidade das taxas de recuperacao",
+          "Acompanhamento manual de pagos falhados"
+        ]
+      },
+      {
+        "id": "2",
+        "name": "Lider de Operacoes de Receita",
+        "initials": "LR",
+        "stage": "Estagio de Crescimento",
+        "mrr": { "min": 100000, "max": 500000 },
+        "description": "Responsavel pela retencao de receita. Precisa reduzir o churn involuntario.",
+        "painPoints": [
+          "Churn involuntario nao rastreado",
+          "Nao pode calcular o ROI de recuperacao",
+          "Apenas dunning passivo",
+          "Sem visibilidade de padroes de falha"
+        ]
+      },
+      {
+        "id": "3",
+        "name": "Diretor Financeiro",
+        "initials": "DF",
+        "stage": "Serie B+",
+        "mrr": { "min": 500000, "max": 2000000 },
+        "description": "Focado na otimizacao de margens. Pagos falhados estao deixando dinheiro na mesa.",
+        "painPoints": [
+          "Vazamentos de receita por pagos falhados",
+          "Sem metricas de desempenho de recuperacao",
+          "Infraestrutura de recuperacao desatualizada",
+          "Reconciliacao manual de receita"
+        ]
+      }
+    ]
+  },
+  "relatedServices": {
+    "title": "Servicos Relacionados",
+    "subtitle": "Precisa de mais que recuperacao de pagos? Estes servicos complementam o trabalho de recuperacao.",
+    "items": [
+      {
+        "id": "1",
+        "title": "Auditoria de Cobranca",
+        "description": "Identifique todos os vazamentos de receita e oportunidades de otimizacao. $1.5K-3K, 1 semana.",
+        "href": "/services/billing-audit",
+        "badge": "Comece Aqui"
+      },
+      {
+        "id": "2",
+        "title": "Cobranca Completa",
+        "description": "Infraestrutura de cobranca de ponta a ponta incluindo recuperacao de pagos. $8K-15K, 4-6 semanas.",
+        "href": "/services/complete-billing"
+      },
+      {
+        "id": "3",
+        "title": "Precos Baseados em Uso",
+        "description": "Lance o Stripe Meter em 2 semanas. Empresas com precos baseados em uso crescem 54% mais rapido.",
+        "href": "/services/usage-pricing"
+      }
+    ]
+  },
+  "faq": {
+    "title": "Perguntas Frequentes",
+    "subtitle": "Respostas diretas sobre recuperacao de pagos.",
+    "items": [
+      {
+        "id": "1",
+        "question": "Qual e a melhoria real da taxa de recuperacao?",
+        "answer": "A configuracao padrao da Stripe tipicamente recupera 47-48% dos pagos falhados. Meus clientes tipicamente veem taxas de recuperacao de 65-70% apos implementar o dunning automatizado. Isso e 17-22% a mais de receita recuperada.",
+        "category": "Resultados"
+      },
+      {
+        "id": "2",
+        "question": "Por que nao posso apenas usar o dunning padrao da Stripe?",
+        "answer": "Voce pode, e deve ativa-lo. Mas o padrao da Stripe e generico: um e-mail, logica basica de nova tentativa. Meu servico adiciona sequencias estrategicas de e-mails, agendamento inteligente de novas tentativas e analise de padroes de falha. A diferenca e material.",
+        "category": "Tecnico"
+      },
+      {
+        "id": "3",
+        "question": "Quanto tempo leva a implementacao?",
+        "answer": "7-10 dias do inicio ao fim. A maior parte desse tempo e dedicada a projetar e testar sequencias de e-mails. A implementacao tecnica e direta.",
+        "category": "Cronograma"
+      },
+      {
+        "id": "4",
+        "question": "E se meus clientes forem internacionais?",
+        "answer": "Cartoes internacionais tem padroes de falha diferentes. A logica de nova tentativa leva em conta diferencas regionais, variacoes da rede do cartao e consideracoes de fuso horario.",
+        "category": "Tecnico"
+      },
+      {
+        "id": "5",
+        "question": "Preciso mudar minha configuracao da Stripe?",
+        "answer": "Nao. Configuro o dunning sobre sua configuracao existente da Stripe. Sem migracao, sem tempo de inatividade, sem mudancas em sua logica de assinatura.",
+        "category": "Processo"
+      },
+      {
+        "id": "6",
+        "question": "Posso personalizar os modelos de e-mail?",
+        "answer": "Sim. Os e-mails de dunning correspondem a sua voz de marca e incluem a identidade da sua empresa. Voce pode edita-los a qualquer momento.",
+        "category": "Personalizacao"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Pare de Perder Receita com Pagos Falhados",
+    "subtitle": "Cada pagamento falhado e recuperavel. Deixe-me mostrar como.",
+    "description": "Agende uma chamada de descoberta gratuita. Vou analisar seus pagos falhados e estimar o potencial de recuperacao.",
+    "primaryAction": {
+      "label": "Agendar Chamada de Descoberta",
+      "href": "/contact?service=payment-recovery"
+    },
+    "secondaryAction": {
+      "label": "Ver Auditoria de Cobranca",
+      "href": "/services/billing-audit"
+    },
+    "badge": "Resposta dentro de 24 horas",
+    "trustSignals": [
+      "Analise gratuita de pagos falhados",
+      "Estimativa clara de ROI",
+      "Entrega em 7-10 dias",
+      "Monitoramento de 30 dias incluido"
+    ]
+  }
+}

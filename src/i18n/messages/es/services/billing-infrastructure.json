@@ -1,0 +1,429 @@
+{
+  "hero": {
+    "timeline": "4-6 semanas",
+    "price": "Precio personalizado",
+    "title": "Infraestructura de Facturacion Completa para SaaS de IA",
+    "subtitle": "Tus margenes son una caja negra. Ai.Rio construyo una linterna.",
+    "description": "Precios basados en uso, recuperacion de pagos fallidos, seguimiento de costos de IA y manejo de casos extremos. Construido para empresas SaaS de IA que pierden dinero debido a la complejidad de la facturacion."
+  },
+  "metrics": {
+    "title": "Construido con Estandares de Grado de Produccion",
+    "subtitle": "18 meses de desarrollo destilados en 6 semanas.",
+    "items": [
+      {
+        "id": "1",
+        "label": "Cobertura de Pruebas",
+        "value": 99.5,
+        "suffix": "%",
+        "prefix": "",
+        "progress": 99.5,
+        "trend": "up",
+        "description": "866/871 pruebas aprobadas"
+      },
+      {
+        "id": "2",
+        "label": "Proveedores de LLM",
+        "value": 5,
+        "suffix": "",
+        "prefix": "",
+        "progress": 100,
+        "trend": "neutral",
+        "description": "Integrados y rastreados"
+      },
+      {
+        "id": "3",
+        "label": "Lineas de Casos Extremos",
+        "value": 720,
+        "suffix": "",
+        "prefix": "",
+        "progress": 100,
+        "trend": "neutral",
+        "description": "Manejando complejidad de facturacion"
+      },
+      {
+        "id": "4",
+        "label": "Politicas de Seguridad",
+        "value": 45,
+        "suffix": "",
+        "prefix": "",
+        "progress": 100,
+        "trend": "up",
+        "description": "Politicas RLS, cero problemas"
+      }
+    ]
+  },
+  "problems": {
+    "title": "Por Que Tu Facturacion Esta Rota",
+    "subtitle": "La facturacion de SaaS de IA es mas dificil que el SaaS tradicional. Costos de LLM, precios basados en uso y casos extremos en todas partes.",
+    "alert": {
+      "title": "El Problema de la Caja Negra",
+      "description": "No puedes optimizar tus margenes cuando no conoces tus verdaderos costos por cliente."
+    },
+    "items": [
+      {
+        "id": "1",
+        "title": "Sin Base de Facturacion",
+        "description": "Construiste un SaaS de IA pero no tienes infraestructura de facturacion. Stripe es predeterminado y estas perdiendo ingresos por pagos fallidos.",
+        "severity": "critical",
+        "metric": "Tasa de recuperacion predeterminada del 47.6%"
+      },
+      {
+        "id": "2",
+        "title": "Costos de IA No Atribuidos",
+        "description": "Los costos de LLM estan dispersos entre proveedores. No puedes calcular los margenes del cliente porque no sabes quien genero los costos de OpenAI/Anthropic.",
+        "severity": "critical",
+        "metric": "400+ modelos para rastrear"
+      },
+      {
+        "id": "3",
+        "title": "Operaciones de Ingresos Manuales",
+        "description": "Tu equipo esta reconciliando manualmente facturas, actualizando limites de uso y manejando prorrateos. No escala.",
+        "severity": "high"
+      },
+      {
+        "id": "4",
+        "title": "Sin Precios Basados en Uso",
+        "description": "No puedes fijar precios basados en el uso real. Los precios fijos limitan el crecimiento - las empresas con precios basados en uso crecen un 54% mas rapido.",
+        "severity": "medium"
+      },
+      {
+        "id": "5",
+        "title": "Fugas de Ingresos en Todas Partes",
+        "description": "Los casos extremos como actualizaciones/bajas, prorrateos y pagos fallidos estan filtrando ingresos cada mes.",
+        "severity": "high"
+      }
+    ]
+  },
+  "solution": {
+    "title": "Solucion Ai.Rio",
+    "subtitle": "Ai.Rio paso 18 meses construyendo infraestructura de facturacion. Ahora la construiremos para ti.",
+    "items": [
+      {
+        "id": "1",
+        "title": "Integracion de Stripe Meter",
+        "description": "Implementa precios basados en uso en 2 semanas, no 6 meses. Rastrea eventos, agrega uso y factura con precision.",
+        "icon": "zap",
+        "badge": "Crecimiento 54% mas rapido",
+        "highlighted": true
+      },
+      {
+        "id": "2",
+        "title": "Recuperacion de Pagos Fallidos",
+        "description": "Flujos de trabajo de dunning automatizados que recuperan el 65-70% de los pagos fallidos. Deja de dejar ingresos en la mesa.",
+        "icon": "credit-card",
+        "badge": "+17.4% de recuperacion"
+      },
+      {
+        "id": "3",
+        "title": "Seguimiento de LLM Multi-Proveedor",
+        "description": "Rastrea OpenAI, Anthropic, OpenRouter (400+ modelos) por cliente. Conoce tus verdaderos margenes por cuenta.",
+        "icon": "bar-chart",
+        "badge": "5 proveedores"
+      },
+      {
+        "id": "4",
+        "title": "Manejo de Casos Extremos",
+        "description": "Coordinador de casos extremos de 720 lineas que maneja actualizaciones, bajas, prorrateos, pruebas y combinaciones de cupones.",
+        "icon": "shield"
+      },
+      {
+        "id": "5",
+        "title": "Visibilidad de Costos en Tiempo Real",
+        "description": "Panel que muestra costos de LLM por cliente. No mas caja negra - ve exactamente a donde van tus margenes.",
+        "icon": "database"
+      },
+      {
+        "id": "6",
+        "title": "Auditoria y Documentacion",
+        "description": "45 politicas RLS, cero problemas de seguridad. Documentacion completa y entrega para tu equipo.",
+        "icon": "shield",
+        "badge": "Cobertura de pruebas del 99.5%"
+      }
+    ]
+  },
+  "deliverables": {
+    "title": "Lo Que Obtendras",
+    "subtitle": "Entrega por fases con hitos claros y precios. Pagas por resultados, no por horas.",
+    "totalPrice": 15000,
+    "cta": {
+      "label": "Comenzar Base de Facturacion",
+      "href": "/contact?service=billing-infrastructure"
+    },
+    "phases": [
+      {
+        "phase": "1",
+        "title": "Descubrimiento y Auditoria",
+        "description": "Entender tu situacion de facturacion e identificar brechas",
+        "duration": "Semana 1",
+        "price": 2000,
+        "deliverables": [
+          {
+            "id": "1-1",
+            "title": "Auditoria de Infraestructura de Facturacion",
+            "description": "Analisis completo de tu configuracion actual de Stripe, logica de suscripcion y flujo de trabajo de operaciones de ingresos",
+            "status": "pending",
+            "deliveryWeek": "Semana 1"
+          },
+          {
+            "id": "1-2",
+            "title": "Documentacion de Casos Extremos",
+            "description": "Documentar todos los casos extremos de facturacion: pruebas, cupones, prorrateos, actualizaciones/bajas",
+            "status": "pending",
+            "deliveryWeek": "Semana 1"
+          },
+          {
+            "id": "1-3",
+            "title": "Analisis de Atribucion de Costos",
+            "description": "Mapear costos de LLM a clientes. Identificar brechas de datos para rastrear gastos de IA",
+            "status": "pending",
+            "deliveryWeek": "Semana 1"
+          }
+        ]
+      },
+      {
+        "phase": "2",
+        "title": "Construccion de Base",
+        "description": "Infraestructura de facturacion central y seguimiento de costos de LLM",
+        "duration": "Semanas 2-3",
+        "price": 6000,
+        "deliverables": [
+          {
+            "id": "2-1",
+            "title": "Implementacion de Stripe Meter",
+            "description": "Infraestructura de precios basados en uso con seguimiento y agregacion de eventos",
+            "status": "pending",
+            "deliveryWeek": "Semana 2"
+          },
+          {
+            "id": "2-2",
+            "title": "Seguimiento de LLM Multi-Proveedor",
+            "description": "Rastrea costos de OpenAI, Anthropic, OpenRouter por cliente con soporte para 400+ modelos",
+            "status": "pending",
+            "deliveryWeek": "Semanas 2-3"
+          },
+          {
+            "id": "2-3",
+            "title": "Coordinador de Casos Extremos",
+            "description": "Sistema de 720 lineas que maneja actualizaciones, bajas, prorrateos, pruebas y cupones",
+            "status": "pending",
+            "deliveryWeek": "Semana 3"
+          }
+        ]
+      },
+      {
+        "phase": "3",
+        "title": "Recuperacion y Optimizacion",
+        "description": "Recuperacion de ingresos e implementacion de panel",
+        "duration": "Semanas 4-5",
+        "price": 5000,
+        "deliverables": [
+          {
+            "id": "3-1",
+            "title": "Sistema de Recuperacion de Pagos Fallidos",
+            "description": "Flujos de trabajo de dunning automatizados con logica inteligente de reintento y secuencias de correos",
+            "status": "pending",
+            "deliveryWeek": "Semana 4"
+          },
+          {
+            "id": "3-2",
+            "title": "Panel de Margenes",
+            "description": "Panel en tiempo real que muestra costos de LLM e ingresos por cliente",
+            "status": "pending",
+            "deliveryWeek": "Semanas 4-5"
+          },
+          {
+            "id": "3-3",
+            "title": "Documentacion y Entrega",
+            "description": "Documentacion completa, suite de pruebas (cobertura del 99.5%) y capacitacion del equipo",
+            "status": "pending",
+            "deliveryWeek": "Semana 5"
+          }
+        ]
+      },
+      {
+        "phase": "4",
+        "title": "Pruebas y Lanzamiento",
+        "description": "Pruebas rigurosas e implementacion en produccion",
+        "duration": "Semana 6",
+        "price": 2000,
+        "deliverables": [
+          {
+            "id": "4-1",
+            "title": "Ejecucion de Suite de Pruebas",
+            "description": "Ejecutar 866+ pruebas que cubren todos los casos extremos y escenarios de integracion",
+            "status": "pending",
+            "deliveryWeek": "Semana 6"
+          },
+          {
+            "id": "4-2",
+            "title": "Implementacion en Produccion",
+            "description": "Implementar en produccion con monitoreo, alertas y procedimientos de reversión",
+            "status": "pending",
+            "deliveryWeek": "Semana 6"
+          },
+          {
+            "id": "4-3",
+            "title": "Soporte de 30 Dias",
+            "description": "Soporte posterior al lanzamiento para correcciones de errores y manejo de casos extremos",
+            "status": "pending",
+            "deliveryWeek": "Semanas 6-10"
+          }
+        ]
+      }
+    ]
+  },
+  "whoFor": {
+    "title": "Para Quien Es Esto",
+    "subtitle": "Empresas SaaS de IA con $25K+ MRR que estan perdiendo margenes debido a la complejidad de la facturacion.",
+    "profiles": [
+      {
+        "id": "1",
+        "name": "Fundador de SaaS de IA",
+        "initials": "FA",
+        "stage": "Ronda Semilla - Serie A",
+        "mrr": { "min": 25000, "max": 200000 },
+        "description": "Construyendo un SaaS impulsado por IA con costos de LLM reduciendo los margenes. Necesita visibilidad y control.",
+        "painPoints": [
+          "No puede calcular verdaderos margenes del cliente",
+          "Costos de IA dispersos entre proveedores",
+          "Sin capacidad de precios basados en uso",
+          "Ingresos filtrandose por pagos fallidos"
+        ]
+      },
+      {
+        "id": "2",
+        "name": "CTO de Startup de IA",
+        "initials": "CT",
+        "stage": "Etapa de Crecimiento",
+        "mrr": { "min": 100000, "max": 500000 },
+        "description": "Lider tecnico cuyo equipo esta ahogado en casos extremos de facturacion. Necesita una base solida.",
+        "painPoints": [
+          "Equipo de ingenieria perdiendo tiempo en facturacion",
+          "Casos extremos de prorrateo y actualizacion",
+          "Sin infraestructura de facturacion escalable",
+          "Preocupaciones de seguridad y cumplimiento"
+        ]
+      },
+      {
+        "id": "3",
+        "name": "Lider Financiero",
+        "initials": "LF",
+        "stage": "Serie B+",
+        "mrr": { "min": 500000, "max": 2000000 },
+        "description": "Responsable de la economia unitaria y optimizacion de margenes. No puedes gestionar lo que no puedes medir.",
+        "painPoints": [
+          "Sin visibilidad de los impulsores de costos de LLM",
+          "No puede atribuir costos de IA a clientes",
+          "Procesos manuales de operaciones de ingresos",
+          "Fugas de ingresos no detectadas"
+        ]
+      }
+    ]
+  },
+  "relatedServices": {
+    "title": "Servicios Relacionados",
+    "subtitle": "¿Necesitas algo mas pequeno o mas enfocado? Estos servicios pueden adaptarse mejor.",
+    "items": [
+      {
+        "id": "1",
+        "title": "Recuperacion de Pagos",
+        "description": "Recupera el 47-65% de los pagos fallidos con dunning automatizado. $2K-4K, 1 semana.",
+        "href": "/services/payment-recovery",
+        "badge": "Victoria Rapida"
+      },
+      {
+        "id": "2",
+        "title": "Precios Basados en Uso",
+        "description": "Lanza Stripe Meter en 2 semanas. Las empresas con precios basados en uso crecen un 54% mas rapido.",
+        "href": "/services/usage-pricing"
+      },
+      {
+        "id": "3",
+        "title": "Seguimiento de Costos de IA",
+        "description": "Rastrea costos de LLM por cliente en 5 proveedores. $3K-5K, 2-3 semanas.",
+        "href": "/services/ai-tracking",
+        "badge": "Popular"
+      },
+      {
+        "id": "4",
+        "title": "Auditoria de Facturacion",
+        "description": "Identifica fugas de ingresos y oportunidades de optimizacion. $1.5K-3K, 1 semana.",
+        "href": "/services/billing-audit"
+      }
+    ]
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "subtitle": "Respuestas directas a preguntas comunes. Sin propaganda de ventas.",
+    "items": [
+      {
+        "id": "1",
+        "question": "¿Por que precios personalizados en lugar de fijos?",
+        "answer": "Cada SaaS de IA tiene una complejidad de facturacion diferente. Algunos tienen suscripciones simples, otros tienen patrones de uso complejos, planes multi-asiento y contratos empresariales. Audito tu situacion primero, luego defino el alcance del trabajo. Pagas por lo que necesitas.",
+        "category": "Precios"
+      },
+      {
+        "id": "2",
+        "question": "¿Necesito pausar el desarrollo de funciones?",
+        "answer": "No. Construyo la infraestructura de facturacion en paralelo con tu equipo. Necesito acceso a tu cuenta de Stripe, esquema de base de datos y unas pocas horas del tiempo de tu equipo para la recopilacion de requisitos. El resto depende de mi.",
+        "category": "Proceso"
+      },
+      {
+        "id": "3",
+        "question": "¿Que pasa si ya tengo configuracion de Stripe?",
+        "answer": "Genial. Construyo sobre tu configuracion existente de Stripe. La auditoria revelara lo que tienes y lo que falta. Muchas empresas tienen pagos de Stripe pero carecen de precios basados en uso, recuperacion de pagos fallidos o seguimiento de costos de LLM.",
+        "category": "Proceso"
+      },
+      {
+        "id": "4",
+        "question": "¿Como rastreas los costos de LLM?",
+        "answer": "Implemento middleware que intercepta las llamadas API de LLM, extrae el uso de tokens y la informacion del modelo, y la almacena por cliente. Soporta OpenAI, Anthropic, OpenRouter (400+ modelos). Los datos se agregan y muestran en un panel de margenes.",
+        "category": "Tecnico"
+      },
+      {
+        "id": "5",
+        "question": "¿Que es el coordinador de casos extremos?",
+        "answer": "Un sistema de 720 lineas que construi que maneja los escenarios complejos que rompen la mayoria de las implementaciones de facturacion: actualizaciones/bajas con prorrateo, conversiones de prueba a pago, apilamiento de cupones, cambio anual/mensual y cambios de facturacion basados en asientos. Es la diferencia entre algo que funciona en demo y algo que funciona en produccion.",
+        "category": "Tecnico"
+      },
+      {
+        "id": "6",
+        "question": "¿Cuanto dura el soporte despues del lanzamiento?",
+        "answer": "30 dias de soporte posterior al lanzamiento incluidos. Esto cubre correcciones de errores, manejo de casos extremos y ajustes menores. Despues de eso, puedes comprar soporte continuo o tu equipo puede hacerse cargo - el codigo esta documentado y probado.",
+        "category": "Soporte"
+      },
+      {
+        "id": "7",
+        "question": "¿Puedes manejar requisitos de facturacion empresarial?",
+        "answer": "Si. La facturacion empresarial a menudo implica contratos personalizados, tarifas negociadas, facturacion basada en ordenes de compra y plazos de pago netos. Construyo infraestructura que admite flujos de autoservicio y empresariales.",
+        "category": "Empresarial"
+      },
+      {
+        "id": "8",
+        "question": "Pase 18 meses construyendo esto. Ahora lo construire para ti.",
+        "answer": "Esa no es una pregunta, pero es el punto. Ai.Rio construyo Margin (plataforma de seguimiento de costos de LLM) y extrajimos el codigo de facturacion de QuoteKit. Ya cometimos los errores para que no tengas que hacerlo.",
+        "category": "Acerca de"
+      }
+    ]
+  },
+  "cta": {
+    "title": "¿Listo para Arreglar Tu Facturacion?",
+    "subtitle": "Ai.Rio paso 18 meses construyendo esto. Ahora lo construiremos para ti.",
+    "description": "Reserva una llamada de descubrimiento gratuita. Discutiremos tus desafios de facturacion y proporcionare un alcance y presupuesto claros.",
+    "primaryAction": {
+      "label": "Reservar Llamada de Descubrimiento",
+      "href": "/contact?service=billing-infrastructure"
+    },
+    "secondaryAction": {
+      "label": "Ver Estudio de Caso Detallado",
+      "href": "/blog/margin-building-llm-cost-tracker"
+    },
+    "badge": "Sin compromiso requerido",
+    "trustSignals": [
+      "Respuesta dentro de 24 horas",
+      "Llamada de descubrimiento gratuita",
+      "Alcance y precios claros",
+      "Soporte posterior al lanzamiento de 30 dias"
+    ]
+  }
+}

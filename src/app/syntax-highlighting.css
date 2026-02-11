@@ -1,0 +1,122 @@
+/**
+ * Syntax highlighting styles for code blocks
+ * Based on GitHub's dark theme
+ */
+
+/* Base code block styles */
+pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em;
+  background: #0d1117;
+  color: #c9d1d9;
+}
+
+/* Inline code styles */
+code:not(pre code) {
+  background: rgba(110, 118, 129, 0.4);
+  padding: 0.2em 0.4em;
+  border-radius: 6px;
+  font-size: 85%;
+}
+
+/* Syntax highlighting colors */
+.hljs-comment,
+.hljs-quote {
+  color: #8b949e;
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-subst {
+  color: #ff7b72;
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag .hljs-attr {
+  color: #79c0ff;
+}
+
+.hljs-string,
+.hljs-doctag {
+  color: #a5d6ff;
+}
+
+.hljs-title,
+.hljs-section,
+.hljs-selector-id {
+  color: #d2a8ff;
+  font-weight: bold;
+}
+
+.hljs-type,
+.hljs-class .hljs-title {
+  color: #ffa657;
+}
+
+.hljs-tag,
+.hljs-name,
+.hljs-attribute {
+  color: #7ee787;
+  font-weight: normal;
+}
+
+.hljs-regexp,
+.hljs-link {
+  color: #a5d6ff;
+}
+
+.hljs-symbol,
+.hljs-bullet {
+  color: #ffa657;
+}
+
+.hljs-built_in,
+.hljs-builtin-name {
+  color: #ffa657;
+}
+
+.hljs-meta {
+  color: #79c0ff;
+}
+
+.hljs-deletion {
+  background: #ffa198;
+}
+
+.hljs-addition {
+  background: #56d364;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+/* Code block container */
+pre {
+  background: #0d1117;
+  border-radius: 6px;
+  margin: 1rem 0;
+  overflow: hidden;
+}
+
+pre code {
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Droid Sans Mono', 'Source Code Pro', monospace;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+/* Responsive code blocks */
+@media (max-width: 640px) {
+  pre code {
+    font-size: 12px;
+  }
+}

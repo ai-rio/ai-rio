@@ -1,0 +1,186 @@
+{
+  "hero": {
+    "title": "Billing Infrastructure, Delivered",
+    "subtitle": "We build production-ready billing systems for AI SaaS companies.",
+    "description": "Ai.Rio delivers billing infrastructure that stops margin leaks. Fixed scope, fixed price, deployed in two weeks."
+  },
+  "builderStory": {
+    "title": "The Ai.Rio Difference",
+    "subtitle": "Production-tested infrastructure, not theory.",
+    "features": [
+      {
+        "id": "1",
+        "title": "Margin Platform Foundation",
+        "description": "Built a complete LLM cost tracking system to solve the margin visibility problem for AI SaaS companies. Tracks token usage across OpenAI, Anthropic, and OpenRouter (400+ models). Provides real-time cost attribution per customer.",
+        "badge": "Production-proven infrastructure"
+      },
+      {
+        "id": "2",
+        "title": "QuoteKit Payment Systems",
+        "description": "Extracted and refactored billing infrastructure from production systems, handling complex edge cases like proration, upgrades/downgrades, trial conversions, and coupon stacking. Built a 720-line edge case coordinator.",
+        "badge": "Battle-tested code"
+      },
+      {
+        "id": "3",
+        "title": "Results That Matter",
+        "description": "These are not theoretical solutions. Ai.Rio's failed payment recovery improved recovery rates from 47.6% to 65-70%. The cost tracking solved actual margin problems for production AI SaaS companies.",
+        "badge": null
+      }
+    ]
+  },
+  "standards": {
+    "title": "Production-Grade Standards",
+    "subtitle": "Real metrics from production systems. No inflated claims.",
+    "metrics": [
+      {
+        "id": "1",
+        "label": "Test Coverage",
+        "value": 99.5,
+        "suffix": "%",
+        "description": "866 out of 871 tests passing",
+        "progress": 99.5,
+        "trend": "up"
+      },
+      {
+        "id": "2",
+        "label": "LLM Providers Supported",
+        "value": 5,
+        "suffix": "+",
+        "description": "OpenAI, Anthropic, OpenRouter, and more",
+        "progress": 100,
+        "trend": "up"
+      },
+      {
+        "id": "3",
+        "label": "Security Policies",
+        "value": 45,
+        "suffix": " RLS",
+        "description": "Row-level security policies, zero issues",
+        "progress": 100,
+        "trend": "up"
+      },
+      {
+        "id": "4",
+        "label": "Edge Cases Handled",
+        "value": 720,
+        "suffix": " lines",
+        "description": "Production-hardened edge case handling",
+        "progress": 100,
+        "trend": "up"
+      }
+    ]
+  },
+  "howIWork": {
+    "title": "How We Work",
+    "subtitle": "A simple, transparent process. You know what you're getting and when.",
+    "phases": [
+      {
+        "phase": "1",
+        "title": "Discovery Call",
+        "description": "We discuss your billing challenges and identify the scope",
+        "duration": "30-45 minutes",
+        "price": 0,
+        "deliverables": [
+          {
+            "id": "1-1",
+            "title": "Free Consultation",
+            "description": "Understand your billing infrastructure, identify pain points, and discuss potential solutions",
+            "status": "pending",
+            "deliveryWeek": "Day 1"
+          },
+          {
+            "id": "1-2",
+            "title": "Scope Definition",
+            "description": "Clear outline of work required with fixed pricing and timeline",
+            "status": "pending",
+            "deliveryWeek": "Day 1-2"
+          }
+        ]
+      },
+      {
+        "phase": "2",
+        "title": "Implementation",
+        "description": "We build the solution while you focus on your product",
+        "duration": "1-6 weeks",
+        "price": 0,
+        "deliverables": [
+          {
+            "id": "2-1",
+            "title": "Parallel Development",
+            "description": "We work independently with minimal input from your team",
+            "status": "pending",
+            "deliveryWeek": "Week 1+"
+          },
+          {
+            "id": "2-2",
+            "title": "Regular Updates",
+            "description": "Progress updates and demo sessions to ensure alignment",
+            "status": "pending",
+            "deliveryWeek": "Ongoing"
+          },
+          {
+            "id": "2-3",
+            "title": "Testing & QA",
+            "description": "Comprehensive testing with 99.5%+ test coverage",
+            "status": "pending",
+            "deliveryWeek": "Final week"
+          }
+        ]
+      },
+      {
+        "phase": "3",
+        "title": "Handoff & Support",
+        "description": "Complete documentation and post-launch support",
+        "duration": "30 days",
+        "price": 0,
+        "deliverables": [
+          {
+            "id": "3-1",
+            "title": "Documentation",
+            "description": "Complete technical documentation and code handoff",
+            "status": "pending",
+            "deliveryWeek": "Launch"
+          },
+          {
+            "id": "3-2",
+            "title": "Team Training",
+            "description": "Session with your team to understand and maintain the system",
+            "status": "pending",
+            "deliveryWeek": "Launch"
+          },
+          {
+            "id": "3-3",
+            "title": "30-Day Support",
+            "description": "Post-launch support for bug fixes and edge cases",
+            "status": "pending",
+            "deliveryWeek": "Days 1-30"
+          }
+        ]
+      }
+    ],
+    "cta": {
+      "label": "Get Started",
+      "href": "/contact?service=consultation"
+    }
+  },
+  "cta": {
+    "title": "Ready to Build Your Billing Infrastructure?",
+    "subtitle": "Production-tested code. Fixed prices. Two-week delivery.",
+    "description": "Let's discuss your billing challenges. We'll provide a clear scope and quote. No sales pressure, just honest advice.",
+    "primaryAction": {
+      "label": "Get Started",
+      "href": "/contact?service=consultation"
+    },
+    "secondaryAction": {
+      "label": "See Case Studies",
+      "href": "/blog"
+    },
+    "badge": "No commitment required",
+    "trustSignals": [
+      "Response within 24 hours",
+      "Free discovery call",
+      "Clear scope and pricing",
+      "30-day post-launch support"
+    ]
+  }
+}

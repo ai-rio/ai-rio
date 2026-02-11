@@ -1,0 +1,376 @@
+{
+  "hero": {
+    "timeline": "1 semana",
+    "price": "$1,500-3,000",
+    "title": "Auditoria de Facturacion y Deteccion de Fugas de Ingresos",
+    "subtitle": "Encuentra donde estas perdiendo dinero. Arregla lo mas importante primero.",
+    "description": "Auditoria completa de tu infraestructura de facturacion para identificar fugas de ingresos, casos extremos y oportunidades de optimizacion. Hoja de ruta clara de remediacion con estimaciones de ROI."
+  },
+  "metrics": {
+    "title": "El Costo de las Fugas Invisibles",
+    "subtitle": "La mayoria de las empresas pierden 5-15% de los ingresos en brechas de facturacion. No puedes arreglar lo que no puedes ver.",
+    "items": [
+      {
+        "id": "1",
+        "label": "Fuga de Ingresos Promedio",
+        "value": 10,
+        "suffix": "%",
+        "progress": 10,
+        "trend": "down",
+        "description": "Ingresos tipicos perdidos por brechas de facturacion"
+      },
+      {
+        "id": "2",
+        "label": "Duracion de la Auditoria",
+        "value": 4,
+        "suffix": " dias",
+        "progress": 40,
+        "trend": "neutral",
+        "description": "Desde el inicio hasta el informe final"
+      },
+      {
+        "id": "3",
+        "label": "Multiplo de ROI",
+        "value": 55,
+        "suffix": "x",
+        "prefix": "10-100",
+        "progress": 55,
+        "trend": "up",
+        "description": "ROI tipico al implementar recomendaciones"
+      },
+      {
+        "id": "4",
+        "label": "Tiempo de Implementacion",
+        "value": 4,
+        "suffix": " semanas",
+        "prefix": "1-6",
+        "progress": 40,
+        "trend": "neutral",
+        "description": "Dependiendo de las recomendaciones"
+      }
+    ]
+  },
+  "problems": {
+    "title": "Por Que Necesitas una Auditoria de Facturacion",
+    "subtitle": "Tu infraestructura de facturacion tiene brechas. Necesitas saber donde y cuanto te estan costando.",
+    "alert": {
+      "title": "Las Fugas de Ingresos Son Silenciosas",
+      "description": "Los pagos fallidos, los errores de prorrateo y los costos no atribuidos no aparecen en tu grafico de MRR. Simplemente drenan ingresos silenciosamente cada mes."
+    },
+    "items": [
+      {
+        "id": "1",
+        "title": "Fugas de Ingresos en Todas Partes",
+        "description": "Pagos fallidos, costos de LLM no atribuidos, errores de prorrateo y casos extremos estan fugando ingresos cada mes. No puedes verlos.",
+        "severity": "high",
+        "metric": "5-15% de fuga de ingresos tipica"
+      },
+      {
+        "id": "2",
+        "title": "Sin Visibilidad de Facturacion",
+        "description": "No conoces tu tasa de recuperacion de pagos fallidos, costos de adquisicion de clientes o margenes verdaderos por cliente.",
+        "severity": "high"
+      },
+      {
+        "id": "3",
+        "title": "Casos Extremos Rompiendo Ingresos",
+        "description": "Las actualizaciones, degradaciones, pruebas, cupones y prorrateo crean casos extremos que las configuraciones predeterminadas de Stripe no manejan.",
+        "severity": "medium"
+      },
+      {
+        "id": "4",
+        "title": "Inseguro de Que Arreglar Primero",
+        "description": "Sabes que la facturacion necesita trabajo, pero no sabes por donde empezar. Todo se siente roto.",
+        "severity": "medium"
+      }
+    ]
+  },
+  "solution": {
+    "title": "Lo Que Audito",
+    "subtitle": "Analisis completo de toda tu infraestructura de facturacion.",
+    "items": [
+      {
+        "id": "1",
+        "title": "Deteccion de Fugas de Ingresos",
+        "description": "Identifica exactamente donde estas perdiendo dinero: pagos fallidos, errores de prorrateo, ingresos no cobrados y brechas de atribucion de costos.",
+        "icon": "trending-down",
+        "badge": "5-15% de ingresos recuperados",
+        "highlighted": true
+      },
+      {
+        "id": "2",
+        "title": "Auditoria de Configuracion de Stripe",
+        "description": "Revision completa de tus configuraciones de Stripe, reglas de dunning, webhooks, configuraciones de impuestos y metodos de pago.",
+        "icon": "search"
+      },
+      {
+        "id": "3",
+        "title": "Documentacion de Casos Extremos",
+        "description": "Documenta cada caso extremo de facturacion: pruebas, cupones, prorrateo, cambios de plan, cambio anual/mensual y flujos empresariales.",
+        "icon": "alert-triangle"
+      },
+      {
+        "id": "4",
+        "title": "Analisis de Atribucion de Costos",
+        "description": "Mapea costos de LLM a clientes. Identifica que clientes no son rentables y por que.",
+        "icon": "dollar-sign"
+      },
+      {
+        "id": "5",
+        "title": "Comparativa de Competidores",
+        "description": "Compara tus practicas de facturacion con los estandares del mercado: precios de uso, recuperacion de pagos, seguimiento de costos.",
+        "icon": "file-text"
+      },
+      {
+        "id": "6",
+        "title": "Hoja de Ruta de Remediacion",
+        "description": "Plan de accion priorizado con estimaciones claras de ROI. Arregla lo mas importante primero.",
+        "icon": "check-circle",
+        "badge": "Proximos pasos claros"
+      }
+    ]
+  },
+  "deliverables": {
+    "title": "Lo Que Obtendras",
+    "subtitle": "Alcance fijo, precio fijo. Auditoria completa en 3-5 dias.",
+    "totalPrice": 3000,
+    "cta": {
+      "label": "Iniciar Auditoria de Facturacion",
+      "href": "/contact?service=billing-audit"
+    },
+    "phases": [
+      {
+        "phase": "1",
+        "title": "Recoleccion y Analisis de Datos",
+        "description": "Recopilar datos de facturacion y analizar el estado actual",
+        "duration": "Dias 1-2",
+        "price": 750,
+        "deliverables": [
+          {
+            "id": "1-1",
+            "title": "Revision de Configuracion de Stripe",
+            "description": "Extraer y analizar todas las configuraciones de Stripe, webhooks y configuraciones de productos",
+            "status": "pending",
+            "deliveryWeek": "Dia 1"
+          },
+          {
+            "id": "1-2",
+            "title": "Analisis de Datos de Ingresos",
+            "description": "Analizar historial de pagos, pagos fallidos, reembolsos y tendencias de ingresos",
+            "status": "pending",
+            "deliveryWeek": "Dia 1-2"
+          },
+          {
+            "id": "1-3",
+            "title": "Mapeo de Atribucion de Costos",
+            "description": "Mapear costos de LLM e infraestructura a cuentas de clientes donde sea posible",
+            "status": "pending",
+            "deliveryWeek": "Dia 2"
+          }
+        ]
+      },
+      {
+        "phase": "2",
+        "title": "Identificacion de Brechas",
+        "description": "Identificar fugas de ingresos y oportunidades de optimizacion",
+        "duration": "Dias 3-4",
+        "price": 1250,
+        "deliverables": [
+          {
+            "id": "2-1",
+            "title": "Analisis de Fugas de Ingresos",
+            "description": "Cuantificar ingresos perdidos por pagos fallidos, errores de prorrateo e ingresos no cobrados",
+            "status": "pending",
+            "deliveryWeek": "Dia 3"
+          },
+          {
+            "id": "2-2",
+            "title": "Documentacion de Casos Extremos",
+            "description": "Documentar todos los casos extremos de facturacion e identificar brechas en el manejo",
+            "status": "pending",
+            "deliveryWeek": "Dia 3-4"
+          },
+          {
+            "id": "2-3",
+            "title": "Comparativa Competitiva",
+            "description": "Comparar practicas de facturacion con estandares de mercado e identificar brechas",
+            "status": "pending",
+            "deliveryWeek": "Dia 4"
+          }
+        ]
+      },
+      {
+        "phase": "3",
+        "title": "Hoja de Ruta y Recomendaciones",
+        "description": "Crear plan de remediacion priorizado",
+        "duration": "Dia 5",
+        "price": 1000,
+        "deliverables": [
+          {
+            "id": "3-1",
+            "title": "Hoja de Ruta de Remediacion",
+            "description": "Plan de accion priorizado con estimaciones de ROI para cada mejora",
+            "status": "pending",
+            "deliveryWeek": "Dia 5"
+          },
+          {
+            "id": "3-2",
+            "title": "Resumen Ejecutivo",
+            "description": "Resumen claro de hallazgos, recomendaciones y proximos pasos para el liderazgo",
+            "status": "pending",
+            "deliveryWeek": "Dia 5"
+          },
+          {
+            "id": "3-3",
+            "title": "Cotizaciones de Implementacion",
+            "description": "Cotizaciones de precio fijo para implementar cualquier mejora recomendada",
+            "status": "pending",
+            "deliveryWeek": "Dia 5"
+          }
+        ]
+      }
+    ]
+  },
+  "whoFor": {
+    "title": "Para Quien Es Esto",
+    "subtitle": "Empresas SaaS que necesitan claridad sobre las prioridades de facturacion y estimaciones de ROI.",
+    "profiles": [
+      {
+        "id": "1",
+        "name": "Fundador de SaaS",
+        "initials": "SF",
+        "stage": "Ronda Semilla - Serie B",
+        "mrr": { "min": 50000, "max": 500000 },
+        "description": "Sabe que la facturacion necesita trabajo pero no esta seguro de por donde empezar. Necesita claridad y estimaciones de ROI.",
+        "painPoints": [
+          "Fugas de ingresos no identificadas",
+          "No sabe que arreglar primero",
+          "Sin visibilidad de la salud de la facturacion",
+          "El presupuesto necesita justificacion de ROI"
+        ]
+      },
+      {
+        "id": "2",
+        "name": "Lider de Finanzas",
+        "initials": "FL",
+        "stage": "Etapa de Crecimiento",
+        "mrr": { "min": 200000, "max": 2000000 },
+        "description": "Responsable de la optimizacion de margenes. Necesita datos para priorizar mejoras.",
+        "painPoints": [
+          "No puede cuantificar fugas de ingresos",
+          "Sin panel de metricas de facturacion",
+          "Economia unitaria poco clara",
+          "Necesita ROI para mejoras"
+        ]
+      },
+      {
+        "id": "3",
+        "name": "Nuevo CTO/Jefe de Ingresos",
+        "initials": "NR",
+        "stage": "Cualquier Etapa",
+        "mrr": { "min": 100000, "max": 5000000 },
+        "description": "Nuevo rol y necesita entender la infraestructura de facturacion rapidamente. La auditoria integral proporciona la base.",
+        "painPoints": [
+          "Sistema de facturacion heredado",
+          "No sabe que esta roto",
+          "Necesita evaluacion rapida",
+          "Debe construir credibilidad rapido"
+        ]
+      }
+    ]
+  },
+  "relatedServices": {
+    "title": "Servicios Relacionados",
+    "subtitle": "Despues de la auditoria, estos servicios implementan las recomendaciones.",
+    "items": [
+      {
+        "id": "1",
+        "title": "Recuperacion de Pagos",
+        "description": "Implementa la recuperacion de pagos fallidos basada en hallazgos de la auditoria. $2K-4K, 1 semana.",
+        "href": "/services/payment-recovery",
+        "badge": "Victoria Rapida"
+      },
+      {
+        "id": "2",
+        "title": "Seguimiento de Costos de IA",
+        "description": "Implementa el seguimiento de costos de LLM basado en brechas de la auditoria. $3K-5K, 2-3 semanas.",
+        "href": "/services/ai-tracking"
+      },
+      {
+        "id": "3",
+        "title": "Facturacion Completa",
+        "description": "Implementa todas las recomendaciones de la auditoria en un solo proyecto. $8K-15K, 4-6 semanas.",
+        "href": "/services/complete-billing",
+        "badge": "Mejor Valor"
+      },
+      {
+        "id": "4",
+        "title": "Precios Basados en Uso",
+        "description": "Lanza precios de uso si la auditoria muestra que es adecuado para tu mercado. $3K-5K, 2 semanas.",
+        "href": "/services/usage-pricing"
+      }
+    ]
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "subtitle": "Preguntas sobre el proceso de auditoria de facturacion y los entregables.",
+    "items": [
+      {
+        "id": "1",
+        "question": "¿Que obtengo realmente de la auditoria?",
+        "answer": "Un informe completo que identifica cada fuga de ingresos, cada brecha de facturacion y cada oportunidad de optimizacion. Mas una hoja de ruta priorizada con estimaciones de ROI y cotizaciones de precio fijo para implementar cualquier recomendacion.",
+        "category": "Entregables"
+      },
+      {
+        "id": "2",
+        "question": "¿Cuanto tiempo toma la auditoria?",
+        "answer": "3-5 dias laborables. La mayor parte de ese tiempo se dedica a analizar datos y documentar hallazgos. Tendras el informe completo dentro de una semana.",
+        "category": "Cronograma"
+      },
+      {
+        "id": "3",
+        "question": "¿A que datos necesitas acceso?",
+        "answer": "Acceso a la cuenta de Stripe (solo lectura), documentacion del sistema de facturacion y acceso a cualquier dato de seguimiento de costos o uso que tengas. Te guiare exactamente sobre lo que se necesita.",
+        "category": "Proceso"
+      },
+      {
+        "id": "4",
+        "question": "¿La auditoria interrumpira mis operaciones de facturacion?",
+        "answer": "No. La auditoria es de solo lectura. Analizo datos y configuracion. No se realizan cambios en tu sistema de facturacion durante la auditoria.",
+        "category": "Proceso"
+      },
+      {
+        "id": "5",
+        "question": "¿Que sucede si no implemento las recomendaciones?",
+        "answer": "Esta bien. El informe es tuyo para guardarlo. Puedes implementar cuando quieras, usarlo para justificar el presupuesto o compartirlo con tu equipo para dar contexto. Sin obligacion.",
+        "category": "Post-Auditoria"
+      },
+      {
+        "id": "6",
+        "question": "¿Implementas las recomendaciones?",
+        "answer": "Si. Proporciono cotizaciones de precio fijo para implementar cualquier recomendacion. Muchos clientes usan el informe de auditoria para obtener aprobacion presupuestaria, luego me contratan para implementar.",
+        "category": "Implementacion"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Encuentra Tus Fugas de Ingresos",
+    "subtitle": "No puedes arreglar lo que no puedes ver. Permiteme iluminar tus brechas de facturacion.",
+    "description": "Reserva una llamada de descubrimiento gratuita. Explicare el proceso de auditoria y proporcionare una cotizacion fija.",
+    "primaryAction": {
+      "label": "Reservar Llamada de Descubrimiento",
+      "href": "/contact?service=billing-audit"
+    },
+    "secondaryAction": {
+      "label": "Ver Facturacion Completa",
+      "href": "/services/complete-billing"
+    },
+    "badge": "Tiempo de respuesta de 3-5 dias",
+    "trustSignals": [
+      "Respuesta dentro de 24 horas",
+      "Auditoria de solo lectura (sin cambios)",
+      "Estimaciones claras de ROI",
+      "Cotizaciones de implementacion de precio fijo"
+    ]
+  }
+}

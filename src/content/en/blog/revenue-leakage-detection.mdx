@@ -1,0 +1,447 @@
+---
+title: "Find Hidden Revenue Leaks in Your Billing"
+description: "Systematic approach to detecting and plugging revenue leaks in your AI SaaS billing infrastructure."
+date: "2025-02-08"
+author: "Ai.Rio"
+category: "Revenue Operations"
+tags: ["revenue-leakage", "billing", "analytics", "stripe", "optimization"]
+---
+
+# Find Hidden Revenue Leaks in Your Billing
+
+Your AI SaaS is growing. MRR is up, customers are happy. But your bank account doesn't match your metrics. Revenue is leaking somewhere.
+
+Here's how to find the leaks and plug them.
+
+## The Problem
+
+Revenue leakage is the gap between what you should earn and what you actually deposit. For AI SaaS, it's especially insidious because:
+
+1. **Usage-based pricing** creates complex bills
+2. **Add-ons and upgrades** get missed
+3. **Proration calculations** are error-prone
+4. **Discount codes** don't always apply correctly
+5. **Failed payments** go uncollected
+
+Industry data shows **5-15% revenue leakage** is common. At $25K MRR, that's $1,250-$3,750/month disappearing.
+
+## The Solution
+
+Build a revenue reconciliation system that catches leaks before they compound.
+
+### The Architecture
+
+```
+┌─────────────────────────────────────────────────┐
+│           Revenue Reconciliation Engine          │
+├─────────────────────────────────────────────────┤
+│  1. Expected Revenue Calculation                │
+│  2. Actual Revenue Collection                   │
+│  3. Gap Analysis & Leak Detection               │
+│  4. Auto-Remediation                            │
+└─────────────────────────────────────────────────┘
+```
+
+## Implementation
+
+### 1. Expected Revenue Calculator
+
+```typescript
+// lib/revenue/expected.ts
+export async function calculateExpectedRevenue(
+  startDate: Date,
+  endDate: Date
+): Promise<ExpectedRevenue> {
+  const activeSubscriptions = await stripe.subscriptions.list({
+    status: 'active',
+    limit: 100,
+  });
+
+  let expected = 0;
+  const breakdown = {
+    baseSubscriptions: 0,
+    usageFees: 0,
+    addOns: 0,
+    prorations: 0,
+  };
+
+  for (const subscription of activeSubscriptions.data) {
+    // Base subscription cost
+    const baseCost = subscription.items.data.reduce(
+      (sum, item) => sum + item.price.unit_amount! * item.quantity,
+      0
+    );
+    breakdown.baseSubscriptions += baseCost;
+
+    // Usage-based items (estimate based on historical data)
+    for (const item of subscription.items.data) {
+      if (item.price.recurring?.usage_type === 'metered') {
+        const avgUsage = await getAverageUsage(
+          subscription.id,
+          item.price.id
+        );
+        breakdown.usageFees += avgUsage * item.price.unit_amount!;
+      }
+    }
+
+    // Add-ons
+    const addOns = await getCustomerAddOns(subscription.customer as string);
+    breakdown.addOns += addOns;
+
+    expected += baseCost + breakdown.usageFees + addOns;
+  }
+
+  return {
+    total: expected,
+    breakdown,
+    period: { startDate, endDate },
+  };
+}
+```
+
+### 2. Actual Revenue Tracker
+
+```typescript
+// lib/revenue/actual.ts
+export async function calculateActualRevenue(
+  startDate: Date,
+  endDate: Date
+): Promise<ActualRevenue> {
+  const invoices = await stripe.invoices.list({
+    created: { gte: Math.floor(startDate.getTime() / 1000) },
+    limit: 100,
+  });
+
+  let total = 0;
+  const successful = [];
+  const failed = [];
+  const pending = [];
+
+  for (const invoice of invoices.data) {
+    const amount = invoice.total;
+
+    switch (invoice.status) {
+      case 'paid':
+        total += amount;
+        successful.push({
+          id: invoice.id,
+          amount,
+          customer: invoice.customer,
+        });
+        break;
+
+      case 'void':
+      case 'uncollectible':
+        failed.push({
+          id: invoice.id,
+          amount,
+          customer: invoice.customer,
+          reason: invoice.status,
+        });
+        break;
+
+      case 'open':
+        pending.push({
+          id: invoice.id,
+          amount,
+          customer: invoice.customer,
+          dueDate: invoice.due_date,
+        });
+        break;
+    }
+  }
+
+  return {
+    total,
+    breakdown: {
+      successful: successful.reduce((sum, i) => sum + i.amount, 0),
+      failed: failed.reduce((sum, i) => sum + i.amount, 0),
+      pending: pending.reduce((sum, i) => sum + i.amount, 0),
+    },
+    details: { successful, failed, pending },
+  };
+}
+```
+
+### 3. Leak Detection Engine
+
+```typescript
+// lib/revenue/leaks.ts
+export async function detectLeaks(
+  expected: ExpectedRevenue,
+  actual: ActualRevenue
+): Promise<RevenueLeak[]> {
+  const leaks: RevenueLeak[] = [];
+
+  // 1. Failed payments
+  for (const failed of actual.details.failed) {
+    const leak = {
+      type: 'failed_payment',
+      amount: failed.amount,
+      customer: failed.customer,
+      severity: calculateSeverity(failed.amount),
+      description: `Invoice ${failed.id} failed`,
+      remediation: await getFailedPaymentRemediation(failed),
+    };
+    leaks.push(leak);
+  }
+
+  // 2. Pending invoices past due
+  for (const pending of actual.details.pending) {
+    if (pending.dueDate && pending.dueDate < Date.now() / 1000) {
+      const leak = {
+        type: 'overdue_invoice',
+        amount: pending.amount,
+        customer: pending.customer,
+        severity: 'high',
+        description: `Invoice ${pending.id} is overdue`,
+        remediation: await getOverdueRemediation(pending),
+      };
+      leaks.push(leak);
+    }
+  }
+
+  // 3. Usage under-reporting
+  const expectedUsage = expected.breakdown.usageFees;
+  const actualUsage = await getActualUsageRevenue(
+    expected.period.startDate,
+    expected.period.endDate
+  );
+
+  if (actualUsage < expectedUsage * 0.9) {
+    leaks.push({
+      type: 'usage_under_report',
+      amount: expectedUsage - actualUsage,
+      customer: null,
+      severity: 'medium',
+      description: `Usage revenue gap: $${(expectedUsage - actualUsage) / 100}`,
+      remediation: {
+        action: 'audit_usage_reporting',
+        priority: 'high',
+      },
+    });
+  }
+
+  // 4. Discount verification
+  await verifyDiscounts(leaks);
+
+  // 5. Add-on billing verification
+  await verifyAddOnBilling(leaks);
+
+  return leaks.sort((a, b) => severityScore(b.severity) - severityScore(a.severity));
+}
+
+function calculateSeverity(amount: number): 'low' | 'medium' | 'high' {
+  if (amount > 10000) return 'high';
+  if (amount > 1000) return 'medium';
+  return 'low';
+}
+```
+
+### 4. Common Leak Patterns
+
+```typescript
+// lib/revenue/patterns.ts
+export async function detectCommonPatterns() {
+  const patterns = [];
+
+  // Pattern 1: Subscriptions without payment methods
+  const subsNoPayment = await stripe.subscriptions.search({
+    query: 'status:"active" AND default_payment_method:null',
+  });
+
+  if (subsNoPayment.data.length > 0) {
+    patterns.push({
+      type: 'no_payment_method',
+      count: subsNoPayment.data.length,
+      risk: 'immediate_failure',
+      action: 'request_payment_method',
+    });
+  }
+
+  // Pattern 2: High-usage customers on wrong plans
+  const highUsageCustomers = await getHighUsageCustomers();
+  for (const customer of highUsageCustomers) {
+    const subscription = await getCurrentSubscription(customer.id);
+    const usage = await getCurrentUsage(customer.id);
+
+    if (shouldUpgradePlan(usage, subscription)) {
+      patterns.push({
+        type: 'plan_mismatch',
+        customer: customer.id,
+        currentPlan: subscription.items.data[0].price.nickname,
+        suggestedPlan: await suggestPlan(usage),
+        potentialRevenue: await calculateUpgradeValue(customer.id),
+      });
+    }
+  }
+
+  // Pattern 3: Trial abuse
+  const trialAbusers = await detectTrialAbuse();
+  patterns.push(...trialAbusers);
+
+  // Pattern 4: Discount stacking
+  const discountStackers = await detectDiscountStacking();
+  patterns.push(...discountStackers);
+
+  return patterns;
+}
+```
+
+### 5. Auto-Remediation
+
+```typescript
+// lib/revenue/remediate.ts
+export async function remediateLeak(leak: RevenueLeak) {
+  switch (leak.type) {
+    case 'failed_payment':
+      return await remediateFailedPayment(leak);
+
+    case 'overdue_invoice':
+      return await remediateOverdueInvoice(leak);
+
+    case 'usage_under_report':
+      return await auditUsageReporting(leak);
+
+    case 'plan_mismatch':
+      return await suggestPlanUpgrade(leak);
+
+    case 'trial_abuse':
+      return await blockTrialAbuser(leak);
+
+    case 'discount_stacking':
+      return await fixDiscountStacking(leak);
+
+    default:
+      return { success: false, message: 'Unknown leak type' };
+  }
+}
+
+async function remediateFailedPayment(leak: RevenueLeak) {
+  const customer = leak.customer as string;
+
+  // Retry payment
+  const invoice = await stripe.invoices.retrieve(leak.invoiceId!);
+  if (invoice.status === 'open') {
+    await stripe.invoices.pay(invoice.id);
+  }
+
+  // Update payment method
+  const paymentMethods = await stripe.paymentMethods.list({
+    customer,
+    type: 'card',
+  });
+
+  if (paymentMethods.data.length > 0) {
+    await stripe.customers.update(customer, {
+      invoice_settings: {
+        default_payment_method: paymentMethods.data[0].id,
+      },
+    });
+  }
+
+  // Send notification
+  await sendPaymentReminder(customer, invoice);
+
+  return { success: true, action: 'payment_retried' };
+}
+```
+
+## Monitoring Dashboard
+
+```typescript
+// app/dashboard/revenue/page.tsx
+export async function RevenueDashboard() {
+  const now = new Date();
+  const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
+
+  const [expected, actual, leaks] = await Promise.all([
+    calculateExpectedRevenue(startOfMonth, now),
+    calculateActualRevenue(startOfMonth, now),
+    detectLeaks(
+      await calculateExpectedRevenue(startOfMonth, now),
+      await calculateActualRevenue(startOfMonth, now)
+    ),
+  ]);
+
+  const leakageAmount = expected.total - actual.total;
+  const leakagePercent = (leakageAmount / expected.total) * 100;
+
+  return (
+    <div>
+      <h1>Revenue Leak Detection</h1>
+
+      <div className="grid grid-cols-3 gap-4">
+        <MetricCard
+          title="Expected Revenue"
+          value={`$${(expected.total / 100).toFixed(2)}`}
+        />
+        <MetricCard
+          title="Actual Revenue"
+          value={`$${(actual.total / 100).toFixed(2)}`}
+        />
+        <MetricCard
+          title="Leakage"
+          value={`$${(leakageAmount / 100).toFixed(2)} (${leakagePercent.toFixed(1)}%)`}
+          trend={leakagePercent > 5 ? 'bad' : 'good'}
+        />
+      </div>
+
+      <LeakTable leaks={leaks} />
+
+      <RevenueChart
+        expected={expected.breakdown}
+        actual={actual.breakdown}
+      />
+    </div>
+  );
+}
+```
+
+## Proactive Detection
+
+```typescript
+// Set up automated monitoring
+export async function setupRevenueMonitoring() {
+  // Daily checks
+  cron.schedule('0 9 * * *', async () => {
+    const yesterday = new Date(Date.now() - 86400000);
+    const today = new Date();
+
+    const leaks = await detectLeaks(
+      await calculateExpectedRevenue(yesterday, today),
+      await calculateActualRevenue(yesterday, today)
+    );
+
+    if (leaks.length > 0) {
+      await sendRevenueAlert(leaks);
+    }
+  });
+
+  // Weekly deep dive
+  cron.schedule('0 9 * * 1', async () => {
+    const lastWeek = new Date(Date.now() - 7 * 86400000);
+    const today = new Date();
+
+    const patterns = await detectCommonPatterns();
+    await sendWeeklyRevenueReport({ patterns, summary: await generateSummary(lastWeek, today) });
+  });
+}
+```
+
+## The Bottom Line
+
+Revenue leakage is silent but deadly. At 10% leakage, you're leaving 36 days of revenue on the table every year.
+
+**Key takeaways:**
+1. Calculate expected revenue from first principles
+2. Reconcile with actual collections daily
+3. Automate leak detection and remediation
+4. Monitor common patterns proactively
+5. Build alerts for threshold breaches
+
+Your margins are tight enough without invisible leaks. Plug them systematically.
+
+---
+
+**Want to see how Ai.Rio can help you build revenue reconciliation that catches leaks automatically?** Your margins are a black box. Ai.Rio built a flashlight.

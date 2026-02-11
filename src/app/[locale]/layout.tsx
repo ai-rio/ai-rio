@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
+import { ThemeProvider } from "next-themes";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -15,8 +16,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AI.RIO - Billing Infrastructure Specialist",
-  description: "I help AI SaaS companies track and optimize their LLM costs—so you know your true margins and stop losing money on heavy users.",
+  metadataBase: new URL('https://ai.rio.br'),
+  title: "Ai.Rio - Billing infrastructure for AI SaaS",
+  description: "We stop your margin bleed. Fixed-scope, fixed-price billing infrastructure services delivered in two weeks.",
 };
 
 export default async function RootLayout({
@@ -30,13 +32,15 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
+    <html lang={locale} suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <NextIntlClientProvider messages={messages}>
-          {children}
-        </NextIntlClientProvider>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          <NextIntlClientProvider messages={messages}>
+            {children}
+          </NextIntlClientProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

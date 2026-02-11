@@ -1,0 +1,16 @@
+{
+  "tagline": "Billing infrastructure for AI SaaS",
+  "navigation": "Navigation",
+  "home": "Home",
+  "services": "Services",
+  "about": "About",
+  "blog": "Blog",
+  "services_title": "Services",
+  "payment_recovery": "Ai.Rio Recover",
+  "usage_pricing": "Ai.Rio Meter",
+  "ai_tracking": "Ai.Rio Track",
+  "billing_audit": "Ai.Rio Audit",
+  "contact_title": "Contact",
+  "get_in_touch": "Get in Touch",
+  "copyright": "© {year} Ai.Rio. All rights reserved."
+}

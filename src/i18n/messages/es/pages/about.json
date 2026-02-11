@@ -1,0 +1,186 @@
+{
+  "hero": {
+    "title": "Ai.Rio Construyo Infraestructura de Facturacion Desde Cero",
+    "subtitle": "Ahora la construiremos para ti.",
+    "description": "Pasé 18 meses construyendo Margin (seguimiento de costos de LLM) y extrayendo código de facturación de QuoteKit. Resolví los problemas que estás enfrentando ahora mismo."
+  },
+  "builderStory": {
+    "title": "La Historia del Constructor",
+    "subtitle": "No aprendí esto de un curso. Lo construí porque lo necesitaba.",
+    "features": [
+      {
+        "id": "1",
+        "title": "Margin - Plataforma de Seguimiento de Costos de LLM",
+        "description": "Construí un sistema completo de seguimiento de costos de LLM para resolver el problema de la \"caja negra\" para empresas de IA SaaS. Rastrea el uso de tokens en OpenAI, Anthropic y OpenRouter (más de 400 modelos). Proporciona atribución de costos en tiempo real por cliente.",
+        "badge": "18 meses en desarrollo"
+      },
+      {
+        "id": "2",
+        "title": "Sistemas de Pago QuoteKit",
+        "description": "Extraje y refactoricé la infraestructura de facturación de QuoteKit, manejando casos extremos complejos como prorrateos, actualizaciones/bajas, conversiones de prueba y apilamiento de cupones. Construí un coordinador de casos extremos de 720 líneas.",
+        "badge": "Probado en producción"
+      },
+      {
+        "id": "3",
+        "title": "Problemas del Mundo Real Resueltos",
+        "description": "Estas no son soluciones teóricas. Construí estos sistemas porque los necesitaba. La recuperación de pagos fallidos mejoró las tasas de recuperación del 47.6% al 65-70%. El seguimiento de costos resolvió el pánico real de márgenes.",
+        "badge": null
+      }
+    ]
+  },
+  "standards": {
+    "title": "Estándares de Nivel Producción",
+    "subtitle": "Métricas reales del código real. Sin afirmaciones infladas.",
+    "metrics": [
+      {
+        "id": "1",
+        "label": "Cobertura de Pruebas",
+        "value": 99.5,
+        "suffix": "%",
+        "description": "866 de 871 pruebas pasando",
+        "progress": 99.5,
+        "trend": "up"
+      },
+      {
+        "id": "2",
+        "label": "Proveedores de LLM Soportados",
+        "value": 5,
+        "suffix": "+",
+        "description": "OpenAI, Anthropic, OpenRouter y más",
+        "progress": 100,
+        "trend": "up"
+      },
+      {
+        "id": "3",
+        "label": "Políticas de Seguridad",
+        "value": 45,
+        "suffix": " RLS",
+        "description": "Políticas de seguridad a nivel de fila, cero problemas",
+        "progress": 100,
+        "trend": "up"
+      },
+      {
+        "id": "4",
+        "label": "Casos Extremos Manejados",
+        "value": 720,
+        "suffix": " líneas",
+        "description": "Manejo de casos extremos probado en producción",
+        "progress": 100,
+        "trend": "up"
+      }
+    ]
+  },
+  "howIWork": {
+    "title": "Cómo Trabajo con Clientes",
+    "subtitle": "Un proceso simple y transparente. Sabes qué estás obteniendo y cuándo.",
+    "phases": [
+      {
+        "phase": "1",
+        "title": "Llamada de Descubrimiento",
+        "description": "Discutimos tus desafíos de facturación e identifico el alcance",
+        "duration": "30-45 minutos",
+        "price": 0,
+        "deliverables": [
+          {
+            "id": "1-1",
+            "title": "Consultoría Gratuita",
+            "description": "Entender tu infraestructura de facturación, identificar puntos problemáticos y discutir posibles soluciones",
+            "status": "pending",
+            "deliveryWeek": "Día 1"
+          },
+          {
+            "id": "1-2",
+            "title": "Definición del Alcance",
+            "description": "Resumen claro del trabajo requerido con precio fijo y cronograma",
+            "status": "pending",
+            "deliveryWeek": "Día 1-2"
+          }
+        ]
+      },
+      {
+        "phase": "2",
+        "title": "Implementación",
+        "description": "Construyo la solución mientras te enfocas en tu producto",
+        "duration": "1-6 semanas",
+        "price": 0,
+        "deliverables": [
+          {
+            "id": "2-1",
+            "title": "Desarrollo Paralelo",
+            "description": "Trabajo de forma independiente con mínima entrada de tu equipo",
+            "status": "pending",
+            "deliveryWeek": "Semana 1+"
+          },
+          {
+            "id": "2-2",
+            "title": "Actualizaciones Regulares",
+            "description": "Actualizaciones de progreso y sesiones de demostración para asegurar alineación",
+            "status": "pending",
+            "deliveryWeek": "Continuo"
+          },
+          {
+            "id": "2-3",
+            "title": "Pruebas y Control de Calidad",
+            "description": "Pruebas exhaustivas con cobertura del 99.5%+",
+            "status": "pending",
+            "deliveryWeek": "Última semana"
+          }
+        ]
+      },
+      {
+        "phase": "3",
+        "title": "Entrega y Soporte",
+        "description": "Documentación completa y soporte posterior al lanzamiento",
+        "duration": "30 días",
+        "price": 0,
+        "deliverables": [
+          {
+            "id": "3-1",
+            "title": "Documentación",
+            "description": "Documentación técnica completa y entrega del código",
+            "status": "pending",
+            "deliveryWeek": "Lanzamiento"
+          },
+          {
+            "id": "3-2",
+            "title": "Capacitación del Equipo",
+            "description": "Sesión con tu equipo para entender y mantener el sistema",
+            "status": "pending",
+            "deliveryWeek": "Lanzamiento"
+          },
+          {
+            "id": "3-3",
+            "title": "Soporte de 30 Días",
+            "description": "Soporte posterior al lanzamiento para correcciones de errores y casos extremos",
+            "status": "pending",
+            "deliveryWeek": "Días 1-30"
+          }
+        ]
+      }
+    ],
+    "cta": {
+      "label": "Reserva una Llamada de Descubrimiento",
+      "href": "/contact?service=consultation"
+    }
+  },
+  "cta": {
+    "title": "¿Listo para Construir tu Infraestructura de Facturación?",
+    "subtitle": "Ya cometí los errores para que tú no tengas que hacerlo.",
+    "description": "Hablemos de tus desafíos de facturación. Proporcionaré un alcance y presupuesto claros. Sin presión de ventas, solo consejos honestos.",
+    "primaryAction": {
+      "label": "Reserva Llamada de Descubrimiento",
+      "href": "/contact?service=consultation"
+    },
+    "secondaryAction": {
+      "label": "Ver Casos de Estudio",
+      "href": "/blog"
+    },
+    "badge": "Sin compromiso requerido",
+    "trustSignals": [
+      "Respuesta dentro de 24 horas",
+      "Llamada de descubrimiento gratuita",
+      "Alcance y precios claros",
+      "Soporte posterior al lanzamiento de 30 días"
+    ]
+  }
+}

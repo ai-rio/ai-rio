@@ -1,0 +1,40 @@
+{
+  "name": {
+    "label": "Seu nome",
+    "placeholder": "João Silva",
+    "required": "Nome é obrigatório"
+  },
+  "email": {
+    "label": "Endereço de e-mail",
+    "placeholder": "joao@exemplo.com",
+    "required": "E-mail é obrigatório",
+    "invalid": "Por favor, insira um endereço de e-mail válido"
+  },
+  "company": {
+    "label": "Empresa",
+    "placeholder": "Exemplo Ltda.",
+    "required": "Empresa é obrigatória"
+  },
+  "service": {
+    "label": "Qual serviço te interessa?",
+    "placeholder": "Selecione um serviço",
+    "required": "Por favor, selecione um serviço",
+    "options": {
+      "payment_recovery": "Acelerador de Recuperação de Pagamentos Stripe",
+      "usage_pricing": "Implementação de Preços Baseados em Uso",
+      "ai_tracking": "Sistema de Visibilidade de Custos de IA",
+      "billing_audit": "Detecção de Vazamento de Receita",
+      "complete_billing": "Fundação de Cobrança",
+      "other": "Outro"
+    }
+  },
+  "message": {
+    "label": "Conte-me sobre seus desafios de cobrança",
+    "placeholder": "Descreva sua situação de cobrança e o que você gostaria de alcançar...",
+    "required": "Mensagem é obrigatória",
+    "minLength": "A mensagem deve ter pelo menos 10 caracteres"
+  },
+  "submit": "Enviar Mensagem",
+  "success": "Mensagem enviada com sucesso! Responderei em breve.",
+  "error": "Falha ao enviar mensagem. Por favor, tente novamente."
+}

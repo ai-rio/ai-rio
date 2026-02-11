@@ -1,0 +1,474 @@
+{
+  "hero": {
+    "timeline": "4-6 semanas",
+    "price": "$8,000-15,000",
+    "title": "Fundamento de Facturacion Completo",
+    "subtitle": "Infraestructura de facturacion de extremo a extremo para SaaS de IA. Todos los servicios integrados.",
+    "description": "Recuperacion de pagos, precios basados en uso, seguimiento de costos de IA y auditoria de facturacion. Un proveedor, una integracion, garantia de 90 dias."
+  },
+  "metrics": {
+    "title": "Todo Lo Que Necesitas, Nada Que No",
+    "subtitle": "Cuatro servicios esenciales. Una implementacion. Responsabilidad completa.",
+    "items": [
+      {
+        "id": "1",
+        "label": "Servicios Incluidos",
+        "value": 4,
+        "suffix": " servicios",
+        "description": "Recuperacion de pagos, precios de uso, seguimiento de costos, auditoria",
+        "progress": 100,
+        "trend": "neutral"
+      },
+      {
+        "id": "2",
+        "label": "Tiempo de Implementacion",
+        "value": 6,
+        "suffix": " semanas",
+        "description": "Desde el inicio hasta la produccion",
+        "progress": 100,
+        "trend": "neutral"
+      },
+      {
+        "id": "3",
+        "label": "Cobertura de Pruebas",
+        "value": 99.5,
+        "suffix": "%",
+        "description": "866/871 pruebas aprobadas",
+        "progress": 99.5,
+        "trend": "up"
+      },
+      {
+        "id": "4",
+        "label": "Periodo de Garantia",
+        "value": 90,
+        "suffix": " dias",
+        "description": "Soporte completo incluido",
+        "progress": 100,
+        "trend": "up"
+      }
+    ]
+  },
+  "problems": {
+    "title": "Por Que la Facturacion Fragmentada Falla",
+    "subtitle": "Multiples proveedores, integraciones y culpas. Necesitas una solucion que realmente funcione.",
+    "alert": {
+      "title": "La Pesadilla de Integracion",
+      "description": "Recuperacion de pagos del proveedor A, precios de uso del proveedor B, seguimiento de costos del proveedor C. Cuando no se integran, quedas atrapado en el medio depurando."
+    },
+    "items": [
+      {
+        "id": "1",
+        "title": "Sin Fundamento de Facturacion",
+        "description": "Tu SaaS de IA no tiene infraestructura de facturacion. Estas usando configuraciones predeterminadas de Stripe y perdiendo ingresos por pagos fallidos, costos no atribuidos y procesos manuales.",
+        "severity": "critical",
+        "metric": "20-30%+ de ingresos en riesgo"
+      },
+      {
+        "id": "2",
+        "title": "Multiples Proveedores, Solucion Fragmentada",
+        "description": "Podrias contratar diferentes proveedores para recuperacion de pagos, precios de uso, seguimiento de costos y auditoria. Las integraciones se romperan, los costos se acumularan y la responsabilidad estara poco clara.",
+        "severity": "high"
+      },
+      {
+        "id": "3",
+        "title": "Equipo de Ingenieria Distrado",
+        "description": "Tus ingenieros quieren construir caracteristicas del producto, no infraestructura de facturacion. Cada sprint gastado en facturacion es una caracteristica no enviada.",
+        "severity": "high"
+      },
+      {
+        "id": "4",
+        "title": "Presion de Tiempo de Mercado",
+        "description": "Los competidores estan lanzando con precios de uso, mejores margenes y recuperacion mas rapida. Necesitas infraestructura de facturacion ahora.",
+        "severity": "medium"
+      }
+    ]
+  },
+  "solution": {
+    "title": "La Solución Completa Ai.Rio",
+    "subtitle": "Cuatro servicios, una implementacion, punto unico de responsabilidad.",
+    "items": [
+      {
+        "id": "1",
+        "title": "Recuperacion de Pagos Fallidos",
+        "description": "Flujos de trabajo de dunning automatizados que recuperan el 65-70% de los pagos fallidos. Deja de dejar ingresos en la mesa.",
+        "icon": "credit-card",
+        "badge": "+17.4% de recuperacion",
+        "highlighted": true
+      },
+      {
+        "id": "2",
+        "title": "Precios Basados en Uso",
+        "description": "Lanza Stripe Meter en 2 semanas. Las empresas con precios de uso crecen un 54% mas rapido.",
+        "icon": "zap",
+        "badge": "54% de crecimiento mas rapido"
+      },
+      {
+        "id": "3",
+        "title": "Seguimiento de Costos de IA",
+        "description": "Rastrea los costos de LLM por cliente en 5 proveedores (400+ modelos). Conoce tus verdaderos margenes.",
+        "icon": "bar-chart",
+        "badge": "5 proveedores"
+      },
+      {
+        "id": "4",
+        "title": "Auditoria y Hoja de Ruta de Facturacion",
+        "description": "Identifica fugas de ingresos y crea una hoja de ruta de optimizacion priorizada.",
+        "icon": "database"
+      },
+      {
+        "id": "5",
+        "title": "Coordinador de Casos Extremos",
+        "description": "Sistema de 720 lineas que maneja actualizaciones, degradaciones, prorrateo, pruebas, cupones y mas.",
+        "icon": "shield",
+        "badge": "De grado de produccion"
+      },
+      {
+        "id": "6",
+        "title": "Garantia de 90 Dias",
+        "description": "Si algo se rompe dentro de 90 dias, lo arreglo. Sin preguntas, sin costo adicional.",
+        "icon": "shield",
+        "badge": "Tranquilidad mental"
+      }
+    ]
+  },
+  "dashboardShowcase": {
+    "title": "Panel de Facturacion Unificado",
+    "subtitle": "Un panel para margenes, recuperacion, uso y costos.",
+    "views": [
+      {
+        "id": "1",
+        "title": "Resumen de Margenes",
+        "description": "Verdaderos margenes por cliente despues de contabilizar los costos de LLM",
+        "imageSrc": "/images/dashboard/billing-margin-overview.png",
+        "imageAlt": "Panel que muestra verdaderos margenes de beneficio por cliente despues de costos de LLM",
+        "device": "desktop"
+      },
+      {
+        "id": "2",
+        "title": "Recuperacion de Ingresos",
+        "description": "Pagos fallidos recuperados e ingresos ahorrados",
+        "imageSrc": "/images/dashboard/billing-revenue-recovery.png",
+        "imageAlt": "Panel que muestra metricas de recuperacion de pagos fallidos e ingresos ahorrados",
+        "device": "desktop"
+      },
+      {
+        "id": "3",
+        "title": "Tendencias de Uso",
+        "description": "Patrones de uso del cliente y facturacion proyectada",
+        "imageSrc": "/images/dashboard/billing-usage-trends.png",
+        "imageAlt": "Panel que muestra patrones de uso del cliente y proyecciones de facturacion",
+        "device": "desktop"
+      },
+      {
+        "id": "4",
+        "title": "Atribucion de Costos",
+        "description": "Costos de LLM desglosados por proveedor, modelo y cliente",
+        "imageSrc": "/images/dashboard/billing-cost-attribution.png",
+        "imageAlt": "Panel que muestra desglose de costos de LLM por proveedor, modelo y cliente",
+        "device": "desktop"
+      }
+    ]
+  },
+  "deliverables": {
+    "title": "Lo Que Obtendras",
+    "subtitle": "Entrega por fases con hitos claros. Listo para produccion en 4-6 semanas.",
+    "totalPrice": 15000,
+    "cta": {
+      "label": "Construir Facturacion Completa",
+      "href": "/contact?service=complete-billing"
+    },
+    "phases": [
+      {
+        "phase": "1",
+        "title": "Auditoria y Estrategia",
+        "description": "Auditoria completa de facturacion y hoja de ruta de implementacion",
+        "duration": "Semana 1",
+        "price": 2000,
+        "deliverables": [
+          {
+            "id": "1-1",
+            "title": "Auditoria de Infraestructura de Facturacion",
+            "description": "Analisis completo de la configuracion actual, brechas y fugas de ingresos",
+            "status": "pending",
+            "deliveryWeek": "Semana 1"
+          },
+          {
+            "id": "1-2",
+            "title": "Hoja de Ruta de Implementacion",
+            "description": "Plan priorizado con hitos claros y cronograma",
+            "status": "pending",
+            "deliveryWeek": "Semana 1"
+          },
+          {
+            "id": "1-3",
+            "title": "Documentacion de Casos Extremos",
+            "description": "Documentar todos los casos extremos de facturacion y requisitos de manejo",
+            "status": "pending",
+            "deliveryWeek": "Semana 1"
+          }
+        ]
+      },
+      {
+        "phase": "2",
+        "title": "Fundamento: Recuperacion y Auditoria",
+        "description": "Implementar recuperacion de pagos y auditoria completa de facturacion",
+        "duration": "Semana 2",
+        "price": 4000,
+        "deliverables": [
+          {
+            "id": "2-1",
+            "title": "Sistema de Recuperacion de Pagos",
+            "description": "Flujos de trabajo de dunning automatizados con tasa de recuperacion del 65-70%",
+            "status": "pending",
+            "deliveryWeek": "Semana 2"
+          },
+          {
+            "id": "2-2",
+            "title": "Informe de Auditoria de Facturacion",
+            "description": "Informe detallado de todas las brechas de facturacion y oportunidades de optimizacion",
+            "status": "pending",
+            "deliveryWeek": "Semana 2"
+          },
+          {
+            "id": "2-3",
+            "title": "Correcciones de Fugas de Ingresos",
+            "description": "Corregir fugas de ingresos inmediatas identificadas en la auditoria",
+            "status": "pending",
+            "deliveryWeek": "Semana 2"
+          }
+        ]
+      },
+      {
+        "phase": "3",
+        "title": "Seguimiento de Uso y Costos",
+        "description": "Implementar precios basados en uso y seguimiento de costos de IA",
+        "duration": "Semanas 3-4",
+        "price": 5000,
+        "deliverables": [
+          {
+            "id": "3-1",
+            "title": "Implementacion de Stripe Meter",
+            "description": "Infraestructura de precios basados en uso con seguimiento de eventos",
+            "status": "pending",
+            "deliveryWeek": "Semana 3"
+          },
+          {
+            "id": "3-2",
+            "title": "Seguimiento de Costos de LLM",
+            "description": "Seguimiento de costos multi-proveedor con atribucion de clientes",
+            "status": "pending",
+            "deliveryWeek": "Semana 3-4"
+          },
+          {
+            "id": "3-3",
+            "title": "Paneles de Uso y Costos",
+            "description": "Paneles en tiempo real para uso y costos por cliente",
+            "status": "pending",
+            "deliveryWeek": "Semana 4"
+          }
+        ]
+      },
+      {
+        "phase": "4",
+        "title": "Integracion y Pruebas",
+        "description": "Integrar todos los sistemas y pruebas rigurosas",
+        "duration": "Semana 5",
+        "price": 2500,
+        "deliverables": [
+          {
+            "id": "4-1",
+            "title": "Coordinador de Casos Extremos",
+            "description": "Sistema de 720 lineas que maneja todos los casos extremos de facturacion",
+            "status": "pending",
+            "deliveryWeek": "Semana 5"
+          },
+          {
+            "id": "4-2",
+            "title": "Ejecucion de Suite de Pruebas",
+            "description": "Ejecutar 866+ pruebas que cubren todos los escenarios",
+            "status": "pending",
+            "deliveryWeek": "Semana 5"
+          },
+          {
+            "id": "4-3",
+            "title": "Pruebas de Integracion",
+            "description": "Verificar que todos los sistemas funcionen correctamente juntos",
+            "status": "pending",
+            "deliveryWeek": "Semana 5"
+          }
+        ]
+      },
+      {
+        "phase": "5",
+        "title": "Lanzamiento y Soporte",
+        "description": "Despliegue de produccion y soporte extendido",
+        "duration": "Semana 6",
+        "price": 1500,
+        "deliverables": [
+          {
+            "id": "5-1",
+            "title": "Despliegue de Produccion",
+            "description": "Desplegar a produccion con monitoreo y alertas",
+            "status": "pending",
+            "deliveryWeek": "Semana 6"
+          },
+          {
+            "id": "5-2",
+            "title": "Documentacion y Entrega",
+            "description": "Documentacion completa y capacitacion del equipo",
+            "status": "pending",
+            "deliveryWeek": "Semana 6"
+          },
+          {
+            "id": "5-3",
+            "title": "Garantia de 90 Dias",
+            "description": "Soporte completo y correcciones de errores durante 90 dias despues del lanzamiento",
+            "status": "pending",
+            "deliveryWeek": "Semanas 6-18"
+          }
+        ]
+      }
+    ]
+  },
+  "whoFor": {
+    "title": "Para Quien Es Esto",
+    "subtitle": "Empresas SaaS de IA que necesitan infraestructura de facturacion completa, no soluciones puntuales fragmentadas.",
+    "profiles": [
+      {
+        "id": "1",
+        "name": "Fundador de SaaS de IA de Serie A",
+        "initials": "AF",
+        "stage": "Serie A",
+        "mrr": { "min": 100000, "max": 500000 },
+        "description": "Escalando rapidamente sin fundamento de facturacion. Necesita todo, lo necesita ahora y necesita que funcione.",
+        "painPoints": [
+          "Sin infraestructura de facturacion",
+          "Ingresos fugando de brechas",
+          "Equipo de ingenieria distraido",
+          "Competidores moviendose mas rapido"
+        ]
+      },
+      {
+        "id": "2",
+        "name": "CTO de Etapa de Crecimiento",
+        "initials": "GC",
+        "stage": "Etapa de Crecimiento",
+        "mrr": { "min": 500000, "max": 2000000 },
+        "description": "Lider tecnico que quiere un proveedor, una integracion y responsabilidad clara. Sin fragmentacion entre proveedores.",
+        "painPoints": [
+          "Riesgo de multiples proveedores",
+          "Complejidad de integracion",
+          "Fragmentacion de responsabilidad",
+          "Ancho de banda del equipo de ingenieria"
+        ]
+      },
+      {
+        "id": "3",
+        "name": "VP de Ingenieria Pre-IPO",
+        "initials": "PE",
+        "stage": "Etapa Tardia",
+        "mrr": { "min": 2000000, "max": 10000000 },
+        "description": "Construyendo infraestructura robusta antes de la OPI. Quiere facturacion de grado de produccion con garantias.",
+        "painPoints": [
+          "Necesita sistemas de grado de produccion",
+          "Cumplimiento y preparacion de auditoria",
+          "Requisitos de escalabilidad",
+          "Mitigacion de riesgos critica"
+        ]
+      }
+    ]
+  },
+  "relatedServices": {
+    "title": "Servicios Individuales",
+    "subtitle": "¿No necesitas todo? Cada servicio esta disponible por separado.",
+    "items": [
+      {
+        "id": "1",
+        "title": "Recuperacion de Pagos",
+        "description": "¿Solo necesitas recuperacion de pagos? $2K-4K, 1 semana.",
+        "href": "/services/payment-recovery"
+      },
+      {
+        "id": "2",
+        "title": "Precios Basados en Uso",
+        "description": "¿Solo necesitas precios de uso? $3K-5K, 2 semanas.",
+        "href": "/services/usage-pricing"
+      },
+      {
+        "id": "3",
+        "title": "Seguimiento de Costos de IA",
+        "description": "¿Solo necesitas seguimiento de costos? $3K-5K, 2-3 semanas.",
+        "href": "/services/ai-tracking"
+      },
+      {
+        "id": "4",
+        "title": "Auditoria de Facturacion",
+        "description": "Comienza con una auditoria para evaluar necesidades. $1.5K-3K, 1 semana.",
+        "href": "/services/billing-audit",
+        "badge": "Comienza Aqui"
+      }
+    ]
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "subtitle": "Preguntas sobre el paquete de facturacion completo.",
+    "items": [
+      {
+        "id": "1",
+        "question": "¿Por que agrupar en lugar de comprar servicios por separado?",
+        "answer": "Tres razones: (1) Costo - los precios agrupados son 15-25% mas baratos que comprar por separado. (2) Integracion - un proveedor significa que todo funciona perfectamente junto. (3) Responsabilidad - punto unico de contacto, sin culpas cuando algo se rompe.",
+        "category": "Valor"
+      },
+      {
+        "id": "2",
+        "question": "¿Que cubre la garantia de 90 dias?",
+        "answer": "Todo. Si alguna parte de la infraestructura de facturacion se rompe dentro de los 90 dias del lanzamiento, la arreglo. Sin costo adicional, sin preguntas. Esto cubre errores, casos extremos, problemas de integracion, cualquier cosa.",
+        "category": "Garantia"
+      },
+      {
+        "id": "3",
+        "question": "¿Cuanto tiempo toma la implementacion completa?",
+        "answer": "4-6 semanas desde el inicio hasta el lanzamiento de produccion. Algunas fases pueden ejecutarse en paralelo, y puedo ajustar el cronograma segun tu urgencia.",
+        "category": "Cronograma"
+      },
+      {
+        "id": "4",
+        "question": "¿Que si ya tengo algo de infraestructura de facturacion?",
+        "answer": "Construyo sobre lo que tienes. La auditoria inicial identifica que existe y que falta. Solo pagas por lo que necesitas. La facturacion completa se ajusta a tu situacion especifica.",
+        "category": "Personalizacion"
+      },
+      {
+        "id": "5",
+        "question": "¿Necesito que mi equipo de ingenieria participe?",
+        "answer": "Minimamente. Necesito unas pocas horas para recopilacion de requisitos, acceso a sistemas y una revision de la implementacion. Tu equipo puede centrarse en las caracteristicas del producto.",
+        "category": "Proceso"
+      },
+      {
+        "id": "6",
+        "question": "¿Que sucede si necesito cambios despues de los 90 dias?",
+        "answer": "Ofrezco paquetes de soporte continuo, o tu equipo puede hacerse cargo. El codigo esta documentado y probado, por lo que cualquier ingeniero competente puede mantenerlo.",
+        "category": "Soporte"
+      }
+    ]
+  },
+  "cta": {
+    "title": "¿Listo para Infraestructura de Facturacion Completa?",
+    "subtitle": "Un proveedor. Una integracion. Garantia de 90 dias.",
+    "description": "Reserva una llamada de descubrimiento gratuita. Auditare tu situacion de facturacion y proporcionare una cotizacion fija para el paquete completo.",
+    "primaryAction": {
+      "label": "Reservar Llamada de Descubrimiento",
+      "href": "/contact?service=complete-billing"
+    },
+    "secondaryAction": {
+      "label": "Comenzar con Auditoria",
+      "href": "/services/billing-audit"
+    },
+    "badge": "15-25% mas barato que comprar por separado",
+    "trustSignals": [
+      "Respuesta dentro de 24 horas",
+      "Implementacion de 4-6 semanas",
+      "Garantia de 90 dias",
+      "Punto unico de responsabilidad"
+    ]
+  }
+}

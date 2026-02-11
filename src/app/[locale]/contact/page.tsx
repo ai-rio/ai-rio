@@ -1,0 +1,64 @@
+import { getTranslations } from 'next-intl/server';
+import { Navbar } from '@/components/navbar';
+import { Footer } from '@/components/footer';
+import { generatePageMetadata } from '@/lib/metadata/page-metadata';
+import { SimplifiedContactForm } from '@/components/simplified-contact-form';
+import type { Locale } from '@/lib/metadata/base-metadata';
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  return generatePageMetadata({
+    locale: locale as Locale,
+    namespace: 'contact',
+    path: '/contact',
+  });
+}
+
+export default async function ContactPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations('pages/contact');
+  const alternativeContact = {
+    label: t('alternativeContact.label'),
+    email: t('alternativeContact.email')
+  };
+
+  return (
+    <div className="min-h-screen bg-background text-foreground">
+      <Navbar locale={locale} />
+
+      <main className="py-24">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          <div className="text-center mb-12">
+            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl mb-4">
+              {t('title')}
+            </h1>
+            <p className="text-lg text-muted-foreground">
+              {t('description')}
+            </p>
+          </div>
+
+          {/* Contact Form */}
+          <div className="bg-card border border-border rounded-lg p-8">
+            <SimplifiedContactForm locale={locale} />
+          </div>
+
+          {/* Alternative Contact Info */}
+          <div className="mt-12 text-center">
+            <p className="text-sm text-muted-foreground">
+              <span>{alternativeContact.label}</span>
+              <a
+                href={`mailto:${alternativeContact.email}`}
+                className="text-primary hover:text-primary-foreground transition-colors"
+              >
+                {alternativeContact.email}
+              </a>
+            </p>
+          </div>
+        </div>
+      </main>
+
+      <Footer locale={locale} />
+    </div>
+  );
+}

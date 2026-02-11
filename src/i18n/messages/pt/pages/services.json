@@ -1,0 +1,134 @@
+{
+  "meta": {
+    "title": "Servicos de Cobranca de Preco Fixo | AI.RIO",
+    "description": "Sem excesso de escopo. Sem cobranca por hora. Sem surpresas. Servicos de cobranca de preco fixo para empresas de SaaS de IA."
+  },
+  "hero": {
+    "label": "Servicos de Preco Fixo",
+    "title": "Servicos de Cobranca de Preco Fixo",
+    "subtitle": "Sem excesso de escopo. Sem cobranca por hora. Sem surpresas.",
+    "description": "Entregaveis claros, prazos fixos e precos transparentes. Voce sabe exatamente o que esta recebendo e quando estara pronto."
+  },
+  "title": "Escolha Seu Servico",
+  "subtitle": "Cada servico e projetado para resolver um problema de cobranca especifico. Nao tem certeza de por onde comecar? Comece com uma auditoria de cobranca.",
+  "items": [
+    {
+      "id": "billing-audit",
+      "title": "Auditoria de Cobranca",
+      "description": "Identifique vazamentos de receita, casos extremos e oportunidades de otimizacao em sua infraestrutura de cobranca. Obtenha um roteiro claro de remediacao.",
+      "href": "/services/billing-audit",
+      "priceRange": "$1.5K-3K",
+      "duration": "3-5 dias",
+      "badge": "Melhor Ponto de Partida",
+      "highlighted": false,
+      "features": [
+        "Auditoria completa da infraestrutura de cobranca",
+        "Identificacao de vazamentos de receita",
+        "Documentacao de casos extremos",
+        "Roteiro claro de remediacao"
+      ]
+    },
+    {
+      "id": "payment-recovery",
+      "title": "Recuperacao de Pagamentos",
+      "description": "Recupere 47-65% dos pagamentos falhados com fluxos de trabalho de dunning automatizados. Pare de deixar receita na mesa.",
+      "href": "/services/payment-recovery",
+      "priceRange": "$2K-4K",
+      "duration": "7-10 dias",
+      "badge": "Vitoria Rapida",
+      "highlighted": false,
+      "features": [
+        "Fluxos de trabalho de dunning automatizados",
+        "Logica inteligente de nova tentativa",
+        "Modelos de sequencia de e-mails",
+        "+17.4% de melhoria na recuperacao"
+      ]
+    },
+    {
+      "id": "usage-pricing",
+      "title": "Precos Baseados em Uso",
+      "description": "Lance o Stripe Meter em 2 semanas. Empresas com precos baseados em uso crescem 54% mais rapido que modelos tradicionais.",
+      "href": "/services/usage-pricing",
+      "priceRange": "$3K-5K",
+      "duration": "2 semanas",
+      "badge": "54% Mais Rapido",
+      "highlighted": true,
+      "features": [
+        "Implementacao do Stripe Meter",
+        "Rastreamento e agregacao de eventos",
+        "Calculos de uso em tempo real",
+        "Niveis de precos flexiveis"
+      ]
+    },
+    {
+      "id": "ai-tracking",
+      "title": "Rastreamento de Custos de IA",
+      "description": "Rastreie custos de LLM por cliente atraves de OpenAI, Anthropic e OpenRouter (400+ modelos). Conheca suas verdadeiras margens.",
+      "href": "/services/ai-tracking",
+      "priceRange": "$3K-5K",
+      "duration": "10-14 dias",
+      "badge": "Popular",
+      "highlighted": false,
+      "features": [
+        "5 provedores de LLM integrados",
+        "400+ modelos suportados",
+        "Atribuicao de custos por cliente",
+        "Painel de margens em tempo real"
+      ]
+    },
+    {
+      "id": "billing-infrastructure",
+      "title": "Infraestrutura de Cobranca",
+      "description": "Infraestrutura de cobranca completa de ponta a ponta. Precos baseados em uso, recuperacao de pagamentos, rastreamento de custos de IA e tratamento de casos extremos.",
+      "href": "/services/billing-infrastructure",
+      "priceRange": "Personalizado",
+      "duration": "4-6 semanas",
+      "badge": "Solucao Completa",
+      "highlighted": true,
+      "features": [
+        "Todos os servicos integrados",
+        "Coordenador de casos extremos de 720 linhas",
+        "99.5% de cobertura de testes",
+        "Suporte prioritario"
+      ]
+    },
+    {
+      "id": "complete-billing",
+      "title": "Fundacao de Cobranca Completa",
+      "description": "O pacote completo: auditoria, recuperacao, precos baseados em uso e rastreamento de IA, tudo em um. Garantia de 90 dias incluida.",
+      "href": "/services/complete-billing",
+      "priceRange": "$8K-15K",
+      "duration": "3-4 semanas",
+      "badge": "Melhor Valor",
+      "highlighted": false,
+      "features": [
+        "Todos os servicos incluidos",
+        "Implementacao prioritaria",
+        "Garantia de 90 dias",
+        "Otimizacao continua"
+      ]
+    }
+  ],
+  "audit": {
+    "badge": "Primeiro Passo Recomendado",
+    "title": "Nao Tem Certeza de Por Onde Comecar?",
+    "description": "Comece com uma auditoria de cobranca. A Ai.Rio analisara sua infraestrutura de cobranca atual, identificara vazamentos de receita e fornecera um roteiro claro para melhorias. A taxa de auditoria e creditada se voce prosseguir com qualquer servico de implementacao.",
+    "primaryAction": "Comecar com a Auditoria de Cobranca da Ai.Rio",
+    "secondaryAction": "Agendar Consulta"
+  },
+  "cta": {
+    "title": "Vamos Falar Sobre Suas Necessidades de Cobranca",
+    "subtitle": "Sem pressao de vendas. Apenas conselhos honestos.",
+    "description": "Agende uma chamada de descoberta gratuita. Discutiremos seus desafios de cobranca e recomendarei o melhor servico para sua situacao.",
+    "primaryAction": "Agendar Chamada de Descoberta",
+    "secondaryAction": "Ver Estudos de Caso",
+    "badge": "Resposta dentro de 24 horas",
+    "trustSignals": [
+      "Consulta gratuita",
+      "Sem compromisso necessario",
+      "Escopo e precos claros",
+      "Suporte de 30 dias pos-lancamento"
+    ]
+  },
+  "learnMore": "Saiba Mais"
+}

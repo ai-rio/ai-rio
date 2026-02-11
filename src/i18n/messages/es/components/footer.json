@@ -1,0 +1,16 @@
+{
+  "tagline": "Infraestructura de facturacion para AI SaaS",
+  "navigation": "Navegacion",
+  "home": "Inicio",
+  "services": "Servicios",
+  "about": "Sobre",
+  "blog": "Blog",
+  "services_title": "Servicios",
+  "payment_recovery": "Ai.Rio Recover",
+  "usage_pricing": "Ai.Rio Meter",
+  "ai_tracking": "Ai.Rio Track",
+  "billing_audit": "Ai.Rio Audit",
+  "contact_title": "Contacto",
+  "get_in_touch": "Ponte en Contacto",
+  "copyright": "© {year} Ai.Rio. Todos los derechos reservados."
+}

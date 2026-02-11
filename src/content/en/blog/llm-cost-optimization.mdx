@@ -1,0 +1,442 @@
+---
+title: "Track LLM Costs Across 5+ Providers"
+description: "A unified approach to tracking and optimizing AI costs across OpenAI, Anthropic, Google, and other LLM providers in production."
+date: "2025-02-08"
+author: "Ai.Rio"
+category: "AI Cost Management"
+tags: ["llm", "cost-tracking", "openai", "anthropic", "optimization"]
+---
+
+# Track LLM Costs Across 5+ Providers
+
+Your AI SaaS uses multiple LLM providers. OpenAI for chat, Anthropic for analysis, maybe Google for embeddings. Each has different pricing, different rate limits, different billing cycles. Your costs are fragmented across dashboards, and you can't answer the simplest question: "What did we spend on inference last month?"
+
+Here's how to fix it.
+
+## The Problem
+
+LLM costs are notoriously hard to track because:
+
+1. **Fragmented billing**: Each provider has separate dashboards
+2. **Different pricing models**: Per-token, per-second, per-request
+3. **Rate limits affecting spend**: You're throttled without knowing
+4. **No user attribution**: You can't tie costs to customers
+5. **Usage spikes**: A single customer can spike your costs 10x
+
+Without unified tracking, you're flying blind. You optimize what you measure, and you're not measuring.
+
+## The Solution
+
+Build a unified cost tracking layer that sits between your application and LLM providers.
+
+### Architecture Overview
+
+```
+┌─────────────┐
+│  Your App   │
+└──────┬──────┘
+       │
+       ▼
+┌─────────────────┐
+│  Cost Tracker   │ ← Unified API
+│  (Middleware)   │
+└──────┬──────────┘
+       │
+       ▼
+┌─────────────────────────────┐
+│   Provider Abstraction      │
+│  (OpenAI, Anthropic, etc.)  │
+└─────────────────────────────┘
+```
+
+## Implementation
+
+### 1. Provider Abstraction Layer
+
+Create a unified interface for all LLM providers:
+
+```typescript
+// lib/llm/providers/base.ts
+export interface LLMProvider {
+  name: string;
+  complete(params: CompletionParams): Promise<CompletionResponse>;
+  embed(params: EmbedParams): Promise<EmbedResponse>;
+  getCost(response: CompletionResponse): number;
+}
+
+export interface CompletionParams {
+  model: string;
+  messages: Array<{ role: string; content: string }>;
+  maxTokens?: number;
+  temperature?: number;
+  metadata?: Record<string, any>;
+}
+
+export interface CompletionResponse {
+  content: string;
+  usage: {
+    promptTokens: number;
+    completionTokens: number;
+    totalTokens: number;
+  };
+  model: string;
+  provider: string;
+}
+```
+
+### 2. OpenAI Implementation
+
+```typescript
+// lib/llm/providers/openai.ts
+import { OpenAI } from 'openai';
+
+export class OpenAIProvider implements LLMProvider {
+  name = 'openai';
+  private client: OpenAI;
+
+  constructor(apiKey: string) {
+    this.client = new OpenAI({ apiKey });
+  }
+
+  async complete(params: CompletionParams): Promise<CompletionResponse> {
+    const response = await this.client.chat.completions.create({
+      model: params.model,
+      messages: params.messages as any,
+      max_tokens: params.maxTokens,
+      temperature: params.temperature,
+    });
+
+    return {
+      content: response.choices[0].message.content || '',
+      usage: {
+        promptTokens: response.usage?.prompt_tokens || 0,
+        completionTokens: response.usage?.completion_tokens || 0,
+        totalTokens: response.usage?.total_tokens || 0,
+      },
+      model: response.model,
+      provider: this.name,
+    };
+  }
+
+  getCost(response: CompletionResponse): number {
+    // OpenAI pricing as of 2024
+    const pricing: Record<string, { input: number; output: number }> = {
+      'gpt-4': { input: 0.03, output: 0.06 },
+      'gpt-4-turbo': { input: 0.01, output: 0.03 },
+      'gpt-3.5-turbo': { input: 0.0005, output: 0.0015 },
+    };
+
+    const modelPricing = pricing[response.model] || pricing['gpt-3.5-turbo'];
+
+    return (
+      (response.usage.promptTokens / 1000) * modelPricing.input +
+      (response.usage.completionTokens / 1000) * modelPricing.output
+    );
+  }
+}
+```
+
+### 3. Anthropic Implementation
+
+```typescript
+// lib/llm/providers/anthropic.ts
+import Anthropic from '@anthropic-ai/sdk';
+
+export class AnthropicProvider implements LLMProvider {
+  name = 'anthropic';
+  private client: Anthropic;
+
+  constructor(apiKey: string) {
+    this.client = new Anthropic({ apiKey });
+  }
+
+  async complete(params: CompletionParams): Promise<CompletionResponse> {
+    const response = await this.client.messages.create({
+      model: params.model,
+      max_tokens: params.maxTokens || 4096,
+      messages: params.messages as any,
+    });
+
+    return {
+      content: response.content[0].type === 'text' ? response.content[0].text : '',
+      usage: {
+        promptTokens: response.usage.input_tokens,
+        completionTokens: response.usage.output_tokens,
+        totalTokens: response.usage.input_tokens + response.usage.output_tokens,
+      },
+      model: response.model,
+      provider: this.name,
+    };
+  }
+
+  getCost(response: CompletionResponse): number {
+    // Anthropic pricing
+    const pricing: Record<string, { input: number; output: number }> = {
+      'claude-3-opus-20240229': { input: 0.015, output: 0.075 },
+      'claude-3-sonnet-20240229': { input: 0.003, output: 0.015 },
+      'claude-3-haiku-20240307': { input: 0.00025, output: 0.00125 },
+    };
+
+    const modelPricing = pricing[response.model] || pricing['claude-3-sonnet-20240229'];
+
+    return (
+      (response.usage.promptTokens / 1000) * modelPricing.input +
+      (response.usage.completionTokens / 1000) * modelPricing.output
+    );
+  }
+}
+```
+
+### 4. Cost Tracking Middleware
+
+```typescript
+// lib/llm/tracker.ts
+export class CostTracker {
+  private providers: Map<string, LLMProvider>;
+
+  constructor() {
+    this.providers = new Map();
+  }
+
+  registerProvider(provider: LLMProvider) {
+    this.providers.set(provider.name, provider);
+  }
+
+  async trackCompletion(
+    providerName: string,
+    params: CompletionParams
+  ): Promise<CompletionResponse> {
+    const provider = this.providers.get(providerName);
+    if (!provider) {
+      throw new Error(`Provider ${providerName} not found`);
+    }
+
+    const startTime = Date.now();
+    const response = await provider.complete(params);
+    const duration = Date.now() - startTime;
+    const cost = provider.getCost(response);
+
+    // Log the request
+    await this.logRequest({
+      provider: providerName,
+      model: response.model,
+      promptTokens: response.usage.promptTokens,
+      completionTokens: response.usage.completionTokens,
+      totalTokens: response.usage.totalTokens,
+      cost,
+      duration,
+      timestamp: new Date(),
+      userId: params.metadata?.userId,
+      customerId: params.metadata?.customerId,
+      requestId: params.metadata?.requestId,
+    });
+
+    return response;
+  }
+
+  private async logRequest(data: RequestLog) {
+    // Store in your database or analytics service
+    await db.llmRequests.create({ data });
+  }
+}
+
+interface RequestLog {
+  provider: string;
+  model: string;
+  promptTokens: number;
+  completionTokens: number;
+  totalTokens: number;
+  cost: number;
+  duration: number;
+  timestamp: Date;
+  userId?: string;
+  customerId?: string;
+  requestId?: string;
+}
+```
+
+### 5. Usage in Your Application
+
+```typescript
+// app/api/generate/route.ts
+import { CostTracker } from '@/lib/llm/tracker';
+import { OpenAIProvider } from '@/lib/llm/providers/openai';
+import { AnthropicProvider } from '@/lib/llm/providers/anthropic';
+
+const tracker = new CostTracker();
+
+// Register providers
+tracker.registerProvider(new OpenAIProvider(process.env.OPENAI_API_KEY!));
+tracker.registerProvider(new AnthropicProvider(process.env.ANTHROPIC_API_KEY!));
+
+export async function POST(req: Request) {
+  const { messages, provider = 'openai', model } = await req.json();
+  const userId = await getCurrentUserId(req);
+
+  const response = await tracker.trackCompletion(provider, {
+    model,
+    messages,
+    metadata: {
+      userId,
+      customerId: await getCustomerId(userId),
+      requestId: crypto.randomUUID(),
+    },
+  });
+
+  return Response.json({
+    content: response.content,
+    usage: response.usage,
+  });
+}
+```
+
+## Analytics & Reporting
+
+### Daily Cost Aggregation
+
+```typescript
+// lib/llm/analytics.ts
+export async function getDailyCosts(startDate: Date, endDate: Date) {
+  const costs = await db.llmRequests.groupBy({
+    by: ['provider', 'model', 'timestamp'],
+    where: {
+      timestamp: { gte: startDate, lte: endDate },
+    },
+    _sum: {
+      cost: true,
+      totalTokens: true,
+    },
+  });
+
+  // Group by date
+  const dailyCosts = costs.reduce((acc, cost) => {
+    const date = new Date(cost.timestamp).toISOString().split('T')[0];
+    if (!acc[date]) {
+      acc[date] = { total: 0, byProvider: {}, byModel: {} };
+    }
+    acc[date].total += cost._sum.cost || 0;
+    return acc;
+  }, {} as Record<string, any>);
+
+  return dailyCosts;
+}
+```
+
+### Per-Customer Cost Breakdown
+
+```typescript
+export async function getCustomerCosts(customerId: string) {
+  const costs = await db.llmRequests.groupBy({
+    by: ['provider', 'model'],
+    where: { customerId },
+    _sum: {
+      cost: true,
+      totalTokens: true,
+    },
+    _count: true,
+  });
+
+  return {
+    totalCost: costs.reduce((sum, c) => sum + (c._sum.cost || 0), 0),
+    byProvider: groupBy(costs, 'provider'),
+    byModel: groupBy(costs, 'model'),
+    requestCount: costs.reduce((sum, c) => sum + c._count, 0),
+  };
+}
+```
+
+## Optimization Strategies
+
+### 1. Cost-Based Provider Selection
+
+```typescript
+async function selectProvider(task: string, budget: number) {
+  const providers = ['openai', 'anthropic', 'google'];
+  const costs = await Promise.all(
+    providers.map(async (p) => {
+      const estimate = await estimateCost(p, task);
+      return { provider: p, cost: estimate };
+    })
+  );
+
+  return costs.find((c) => c.cost <= budget)?.provider || providers[0];
+}
+```
+
+### 2. Token Caching
+
+```typescript
+const cache = new Map();
+
+async function cachedCompletion(params: CompletionParams) {
+  const cacheKey = JSON.stringify(params.messages);
+
+  if (cache.has(cacheKey)) {
+    return cache.get(cacheKey);
+  }
+
+  const response = await tracker.trackCompletion('openai', params);
+  cache.set(cacheKey, response);
+  return response;
+}
+```
+
+### 3. Budget Enforcement
+
+```typescript
+async function enforceBudget(customerId: string, estimatedCost: number) {
+  const { currentSpend, monthlyBudget } = await getCustomerBudget(customerId);
+
+  if (currentSpend + estimatedCost > monthlyBudget) {
+    throw new Error('Budget exceeded');
+  }
+
+  return true;
+}
+```
+
+## Monitoring & Alerts
+
+```typescript
+// Set up cost alerts
+export async function checkCostAlerts() {
+  const today = new Date();
+  const monthStart = new Date(today.getFullYear(), today.getMonth(), 1);
+
+  const { _sum } = await db.llmRequests.aggregate({
+    where: {
+      timestamp: { gte: monthStart },
+    },
+    _sum: {
+      cost: true,
+    },
+  });
+
+  const monthlySpend = _sum.cost || 0;
+  const alertThreshold = 500; // Your threshold
+
+  if (monthlySpend > alertThreshold) {
+    await sendAlert({
+      subject: 'LLM cost alert',
+      message: `Monthly spend: $${monthlySpend.toFixed(2)}`,
+    });
+  }
+}
+```
+
+## The Bottom Line
+
+Tracking LLM costs across providers isn't optional for AI SaaS. Your margins depend on it.
+
+**Key takeaways:**
+1. Build a unified provider abstraction layer
+2. Track every request with cost metadata
+3. Attribute costs to customers and features
+4. Set up automated alerts and budgets
+5. Use data to optimize provider selection
+
+Your AI costs are predictable. Your cost tracking should be too.
+
+---
+
+**Want to see how Ai.Rio can help you build billing infrastructure that handles usage-based pricing for AI services?** Your margins are a black box. Ai.Rio built a flashlight.
