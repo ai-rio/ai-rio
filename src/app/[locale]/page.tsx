@@ -13,6 +13,14 @@ import { Badge } from '@/components/ui/badge';
 import { ArrowRight, CheckCircle2, TrendingUp, Zap, Shield, Database, Code2, DollarSign } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 
+// SEO: Schema markup imports
+import {
+  generateOrganizationSchema,
+  generateWebSiteSchema,
+  generateBreadcrumbSchema,
+  BREADCRUMBS,
+} from '@/lib/metadata/schema';
+
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   return generatePageMetadata({
@@ -26,9 +34,35 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'home' });
 
+  // SEO: Generate schema markup
+  const organizationSchema = generateOrganizationSchema(locale as 'en' | 'es' | 'pt');
+  const webSiteSchema = generateWebSiteSchema(locale as 'en' | 'es' | 'pt');
+  const breadcrumbSchema = generateBreadcrumbSchema(BREADCRUMBS.home, locale as 'en' | 'es' | 'pt');
+
   return (
-    <div className="min-h-screen bg-zinc-950 dark:bg-black text-zinc-50 dark:text-zinc-400">
-      <Navbar locale={locale} />
+    <>
+      {/* SEO: JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(organizationSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(webSiteSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
+        }}
+      />
+
+      <div className="min-h-screen bg-zinc-950 dark:bg-black text-zinc-50 dark:text-zinc-400">
+        <Navbar locale={locale} />
 
       {/* Commit 21: Enhanced Hero Section */}
       <section className="relative px-6 py-24 lg:px-8 overflow-hidden">
@@ -569,5 +603,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </footer>
     </div>
+    </>
   );
 }

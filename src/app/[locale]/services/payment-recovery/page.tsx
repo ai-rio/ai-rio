@@ -11,6 +11,12 @@ import {
   type FeatureItem,
 } from '@/components/service-sections';
 import { generatePageMetadata } from '@/lib/metadata/page-metadata';
+import {
+  generateServiceSchema,
+  generateBreadcrumbSchema,
+  generateFAQSchema as generateFAQSchemaUtil,
+  BREADCRUMBS,
+} from '@/lib/metadata/schema';
 import { CreditCard, TrendingUp, AlertTriangle, Mail, Clock, DollarSign, ArrowRight, Calendar, type LucideIcon } from 'lucide-react';
 import { getTranslations } from 'next-intl/server';
 import { buildProblems, buildFeaturesData, buildMetrics, buildFAQs, buildPhases, buildProfiles, buildRelatedServices, type FeatureItemData } from '@/i18n/builders/service-pages';
@@ -58,8 +64,28 @@ export default async function PaymentRecoveryPage({ params }: { params: Promise<
   const relatedServices = buildRelatedServices(t.raw('relatedServices.items'));
   const faqs = buildFAQs(t.raw('faq.items'));
 
+  // SEO: Generate schema markup
+  const serviceSchema = generateServiceSchema('paymentRecovery', locale as 'en' | 'es' | 'pt');
+  const breadcrumbSchema = generateBreadcrumbSchema(BREADCRUMBS.paymentRecovery, locale as 'en' | 'es' | 'pt');
+
   return (
     <>
+      {/* SEO: JSON-LD Structured Data */}
+      {serviceSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(serviceSchema),
+          }}
+        />
+      )}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
+        }}
+      />
+
       {/* Hero */}
       <section className="py-16 md:py-24 space-y-6">
         <div className="max-w-4xl space-y-4">
