@@ -79,7 +79,7 @@ export function TechnicalProof({
           {title}
         </h2>
         {subtitle && (
-          <p className="text-muted-foreground text-lg">
+          <p className="text-surface-700 text-lg">
             {subtitle}
           </p>
         )}

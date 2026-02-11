@@ -72,7 +72,7 @@ export function ProblemSection({
           {title}
         </h2>
         {subtitle && (
-          <p className="text-muted-foreground text-lg">
+          <p className="text-surface-700 text-lg">
             {subtitle}
           </p>
         )}
@@ -103,14 +103,14 @@ export function ProblemSection({
           return (
             <Card
               key={problem.id}
-              className="group relative overflow-hidden transition-all hover:shadow-lg hover:border-border/80"
+              className="group relative overflow-hidden transition-all hover:shadow-lg hover:border-surface-mixed-300/80"
               role="listitem"
             >
               <CardHeader className="space-y-3">
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex items-center gap-3">
                     {problem.icon ? (
-                      <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-muted">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-surface-300/30">
                         {problem.icon}
                       </div>
                     ) : (
@@ -118,13 +118,13 @@ export function ProblemSection({
                         'flex h-10 w-10 items-center justify-center rounded-lg',
                         problem.severity === 'critical' || problem.severity === 'high'
                           ? 'bg-destructive/10'
-                          : 'bg-muted'
+                          : 'bg-surface-300/30'
                       )}>
                         <SeverityIcon className={cn(
                           'h-5 w-5',
                           problem.severity === 'critical' || problem.severity === 'high'
                             ? 'text-destructive'
-                            : 'text-muted-foreground'
+                            : 'text-surface-700'
                         )} aria-hidden="true" />
                       </div>
                     )}

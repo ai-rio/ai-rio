@@ -109,7 +109,7 @@ export function DashboardShowcase({
           {title}
         </h2>
         {subtitle && (
-          <p className="text-muted-foreground text-lg max-w-2xl">
+          <p className="text-surface-700 text-lg max-w-2xl">
             {subtitle}
           </p>
         )}
@@ -126,7 +126,7 @@ export function DashboardShowcase({
               className="w-full"
             >
               <div className="border-b px-6 pt-4">
-                <TabsList className="bg-muted/50 h-9 p-1">
+                <TabsList className="bg-surface-300/30 h-9 p-1">
                   {views.map((view) => {
                     const IconComponent = typeof deviceIconMap[view.device || 'desktop'] === 'string'
                       ? null
@@ -136,7 +136,7 @@ export function DashboardShowcase({
                       <TabsTrigger
                         key={view.id}
                         value={view.id}
-                        className="gap-2 data-[state=active]:bg-background"
+                        className="gap-2 data-[state=active]:bg-dark-page"
                       >
                         {IconComponent && <IconComponent className="h-4 w-4" aria-hidden="true" />}
                         <span>{view.title}</span>
@@ -215,14 +215,14 @@ function DashboardImageView({ view, aspectRatio, rounded }: DashboardImageViewPr
     <div className="space-y-4">
       {/* Description */}
       {view.description && (
-        <p className="text-sm text-muted-foreground text-center">
+        <p className="text-sm text-surface-700 text-center">
           {view.description}
         </p>
       )}
 
       {/* Image Container */}
       <div className={cn(
-        'relative w-full overflow-hidden bg-muted border',
+        'relative w-full overflow-hidden bg-surface-300/30 border',
         aspectRatio,
         rounded ? 'rounded-lg' : 'rounded-sm'
       )}>
@@ -242,7 +242,7 @@ function DashboardImageView({ view, aspectRatio, rounded }: DashboardImageViewPr
         {view.device && (
           <Badge
             variant="secondary"
-            className="absolute bottom-4 right-4 gap-1.5 bg-background/90 backdrop-blur-sm"
+            className="absolute bottom-4 right-4 gap-1.5 bg-dark-page/90 backdrop-blur-sm"
           >
             {view.device === 'desktop' && <Monitor className="h-3 w-3" aria-hidden="true" />}
             {view.device === 'tablet' && <span className="text-xs">Tablet</span>}

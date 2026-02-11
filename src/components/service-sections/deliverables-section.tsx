@@ -99,7 +99,7 @@ export function DeliverablesSection({
           {title}
         </h2>
         {subtitle && (
-          <p className="text-muted-foreground text-lg max-w-2xl">
+          <p className="text-surface-700 text-lg max-w-2xl">
             {subtitle}
           </p>
         )}
@@ -124,13 +124,13 @@ export function DeliverablesSection({
                         {phase.description}
                       </CardDescription>
                     )}
-                    <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                    <div className="flex items-center gap-4 text-sm text-surface-700">
                       <span className="flex items-center gap-1.5">
                         <Calendar className="h-4 w-4" aria-hidden="true" />
                         {phase.duration}
                       </span>
                       <Separator orientation="vertical" className="h-4" />
-                      <span className="flex items-center gap-1.5 font-semibold text-foreground">
+                      <span className="flex items-center gap-1.5 font-semibold text-text">
                         <DollarSign className="h-4 w-4" aria-hidden="true" />
                         {formatPrice(phase.price)}
                       </span>
@@ -152,10 +152,10 @@ export function DeliverablesSection({
                     return (
                       <div
                         key={deliverable.id}
-                        className="flex items-start gap-3 p-3 rounded-lg bg-muted/30 transition-colors hover:bg-muted/50"
+                        className="flex items-start gap-3 p-3 rounded-lg bg-surface-300/30 transition-colors hover:bg-surface-300/50"
                         role="listitem"
                       >
-                        <StatusIcon className="h-5 w-5 mt-0.5 text-muted-foreground shrink-0" aria-hidden="true" />
+                        <StatusIcon className="h-5 w-5 mt-0.5 text-surface-700 shrink-0" aria-hidden="true" />
                         <div className="flex-1 min-w-0 space-y-1">
                           <div className="flex items-center gap-2 flex-wrap">
                             <h4 className="font-medium">{deliverable.title}</h4>
@@ -163,11 +163,11 @@ export function DeliverablesSection({
                               {config.label}
                             </Badge>
                           </div>
-                          <p className="text-sm text-muted-foreground">
+                          <p className="text-sm text-surface-700">
                             {deliverable.description}
                           </p>
                           {deliverable.deliveryWeek && (
-                            <p className="text-xs text-muted-foreground">
+                            <p className="text-xs text-surface-700">
                               Delivery: {deliverable.deliveryWeek}
                             </p>
                           )}
@@ -190,10 +190,10 @@ export function DeliverablesSection({
       {(totalPrice || cta) && (
         <>
           <Separator />
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-6 rounded-xl bg-muted/30">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-6 rounded-xl bg-surface-300/30">
             {totalPrice && (
               <div className="text-center sm:text-left">
-                <p className="text-sm text-muted-foreground mb-1">Total Investment</p>
+                <p className="text-sm text-surface-700 mb-1">Total Investment</p>
                 <p className="text-3xl font-bold">{formatPrice(totalPrice)}</p>
               </div>
             )}
