@@ -8,9 +8,9 @@
 ```
 
 ### Examples
-- English: https://ai.rio/en/blog
-- Spanish: https://ai.rio/es/blog
-- Portuguese: https://ai.rio/pt/blog
+- English: https://ai.rio.br/en/blog
+- Spanish: https://ai.rio.br/es/blog
+- Portuguese: https://ai.rio.br/pt/blog
 
 ## Available Blog Posts
 

@@ -141,6 +141,6 @@ No environment variables required for basic deployment.
 
 ## 🔗 Links
 
-- **Live Site**: https://ai.rio.br
+- **Live Site**: https://ai.rio.br.br
 - **GitHub**: https://github.com/ai-rio/ai-rio
 - **Vercel**: https://vercel.com
