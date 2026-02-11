@@ -49,7 +49,7 @@ export function GridBackground({
     <div
       className={cn(
         'absolute inset-0 pointer-events-none',
-        'dark:opacity-100 opacity-100',
+        'opacity-100 opacity-100',
         className
       )}
       style={{

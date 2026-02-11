@@ -169,7 +169,7 @@ export default function Globe({
         height: width * 2,
         phi: 0,
         theta: 0,
-        dark: 1,
+         1,
         diffuse: 1.2,
         mapSamples: 16000,
         mapBrightness: 6,

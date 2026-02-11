@@ -52,15 +52,15 @@ interface HeroUIProps {
   className?: string;
   globeBaseColor?: {
     light: [number, number, number];
-    dark: [number, number, number];
+     [number, number, number];
   };
   globeMarkerColor?: {
     light: [number, number, number];
-    dark: [number, number, number];
+     [number, number, number];
   };
   globeGlowColor?: {
     light: [number, number, number];
-    dark: [number, number, number];
+     [number, number, number];
   };
 }
 
@@ -83,15 +83,15 @@ export default function HeroUI({
   className = "",
   globeBaseColor = {
     light: [0.98, 0.98, 0.98],
-    dark: [0.12, 0.12, 0.12],
+     [0.12, 0.12, 0.12],
   },
   globeMarkerColor = {
     light: [0.2, 0.5, 0.9],
-    dark: [0.1, 0.8, 1],
+     [0.1, 0.8, 1],
   },
   globeGlowColor = {
     light: [0.3, 0.3, 0.3],
-    dark: [1, 1, 1],
+     [1, 1, 1],
   },
 }: HeroUIProps) {
   const { theme } = useTheme();
@@ -122,7 +122,7 @@ export default function HeroUI({
       )}
     >
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#374151_1px,transparent_1px)] [background-size:16px_16px]" />
+        <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] bg-[radial-gradient(#374151_1px,transparent_1px)] [background-size:16px_16px]" />
         <motion.div
           className="absolute top-20 left-1/4 w-60 h-60 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[30rem] lg:h-[30rem] bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-full blur-[100px]"
           animate={{

@@ -16,7 +16,7 @@ export const BackgroundPaths = ({
 }) => {
   return (
     <div
-      className={cn('relative h-[24rem] md:h-screen w-full bg-white dark:bg-black', className)}
+      className={cn('relative h-[24rem] md:h-screen w-full bg-white bg-black', className)}
     >
       <PathSVG svgOptions={svgOptions} />
       <div className="relative z-10">{children}</div>
@@ -97,7 +97,7 @@ const PathSVG = ({ svgOptions }: { svgOptions?: { duration?: number } }) => {
           fill="none"
           filter="url(#circuitGlowLight)"
           strokeLinecap="round"
-          className="dark:stroke-[url(#circuitGradientDark)] dark:[filter:url(#circuitGlowDark)]"
+          className="stroke-[url(#circuitGradientDark)] [filter:url(#circuitGlowDark)]"
           initial={{ pathLength: 0, opacity: 0 }}
           animate={{
             pathLength: [0, 1, 0.8, 1],
@@ -120,7 +120,7 @@ const PathSVG = ({ svgOptions }: { svgOptions?: { duration?: number } }) => {
             r="6"
             fill="url(#circuitGradientLight)"
             filter="url(#circuitGlowLight)"
-            className="dark:fill-[url(#circuitGradientDark)] dark:[filter:url(#circuitGlowDark)]"
+            className="fill-[url(#circuitGradientDark)] [filter:url(#circuitGlowDark)]"
             initial={{ scale: 0 }}
             animate={{ scale: [0, 1.3, 1, 1.1, 1] }}
             transition={{
@@ -138,7 +138,7 @@ const PathSVG = ({ svgOptions }: { svgOptions?: { duration?: number } }) => {
             stroke="url(#circuitGradientLight)"
             strokeWidth="1"
             opacity="0.5"
-            className="dark:stroke-[url(#circuitGradientDark)]"
+            className="stroke-[url(#circuitGradientDark)]"
             initial={{ scale: 0 }}
             animate={{ scale: [0, 1.5, 1.2, 1.5] }}
             transition={{

@@ -129,13 +129,13 @@ export const ShinyButton = React.forwardRef<HTMLButtonElement, ShinyButtonProps>
 
         <div
           className={cn(
-            'absolute inset-px rounded-[inherit] bg-neutral-100 dark:bg-neutral-900',
+            'absolute inset-px rounded-[inherit] bg-neutral-100 bg-neutral-900',
             className
           )}
         />
         <div
           className={cn(
-            'absolute inset-px rounded-[inherit] bg-neutral-200/40 dark:bg-neutral-800/60 transition-opacity duration-300',
+            'absolute inset-px rounded-[inherit] bg-neutral-200/40 bg-neutral-800/60 transition-opacity duration-300',
             isHovered ? 'opacity-100' : 'opacity-0'
           )}
         />

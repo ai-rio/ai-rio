@@ -58,18 +58,10 @@ export default function BackgroundMeteors({ children, className }: BackgroundMet
 
   return (
     <div
-      className={`relative flex w-full h-full items-center justify-center overflow-hidden bg-white dark:bg-black ${className || ''}`}
+      className={`relative flex w-full h-full items-center justify-center overflow-hidden bg-background ${className || ''}`}
     >
       <div
         className="absolute inset-0"
-        style={{
-          backgroundSize: `${gridSize}px ${gridSize}px`,
-          backgroundImage:
-            'linear-gradient(to right, #e4e4e7 1px, transparent 1px), linear-gradient(to bottom, #e4e4e7 1px, transparent 1px)',
-        }}
-      />
-      <div
-        className="absolute inset-0 dark:block hidden"
         style={{
           backgroundSize: `${gridSize}px ${gridSize}px`,
           backgroundImage:
@@ -77,7 +69,7 @@ export default function BackgroundMeteors({ children, className }: BackgroundMet
         }}
       />
       <div
-        className="pointer-events-none absolute inset-0 flex items-center justify-center bg-white dark:bg-black
+        className="pointer-events-none absolute inset-0 flex items-center justify-center bg-background
         [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"
       />
       {beams.map((b) => (
@@ -94,8 +86,7 @@ export default function BackgroundMeteors({ children, className }: BackgroundMet
         >
           <div
             className="h-14 w-px rounded-full
-              bg-gradient-to-t from-black to-transparent
-              dark:from-indigo-500 dark:via-teal-500 dark:to-transparent"
+              bg-gradient-to-t from-primary to-transparent"
             style={{ margin: '0 auto' }}
           />
         </motion.div>

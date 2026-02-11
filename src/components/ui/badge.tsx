@@ -13,7 +13,7 @@ const badgeVariants = cva(
           'border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80',
         destructive:
           'border-transparent bg-destructive text-destructive-foreground shadow hover:bg-destructive/80',
-        outline: 'text-foreground',
+        outline: 'text-text',
       },
       shiny: {
         true: 'relative overflow-hidden',
@@ -50,7 +50,7 @@ function Badge({
 
       {shiny && (
         <span
-          className="absolute inset-0 pointer-events-none animate-shine dark:hidden"
+          className="absolute inset-0 pointer-events-none animate-shine hidden"
           style={{
             background:
               'linear-gradient(120deg, transparent 40%, rgba(255,255,255,0.6) 50%, transparent 60%)',
@@ -63,7 +63,7 @@ function Badge({
 
       {shiny && (
         <span
-          className="absolute inset-0 pointer-events-none animate-shine hidden dark:block"
+          className="absolute inset-0 pointer-events-none animate-shine hidden block"
           style={{
             background:
               'linear-gradient(120deg, transparent 40%, rgba(0,0,150,0.25) 50%, transparent 60%)',

@@ -88,9 +88,9 @@ export function BentoGridItem({
         // Base layout
         'group/bento row-span-1 flex flex-col justify-between space-y-4 rounded-xl p-4',
         // Border - stronger definition for visual clarity
-        'border-2 border-stone-200 dark:border-stone-700',
+        'border-2 border-stone-200 border-stone-700',
         // Background
-        'bg-white dark:bg-stone-900',
+        'bg-white bg-stone-900',
         // Shadow hierarchy
         'shadow-sm hover:shadow-xl',
         // Transitions
@@ -106,16 +106,16 @@ export function BentoGridItem({
       {/* Content area with hover micro-interaction */}
       <div className="transition duration-200 group-hover/bento:translate-x-2">
         {/* Icon */}
-        {icon && <div className="mb-2 text-brand-primary dark:text-brand-primary">{icon}</div>}
+        {icon && <div className="mb-2 text-brand-primary text-brand-primary">{icon}</div>}
 
         {/* Title */}
         {title && (
-          <div className="mb-2 font-h4 font-semibold text-foreground dark:text-white">{title}</div>
+          <div className="mb-2 font-h4 font-semibold text-foreground text-white">{title}</div>
         )}
 
         {/* Description */}
         {description && (
-          <div className="font-small text-muted-foreground dark:text-stone-400">{description}</div>
+          <div className="font-small text-muted-foreground text-stone-400">{description}</div>
         )}
       </div>
     </div>
@@ -146,10 +146,10 @@ export function BentoGridItemFeatured({
 }) {
   const accentStyles = {
     primary:
-      'border-brand-primary/50 dark:border-brand-primary/40 bg-brand-primary/5 dark:bg-brand-primary/10',
-    profit: 'border-profit/50 dark:border-profit/40 bg-profit/5 dark:bg-profit/10',
-    warning: 'border-warning/50 dark:border-warning/40 bg-warning/5 dark:bg-warning/10',
-    danger: 'border-danger/50 dark:border-danger/40 bg-danger/5 dark:bg-danger/10',
+      'border-brand-primary/50 border-brand-primary/40 bg-brand-primary/5 bg-brand-primary/10',
+    profit: 'border-profit/50 border-profit/40 bg-profit/5 bg-profit/10',
+    warning: 'border-warning/50 border-warning/40 bg-warning/5 bg-warning/10',
+    danger: 'border-danger/50 border-danger/40 bg-danger/5 bg-danger/10',
   };
 
   return (
@@ -175,16 +175,16 @@ export function BentoGridItemFeatured({
       {/* Content area with hover micro-interaction */}
       <div className="transition duration-200 group-hover/bento:translate-x-2">
         {/* Icon */}
-        {icon && <div className="mb-2 text-brand-primary dark:text-brand-primary">{icon}</div>}
+        {icon && <div className="mb-2 text-brand-primary text-brand-primary">{icon}</div>}
 
         {/* Title - larger for featured items */}
         {title && (
-          <div className="mb-2 font-h3 font-semibold text-foreground dark:text-white">{title}</div>
+          <div className="mb-2 font-h3 font-semibold text-foreground text-white">{title}</div>
         )}
 
         {/* Description */}
         {description && (
-          <div className="font-body text-muted-foreground dark:text-stone-300">{description}</div>
+          <div className="font-body text-muted-foreground text-stone-300">{description}</div>
         )}
       </div>
     </div>

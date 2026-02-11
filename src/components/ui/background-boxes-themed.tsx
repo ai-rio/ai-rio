@@ -65,14 +65,14 @@ export const BackgroundBoxesCore = ({ className, variant = 'blue' }: BackgroundB
       }}
       className={cn(
         'absolute top-0 left-0 z-0 flex h-full w-full p-4 pointer-events-none',
-        'dark:opacity-60 opacity-50',
+        'opacity-60 opacity-50',
         className
       )}
     >
       {rows.map((_, i) => (
         <motion.div
           key={`row${i}`}
-          className="relative h-8 w-16 border-l border-slate-700/20 dark:border-slate-300/10"
+          className="relative h-8 w-16 border-l border-slate-700/20 border-slate-300/10"
         >
           {cols.map((_, j) => (
             <motion.div
@@ -84,7 +84,7 @@ export const BackgroundBoxesCore = ({ className, variant = 'blue' }: BackgroundB
                 transition: { duration: 2 },
               }}
               key={`col${j}`}
-              className="relative h-8 w-16 border-t border-r border-slate-700/20 dark:border-slate-300/10"
+              className="relative h-8 w-16 border-t border-r border-slate-700/20 border-slate-300/10"
             >
               {j % 2 === 0 && i % 2 === 0 ? (
                 <svg
@@ -93,7 +93,7 @@ export const BackgroundBoxesCore = ({ className, variant = 'blue' }: BackgroundB
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
                   stroke="currentColor"
-                  className="pointer-events-none absolute -top-[14px] -left-[22px] h-6 w-10 stroke-[1px] text-slate-700/10 dark:text-slate-300/5"
+                  className="pointer-events-none absolute -top-[14px] -left-[22px] h-6 w-10 stroke-[1px] text-slate-700/10 text-slate-300/5"
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
                 </svg>

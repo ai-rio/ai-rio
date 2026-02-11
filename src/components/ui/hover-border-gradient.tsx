@@ -88,29 +88,29 @@ export function HoverBorderGradient({
   const snakeColorDark = '#FFFFFF'; // White for dark mode
   const transparent = 'rgba(255, 255, 255, 0)';
 
-  const movingMap: Record<Direction, { light: string; dark: string }> = {
+  const movingMap: Record<Direction, { light: string;  string }> = {
     TOP: {
       light: `radial-gradient(20.7% 50% at 50% 0%, ${snakeColorLight} 0%, ${transparent} 100%)`,
-      dark: `radial-gradient(20.7% 50% at 50% 0%, ${snakeColorDark} 0%, ${transparent} 100%)`,
+       `radial-gradient(20.7% 50% at 50% 0%, ${snakeColorDark} 0%, ${transparent} 100%)`,
     },
     LEFT: {
       light: `radial-gradient(16.6% 43.1% at 0% 50%, ${snakeColorLight} 0%, ${transparent} 100%)`,
-      dark: `radial-gradient(16.6% 43.1% at 0% 50%, ${snakeColorDark} 0%, ${transparent} 100%)`,
+       `radial-gradient(16.6% 43.1% at 0% 50%, ${snakeColorDark} 0%, ${transparent} 100%)`,
     },
     BOTTOM: {
       light: `radial-gradient(20.7% 50% at 50% 100%, ${snakeColorLight} 0%, ${transparent} 100%)`,
-      dark: `radial-gradient(20.7% 50% at 50% 100%, ${snakeColorDark} 0%, ${transparent} 100%)`,
+       `radial-gradient(20.7% 50% at 50% 100%, ${snakeColorDark} 0%, ${transparent} 100%)`,
     },
     RIGHT: {
       light: `radial-gradient(16.2% 41.2% at 100% 50%, ${snakeColorLight} 0%, ${transparent} 100%)`,
-      dark: `radial-gradient(16.2% 41.2% at 100% 50%, ${snakeColorDark} 0%, ${transparent} 100%)`,
+       `radial-gradient(16.2% 41.2% at 100% 50%, ${snakeColorDark} 0%, ${transparent} 100%)`,
     },
   };
 
   // Highlight gradient - darker blue for better contrast
   const highlight = {
     light: 'radial-gradient(75% 181% at 50% 50%, #1E40AF 0%, rgba(30, 64, 175, 0) 100%)',
-    dark: 'radial-gradient(75% 181% at 50% 50%, #3275F8 0%, rgba(50, 117, 248, 0) 100%)',
+     'radial-gradient(75% 181% at 50% 50%, #3275F8 0%, rgba(50, 117, 248, 0) 100%)',
   };
 
   useEffect(() => {
@@ -130,7 +130,7 @@ export function HoverBorderGradient({
       },
       onMouseLeave: () => setHovered(false),
       className: cn(
-        'relative flex rounded-full border border-brand-primary/30 dark:border-brand-primary/40 content-center bg-muted/20 hover:bg-muted/30 transition duration-500 items-center flex-col flex-nowrap gap-10 h-min justify-center overflow-visible p-px decoration-clone w-fit',
+        'relative flex rounded-full border border-brand-primary/30 border-brand-primary/40 content-center bg-muted/20 hover:bg-muted/30 transition duration-500 items-center flex-col flex-nowrap gap-10 h-min justify-center overflow-visible p-px decoration-clone w-fit',
         containerClassName
       ),
       ...props,
@@ -140,7 +140,7 @@ export function HoverBorderGradient({
       {
         className: cn(
           'w-full text-foreground z-10 bg-background rounded-[inherit]',
-          highContrast && 'dark:text-brand-primary text-brand-primary-dark',
+          highContrast && 'text-brand-primary text-brand-primary-dark',
           getCtaClassName('default', size),
           className
         ),
