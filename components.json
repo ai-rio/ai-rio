@@ -19,6 +19,9 @@
     "hooks": "@/hooks"
   },
   "registries": {
-    "@scrollxui": "https://www.scrollxui.dev/registry/{name}.json"
+    "@scrollxui": "https://www.scrollxui.dev/registry/{name}.json",
+    "@tailark": "https://tailark.com/registry/{name}.json",
+    "@effector": "https://effector.design/r/{name}.json",
+    "@shadcnui-blocks": "https://www.shadcnui-blocks.com/r/{name}.json"
   }
 }
