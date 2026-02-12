@@ -1,6 +1,6 @@
-'use client'
+"use client";
 
-import dynamic from 'next/dynamic'
+import dynamic from 'next/dynamic';
 
 const ThreeHeroBackground = dynamic(
   () => import('./ThreeHeroBackground').then(mod => ({ default: mod.ThreeHeroBackground })),

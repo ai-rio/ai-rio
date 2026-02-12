@@ -4,7 +4,6 @@ import { Canvas } from '@react-three/fiber'
 import { Suspense, useEffect, useState } from 'react'
 import { ParticleField } from './scenes/ParticleField'
 import { WarpedGrid } from './scenes/WarpedGrid'
-import { FlowingStreams } from './scenes/FlowingStreams'
 
 interface ThreeHeroBackgroundProps {
   scene?: 'particles' | 'geometric' | 'dataflow'
@@ -33,10 +32,6 @@ function getParticleCount(tier: DeviceTier): number {
   return tier === 'mobile' ? 300 : tier === 'tablet' ? 600 : 1000
 }
 
-function getStreamCount(tier: DeviceTier): number {
-  return tier === 'mobile' ? 6 : tier === 'tablet' ? 10 : 15
-}
-
 function getGridSegments(tier: DeviceTier): number {
   return tier === 'mobile' ? 12 : tier === 'tablet' ? 18 : 24
 }
@@ -61,7 +56,6 @@ export function ThreeHeroBackground({
         <Suspense fallback={null}>
           <WarpedGrid gridSegments={getGridSegments(deviceTier)} />
           <ParticleField particleCount={getParticleCount(deviceTier)} />
-          <FlowingStreams streamCount={getStreamCount(deviceTier)} />
         </Suspense>
       </Canvas>
     </div>
