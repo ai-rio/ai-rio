@@ -8,7 +8,6 @@ import { DashboardShowcase } from '@/components/service-sections/dashboard-showc
 import { DeliverablesSection } from '@/components/service-sections/deliverables-section';
 import { ProblemSection } from '@/components/service-sections/problem-section';
 import { SimplifiedContactForm } from '@/components/simplified-contact-form';
-import { BrandLogosFlow } from '@/components/brand-logos-flow';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -67,12 +66,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <Navbar locale={locale} />
 
         {/* Commit 21: Enhanced Hero Section with Three.js Animation */}
-        <section className="relative isolate min-h-[calc(100vh-4.5rem)] flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-20 overflow-hidden">
+        <section className="relative isolate px-4 py-32 sm:px-6 sm:py-40 lg:px-8 overflow-hidden border-b border-surface-mixed-300">
           <HeroBackground scene="particles" />
-          {/* Bottom gradient fade into next section */}
-          <div className="absolute inset-x-0 bottom-0 h-40 z-[1] pointer-events-none bg-gradient-to-b from-transparent via-dark-page/70 to-dark-page" />
           <div className="mx-auto max-w-5xl relative z-10">
-          <div className="text-center space-y-6 sm:space-y-8">
+          <div className="text-center space-y-10">
             {/* Main headline */}
             <div className="space-y-4">
               <Badge variant="secondary" className="mb-4">
@@ -88,12 +85,12 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             </div>
 
             {/* Subheadline */}
-            <p className="text-lg leading-8 text-surface-700 sm:text-xl max-w-3xl mx-auto">
+            <p className="mt-6 text-lg leading-8 text-surface-700 sm:text-xl max-w-3xl mx-auto">
               {t('hero.description')}
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button
                 asChild
                 size="lg"
@@ -117,7 +114,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             </div>
 
             {/* Trust indicators */}
-            <div className="pt-4 flex flex-wrap items-center justify-center gap-6 text-sm text-surface-700">
+            <div className="pt-8 flex flex-wrap items-center justify-center gap-6 text-sm text-surface-700">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="h-4 w-4 text-green-500" />
                 <span>{t('hero.trust.productionReady')}</span>
@@ -135,15 +132,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
         </section>
 
-        {/* Brand Logos Flow */}
-        <section className="px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16 bg-dark-page border-b border-surface-mixed-300">
-          <div className="mx-auto max-w-7xl">
-            <BrandLogosFlow className="w-full" />
-          </div>
-        </section>
-
         {/* Commit 21: Technical Proof Section */}
-        <section id="infrastructure" className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24 bg-surface-mixed-100/50">
+        <section id="infrastructure" className="px-4 py-32 sm:px-6 sm:py-40 lg:px-8 bg-surface-mixed-100/50 border-b border-surface-mixed-300">
           <div className="mx-auto max-w-7xl">
           <TechnicalProof
             locale={locale}
@@ -192,7 +182,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </section>
 
         {/* Commit 21: Dashboard Screenshot Showcase */}
-        <section className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24 border-b border-surface-mixed-300">
+        <section className="px-4 py-32 sm:px-6 sm:py-40 lg:px-8 border-b border-surface-mixed-300">
           <div className="mx-auto max-w-7xl">
           <DashboardShowcase
             locale={locale}
@@ -220,7 +210,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </section>
 
         {/* Commit 22: Problem Section */}
-        <section className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24 bg-surface-mixed-100/50 border-b border-surface-mixed-300">
+        <section className="px-4 py-32 sm:px-6 sm:py-40 lg:px-8 bg-surface-mixed-100/50 border-b border-surface-mixed-300">
           <div className="mx-auto max-w-7xl">
           <ProblemSection
             title={t('problem.title')}
@@ -261,7 +251,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </section>
 
         {/* Commit 22: Services Section */}
-        <section id="services" className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24 border-b border-surface-mixed-300">
+        <section id="services" className="px-4 py-32 sm:px-6 sm:py-40 lg:px-8 border-b border-surface-mixed-300">
           <div className="mx-auto max-w-7xl">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-text mb-4">
@@ -274,7 +264,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Payment Recovery */}
-            <Card className="border-white/[0.06] bg-gradient-to-b from-surface-mixed-200/80 to-surface-mixed-100/60 backdrop-blur-sm hover:border-primary/30 hover:from-surface-mixed-200 hover:to-surface-mixed-100/80 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10">
+            <Card className="border-surface-mixed-300 bg-surface-mixed-100/80 hover:bg-surface-mixed-100 hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-primary/10">
               <CardHeader>
                 <div className="flex items-start justify-between">
                   <Badge variant="secondary" className="shrink-0">
@@ -306,7 +296,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             </Card>
 
             {/* Usage-Based Pricing */}
-            <Card className="border-white/[0.06] bg-gradient-to-b from-surface-mixed-200/80 to-surface-mixed-100/60 backdrop-blur-sm hover:border-primary/30 hover:from-surface-mixed-200 hover:to-surface-mixed-100/80 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10">
+            <Card className="border-surface-mixed-300 bg-surface-mixed-100/80 hover:bg-surface-mixed-100 hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-primary/10">
               <CardHeader>
                 <div className="flex items-start justify-between">
                   <Badge variant="secondary" className="shrink-0">
@@ -338,7 +328,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             </Card>
 
             {/* AI Cost Tracking */}
-            <Card className="border-white/[0.06] bg-gradient-to-b from-surface-mixed-200/80 to-surface-mixed-100/60 backdrop-blur-sm hover:border-primary/30 hover:from-surface-mixed-200 hover:to-surface-mixed-100/80 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10">
+            <Card className="border-surface-mixed-300 bg-surface-mixed-100/80 hover:bg-surface-mixed-100 hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-primary/10">
               <CardHeader>
                 <div className="flex items-start justify-between">
                   <Badge variant="default" className="shrink-0">
@@ -370,7 +360,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             </Card>
 
             {/* Billing Audit */}
-            <Card className="border-white/[0.06] bg-gradient-to-b from-surface-mixed-200/80 to-surface-mixed-100/60 backdrop-blur-sm hover:border-primary/30 hover:from-surface-mixed-200 hover:to-surface-mixed-100/80 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10">
+            <Card className="border-surface-mixed-300 bg-surface-mixed-100/80 hover:bg-surface-mixed-100 hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-primary/10">
               <CardHeader>
                 <div className="flex items-start justify-between">
                   <Badge variant="secondary" className="shrink-0">
@@ -402,7 +392,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             </Card>
 
             {/* Complete Billing - Featured */}
-            <Card className="md:col-span-2 border-primary/30 bg-gradient-to-br from-primary/10 via-surface-mixed-200/80 to-surface-mixed-100/60 backdrop-blur-sm ring-1 ring-inset ring-primary/10 hover:border-primary/50 hover:ring-primary/20 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20">
+            <Card className="md:col-span-2 border-primary/50 bg-gradient-to-br from-primary/5 to-surface-mixed-100 hover:border-primary transition-all hover:shadow-xl hover:shadow-primary/20">
               <CardHeader>
                 <div className="flex items-start justify-between">
                   <Badge variant="default" className="shrink-0">
@@ -454,7 +444,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </section>
 
         {/* Commit 22: Process Section */}
-        <section id="process" className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24 bg-surface-mixed-100/50 border-b border-surface-mixed-300">
+        <section id="process" className="px-4 py-32 sm:px-6 sm:py-40 lg:px-8 bg-surface-mixed-100/50 border-b border-surface-mixed-300">
           <div className="mx-auto max-w-7xl">
           <DeliverablesSection
             locale={locale}
@@ -555,59 +545,35 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </section>
 
         {/* About Section */}
-        <section id="about" className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24 border-b border-surface-mixed-300">
-          <div className="mx-auto max-w-5xl">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-text mb-4">
-              {t('about.title')}
-            </h2>
-            <p className="text-lg text-surface-700 max-w-3xl mx-auto">
+        <section id="about" className="px-4 py-32 sm:px-6 sm:py-40 lg:px-8 border-b border-surface-mixed-300">
+          <div className="mx-auto max-w-4xl text-center">
+          <h2 className="text-3xl font-bold text-text mb-6">
+            {t('about.title')}
+          </h2>
+          <div className="prose prose-invert max-w-none">
+            <p className="text-lg text-surface-700 mb-6">
               {t('about.description')}
             </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            <div className="group relative rounded-xl border border-white/[0.06] bg-gradient-to-b from-surface-mixed-200/80 to-surface-mixed-100/60 backdrop-blur-sm p-6 text-center ring-1 ring-inset ring-white/[0.03] transition-all duration-300 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10">
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary/20">
-                <Code2 className="h-6 w-6" />
-              </div>
-              <h3 className="text-base font-semibold text-text mb-2">
+            <div className="flex flex-wrap justify-center gap-4 text-sm text-surface-700">
+              <Badge variant="outline" className="gap-2">
+                <Code2 className="h-3 w-3" />
                 {t('about.badges.openSource')}
-              </h3>
-              <p className="text-sm text-surface-700">
-                {t('about.credentials.openSource')}
-              </p>
-            </div>
-
-            <div className="group relative rounded-xl border border-white/[0.06] bg-gradient-to-b from-surface-mixed-200/80 to-surface-mixed-100/60 backdrop-blur-sm p-6 text-center ring-1 ring-inset ring-white/[0.03] transition-all duration-300 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10">
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary/20">
-                <Shield className="h-6 w-6" />
-              </div>
-              <h3 className="text-base font-semibold text-text mb-2">
+              </Badge>
+              <Badge variant="outline" className="gap-2">
+                <Shield className="h-3 w-3" />
                 {t('about.badges.production')}
-              </h3>
-              <p className="text-sm text-surface-700">
-                {t('about.credentials.production')}
-              </p>
-            </div>
-
-            <div className="group relative rounded-xl border border-white/[0.06] bg-gradient-to-b from-surface-mixed-200/80 to-surface-mixed-100/60 backdrop-blur-sm p-6 text-center ring-1 ring-inset ring-white/[0.03] transition-all duration-300 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10">
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary/20">
-                <DollarSign className="h-6 w-6" />
-              </div>
-              <h3 className="text-base font-semibold text-text mb-2">
+              </Badge>
+              <Badge variant="outline" className="gap-2">
+                <DollarSign className="h-3 w-3" />
                 {t('about.badges.expert')}
-              </h3>
-              <p className="text-sm text-surface-700">
-                {t('about.credentials.expert')}
-              </p>
+              </Badge>
             </div>
           </div>
         </div>
         </section>
 
         {/* Commit 23: Simplified Contact Form */}
-        <section id="contact" className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24 bg-surface-mixed-100/50 border-b border-surface-mixed-300">
+        <section id="contact" className="px-4 py-32 sm:px-6 sm:py-40 lg:px-8 bg-surface-mixed-100/50 border-b border-surface-mixed-300">
           <div className="mx-auto max-w-2xl">
           <SimplifiedContactForm
             locale={locale}

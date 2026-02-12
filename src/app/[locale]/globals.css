@@ -227,62 +227,6 @@
   }
 }
 
-/* Flowing Logos Animations */
-@keyframes canopy-horizontal {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-@keyframes canopy-vertical {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-50%);
-  }
-}
-
-/* Flowing Logos Utility Classes */
-.animate-canopy-horizontal {
-  animation: canopy-horizontal var(--duration, 30s) linear infinite;
-}
-
-.animate-canopy-vertical {
-  animation: canopy-vertical var(--duration, 30s) linear infinite;
-}
-
-.direction-reverse {
-  animation-direction: reverse;
-}
-
-.gap-\[--gap\] {
-  gap: var(--gap, 12px);
-}
-
-.bg-linear-to-r {
-  background: linear-gradient(to right, transparent, rgb(18, 18, 18));
-}
-
-.bg-linear-to-l {
-  background: linear-gradient(to left, transparent, rgb(18, 18, 18));
-}
-
-.bg-linear-to-b {
-  background: linear-gradient(to bottom, transparent, rgb(18, 18, 18));
-}
-
-.bg-linear-to-t {
-  background: linear-gradient(to top, transparent, rgb(18, 18, 18));
-}
-
-.group-hover\:paused:hover {
-  animation-play-state: paused;
-}
-
 /* ============================================
    BASE STYLES
    ============================================ */
