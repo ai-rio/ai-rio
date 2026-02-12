@@ -11,6 +11,7 @@ import { SimplifiedContactForm } from '@/components/simplified-contact-form';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { LogoCloudPreset } from '@/components/ui/logo-cloud';
 import { ArrowRight, CheckCircle2, TrendingUp, Zap, Shield, Database, Code2, DollarSign } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 
@@ -134,8 +135,16 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
         </section>
 
+        {/* Logo Cloud - Integrated within gradient fade area */}
+        <LogoCloudPreset
+          preset="aiRio"
+          scrollDuration={50}
+          pauseOnHover={true}
+          className="relative"
+        />
+
         {/* Commit 21: Technical Proof Section */}
-        <section id="infrastructure" className="px-4 py-32 sm:px-6 sm:py-40 lg:px-8 bg-surface-mixed-100/50 border-b border-surface-mixed-300">
+        <section id="infrastructure" className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8 bg-surface-mixed-100/50 border-b border-surface-mixed-300">
           <div className="mx-auto max-w-7xl">
           <TechnicalProof
             locale={locale}
@@ -184,7 +193,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </section>
 
         {/* Commit 21: Dashboard Screenshot Showcase */}
-        <section className="px-4 py-32 sm:px-6 sm:py-40 lg:px-8 border-b border-surface-mixed-300">
+        <section className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8 border-b border-surface-mixed-300">
           <div className="mx-auto max-w-7xl">
           <DashboardShowcase
             locale={locale}
@@ -212,7 +221,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </section>
 
         {/* Commit 22: Problem Section */}
-        <section className="px-4 py-32 sm:px-6 sm:py-40 lg:px-8 bg-surface-mixed-100/50 border-b border-surface-mixed-300">
+        <section className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8 bg-surface-mixed-100/50 border-b border-surface-mixed-300">
           <div className="mx-auto max-w-7xl">
           <ProblemSection
             title={t('problem.title')}
@@ -253,7 +262,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </section>
 
         {/* Commit 22: Services Section */}
-        <section id="services" className="px-4 py-32 sm:px-6 sm:py-40 lg:px-8 border-b border-surface-mixed-300">
+        <section id="services" className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8 border-b border-surface-mixed-300">
           <div className="mx-auto max-w-7xl">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-text mb-4">
@@ -446,7 +455,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </section>
 
         {/* Commit 22: Process Section */}
-        <section id="process" className="px-4 py-32 sm:px-6 sm:py-40 lg:px-8 bg-surface-mixed-100/50 border-b border-surface-mixed-300">
+        <section id="process" className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8 bg-surface-mixed-100/50 border-b border-surface-mixed-300">
           <div className="mx-auto max-w-7xl">
           <DeliverablesSection
             locale={locale}
@@ -547,7 +556,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </section>
 
         {/* About Section */}
-        <section id="about" className="px-4 py-32 sm:px-6 sm:py-40 lg:px-8 border-b border-surface-mixed-300">
+        <section id="about" className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8 border-b border-surface-mixed-300">
           <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-bold text-text mb-6">
             {t('about.title')}
@@ -575,7 +584,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </section>
 
         {/* Commit 23: Simplified Contact Form */}
-        <section id="contact" className="px-4 py-32 sm:px-6 sm:py-40 lg:px-8 bg-surface-mixed-100/50 border-b border-surface-mixed-300">
+        <section id="contact" className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8 bg-surface-mixed-100/50 border-b border-surface-mixed-300">
           <div className="mx-auto max-w-2xl">
           <SimplifiedContactForm
             locale={locale}
