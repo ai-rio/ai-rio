@@ -66,7 +66,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <Navbar locale={locale} />
 
         {/* Commit 21: Enhanced Hero Section with Three.js Animation */}
-        <section className="relative isolate px-4 py-32 sm:px-6 sm:py-40 lg:px-8 overflow-hidden border-b border-surface-mixed-300">
+        <section className="relative isolate min-h-[calc(100vh-4.5rem)] flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-20 overflow-hidden">
           <HeroBackground scene="particles" />
           {/* Bottom gradient fade into next section */}
           <div className="absolute inset-x-0 bottom-0 h-40 z-[1] pointer-events-none bg-gradient-to-b from-transparent via-dark-page/70 to-dark-page" />
