@@ -194,6 +194,11 @@
       "openSource": "Contribuidor Open Source",
       "production": "Experiência em Produção",
       "expert": "Especialista em Cobrança"
+    },
+    "credentials": {
+      "openSource": "Criador do Margin, plataforma open-source de rastreamento de custos LLM. Código real resolvendo problemas reais.",
+      "production": "Código de cobrança extraído do QuoteKit, testado em batalha e servindo cargas de produção.",
+      "expert": "Expertise profunda em Stripe, precificação baseada em uso e otimização de custos de IA."
     }
   },
   "contact": {

@@ -194,6 +194,11 @@
       "openSource": "Open Source Contributor",
       "production": "Production Experience",
       "expert": "Billing Expert"
+    },
+    "credentials": {
+      "openSource": "Built Margin, an open-source LLM cost tracking platform. Real code solving real problems.",
+      "production": "Extracted battle-tested billing code from QuoteKit, serving production workloads.",
+      "expert": "Deep expertise in Stripe, usage-based pricing, and AI cost optimization."
     }
   },
   "contact": {

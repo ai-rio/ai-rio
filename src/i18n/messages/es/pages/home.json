@@ -7,7 +7,7 @@
     "badge": "Infraestructura de facturacion para AI SaaS",
     "title": "Sus margenes estan sangrando.",
     "subtitle": "Paramos la perdida en dos semanas.",
-    "description": "Deje de volar a ciegas sobre los costos de LLM. Obtenga visibilidad en tiempo real de su infraestructura de IA, rastree cada token en todos los proveedores y conozca sus verdaderos margenes hasta el ultimo centavo.",
+    "description": "Deje de volar a ciegas con los costos de LLM. Logre visibilidad total en tiempo real de su infraestructura de IA, rastree cada token en todos los proveedores y descubra sus verdaderos márgenes hasta el último centavo.",
     "cta": {
       "primary": "Comenzar",
       "secondary": "Ver Como Funciona"
@@ -194,6 +194,11 @@
       "openSource": "Contribuidor de Código Abierto",
       "production": "Experiencia en Producción",
       "expert": "Experto en Facturación"
+    },
+    "credentials": {
+      "openSource": "Creador de Margin, plataforma open-source de rastreo de costos LLM. Código real resolviendo problemas reales.",
+      "production": "Código de facturación extraído de QuoteKit, probado en batalla y sirviendo cargas de producción.",
+      "expert": "Experiencia profunda en Stripe, precios basados en uso y optimización de costos de IA."
     }
   },
   "contact": {
