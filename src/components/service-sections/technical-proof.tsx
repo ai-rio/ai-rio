@@ -103,9 +103,9 @@ export function TechnicalProof({
             <Card
               key={metric.id}
               className={cn(
-                'group relative overflow-hidden transition-all',
-                isHighlighted && 'border-primary/50 ring-2 ring-primary/20',
-                !isHighlighted && 'hover:shadow-md'
+                'group relative overflow-hidden transition-all duration-300 border-white/[0.06] bg-gradient-to-b from-surface-mixed-200/80 to-surface-mixed-100/60 backdrop-blur-sm',
+                isHighlighted && 'border-primary/30 ring-1 ring-primary/20 shadow-xl shadow-primary/10',
+                !isHighlighted && 'hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5'
               )}
               role="listitem"
             >

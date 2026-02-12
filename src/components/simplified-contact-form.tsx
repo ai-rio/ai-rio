@@ -125,7 +125,7 @@ export function SimplifiedContactForm({
   }
 
   return (
-    <Card className={className}>
+    <Card className={cn('border-white/[0.06] bg-gradient-to-b from-surface-mixed-200/80 to-surface-mixed-100/60 backdrop-blur-sm', className)}>
       <CardHeader className="space-y-4">
         {contextText && (
           <div className="flex items-center gap-2 text-sm text-surface-700">

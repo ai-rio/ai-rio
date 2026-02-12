@@ -103,14 +103,14 @@ export function ProblemSection({
           return (
             <Card
               key={problem.id}
-              className="group relative overflow-hidden transition-all hover:shadow-lg hover:border-surface-mixed-300/80"
+              className="group relative overflow-hidden transition-all duration-300 border-white/[0.06] bg-gradient-to-b from-surface-mixed-200/80 to-surface-mixed-100/60 backdrop-blur-sm hover:border-white/[0.1] hover:shadow-xl hover:shadow-black/30"
               role="listitem"
             >
               <CardHeader className="space-y-3">
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex items-center gap-3">
                     {problem.icon ? (
-                      <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-surface-300/30">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/[0.06] bg-white/[0.04]">
                         {problem.icon}
                       </div>
                     ) : (

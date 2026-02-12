@@ -116,7 +116,7 @@ export function DashboardShowcase({
       </div>
 
       {/* Main View Card */}
-      <Card className="overflow-hidden">
+      <Card className="overflow-hidden border-white/[0.06] bg-gradient-to-b from-surface-mixed-200/80 to-surface-mixed-100/60 backdrop-blur-sm">
         <CardContent className="p-0">
           {/* View Tabs */}
           {views.length > 1 && (

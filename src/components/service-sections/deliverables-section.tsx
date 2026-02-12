@@ -109,7 +109,7 @@ export function DeliverablesSection({
       <div className="space-y-6">
         {phases.map((phase, phaseIndex) => (
           <div key={phase.phase} className="space-y-4">
-            <Card>
+            <Card className="border-white/[0.06] bg-gradient-to-b from-surface-mixed-200/80 to-surface-mixed-100/60 backdrop-blur-sm">
               <CardHeader>
                 <div className="flex items-start justify-between gap-4 flex-wrap">
                   <div className="space-y-2">
@@ -152,7 +152,7 @@ export function DeliverablesSection({
                     return (
                       <div
                         key={deliverable.id}
-                        className="flex items-start gap-3 p-3 rounded-lg bg-surface-300/30 transition-colors hover:bg-surface-300/50"
+                        className="flex items-start gap-3 p-3 rounded-lg border border-white/[0.04] bg-white/[0.02] transition-colors hover:bg-white/[0.04]"
                         role="listitem"
                       >
                         <StatusIcon className="h-5 w-5 mt-0.5 text-surface-700 shrink-0" aria-hidden="true" />
@@ -190,7 +190,7 @@ export function DeliverablesSection({
       {(totalPrice || cta) && (
         <>
           <Separator />
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-6 rounded-xl bg-surface-300/30">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-6 rounded-xl border border-white/[0.06] bg-gradient-to-r from-surface-mixed-200/80 to-surface-mixed-100/60">
             {totalPrice && (
               <div className="text-center sm:text-left">
                 <p className="text-sm text-surface-700 mb-1">Total Investment</p>
