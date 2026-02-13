@@ -202,6 +202,7 @@
     }
   },
   "contact": {
+    "title": "Vamos Conversar",
     "contextText": "Comece com uma auditoria ou agende uma chamada",
     "description": "Conte-me sobre seus desafios de cobrança. Responderei em até 24 horas com um caminho claro."
   },
