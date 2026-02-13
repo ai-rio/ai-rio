@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { ThemeProvider } from "next-themes";
+import { CalcomScript } from "@/components/calcom-script";
+import { FormbricksProvider } from "@/components/formbricks-provider";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -36,6 +38,8 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <FormbricksProvider />
+        <CalcomScript />
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <NextIntlClientProvider messages={messages}>
             {children}
