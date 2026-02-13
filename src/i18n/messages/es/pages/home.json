@@ -202,6 +202,7 @@
     }
   },
   "contact": {
+    "title": "Hablemos",
     "contextText": "Comienza con una auditoría o agenda una llamada",
     "description": "Cuéntame sobre tus desafíos de facturación. Responderé en 24 horas con un camino claro hacia adelante."
   },
