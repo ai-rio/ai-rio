@@ -7,7 +7,7 @@ import { TechnicalProof } from '@/components/service-sections/technical-proof';
 import { DashboardShowcase } from '@/components/service-sections/dashboard-showcase';
 import { DeliverablesSection } from '@/components/service-sections/deliverables-section';
 import { ProblemSection } from '@/components/service-sections/problem-section';
-import { SimplifiedContactForm } from '@/components/simplified-contact-form';
+import { HybridBookingSection } from '@/components/hybrid-booking-section';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -583,13 +583,14 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
         </section>
 
-        {/* Commit 23: Simplified Contact Form */}
+        {/* Hybrid Booking Section - Cal.com + Contact Form */}
         <section id="contact" className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8 bg-surface-mixed-100/50 border-b border-surface-mixed-300">
-          <div className="mx-auto max-w-2xl">
-          <SimplifiedContactForm
+          <div className="mx-auto max-w-3xl">
+          <HybridBookingSection
             locale={locale}
-            contextText={t('contact.contextText')}
+            title={t('contact.title') || "Let's Talk"}
             description={t('contact.description')}
+            calLink="ai-rio/30min"
             emailAddress="hello@ai-rio.com"
           />
         </div>
