@@ -18,9 +18,9 @@ I build billing infrastructure for AI SaaS. My work centers on LLM cost visibili
 
 ## Featured work
 
-- [AI.RIO](https://github.com/ai-rio/ai-rio) - billing infrastructure and service platform for AI SaaS
-- [Data Foundry](https://github.com/ai-rio/data-foundry) - AI-powered data cleaning and labeling with human verification
-- [RedditHarbor](https://github.com/ai-rio/redditharbor) - privacy-preserving Reddit data collection platform
+- **AI.RIO** — [billing infrastructure and service platform](https://github.com/ai-rio/ai-rio) for AI SaaS
+- **Data Foundry** — [AI-powered data cleaning and labeling](https://github.com/ai-rio/data-foundry) with human verification
+- **RedditHarbor** — [privacy-preserving data collection](https://github.com/ai-rio/redditharbor) for Reddit workflows
 
 ## How I work
 
