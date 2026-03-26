@@ -1,8 +1,8 @@
 # Carlos Nunes
 
-> Builder of AI systems that solve real problems and make money
+> I build practical AI tools, learn from real demand, and turn what works into paid products.
 
-I build practical AI tools from personal projects and turn the useful ones into income. Most of my work sits around billing, signal mining, and compliance because those are problems worth shipping.
+I’m Carlos Nunes, the person behind [AI.RIO](https://ai.rio.br). I build practical systems from personal projects, test them against the market, and keep the useful ones moving toward revenue.
 
 ![AI.RIO](https://img.shields.io/badge/AI.RIO-ai.rio.br-0066FF?style=for-the-badge&labelColor=0A1628)
 ![Builder](https://img.shields.io/badge/Builder-Practical%20AI%20Tools-6366F1?style=for-the-badge&labelColor=0A1628)
@@ -17,11 +17,11 @@ I build practical AI tools from personal projects and turn the useful ones into 
 
 ## What I focus on
 
-- Billing and usage systems that stop money leaking
-- Signal mining for finding what to build or sell next
-- Compliance tools that reduce manual work
-- Data pipelines and operational tooling
-- AI systems I can actually ship and charge for
+- Practical AI tools that solve expensive problems
+- Products shaped by real demand, not theory
+- Billing, signal mining, and compliance workflows
+- Systems I can ship, test, and improve
+- Clear ownership from first build to paid product
 
 ## Featured work
 
@@ -31,7 +31,7 @@ I build practical AI tools from personal projects and turn the useful ones into 
 
 ## How I work
 
-- Build first
+- Build small
 - Sell what works
 - Keep it practical
 - Avoid corporate noise
