@@ -1,8 +1,8 @@
 # Carlos Nunes
 
-> I build practical AI tools, learn from real demand, and turn what works into paid products.
+> I build AI tools that can become businesses.
 
-I’m Carlos Nunes, the person behind [AI.RIO](https://ai.rio.br). I build systems from personal projects and test which ones have market pull.
+I’m Carlos Nunes, the person behind [AI.RIO](https://ai.rio.br). I build systems from personal projects and look for the ones worth turning into products.
 
 ![AI.RIO](https://img.shields.io/badge/AI.RIO-ai.rio.br-0066FF?style=for-the-badge&labelColor=0A1628)
 ![Builder](https://img.shields.io/badge/Builder-Practical%20AI%20Tools-6366F1?style=for-the-badge&labelColor=0A1628)
@@ -15,25 +15,24 @@ I’m Carlos Nunes, the person behind [AI.RIO](https://ai.rio.br). I build syste
 - Data: Postgres, Supabase
 - Billing / APIs: Stripe, webhooks, integrations
 
-## What I focus on
+## What I build
 
-- Practical AI tools that solve expensive problems
-- Products shaped by real demand
-- Billing, signal mining, and compliance workflows
-- Systems I can ship, test, and improve
-- Clear ownership from first build to paid product
+- Billing and usage systems
+- Signal mining and opportunity scoring
+- Compliance tools and workflow automation
+- Products I can ship, test, and improve
 
 ## Featured work
 
-- **Metering Service** — [usage metering and margin recovery](https://github.com/ai-rio/metering-service) for products that charge by usage
-- **Signal Mining** — [opportunity scoring and source routing](https://github.com/ai-rio/signalmining) for finding monetizable demand
+- **Metering Service** — usage metering and margin recovery for products that charge by usage
+- **Signal Mining** — opportunity scoring and source routing for monetizable demand
 - **ECA Digital** — compliance automation and AI analysis for Brazilian SaaS
 
-## How I work
+## Principles
 
 - Build small
-- Sell what works
-- Keep it practical
+- Validate early
+- Keep ownership
 - Avoid corporate noise
 
 ## Connect
