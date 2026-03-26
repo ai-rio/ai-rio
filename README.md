@@ -1,10 +1,14 @@
-# Carlos Nunes at AI.RIO
+# Carlos Nunes
 
-> Founder building billing infrastructure for AI SaaS
+> Founder at [AI.RIO](https://ai.rio.br)
 
-I’m Carlos Nunes, the person behind [AI.RIO](https://ai.rio.br). I build systems for LLM cost visibility, usage-based billing, and data pipelines that keep margins honest.
+I build billing infrastructure for AI SaaS teams. My work centers on LLM cost visibility, usage-based pricing, and the systems that keep margins honest.
 
-## What I focus on
+![Founder](https://img.shields.io/badge/Founder-Carlos%20Nunes-0A1628?style=for-the-badge)
+![AI.RIO](https://img.shields.io/badge/AI.RIO-ai.rio.br-0066FF?style=for-the-badge)
+![Focus](https://img.shields.io/badge/Focus-Billing%20Infrastructure-F472B6?style=for-the-badge)
+
+## What I build
 
 - Billing infrastructure for AI SaaS
 - LLM cost tracking and margin visibility
@@ -14,19 +18,20 @@ I’m Carlos Nunes, the person behind [AI.RIO](https://ai.rio.br). I build syste
 
 ## Selected work
 
-- [AI.RIO](https://github.com/ai-rio/ai-rio) - the company site and service platform for billing infrastructure
+- [AI.RIO](https://github.com/ai-rio/ai-rio) - billing infrastructure and service platform for AI SaaS
 - [Data Foundry](https://github.com/ai-rio/data-foundry) - AI-powered data cleaning and labeling with human verification
 - [RedditHarbor](https://github.com/ai-rio/redditharbor) - privacy-preserving Reddit data collection platform
 - [QuoteKit](https://github.com/ai-rio/QuoteKit) - tooling for quote and content workflows
 
-## Brand
+## How I work
 
-- Domain: [ai.rio.br](https://ai.rio.br)
-- Voice: analytical, direct, production-focused
-- Promise: weeks, not months
+- Analytical over vague
+- Direct over decorative
+- Production over experiment
+- Weeks, not months
 
 ## Connect
 
-- GitHub: [@ai-rio](https://github.com/ai-rio)
 - Website: [ai.rio.br](https://ai.rio.br)
+- GitHub: [@ai-rio](https://github.com/ai-rio)
 
