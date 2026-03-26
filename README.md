@@ -1,8 +1,8 @@
 # Carlos Nunes
 
-> I build AI tools that can become businesses.
+> I build practical AI tools, learn from real demand, and turn what works into paid products.
 
-I’m Carlos Nunes, the person behind [AI.RIO](https://ai.rio.br). I build systems from personal projects and look for the ones worth turning into products.
+I’m Carlos Nunes, the person behind [AI.RIO](https://ai.rio.br).
 
 ![AI.RIO](https://img.shields.io/badge/AI.RIO-ai.rio.br-0066FF?style=for-the-badge&labelColor=0A1628)
 ![Builder](https://img.shields.io/badge/Builder-Practical%20AI%20Tools-6366F1?style=for-the-badge&labelColor=0A1628)
