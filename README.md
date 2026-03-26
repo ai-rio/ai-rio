@@ -2,13 +2,13 @@
 
 > Founder at [AI.RIO](https://ai.rio.br)
 
-I build the systems behind AI revenue: billing infrastructure, LLM cost visibility, and usage-based pricing that keeps margins honest.
+I build billing infrastructure for AI SaaS. My work centers on LLM cost visibility, usage-based pricing, and the systems that keep margins honest.
 
-![Founder](https://img.shields.io/badge/Carlos%20Nunes-Founder-0066FF?style=for-the-badge&labelColor=0A1628)
-![Company](https://img.shields.io/badge/AI.RIO-ai.rio.br-6366F1?style=for-the-badge&labelColor=0A1628)
-![Focus](https://img.shields.io/badge/Billing%20Infrastructure-AI%20SaaS-F472B6?style=for-the-badge&labelColor=0A1628)
+![AI.RIO](https://img.shields.io/badge/AI.RIO-ai.rio.br-0066FF?style=for-the-badge&labelColor=0A1628)
+![Billing](https://img.shields.io/badge/Billing-Infrastructure-6366F1?style=for-the-badge&labelColor=0A1628)
+![Focus](https://img.shields.io/badge/LLM%20Costs-Margin%20Visibility-F472B6?style=for-the-badge&labelColor=0A1628)
 
-## What I build
+## Focus
 
 - Billing infrastructure for AI SaaS
 - LLM cost tracking and margin visibility
@@ -16,12 +16,11 @@ I build the systems behind AI revenue: billing infrastructure, LLM cost visibili
 - Data pipelines and operational tooling
 - Privacy-aware systems with clear ownership
 
-## Selected work
+## Featured work
 
 - [AI.RIO](https://github.com/ai-rio/ai-rio) - billing infrastructure and service platform for AI SaaS
 - [Data Foundry](https://github.com/ai-rio/data-foundry) - AI-powered data cleaning and labeling with human verification
 - [RedditHarbor](https://github.com/ai-rio/redditharbor) - privacy-preserving Reddit data collection platform
-- [QuoteKit](https://github.com/ai-rio/QuoteKit) - tooling for quote and content workflows
 
 ## How I work
 
