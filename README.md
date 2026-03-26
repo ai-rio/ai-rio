@@ -1,8 +1,12 @@
-# Ai.Rio
+# Carlos Nunes at AI.RIO
 
-> Billing Infrastructure Specialist for AI SaaS Companies
+> Founder building billing infrastructure for AI SaaS
 
-I help AI SaaS companies track and optimize their LLM costs—so you know your true margins and stop losing money on heavy users.
+I’m Carlos Nunes, the person behind [AI.RIO](https://ai.rio.br). I build systems for LLM cost visibility, usage-based billing, and data pipelines that keep margins honest.
+
+- Billing infrastructure for AI SaaS
+- LLM cost tracking and margin visibility
+- Data pipelines and operational tooling
 
 ## 🚀 Quick Start
 
