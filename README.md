@@ -8,6 +8,13 @@ I build practical AI tools from personal projects and turn the useful ones into 
 ![Builder](https://img.shields.io/badge/Builder-Practical%20AI%20Tools-6366F1?style=for-the-badge&labelColor=0A1628)
 ![Income](https://img.shields.io/badge/Focus-Useful%20Work-F472B6?style=for-the-badge&labelColor=0A1628)
 
+## Stack
+
+- Frontend: Next.js, React, TypeScript
+- Backend: FastAPI, Python, Bun
+- Data: Postgres, Supabase
+- Billing / APIs: Stripe, webhooks, integrations
+
 ## What I focus on
 
 - Billing and usage systems that stop money leaking
