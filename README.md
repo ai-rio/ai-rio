@@ -1,6 +1,6 @@
 # Carlos Nunes
 
-> I build practical AI tools, learn from real demand, and turn what works into paid products.
+> I build AI tools, test demand, and ship what people pay for.
 
 I’m Carlos Nunes, the person behind [AI.RIO](https://ai.rio.br).
 
