@@ -2,11 +2,11 @@
 
 > Founder at [AI.RIO](https://ai.rio.br)
 
-I build billing infrastructure for AI SaaS teams. My work centers on LLM cost visibility, usage-based pricing, and the systems that keep margins honest.
+I build the systems behind AI revenue: billing infrastructure, LLM cost visibility, and usage-based pricing that keeps margins honest.
 
-![Founder](https://img.shields.io/badge/Founder-Carlos%20Nunes-0A1628?style=for-the-badge)
-![AI.RIO](https://img.shields.io/badge/AI.RIO-ai.rio.br-0066FF?style=for-the-badge)
-![Focus](https://img.shields.io/badge/Focus-Billing%20Infrastructure-F472B6?style=for-the-badge)
+![Founder](https://img.shields.io/badge/Carlos%20Nunes-Founder-0066FF?style=for-the-badge&labelColor=0A1628)
+![Company](https://img.shields.io/badge/AI.RIO-ai.rio.br-6366F1?style=for-the-badge&labelColor=0A1628)
+![Focus](https://img.shields.io/badge/Billing%20Infrastructure-AI%20SaaS-F472B6?style=for-the-badge&labelColor=0A1628)
 
 ## What I build
 
@@ -34,4 +34,3 @@ I build billing infrastructure for AI SaaS teams. My work centers on LLM cost vi
 
 - Website: [ai.rio.br](https://ai.rio.br)
 - GitHub: [@ai-rio](https://github.com/ai-rio)
-
