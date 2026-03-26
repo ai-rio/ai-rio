@@ -1,35 +1,33 @@
 # Carlos Nunes
 
-> Founder at [AI.RIO](https://ai.rio.br)
+> Builder of AI systems that solve real problems and make money
 
-I build billing infrastructure for AI SaaS. My work centers on LLM cost visibility, usage-based pricing, and the systems that keep margins honest.
+I build practical AI tools from personal projects and turn the useful ones into income. Most of my work sits around billing, signal mining, and compliance because those are problems worth shipping.
 
 ![AI.RIO](https://img.shields.io/badge/AI.RIO-ai.rio.br-0066FF?style=for-the-badge&labelColor=0A1628)
-![Billing](https://img.shields.io/badge/Billing-Infrastructure-6366F1?style=for-the-badge&labelColor=0A1628)
-![Focus](https://img.shields.io/badge/LLM%20Costs-Margin%20Visibility-F472B6?style=for-the-badge&labelColor=0A1628)
+![Builder](https://img.shields.io/badge/Builder-Practical%20AI%20Tools-6366F1?style=for-the-badge&labelColor=0A1628)
+![Income](https://img.shields.io/badge/Focus-Useful%20Work-F472B6?style=for-the-badge&labelColor=0A1628)
 
-## Focus
+## What I focus on
 
-- Billing infrastructure for AI SaaS
-- LLM cost tracking and margin visibility
-- Usage-based pricing and revenue recovery
+- Billing and usage systems that stop money leaking
+- Signal mining for finding what to build or sell next
+- Compliance tools that reduce manual work
 - Data pipelines and operational tooling
-- Privacy-aware systems with clear ownership
+- AI systems I can actually ship and charge for
 
 ## Featured work
 
-Three threads show up across my work:
-
-- **Metering Service** — [billing infrastructure, usage metering, and margin recovery](https://github.com/ai-rio/metering-service) for AI SaaS
-- **Signal Mining** — [demand signal mining, opportunity scoring, and source routing](https://github.com/ai-rio/signalmining) for monetizable workflows
-- **ECA Digital** — compliance automation, AI analysis, and SaaS operations for Brazilian products
+- **Metering Service** — [usage metering and margin recovery](https://github.com/ai-rio/metering-service) for products that charge by usage
+- **Signal Mining** — [opportunity scoring and source routing](https://github.com/ai-rio/signalmining) for finding monetizable demand
+- **ECA Digital** — compliance automation and AI analysis for Brazilian SaaS
 
 ## How I work
 
-- Analytical over vague
-- Direct over decorative
-- Production over experiment
-- Weeks, not months
+- Build first
+- Sell what works
+- Keep it practical
+- Avoid corporate noise
 
 ## Connect
 
